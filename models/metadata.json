@@ -1,0 +1,367 @@
+{
+  "model": "HistGradientBoostingClassifier",
+  "model_parameters": {
+    "max_iter": 200,
+    "learning_rate": 0.06,
+    "max_depth": null,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 50,
+    "l2_regularization": 10,
+    "early_stopping": false,
+    "class_weight": null,
+    "random_state": 42
+  },
+  "model_name": "HistGradientBoostingClassifier",
+  "trained_on": "2026-11-15",
+  "python_version": "3.12.10",
+  "sklearn_version": "1.9.1",
+  "random_state": 42,
+  "threshold_f1": 0.1829313608888501,
+  "threshold_screening": 0.154107368289897,
+  "metrics_val": {
+    "precision": 0.26713709677419356,
+    "recall": 0.5226824457593688,
+    "f1": 0.3535690460306871,
+    "pr_auc": 0.3123126689769751,
+    "roc_auc": 0.7445954346880068,
+    "lift_at_10_percent": 2.6410157790927022,
+    "tn": 2763,
+    "fp": 727,
+    "fn": 242,
+    "tp": 265
+  },
+  "census_lookup": "data/processed/census_lookup.csv",
+  "feature_names": [
+    "age",
+    "household_size",
+    "children_under_15",
+    "other_youth_15_24",
+    "census_density",
+    "census_urban_proportion",
+    "census_household_size",
+    "sex",
+    "marital_status",
+    "relationship_to_head",
+    "can_read",
+    "can_write",
+    "education_level",
+    "currently_enrolled",
+    "has_training",
+    "province",
+    "area",
+    "head_sex",
+    "head_education"
+  ],
+  "features": {
+    "numeric": {
+      "age": [
+        15.0,
+        24.0
+      ],
+      "household_size": [
+        1.0,
+        39.0
+      ],
+      "children_under_15": [
+        0.0,
+        22.0
+      ],
+      "other_youth_15_24": [
+        0.0,
+        10.0
+      ],
+      "census_density": [
+        42.89985886690285,
+        621.8263020769923
+      ],
+      "census_urban_proportion": [
+        0.15007052680533828,
+        0.5396556246520967
+      ],
+      "census_household_size": [
+        5.4,
+        7.0
+      ]
+    },
+    "categorical": {
+      "sex": [
+        1.0,
+        2.0
+      ],
+      "marital_status": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "relationship_to_head": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0
+      ],
+      "can_read": [
+        1.0,
+        2.0
+      ],
+      "can_write": [
+        1.0,
+        2.0
+      ],
+      "education_level": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0
+      ],
+      "currently_enrolled": [
+        1.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0
+      ],
+      "has_training": [
+        0,
+        1
+      ],
+      "province": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "area": [
+        1.0,
+        2.0
+      ],
+      "head_sex": [
+        1.0,
+        2.0
+      ],
+      "head_education": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0
+      ]
+    },
+    "encoder_categories": {
+      "sex": [
+        1.0,
+        2.0
+      ],
+      "marital_status": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "relationship_to_head": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0
+      ],
+      "can_read": [
+        1.0,
+        2.0
+      ],
+      "can_write": [
+        1.0,
+        2.0
+      ],
+      "education_level": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0
+      ],
+      "currently_enrolled": [
+        1.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0
+      ],
+      "has_training": [
+        0,
+        1
+      ],
+      "province": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "area": [
+        1.0,
+        2.0
+      ],
+      "head_sex": [
+        1.0,
+        2.0
+      ],
+      "head_education": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0
+      ],
+      "age_band": [
+        "15-17",
+        "18-20",
+        "21-24"
+      ],
+      "sex_area": [
+        "1.0_1.0",
+        "1.0_2.0",
+        "2.0_1.0",
+        "2.0_2.0"
+      ]
+    }
+  },
+  "province_values": [
+    1.0,
+    2.0,
+    3.0,
+    4.0
+  ],
+  "area_values": [
+    1.0,
+    2.0
+  ],
+  "prevalence_train": 0.12692287077236425,
+  "prevalence_validation": 0.1268451338503878,
+  "calibration": "raw",
+  "calibration_comparison": [
+    {
+      "method": "raw",
+      "brier": 0.10034070119654234,
+      "ece_10_fixed_bins": 0.011769618863563815
+    },
+    {
+      "method": "sigmoid",
+      "brier": 0.1003351730829388,
+      "ece_10_fixed_bins": 0.009251846358386415
+    }
+  ],
+  "thresholds": {
+    "f1": 0.1829313608888501,
+    "f1_range": [
+      0.17563817090192646,
+      0.19022455087577372
+    ],
+    "maximum_f1": 0.358974358974359,
+    "screening": 0.154107368289897
+  },
+  "validation_metrics_optimistic": {
+    "f1": {
+      "precision": 0.26713709677419356,
+      "recall": 0.5226824457593688,
+      "f1": 0.3535690460306871,
+      "pr_auc": 0.3123126689769751,
+      "roc_auc": 0.7445954346880068,
+      "lift_at_10_percent": 2.6410157790927022,
+      "tn": 2763,
+      "fp": 727,
+      "fn": 242,
+      "tp": 265
+    },
+    "screening": {
+      "precision": 0.24517684887459806,
+      "recall": 0.6015779092702169,
+      "f1": 0.34837235865219873,
+      "pr_auc": 0.3123126689769751,
+      "roc_auc": 0.7445954346880068,
+      "lift_at_10_percent": 2.6410157790927022,
+      "tn": 2551,
+      "fp": 939,
+      "fn": 202,
+      "tp": 305
+    }
+  },
+  "risk_bands": {
+    "high_min": 0.26865534523755125,
+    "elevated_min": 0.15856835925784454,
+    "definition": "High >= high_min; Elevated >= elevated_min; Lower otherwise; ties may alter proportions"
+  },
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "streamlit": "1.67.0",
+    "python": "3.12.10"
+  }
+}

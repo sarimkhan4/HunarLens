@@ -68,7 +68,7 @@ Meet every acceptance criterion, run pytest, print the STAGE REPORT, then stop.
 | Threshold | F1-optimal on validation (primary) + recall-oriented screening threshold (secondary) | F1 is the stated metric |
 | Explainability | Permutation importance (global) + one-at-a-time "what changes the risk" (local, P1) | Model-agnostic, no extra dependency |
 | Data format | CSV (no parquet) | Avoids an extra dependency |
-| Python | 3.11, exact pins | Same version locally and on Streamlit Cloud |
+| Python | 3.12, exact pins | Same version locally and on Streamlit Cloud |
 
 ---
 
@@ -97,7 +97,7 @@ pytest -q
 **Tasks**
 - Create the repo, folders, `.gitignore`, `config.py` (Appendix A), empty modules, `tests/` with one passing test.
 - Create `requirements.txt` / `requirements-dev.txt`.
-- Create a minimal `app/streamlit_app.py` ("HunarLens: coming soon") and **deploy it on Streamlit Community Cloud now** (connect GitHub, set the Python version to 3.11 in Advanced settings).
+- Create a minimal `app/streamlit_app.py` ("HunarLens: coming soon") and **deploy it on Streamlit Community Cloud now** (connect GitHub, set the Python version to 3.12 in Advanced settings).
 - Create `docs/DECISIONS.md` and `docs/VIVA_NOTES.md`.
 
 **Acceptance**
@@ -349,7 +349,7 @@ A mismatch means the label, the filters or the weight variable is wrong. Fix it 
 
 **Deployment steps**
 1. Push the repo to GitHub (public, or connect a private repo).
-2. In Streamlit Community Cloud: select repo, branch `main`, main file `app/streamlit_app.py`, Python 3.11 in Advanced settings.
+2. In Streamlit Community Cloud: select repo, branch `main`, main file `app/streamlit_app.py`, Python 3.12 in Advanced settings.
 3. Confirm the build uses the pinned `requirements.txt`.
 4. Test in incognito. Wake the app before every demo (idle apps sleep).
 
@@ -369,7 +369,7 @@ A mismatch means the label, the filters or the weight variable is wrong. Fix it 
 ### Stage 10: Report, README, demo, viva (P0)
 
 **README.md**
-- What it is (3 lines), live Streamlit link, setup steps (Python 3.11, install, `pytest`, run scripts, run app), data-access note (where to get raw data; licence), repo tour, results summary, team table.
+- What it is (3 lines), live Streamlit link, setup steps (Python 3.12, install, `pytest`, run scripts, run app), data-access note (where to get raw data; licence), repo tour, results summary, team table.
 
 **Report (PDF, 3–4 pages)** with the guideline's sections and a page budget:
 

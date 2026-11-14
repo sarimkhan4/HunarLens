@@ -49,7 +49,7 @@ No personal identifiers in any committed file (names, phone numbers, CNIC, addre
 If any metric is far above the earlier ~0.3 F1 range, or any single feature alone gives a PR-AUC above 3x prevalence, stop and investigate before continuing.
 
 **R10 — Dependencies.**
-Python **3.11**. `requirements.txt` has exact `==` pins (runtime only, so the Streamlit build stays small); `requirements-dev.txt` holds pytest/jupyter. Core libraries: pandas, numpy, scikit-learn, matplotlib, joblib, streamlit. Ask before adding any library. No deep learning. No SHAP (decided: permutation importance instead).
+Python **3.12**. `requirements.txt` has exact `==` pins (runtime only, so the Streamlit build stays small); `requirements-dev.txt` holds pytest/jupyter. Core libraries: pandas, numpy, scikit-learn, matplotlib, joblib, streamlit. Ask before adding any library. No deep learning. No SHAP (decided: permutation importance instead).
 
 **R11 — Stay in scope.**
 Do not edit `AGENTS.md` or `docs/IMPLEMENTATION_PLAN.md` without human approval. Record every non-trivial decision in `docs/DECISIONS.md` (date, decision, reason).
@@ -127,7 +127,7 @@ hunarlens/
 
 ## 4. Coding conventions
 
-- Python 3.11, `pathlib` for paths, type hints on public functions, no hidden global state.
+- Python 3.12, `pathlib` for paths, type hints on public functions, no hidden global state.
 - Every module starts with a header comment: **What it does / Why it exists / How to explain it in a viva.**
 - Docstrings explain the *why* in plain English. Functions under ~40 lines. No magic numbers; constants live in `config.py`.
 - Notebooks: markdown headers follow the ML lifecycle (EDA, preprocessing, split, modelling, tuning, evaluation, saving). No logic longer than ~15 lines inside a notebook; import from `src/`. "Restart kernel and run all" must pass. Commit notebooks **with** outputs (graders read them) but keep them small.

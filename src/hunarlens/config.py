@@ -16,10 +16,15 @@ AGE_MIN, AGE_MAX = 15, 24
 SPLIT_FRACTIONS = {"train": 0.70, "val": 0.15, "test": 0.15}
 SPLIT_FOLDS = 20
 N_CV_FOLDS = 5
+HOUSEHOLD_CLIP_QUANTILE = 0.99
+MIN_CATEGORY_FREQUENCY = 50
+LEAKAGE_TREE_MAX_DEPTH = 3
 
-# The team must approve features after inspecting the data.
-NUMERIC_FEATURES: list[str] = []
-CATEGORICAL_FEATURES: list[str] = []
+NUMERIC_FEATURES = ["age", "household_size", "children_under_15", "other_youth_15_24",
+                    "census_density", "census_urban_proportion", "census_household_size"]
+CATEGORICAL_FEATURES = ["sex", "marital_status", "relationship_to_head", "can_read",
+                        "can_write", "education_level", "currently_enrolled", "has_training",
+                        "province", "area", "head_sex", "head_education"]
 FEATURES = NUMERIC_FEATURES + CATEGORICAL_FEATURES
 
 LABEL_KEYWORDS = [
