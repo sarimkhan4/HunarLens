@@ -28,13 +28,19 @@ def artifacts():
     return model, metadata, census
 
 
+def classic_app():
+    app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=60)
+    app.query_params["classic"] = "1"
+    return app.run()
+
+
 def profile_app():
-    app = AppTest.from_file(str(ROOT / "app" / "streamlit_app.py"), default_timeout=60).run()
+    app = classic_app()
     return app.radio(key="navigation").set_value("Profile explorer").run()
 
 
 def test_app_smoke_and_navigation():
-    app = AppTest.from_file(str(ROOT / "app" / "streamlit_app.py"), default_timeout=60).run()
+    app = classic_app()
     assert not app.exception and not app.error
     assert app.metric[0].value == "12.8%"
     app.radio(key="navigation").set_value("Profile explorer").run()
@@ -178,7 +184,7 @@ def test_live_examples_and_ruler():
 
 def test_dashboard_navigation_and_live_field_changes():
     with threadpool_limits(limits=1):
-        app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=60).run()
+        app = classic_app()
         app.button[0].click().run()
         assert app.radio(key="navigation").value == "Profile explorer"
         for field, value in [("sex", 2.0), ("area", 2.0), ("province", 3.0),

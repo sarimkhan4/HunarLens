@@ -49,7 +49,9 @@ def check_fixture(name, changes, expected, model, metadata, census):
     probability = predict_probability(model, row)
     if abs(probability - expected) > 0.0000005:
         raise AssertionError(f"{name}: six-decimal probability differs from the approved fixture")
-    app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90).run()
+    app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90)
+    app.query_params["classic"] = "1"
+    app.run()
     app.radio(key="navigation").set_value("Profile explorer").run()
     app.slider[0].set_value(int(values["age"]))
     for field in ["sex", "area", "education_level", "currently_enrolled"]:
@@ -73,7 +75,9 @@ def main():
         with threadpool_limits(limits=1):
             for name, (changes, expected) in FIXTURES.items():
                 check_fixture(name, changes, expected, model, metadata, census)
-            app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90).run()
+            app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90)
+            app.query_params["classic"] = "1"
+            app.run()
             for page in ["Overview", "Profile explorer", "Model performance", "Data & methodology"]:
                 app.radio(key="navigation").set_value(page).run()
                 if app.exception or app.error:

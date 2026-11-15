@@ -458,6 +458,12 @@ def main():
     except Exception:
         st.error("The model is temporarily unavailable. Please try again later.")
         return
+    if st.query_params.get("classic") != "1":
+        from prototype_dashboard import show_dashboard
+        st.markdown('<style>[data-testid="stMainBlockContainer"] {padding:0!important;max-width:none!important;width:100%!important;} '
+                    'header[data-testid="stHeader"] {visibility:hidden;}</style>', unsafe_allow_html=True)
+        show_dashboard(metadata, model)
+        return
     try:
         with st.sidebar:
             st.markdown('<div class="sidebar-brand"><span>H</span> HunarLens</div>'

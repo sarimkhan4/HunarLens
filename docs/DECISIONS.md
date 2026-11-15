@@ -119,3 +119,7 @@ The dashboard adopts the supplied HTML prototype's navigation and visual directi
 Input changes rerun the page so that the full form remains available after repeated edits. The model, thresholds and validation rules are unchanged.
 
 The next layout revision follows the supplied prototype's two-card profile explorer, 100-square result visual, paired dashboard panels and data-source/definition cards. Existing approved model inputs and explanatory content remain available; all result visuals derive from the frozen pipeline and saved reports.
+
+## 2026-11-16 — Original prototype integration
+
+Use the supplied HTML and CSS in a Streamlit custom component to reproduce its layout, instead of approximating it with native widgets. The prototype's illustrative JavaScript scoring formula is removed. Component selections are transient session state and are validated by the existing Python input builder before the unchanged frozen pipeline is called. Saved survey and evaluation tables supply dashboard results. The prior native interface remains accessible with `?classic=1` and its existing AppTests continue to run against that route.

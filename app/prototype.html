@@ -1,0 +1,124 @@
+
+<div class="shell">
+<aside aria-label="Primary navigation" class="sidebar">
+<div class="brand"><div class="brand-mark">H</div><div><div class="brand-name">HunarLens</div><div class="brand-sub">Youth intelligence</div></div></div>
+<div class="nav-label">Workspace</div>
+<nav class="nav">
+<button aria-current="page" data-page="overview"><span class="ico">◫</span>Overview</button>
+<button data-page="explorer"><span class="ico">⌕</span>Profile explorer</button>
+<button data-page="performance"><span class="ico">▥</span>Model performance</button>
+<button data-page="methodology"><span class="ico">ⓘ</span>Data &amp; methodology</button>
+</nav>
+<div class="sidebar-bottom"><div><span class="status-dot"></span>Prototype environment</div><p>Evidence-led insights for a stronger youth workforce.</p><div>Data reference: PBS LFS 2024–25</div></div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="mobile-head"><div class="brand-mark">H</div>HunarLens</div><div class="crumb">Workspace  /  <strong id="crumb">Overview</strong></div><div class="top-actions"><span class="source-pill">Pakistan · National view</span><div aria-label="Guest user" class="avatar">G</div></div></header>
+<div class="content">
+<section class="page active" id="page-overview">
+<div class="page-head"><div><div class="eyebrow">Pakistan labour market · 2024–25</div><h1>Youth employment at a glance</h1><p class="sub">A clearer view of the opportunities and barriers shaping young people's transition into work.</p></div><div class="actions"><button class="btn" id="downloadCsv">↓ Download indicators</button><button class="btn primary" data-goto="explorer">Explore a profile  →</button></div></div>
+<div class="hero"><div><h2>Understand the youth employment landscape</h2><p>Explore official labour-market indicators alongside a separate experimental profile estimator. Use the insights to ask better questions—not to make decisions about individuals.</p></div><div class="hero-stat"><b>15–24</b><span>Official youth age group used in LFS reporting</span></div></div>
+<div class="grid kpis">
+<article class="card"><div class="kpi-top">Youth unemployment <span class="kpi-icon">↗</span></div><div class="kpi-value">12.8%</div><div class="kpi-foot">Ages 15–24 · LFS 2024–25</div></article>
+<article class="card"><div class="kpi-top">National unemployment <span class="kpi-icon">◎</span></div><div class="kpi-value">7.1%</div><div class="kpi-foot">Age 10+ · all areas</div></article>
+<article class="card"><div class="kpi-top">Youth unemployment · male <span class="kpi-icon">◉</span></div><div class="kpi-value">12.5%</div><div class="kpi-foot">Age 15–24 · all areas</div></article>
+<article class="card"><div class="kpi-top">Youth unemployment · female <span class="kpi-icon">◉</span></div><div class="kpi-value">14.9%</div><div class="kpi-foot">Age 15–24 · all areas</div></article>
+</div>
+<div class="grid two">
+<article class="card"><div class="card-head"><div><h2>Unemployment by age and sex</h2><div class="card-desc">Unemployment rate (%) · Pakistan · LFS 2024–25</div></div><span class="tag">Official survey</span></div><div aria-label="Bar chart showing unemployment rates by age group and sex" class="chart" id="ageChart" role="img"></div><div class="legend"><span style="--c:#5278c7">Male</span><span style="--c:#0b8990">Female</span><span style="--c:#d99016">Total</span></div><div class="insight"><b>What stands out:</b> Female unemployment is higher in the 20–24 age group, while the 15–19 pattern differs. Compare age groups before drawing conclusions.</div></article>
+<article class="card"><div class="card-head"><div><h2>Labour force participation</h2><div class="card-desc">Share participating in the labour force (%)</div></div><span class="tag">Official survey</span></div><div class="metric-list" id="participation"></div><p class="section-note">Participation rates differ substantially by age and sex. These figures are not the same as employment rates.</p><div class="callout">A person outside the labour force is not counted as unemployed under the standard unemployment-rate definition.</div></article>
+</div>
+<div class="grid two" style="margin-top:16px">
+<article class="card"><div class="card-head"><div><h2>Age-group comparison</h2><div class="card-desc">Exact official values for selected youth age groups</div></div><span class="tag">LFS Table 15</span></div><div class="table-wrap"><table><thead><tr><th>Age group</th><th>Participation</th><th>Unemployment</th><th>Male unemployment</th><th>Female unemployment</th></tr></thead><tbody><tr><td><strong>15–19</strong></td><td>32.8%</td><td>13.6%</td><td>14.7%</td><td>9.3%</td></tr><tr><td><strong>20–24</strong></td><td>59.3%</td><td>12.3%</td><td>10.8%</td><td>16.6%</td></tr></tbody></table></div><p class="section-note">Participation values are total-sex rates. Unemployment values are shown by total, male and female.</p></article>
+<article class="card"><div class="card-head"><div><h2>How to read this dashboard</h2><span class="tag">Quick guide</span></div></div><div class="source-list">
+<div class="source"><div class="source-num">01</div><div><h3>Start with the population</h3><p>Check the age group, geography, year and denominator before comparing rates.</p></div></div>
+<div class="source"><div class="source-num">02</div><div><h3>Compare like with like</h3><p>Use the same survey definition and subgroup when comparing indicators.</p></div></div>
+<div class="source"><div class="source-num">03</div><div><h3>Separate data from estimates</h3><p>Official survey statistics and experimental model outputs are different evidence types.</p></div></div>
+</div></article>
+</div>
+</section>
+<section class="page" id="page-explorer">
+<div class="page-head"><div><div class="eyebrow">Interactive tool</div><h1>Profile explorer</h1><p class="sub">Explore the frozen model for youth aged 15?24 in the labour force. Association is not causation.</p></div><div class="actions"><button class="btn" id="resetProfile">Reset profile</button></div></div>
+<div class="grid profile-layout">
+<article class="card"><div class="card-head"><div><h2>Build a profile</h2><div class="card-desc">Select characteristics to update the model estimate.</div></div><span class="tag">Frozen model</span></div>
+<div class="form-grid"><div id="model-inputs"></div></div>
+<div style="margin-top:18px"><div class="card-desc" style="font-weight:800;margin-bottom:8px">Try an example</div><div class="actions"><button class="btn example" data-example="0">Rural, not enrolled</button><button class="btn example" data-example="1">Urban student</button><button class="btn example" data-example="2">Urban graduate</button></div></div>
+<div class="disclaimer">Inputs are not stored. Census values are filled automatically.</div>
+</article>
+<article aria-live="polite" class="card"><div class="card-head"><div><h2>What the survey pattern suggests</h2><div class="card-desc" id="profileDesc"></div></div><span class="tag">Model output</span></div>
+<div class="result-band band-low" id="band"></div><div class="result-number" id="probability"></div><div class="result-sub">Estimated unemployment probability in the labour-force sample</div>
+<div aria-label="100 squares, 8 highlighted" class="dot-grid" id="dotGrid" role="img"></div>
+<div class="result-grid"><div class="mini"><b id="per100"></b><span>Illustrative frequency</span></div><div class="mini"><b id="multiple"></b><span>Versus prototype average</span></div><div class="mini"><b id="flag"></b><span>18.3% follow-up threshold</span></div></div>
+<h3 style="margin:18px 0 5px">What changes the estimate?</h3><div id="factors"></div>
+<div class="disclaimer">Association is not causation. Not a decision tool for individuals.</div>
+<div class="actions" style="margin-top:14px"></div>
+</article>
+</div>
+</section>
+<section class="page" id="page-performance">
+<div class="page-head"><div><div class="eyebrow">Evaluation &amp; reliability</div><h1>Model performance</h1><p class="sub">Understand what the experimental model can—and cannot—identify in its held-out evaluation sample.</p></div><span class="tag">Prototype evaluation · one test split</span></div>
+<div class="grid kpis">
+<article class="card"><div class="kpi-top">Test sample <span class="kpi-icon">▤</span></div><div class="kpi-value">3,999</div><div class="kpi-foot">Youth not seen during training</div></article>
+<article class="card"><div class="kpi-top">Unemployed in test sample <span class="kpi-icon">◉</span></div><div class="kpi-value">13%</div><div class="kpi-foot">508 of 3,999 youth · approximate</div></article>
+<article class="card"><div class="kpi-top">Flagged for follow-up <span class="kpi-icon">⚑</span></div><div class="kpi-value">25%</div><div class="kpi-foot">About 1 in 4 youth</div></article>
+<article class="card"><div class="kpi-top">ROC-AUC <span class="kpi-icon">⌁</span></div><div class="kpi-value">0.752</div><div class="kpi-foot">Ranking discrimination metric</div></article>
+</div>
+<div class="grid two">
+<article class="card"><div class="card-head"><div><h2>What happens at the follow-up threshold?</h2><div class="card-desc">Observed outcomes in the held-out test sample</div></div></div>
+<div class="metric-list">
+<div><div class="metric-row"><span>Flagged youth</span><strong>25%</strong><span></span></div><div class="track"><div class="fill" style="width:25%"></div></div></div>
+<div><div class="metric-row"><span>Unemployed among flagged</span><strong>27%</strong><span></span></div><div class="track"><div class="fill" style="width:27%;background:#d99016"></div></div></div>
+<div><div class="metric-row"><span>Unemployed detected</span><strong>53%</strong><span></span></div><div class="track"><div class="fill" style="width:53%;background:#5278c7"></div></div></div>
+</div>
+<div class="insight"><b>Plain-language interpretation:</b> About 53 of every 100 unemployed youth were flagged. Around 47 were missed. Most flagged youth were not unemployed in the test sample.</div>
+</article>
+<article class="card"><div class="card-head"><div><h2>Core evaluation metrics</h2><div class="card-desc">Reported on the held-out test sample</div></div></div>
+<div class="metric-list">
+<div class="metric-row"><span>F1 score</span><div class="track"><div class="fill" style="width:36%"></div></div><strong>0.360</strong></div>
+<div class="metric-row"><span>PR-AUC</span><div class="track"><div class="fill" style="width:30.3%"></div></div><strong>0.303</strong></div>
+<div class="metric-row"><span>ROC-AUC</span><div class="track"><div class="fill" style="width:75.2%"></div></div><strong>0.752</strong></div>
+</div>
+<p class="section-note">F1 95% interval: 0.328–0.393. PR-AUC no-skill reference: 0.127. Random-guess F1 reference: 0.123. Metrics answer different questions and should not be compared as if they were the same scale.</p>
+</article>
+</div>
+<div class="grid two" style="margin-top:16px">
+<article class="card"><div class="card-head"><div><h2>Input groups associated with predictions</h2><div class="card-desc">Drop in accuracy when each input group is shuffled</div></div><span class="tag">Permutation importance</span></div><div id="importance"></div><p class="section-note">Higher values indicate greater model reliance in this evaluation—not causal influence or policy importance.</p></article>
+<article class="card"><div class="card-head"><div><h2>Performance differs by education</h2></div><span class="tag">Detection among unemployed</span></div><div class="metric-list"><div><div class="metric-row"><span>No formal education</span><strong>18%</strong><span></span></div><div class="track"><div class="fill" style="width:18%"></div></div></div><div><div class="metric-row"><span>Intermediate</span><strong>94%</strong><span></span></div><div class="track"><div class="fill" style="width:94%;background:#d99016"></div></div></div></div><div class="callout">The difference is substantial. Small subgroup sizes may make estimates uncertain; publish subgroup sample sizes and confidence intervals before operational use.</div></article>
+</div>
+</section>
+<section class="page" id="page-methodology">
+<div class="page-head"><div><div class="eyebrow">Evidence &amp; governance</div><h1>Data and methodology</h1><p class="sub">Definitions, sources and limitations behind the indicators and experimental estimator.</p></div></div>
+<div class="grid two">
+<article class="card"><div class="card-head"><div><h2>Official data sources</h2><div class="card-desc">Primary references used in this interface</div></div></div><div class="source-list">
+<div class="source"><div class="source-num">01</div><div><h3><a href="https://www.pbs.gov.pk/labour-force-statistics/" rel="noopener" target="_blank">Pakistan Bureau of Statistics · Labour Force Statistics</a></h3><p>Official LFS 2024–25 annual report, statistical tables and related publications.</p></div></div>
+<div class="source"><div class="source-num">02</div><div><h3><a href="https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf" rel="noopener" target="_blank">Labour Force Survey 2024–25 · Annual Report</a></h3><p>Definitions and national labour-market statistics. The survey adopted the 19th ICLS recommendations.</p></div></div>
+<div class="source"><div class="source-num">03</div><div><h3><a href="https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-15.pdf" rel="noopener" target="_blank">LFS 2024–25 · Table 15</a></h3><p>Labour force participation and unemployment rates by age, sex and area.</p></div></div>
+<div class="source"><div class="source-num">04</div><div><h3><a href="https://www.pbs.gov.pk/wp-content/uploads/2020/07/Employment-Trend-Report-2025-Final.pdf" rel="noopener" target="_blank">Employment Trend Report 2025</a></h3><p>Historical and provincial youth employment-to-population trends.</p></div></div>
+</div></article>
+<article class="card"><div class="card-head"><div><h2>Definitions that matter</h2></div></div>
+<div class="method-grid grid">
+<div class="method-item"><h3>Youth</h3><p>For the official LFS headline used here: people aged 15–24. The prototype estimator accepts ages 15–24.</p></div>
+<div class="method-item"><h3>Unemployed</h3><p>Not employed, available within two weeks, and either searching in the previous four weeks or having a job to start soon.</p></div>
+<div class="method-item"><h3>Unemployment rate</h3><p>Unemployed people as a share of the labour force—not a share of all young people.</p></div>
+<div class="method-item"><h3>Participation rate</h3><p>People in the labour force as a share of the relevant population. It includes employed and unemployed people.</p></div>
+</div>
+</article>
+</div>
+<article class="card" style="margin-top:16px"><div class="card-head"><div><h2>Important limitations and responsible use</h2><div class="card-desc">Read before interpreting or sharing results</div></div></div>
+<ul style="font-size:12px;color:#53627a;padding-left:19px;display:grid;gap:8px">
+<li>Survey indicators are population statistics. They do not describe the certainty or circumstances of any individual.</li>
+<li>Estimates use the project?s frozen model and the same input validation as the original app.</li>
+<li>The model analysis uses unweighted records, which can affect representativeness.</li>
+<li>Students who are not working may be outside the labour-force sample, affecting comparisons involving enrolment.</li>
+<li>Reported model evaluation comes from one held-out test split. It is not evidence of ongoing monitoring, external validation or future performance.</li>
+<li>Before production deployment, add survey weights where appropriate, subgroup confidence intervals, temporal validation, calibration checks, model versioning, privacy review and independent fairness assessment.</li>
+</ul>
+<div class="disclaimer">HunarLens is independent and is not affiliated with or endorsed by PBS.</div>
+</article>
+</section>
+<footer class="footer"><span>HunarLens · Youth employment intelligence</span><span>Sources: Pakistan Bureau of Statistics · LFS 2024–25</span><span>Prototype UI · No personal data stored</span></footer>
+</div>
+</main>
+<nav aria-label="Mobile navigation" class="bottom-nav">
+<button aria-current="page" data-page="overview"><span>◫</span>Overview</button><button data-page="explorer"><span>⌕</span>Explore</button><button data-page="performance"><span>▥</span>Model</button><button data-page="methodology"><span>ⓘ</span>Data</button>
+</nav>
+</div>

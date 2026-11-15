@@ -142,3 +142,5 @@
 **Does the profile explorer use the HTML prototype's formula?** No. The explorer validates the inputs and calls the same frozen pipeline as before.
 
 **Why is the survey download safe to share?** It contains aggregate rates only, not information entered into the profile explorer.
+
+**How does the original prototype show real model results?** A Streamlit component displays the supplied HTML and CSS; Python validates its selections and calls the same frozen pipeline as the original interface.
