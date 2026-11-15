@@ -101,3 +101,15 @@
 **What does a local what-if compare?** It replaces one input with its training median or mode and reports the change in predicted probability, leaving the other inputs fixed.
 
 **Why discuss sex and fairness?** Sex is an input to this model, and predictive importance alone cannot establish whether its errors and use are fair across groups.
+
+## Stage 8: final test evaluation
+
+**Why verify the model hash first?** It checks that the model file is the one approved before opening the test split.
+
+**Why save test probabilities?** Every later table and figure can use the same one-time predictions without scoring the holdout again.
+
+**What does grouped bootstrap resample?** Whole households are sampled with replacement, keeping members of a sampled household together.
+
+**Why compare with the Dummy and prevalence?** They show how much predictive ranking and classification improve over a non-informative reference.
+
+**Why inspect subgroups?** Overall performance can hide unequal recall and precision; small positive counts make subgroup estimates less stable.

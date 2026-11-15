@@ -85,3 +85,7 @@
 - Add Geography (province, area, and all three Census features) and Sex as separate joint-permutation groups. Keep the earlier Region and Sex and area rows for reference; display the geographically consistent grouping in the chart.
 - Use 20 validation permutations through the complete pipeline, individually and in the requested groups. Education and enrolment lead. Their source fields S4C9 and S4C10 are approved roster inputs and are not used in the Section 5/9 label; no direct label input was found in this review.
 - The requested Region group excludes area because area is grouped with sex. As Census household size varies by province × area, these separate permutations can create inconsistent geographic combinations. Interpret the resulting sensitivities cautiously; the prior province + area + Census grouped-importance recommendation remains relevant for a future supplementary analysis.
+
+## Stage 8 — first test opening
+
+- Test split first opened at 2026-11-15T17:52:25+05:00; frozen model SHA-256 `6778affc93d96a6d38044c406e7829f2827addbc0b75bdcafcd4106ff4cf35f3`. The opening is recorded before parsing test rows; the saved predictions are the sole source for later test analyses.

@@ -18,4 +18,4 @@ On macOS or Linux, use `python3.12 -m venv .venv` and `source .venv/bin/activate
 
 The planned data sources are described in [data/README.md](data/README.md). Stage instructions and decisions are in `docs/`; reusable code is in `src/hunarlens/`.
 
-Five tests marked `full_data` read the complete processed dataset, including test rows. They are excluded by default while the test split is sealed. After Stage 8, run them with `python -m pytest -q -m full_data`, or run the entire suite with `python -m pytest -q -m ""`.
+Five tests marked `full_data` read the complete processed dataset, including test rows. Stage 8 has opened the test split, so they are enabled in the default `python -m pytest -q` run. To run only those checks, use `python -m pytest -q -m full_data`.
