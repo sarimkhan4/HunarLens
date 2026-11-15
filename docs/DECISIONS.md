@@ -89,3 +89,20 @@
 ## Stage 8 — first test opening
 
 - Test split first opened at 2026-11-15T17:52:25+05:00; frozen model SHA-256 `6778affc93d96a6d38044c406e7829f2827addbc0b75bdcafcd4106ff4cf35f3`. The opening is recorded before parsing test rows; the saved predictions are the sole source for later test analyses.
+
+## 2026-11-15 — Stage 9 app
+
+- The app passes validated raw inputs to the frozen pipeline and looks up Census indicators by province and area; it does not fit, alter or replace the model. All UI category choices and ranges come from training metadata, with questionnaire labels for display.
+- The roster defines other youth as household members aged 15–24 excluding the subject. Household size must include the subject, children under 15 and other youth. A subject who is the household head supplies the head's sex and education directly; reading and writing answers must be consistent.
+- Move `openpyxl` to development dependencies: the data-building scripts need it, but the app consumes the committed Census CSV. Runtime requirements retain only the six libraries needed by the app.
+- The grouped importance chart uses the geographically consistent group and the local what-if chart shows changes in model predictions only. Model inputs are not intentionally saved or logged by application code. Deployment is deferred for team approval.
+
+## 2026-11-15 — App audit follow-up
+
+- Metadata stores category codes and encoder values, but not questionnaire labels or numeric input dtypes. The form continues to use the verified questionnaire label mapping. The input builder resolves supplied categorical codes to the exact typed metadata values and uses the training-verified numeric dtypes; unknown categories are rejected. This preserves the model's existing float-string sex × area interaction rather than changing it.
+- A non-blocking warning flags an unmarried son/daughter paired with any other marital status. A separate warning uses a training-only file containing boolean flags for age-band × enrolment and age × education combinations with fewer than 20 records. No per-combination counts or personal rows are stored in the flag file; the metadata and frozen estimator are unchanged.
+
+## 2026-11-15 — App audit accepted
+
+- Describe enrolment results as associations in the labour-force sample; selection and the availability/search rules are hypotheses, not established explanations. The enrolment tooltip, the unweighted test summary and the privacy and non-affiliation statements provide context without changing prediction behavior.
+- Report validation calibration for enrolment × sex × area only when a cell has at least 30 records. Flag an absolute mean-prediction versus observed-rate gap over 0.05. These descriptive cells do not establish individual calibration and do not replace the frozen test evaluation.

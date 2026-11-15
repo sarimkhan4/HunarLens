@@ -113,3 +113,15 @@
 **Why compare with the Dummy and prevalence?** They show how much predictive ranking and classification improve over a non-informative reference.
 
 **Why inspect subgroups?** Overall performance can hide unequal recall and precision; small positive counts make subgroup estimates less stable.
+
+## Stage 9: Streamlit app
+
+**Why does the app pass raw inputs to the saved pipeline?** The same fitted imputation, feature construction and encoding are used in training, testing and the app.
+
+**Why is a household head's information filled automatically?** The roster defines head characteristics from that same person, so conflicting answers would be inconsistent.
+
+**Why show the sample base rate beside the estimate?** It gives context for a probability when unemployment is a minority outcome in the training sample.
+
+**What does the local what-if chart show?** It compares the prediction with one field replaced by a typical training value; it describes the model's response, not a causal effect.
+
+**Why is the app not an individual decision tool?** The survey sample, unweighted model, possible subgroup differences and uncertainty limit what a single estimate can support.
