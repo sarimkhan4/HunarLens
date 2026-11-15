@@ -1,0 +1,20 @@
+# Stage 7 validation explanations
+
+These results describe associations represented by the frozen HGB model on 3,997 validation rows. Average precision is 0.3123 and unemployment prevalence is 0.1268. Permutation importance is the decrease in average precision after inputs are shuffled 20 times; error bars are one permutation standard deviation, not confidence intervals. Differences smaller than the error bars are not meaningful. Correlated features can share or mask importance.
+
+- **Education (0.1106 ± 0.0079):** education level, reading and writing together have the largest importance. Their shared information complicates interpretation of individual fields.
+- **Enrolment (0.0820 ± 0.0056):** current enrolment is strongly associated with model ranking. Removing this field from the HGB training pipeline changes mean grouped-CV average precision from 0.2977 to 0.2500 on the same folds.
+- **Geography (0.0618 ± 0.0072):** province, area and the three Census indicators jointly have substantial importance. This permutation keeps their observed combinations together.
+- **Sex (0.0469 ± 0.0085):** sex is a model input with substantial importance. The team should discuss fairness, subgroup errors and intended use; this ranking alone does not establish fairness or discrimination.
+- **Age (0.0284 ± 0.0063):** the average prediction profile is about 0.160 at age 19 and 0.090 at age 24.
+- **Training (0.0283 ± 0.0067):** the ever/current training indicator is associated with model ranking.
+- **Marital and relationship (0.0225 ± 0.0063):** these fields jointly have smaller importance than the leading groups.
+- **Household (0.0221 ± 0.0079):** the five roster-derived fields jointly have modest importance. Correlation with education and geography can share importance across groups.
+
+The partial-dependence-style profiles assign one input value across the validation records and average their predictions. For enrolment, code 1 (currently not enrolled) has an average prediction of 0.151; the observed enrolled codes range from 0.014 to 0.033. For education, codes 1–5 range from 0.083 to 0.110, while codes 7–15 range from 0.190 to 0.214: the model assigns higher average predictions to the latter values in these profiles. These profiles describe model predictions for substitutions, not observed subgroup rates. Some combinations may be uncommon or absent in the data, and rare categories can share an encoder category.
+
+The sample is conditioned on labour-force membership: only employed and unemployed youth are included. The enrolment association therefore partly reflects this selection and must not be generalised to all youth.
+
+In the sex × area profile, mean predictions are 0.118 for rural men, 0.131 for urban men, 0.126 for rural women and 0.207 for urban women. The chart uses the consistent Geography and Sex groups. The original Region and Sex and area rows remain in the CSV for reference; those earlier permutations can create inconsistent province–area–Census combinations. Even the Geography permutation can combine a valid geographic tuple with a person whose other characteristics are atypical for that tuple.
+
+Education level and enrolment are approved roster fields S4C9 and S4C10; neither is an input to the label calculation, which uses Sections 5 and 9. The fitted pipeline receives only the configured allowlist. This review does not establish the absence of all possible leakage.

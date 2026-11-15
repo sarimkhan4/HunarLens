@@ -89,3 +89,15 @@
 **Why can the midpoint have F1 below the near-optimal range?** F1 changes discontinuously, so the qualifying thresholds can have gaps even when their endpoints are near-optimal.
 
 **What do the risk bands mean?** They divide validation scores at their 70th and 90th percentiles; they are relative rankings and do not establish individual causation.
+
+## Stage 7: explanations
+
+**What does permutation importance measure?** The decrease in validation average precision after values are shuffled; it measures reliance of this fitted model, not causation.
+
+**Why shuffle education fields together?** Education, reading and writing are correlated, so separate shuffles can hide or split their shared contribution.
+
+**What do the error bars mean?** They show variation across 20 random permutations, not a confidence interval or evidence that small differences are meaningful.
+
+**What does a local what-if compare?** It replaces one input with its training median or mode and reports the change in predicted probability, leaving the other inputs fixed.
+
+**Why discuss sex and fairness?** Sex is an input to this model, and predictive importance alone cannot establish whether its errors and use are fair across groups.
