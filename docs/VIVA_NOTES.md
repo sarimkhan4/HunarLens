@@ -135,3 +135,10 @@
 **Do interactive charts refit the model?** No. They use the same frozen pipeline and approved input checks to compare predictions.
 
 **Why can a rare-combination warning appear?** The training split contained fewer than 20 rows for at least one relevant age and education or enrolment combination.
+## Prototype-inspired dashboard
+
+**Why are the survey rates and model scores shown separately?** PBS rates use survey weights, while the saved model evaluation uses unweighted records; they describe different quantities.
+
+**Does the profile explorer use the HTML prototype's formula?** No. The explorer validates the inputs and calls the same frozen pipeline as before.
+
+**Why is the survey download safe to share?** It contains aggregate rates only, not information entered into the profile explorer.

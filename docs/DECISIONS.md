@@ -112,3 +112,8 @@
 - Replace the submit form with live widget updates and a named Streamlit result fragment. Widget state is session-scoped; application code does not persist or log user-entered values. Validation and prediction continue through the existing functions and unchanged frozen pipeline.
 - Generate the risk ruler from 101 aggregate validation-score quantiles; the saved metadata continues to define the bands and thresholds. The ruler is a relative position among validation youth in the labour force, not a population percentile or an individual diagnosis.
 - Pin the already-installed Altair version for the interactive charts. Keep the Streamlit default font: no Atkinson Hyperlegible font file is included. Configure pytest to discover only the project's `tests` directory, so ignored local clone checks are not collected as duplicate tests.
+# 2026-11-16 — Prototype-inspired Streamlit dashboard
+
+The dashboard adopts the supplied HTML prototype's navigation and visual direction while using the saved PBS reproduction and held-out evaluation tables, and the existing frozen model and input-validation path. The HTML's illustrative scoring formula is not used. Survey rates are labelled weighted; model results are labelled unweighted. Profile inputs are not saved, including for the prototype's optional profile-comparison feature. The download contains aggregate survey indicators only.
+
+Input changes rerun the page so that the full form remains available after repeated edits. The model, thresholds and validation rules are unchanged.

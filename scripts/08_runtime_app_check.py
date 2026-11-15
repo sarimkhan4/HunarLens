@@ -50,6 +50,7 @@ def check_fixture(name, changes, expected, model, metadata, census):
     if abs(probability - expected) > 0.0000005:
         raise AssertionError(f"{name}: six-decimal probability differs from the approved fixture")
     app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90).run()
+    app.radio(key="navigation").set_value("Profile explorer").run()
     app.slider[0].set_value(int(values["age"]))
     for field in ["sex", "area", "education_level", "currently_enrolled"]:
         app.selectbox(key=field).select(values[field])
@@ -73,8 +74,10 @@ def main():
             for name, (changes, expected) in FIXTURES.items():
                 check_fixture(name, changes, expected, model, metadata, census)
             app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90).run()
-            if [tab.label for tab in app.tabs] != ["Estimate", "Insights", "About"] or app.exception or app.error:
-                raise AssertionError("App tabs did not load")
+            for page in ["Overview", "Profile explorer", "Model performance", "Data & methodology"]:
+                app.radio(key="navigation").set_value(page).run()
+                if app.exception or app.error:
+                    raise AssertionError(f"App page did not load: {page}")
     finally:
         builtins.open, io.open = original_open, original_io_open
     opened.update({"app/streamlit_app.py", ".streamlit/config.toml"})

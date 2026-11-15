@@ -39,8 +39,8 @@ EXAMPLES = {"Rural, enrolled": {"age": 18, "education_level": 6.0, "currently_en
 
 
 def refresh_result():
-    """Rerun the named result fragment after an input changes."""
-    st.rerun("live_result")
+    """Refresh the page so form controls remain available after each change."""
+    st.rerun()
 
 
 def apply_example(metadata, changes):
@@ -195,10 +195,14 @@ def result_panel(model, metadata):
         left.metric("Estimated unemployment probability", f"{probability:.1%}")
         right.metric("Training sample base rate", f"{metadata['prevalence_train']:.1%}")
         st.write(f"**Relative band:** {risk_label(probability, metadata)}")
+        st.caption(f"About {round(probability * 100)} in 100 similar modelled profiles; "
+                   f"{probability / metadata['prevalence_train']:.1f}× the training-sample rate. "
+                   "These are model estimates, not guaranteed outcomes.")
         ruler(probability, metadata)
         st.write("**Flagged for follow-up** at the validation-selected threshold." if probability >= metadata["threshold_f1"]
                  else "Not flagged for follow-up at the validation-selected threshold.")
         st.info(NOTE)
+        st.caption("Do not use this estimate for hiring, eligibility, benefits, admissions or decisions about a person.")
         st.subheader("What changes this estimate")
         what_if_chart(model, row, metadata)
         st.subheader("Explore one input")
@@ -211,13 +215,15 @@ def result_panel(model, metadata):
 
 def estimator(model, metadata):
     """Collect approved fields in four groups and show the live result beside them."""
-    st.header("Explore an estimate")
-    st.caption("For youth aged 15–24 in the labour force. Examples are synthetic; inputs are not stored.")
+    st.markdown('<div class="page-eyebrow">INTERACTIVE TOOL</div>', unsafe_allow_html=True)
+    st.title("Profile explorer")
+    st.caption("Explore the frozen model for youth aged 15–24 in the labour force. Inputs are not stored.")
     st.write("Try an example")
     for column, (name, changes) in zip(st.columns(3), EXAMPLES.items()):
         column.button(name, on_click=apply_example, args=(metadata, changes), width="stretch", help="Fill the form with this synthetic example.")
     inputs, result = st.columns([1, 1], gap="large")
     with inputs:
+        st.subheader("Build a profile")
         st.subheader("About the person")
         age_min, age_max = metadata["features"]["numeric"]["age"]
         if "age" not in st.session_state:
@@ -247,9 +253,73 @@ def estimator(model, metadata):
         result_panel(model, metadata)
 
 
+def overview():
+    """Present published survey rates separately from model-sample estimates."""
+    survey = pd.read_csv(TABLES / "label_reproduction.csv").set_index("group")
+    st.markdown('<div class="page-eyebrow">PAKISTAN LABOUR MARKET · 2024–25</div>', unsafe_allow_html=True)
+    st.title("Youth employment at a glance")
+    st.caption("A clearer view of the opportunities and barriers shaping young people's transition into work.")
+    st.markdown('<div class="dashboard-hero"><strong>Understand the youth employment landscape</strong><br>'
+                'Explore official survey indicators alongside an experimental profile estimator. '
+                'Use the insights to ask better questions, not to make decisions about individuals.</div>', unsafe_allow_html=True)
+    groups = [("Youth unemployment", "youth_all"), ("National unemployment", "all_ages"),
+              ("Youth · male", "youth_male"), ("Youth · female", "youth_female")]
+    for column, (label, group) in zip(st.columns(4), groups):
+        with column.container(border=True):
+            st.metric(label, f"{survey.loc[group, 'pbs_unemployment_rate']:.1%}")
+            st.caption("PBS · ages 15–24" if group != "all_ages" else "PBS · ages 10+")
+    st.caption("Official weighted rates, rounded as reported by PBS. Model evaluation uses unweighted records.")
+    st.markdown("[PBS Labour Force Survey annual report](https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf) · "
+                "[Age and sex table](https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-15.pdf)")
+    left, right = st.columns([1.45, 1])
+    with left.container(border=True):
+        st.subheader("Youth unemployment by sex and area")
+        selected = [("Male", "youth_male"), ("Female", "youth_female"),
+                    ("Rural", "youth_rural"), ("Urban", "youth_urban")]
+        rates = pd.DataFrame([{"Group": name, "Rate": survey.loc[key, "pbs_unemployment_rate"]}
+                              for name, key in selected])
+        chart = alt.Chart(rates).mark_bar(color="#087e8b", cornerRadiusEnd=4).encode(
+            x=alt.X("Rate:Q", title="Unemployment rate", axis=alt.Axis(format="%")),
+            y=alt.Y("Group:N", sort=None, title=None),
+            tooltip=["Group:N", alt.Tooltip("Rate:Q", format=".1%")])
+        st.altair_chart(chart, width="stretch")
+        st.caption("Sex and area are separate comparisons, not mutually exclusive groups.")
+    with right.container(border=True):
+        st.subheader("How to read this dashboard")
+        st.markdown("**01 · Start with the population**  \nCheck the age group, year and denominator.\n\n"
+                    "**02 · Compare like with like**  \nUnemployment is a share of the labour force, not all youth.\n\n"
+                    "**03 · Separate data from estimates**  \nSurvey statistics and model predictions are different evidence.")
+        st.info("Students and other youth outside the labour force are not represented by the model.")
+    st.download_button("Download survey indicators", rates.to_csv(index=False),
+                       file_name="hunarlens_survey_indicators.csv", mime="text/csv")
+    st.button("Explore a profile →", on_click=lambda: st.session_state.update(navigation="Profile explorer"), type="primary")
+
+
 def insights():
     """Display saved comparisons and the single final test evaluation."""
-    st.header("Insights")
+    st.markdown('<div class="page-eyebrow">EVALUATION & RELIABILITY</div>', unsafe_allow_html=True)
+    st.title("Model performance")
+    st.caption("Understand what the experimental model can—and cannot—identify in its held-out evaluation sample.")
+    metrics = pd.read_csv(TABLES / "test_metrics.csv").set_index("model_threshold")
+    final = metrics.loc["HGB F1"]
+    dummy = metrics.loc["Stratified Dummy"]
+    for column, (label, value, caption) in zip(st.columns(4), [
+        ("Test sample", f"{int(final['n']):,}", "Unseen youth records"),
+        ("Unemployed in test", f"{final['prevalence']:.1%}", f"{int(final['positives'])} records"),
+        ("Flagged for follow-up", f"{(final['tp'] + final['fp']) / final['n']:.1%}", "At the primary threshold"),
+        ("ROC-AUC", f"{final['roc_auc']:.3f}", "Ranking metric")]):
+        with column.container(border=True):
+            st.metric(label, value)
+            st.caption(caption)
+    with st.container(border=True):
+        st.subheader("What happens at the follow-up threshold?")
+        st.write(f"Of unemployed youth, **{final['recall']:.1%}** were flagged; "
+                 f"**{1 - final['recall']:.1%}** were missed. Of those flagged, **{final['precision']:.1%}** were unemployed.")
+        st.caption(f"F1: {final['f1']:.3f} · Dummy F1: {dummy['f1']:.3f} · "
+                   f"PR-AUC: {final['pr_auc']:.3f} · No-skill prevalence: {final['prevalence']:.3f}")
+    with st.container(border=True):
+        st.subheader("Input groups associated with predictions")
+        importance_chart()
     st.subheader("Model experiments")
     experiment = pd.read_csv(TABLES / "experiments.csv")
     chosen = experiment.loc[experiment.exp_id.eq("E4"), ["model", "cv_ap_mean", "val_f1_best", "threshold"]]
@@ -277,7 +347,8 @@ def insights():
 
 def about():
     """Explain the approved label, public sources and limitations in plain language."""
-    st.header("About and limits")
+    st.markdown('<div class="page-eyebrow">EVIDENCE & GOVERNANCE</div>', unsafe_allow_html=True)
+    st.title("Data and methodology")
     st.markdown("""HunarLens describes patterns in Pakistan's **Labour Force Survey 2024–25** and **Population and Housing Census 2023**. Sources: [Pakistan Bureau of Statistics labour-force statistics](https://www.pbs.gov.pk/labour-force-statistics/) and [Census detailed results](https://pbs.gov.pk/result-excel/), accessed **15 November 2026**.
 
     The model uses youth aged **15–24 in the labour force**. Employed people worked for pay or profit, did qualifying family or sale-oriented farm work, or were temporarily absent under the survey rules. Unemployed people were not employed, were available within two weeks and either searched in the previous four weeks or had a job or business to start in the near future. The data do not record the start date, so the [ILO's generally three-month future-starter condition](https://webapps.ilo.org/ilostat-files/LFS/ILO_PAPI_LFS_VARIABLE_DERIVATION_GUIDE%20%28A1V2%29.pdf) could not be verified. See the [PBS annual report](https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf) for the survey's definitions.
@@ -295,7 +366,6 @@ def main():
         st.markdown(f"<style>{(ROOT / 'app' / 'style.css').read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
     except OSError:
         pass
-    st.title("HunarLens")
     try:
         metadata = load_metadata()
     except Exception:
@@ -309,12 +379,19 @@ def main():
         st.error("The model is temporarily unavailable. Please try again later.")
         return
     try:
-        estimate_tab, insights_tab, about_tab = st.tabs(["Estimate", "Insights", "About"])
-        with estimate_tab:
+        with st.sidebar:
+            st.markdown('<div class="sidebar-brand"><span>H</span> HunarLens</div>'
+                        '<div class="sidebar-sub">YOUTH INTELLIGENCE</div>', unsafe_allow_html=True)
+            page = st.radio("Workspace", ["Overview", "Profile explorer", "Model performance", "Data & methodology"],
+                            key="navigation")
+            st.caption("PBS Labour Force Survey 2024–25 · Independent research project")
+        if page == "Overview":
+            overview()
+        elif page == "Profile explorer":
             estimator(model, metadata)
-        with insights_tab:
+        elif page == "Model performance":
             insights()
-        with about_tab:
+        else:
             about()
     except Exception:
         st.error("This page is temporarily unavailable. Please try again later.")

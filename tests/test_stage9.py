@@ -28,20 +28,28 @@ def artifacts():
     return model, metadata, census
 
 
+def profile_app():
+    app = AppTest.from_file(str(ROOT / "app" / "streamlit_app.py"), default_timeout=60).run()
+    return app.radio(key="navigation").set_value("Profile explorer").run()
+
+
 def test_app_smoke_and_navigation():
     app = AppTest.from_file(str(ROOT / "app" / "streamlit_app.py"), default_timeout=60).run()
     assert not app.exception and not app.error
+    assert app.metric[0].value == "12.8%"
+    app.radio(key="navigation").set_value("Profile explorer").run()
     assert any(box.label == "Relationship to household head" for box in app.selectbox)
     assert "most are working" in app.selectbox(key="currently_enrolled").help
-    assert [tab.label for tab in app.tabs] == ["Estimate", "Insights", "About"]
-    assert len(app.dataframe) >= 3
+    app.radio(key="navigation").set_value("Model performance").run()
+    assert not app.exception and not app.error and len(app.dataframe) >= 3
+    app.radio(key="navigation").set_value("Data & methodology").run()
     about = " ".join(item.value for item in app.markdown)
     assert "not affiliated with or endorsed by PBS" in about
     assert "Inputs are not stored" in about
 
 
 def test_head_display_and_form_validation():
-    app = AppTest.from_file(str(ROOT / "app" / "streamlit_app.py"), default_timeout=60).run()
+    app = profile_app()
     app.selectbox(key="relationship_to_head").select(1.0).run()
     assert not any(box.label == "Household head's sex" for box in app.selectbox)
     app.number_input(key="household_size").set_value(1)
@@ -57,14 +65,14 @@ def test_app_submission_matches_pipeline(artifacts):
     expected_row = build_input(dict(metadata["reference_values"]), metadata, census)
     with threadpool_limits(limits=1):
         expected = predict_probability(model, expected_row)
-        app = AppTest.from_file(str(ROOT / "app" / "streamlit_app.py"), default_timeout=60).run()
+        app = profile_app()
     assert not app.exception and not app.error
     assert app.metric[0].value == f"{expected:.1%}"
 
 
 def test_version_mismatch_warns(monkeypatch):
     monkeypatch.setattr(sklearn, "__version__", "different")
-    app = AppTest.from_file(str(ROOT / "app" / "streamlit_app.py"), default_timeout=60).run()
+    app = profile_app()
     assert any("scikit-learn version differs" in warning.value for warning in app.warning)
 
 
@@ -136,7 +144,7 @@ def test_rare_flags_and_warnings(artifacts):
     assert not flags.duplicated(["kind", "age_key", "category"]).any()
     assert is_rare_combination({**metadata["reference_values"], "age": 15, "education_level": 8}, flags)
     with threadpool_limits(limits=1):
-        app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=60).run()
+        app = profile_app()
         app.slider[0].set_value(15)
         app.selectbox(key="education_level").select(8.0)
         app.run()
@@ -145,7 +153,7 @@ def test_rare_flags_and_warnings(artifacts):
 
 def test_marital_relationship_warning_does_not_block():
     with threadpool_limits(limits=1):
-        app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=60).run()
+        app = profile_app()
         app.selectbox(key="relationship_to_head").select(3.0).run()
         app.selectbox(key="marital_status").select(2.0)
         app.run()
@@ -154,7 +162,7 @@ def test_marital_relationship_warning_does_not_block():
 
 def test_live_examples_and_ruler():
     with threadpool_limits(limits=1):
-        app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=60).run()
+        app = profile_app()
         assert app.metric[0].value == "9.3%"
         app.button[0].click().run()
         assert app.metric[0].value == "0.7%"
@@ -166,3 +174,17 @@ def test_live_examples_and_ruler():
     quantiles = json.loads((ROOT / "models/score_quantiles.json").read_text(encoding="utf-8"))["quantiles"]
     positions = [score_percentile(value, quantiles) for value in [0, .01, .1, .3, 1]]
     assert positions == sorted(positions) and positions[0] == 0 and positions[-1] == 100
+
+
+def test_dashboard_navigation_and_live_field_changes():
+    with threadpool_limits(limits=1):
+        app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=60).run()
+        app.button[0].click().run()
+        assert app.radio(key="navigation").value == "Profile explorer"
+        for field, value in [("sex", 2.0), ("area", 2.0), ("province", 3.0),
+                             ("education_level", 7.0), ("currently_enrolled", 7.0)]:
+            app.selectbox(key=field).select(value).run()
+            assert not app.exception and not app.error and app.metric
+        app.radio(key="navigation").set_value("Model performance").run()
+        assert not app.exception and not app.error
+        assert any(metric.label == "ROC-AUC" and metric.value == "0.752" for metric in app.metric)
