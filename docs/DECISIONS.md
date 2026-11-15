@@ -117,3 +117,5 @@
 The dashboard adopts the supplied HTML prototype's navigation and visual direction while using the saved PBS reproduction and held-out evaluation tables, and the existing frozen model and input-validation path. The HTML's illustrative scoring formula is not used. Survey rates are labelled weighted; model results are labelled unweighted. Profile inputs are not saved, including for the prototype's optional profile-comparison feature. The download contains aggregate survey indicators only.
 
 Input changes rerun the page so that the full form remains available after repeated edits. The model, thresholds and validation rules are unchanged.
+
+The next layout revision follows the supplied prototype's two-card profile explorer, 100-square result visual, paired dashboard panels and data-source/definition cards. Existing approved model inputs and explanatory content remain available; all result visuals derive from the frozen pipeline and saved reports.
