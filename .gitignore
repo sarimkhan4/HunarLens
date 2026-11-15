@@ -8,3 +8,4 @@ data/interim/
 data/processed/*
 !data/processed/.gitkeep
 !data/processed/census_lookup.csv
+!data/processed/rare_combinations.csv
