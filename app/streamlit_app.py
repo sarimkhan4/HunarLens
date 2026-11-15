@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 import json
+import altair as alt
 import joblib
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -16,10 +17,37 @@ import streamlit as st
 
 from hunarlens.app_utils import LABELS, build_input, is_rare_combination, predict_probability, risk_label, validate_inputs
 from hunarlens.explain import local_what_if
+from hunarlens.ui import score_percentile
 
 TABLES = ROOT / "reports" / "tables"
 FIGURES = ROOT / "reports" / "figures"
 NOTE = "Association from survey data, not a cause. Not a decision tool for individuals."
+HELP = {"age": "Age in completed years.", "sex": "Sex recorded in the survey.",
+        "marital_status": "Current marital status.", "relationship_to_head": "This person's relationship to the household head.",
+        "education_level": "Highest education level completed.", "can_read": "Can read a simple statement with understanding.",
+        "can_write": "Can write a simple statement with understanding.",
+        "currently_enrolled": "Among enrolled youth in the labour-force sample, most are working; the model estimates lower unemployment for them.",
+        "has_training": "Whether this person has ever received or is currently receiving training.",
+        "province": "Province where this person lives.", "area": "Whether the household is in a rural or urban area.",
+        "household_size": "All people in the household, including this person.",
+        "children_under_15": "Household members younger than 15.",
+        "other_youth_15_24": "Other household members aged 15–24, excluding this person.",
+        "head_sex": "Sex of the household head.", "head_education": "Highest education level of the household head."}
+EXAMPLES = {"Rural, enrolled": {"age": 18, "education_level": 6.0, "currently_enrolled": 7.0},
+            "Rural, not enrolled": {},
+            "Urban graduate": {"age": 22, "sex": 2.0, "area": 2.0, "education_level": 13.0, "currently_enrolled": 1.0}}
+
+
+def refresh_result():
+    """Rerun the named result fragment after an input changes."""
+    st.rerun("live_result")
+
+
+def apply_example(metadata, changes):
+    """Fill widget state with a synthetic example, not a saved person record."""
+    for name, value in {**metadata["reference_values"], **changes}.items():
+        if not name.startswith("census_"):
+            st.session_state[name] = int(value) if name in {"age", "household_size", "children_under_15", "other_youth_15_24"} else value
 
 
 @st.cache_resource
@@ -38,18 +66,21 @@ def category(name, metadata, label):
     """Offer only training-observed categories, with the training mode selected."""
     choices = metadata["features"]["categorical"][name]
     default = metadata["reference_values"][name]
-    help_text = ("Among enrolled youth in the labour-force sample, most are working; "
-                 "the model estimates lower unemployment for them.") if name == "currently_enrolled" else None
-    return st.selectbox(label, choices, index=choices.index(default) if default in choices else 0,
+    if name not in st.session_state:
+        st.session_state[name] = default if default in choices else choices[0]
+    return st.selectbox(label, choices, index=None,
                         format_func=lambda value: LABELS[name].get(int(value), f"Code {value:g}"), key=name,
-                        help=help_text)
+                        help=HELP[name], on_change=None if name == "relationship_to_head" else refresh_result)
 
 
 def number(name, metadata, label):
     """Use observed training bounds and the training median as the initial value."""
     low, high = metadata["features"]["numeric"][name]
     default = int(metadata["reference_values"][name])
-    return st.number_input(label, min_value=int(low), max_value=int(high), value=default, step=1, key=name)
+    if name not in st.session_state:
+        st.session_state[name] = default
+    return st.number_input(label, min_value=int(low), max_value=int(high), value=None, step=1, key=name,
+                           help=HELP[name], on_change=refresh_result)
 
 
 def importance_chart():
@@ -68,55 +99,86 @@ def what_if_chart(model, row, metadata):
     """Compare predictions after individual inputs are replaced by training references."""
     ranking = pd.read_csv(TABLES / "permutation_importance.csv").feature.head(5).tolist()
     changes = local_what_if(model, row, metadata["reference_values"], ranking, top_k=5)
-    changes = changes.sort_values("change")
-    fig, ax = plt.subplots(figsize=(8, 3))
-    ax.barh(changes.feature.str.replace("_", " "), changes.change, color="#277da1")
-    ax.axvline(0, color="black", linewidth=.8)
-    ax.set(xlabel="Change in predicted probability", ylabel="Input replaced", title="Compared with typical training values")
-    fig.tight_layout(); st.pyplot(fig); plt.close(fig)
+    changes["feature"] = changes.feature.str.replace("_", " ")
+    if changes.change.abs().max() < 0.0005:
+        st.info("Every displayed change is below 0.0005 in probability.")
+        return
+    chart = alt.Chart(changes).mark_bar(color="#1D2B64").encode(
+        x=alt.X("change:Q", title="Change in predicted probability"),
+        y=alt.Y("feature:N", sort="-x", title="Input replaced"),
+        tooltip=[alt.Tooltip("feature:N", title="Input"), alt.Tooltip("change:Q", format="+.4f", title="Change"),
+                 alt.Tooltip("new_probability:Q", format=".4f", title="New probability")])
+    st.altair_chart(chart, width="stretch")
     st.caption("Each comparison changes one field at a time; some combinations may be uncommon. These are model associations.")
 
 
-def estimator(model, metadata):
-    """Collect approved fields, look up Census data and display the frozen prediction."""
-    st.header("Risk estimator")
-    st.caption("For a person aged 15–24 in the labour force: employed, or unemployed and available for work.")
-    st.subheader("About the person")
-    relationship = category("relationship_to_head", metadata, "Relationship to household head")
-    with st.form("estimator"):
-        values = {"relationship_to_head": relationship}
-        age_min, age_max = metadata["features"]["numeric"]["age"]
-        values["age"] = st.slider("Age (years)", int(age_min), int(age_max), int(metadata["reference_values"]["age"]))
-        values["sex"] = category("sex", metadata, "Sex")
-        values["marital_status"] = category("marital_status", metadata, "Marital status")
-        st.subheader("Education and training")
-        for name, label in [("education_level", "Education level"), ("can_read", "Can read"),
-                            ("can_write", "Can write"), ("currently_enrolled", "Current enrolment"),
-                            ("has_training", "Ever received or currently receiving training")]:
-            values[name] = category(name, metadata, label)
-        st.subheader("Location")
-        values["province"] = category("province", metadata, "Province")
-        values["area"] = category("area", metadata, "Area")
-        st.subheader("Household")
-        for name, label in [("household_size", "Household size, including this person"),
-                            ("children_under_15", "Children under 15 in the household"),
-                            ("other_youth_15_24", "Other youth aged 15–24 in the household")]:
-            values[name] = number(name, metadata, label)
-        if relationship == 1:
-            values["head_sex"] = values["sex"]
-            values["head_education"] = values["education_level"]
-            st.caption("As the household head, this person's sex and education are used for the head fields.")
-        else:
-            values["head_sex"] = category("head_sex", metadata, "Household head's sex")
-            values["head_education"] = category("head_education", metadata, "Household head's education")
-        submitted = st.form_submit_button("Estimate")
-    st.caption(NOTE)
-    if not submitted:
+def ruler(probability, metadata):
+    """Show an accessible validation-percentile position on the three bands."""
+    quantiles = json.loads((ROOT / "models" / "score_quantiles.json").read_text(encoding="utf-8"))["quantiles"]
+    percentile = score_percentile(probability, quantiles)
+    band = risk_label(probability, metadata)
+    summary = f"{band} band; higher than about {round(percentile)} percent of youth in the survey sample"
+    st.markdown(f'<div class="ruler-wrap" role="img" aria-label="{summary}"><div class="ruler">'
+                '<div class="ruler-band ruler-lower">Lower than most</div>'
+                '<div class="ruler-band ruler-elevated">Elevated</div>'
+                '<div class="ruler-band ruler-high">High</div>'
+                f'<span class="ruler-marker" style="left: {min(percentile, 99.5):.2f}%"></span>'
+                '</div></div>', unsafe_allow_html=True)
+    st.write(f"Higher than about **{round(percentile)}%** of youth in the survey sample")
+    st.caption("Position is relative to validation scores for youth in the labour force.")
+
+
+def explore_input(model, values, metadata, census, flags):
+    """Evaluate valid alternatives through the same input builder and predictor."""
+    options = ["age", "sex", "area", "province", "education_level", "currently_enrolled", "has_training",
+               "household_size", "children_under_15", "other_youth_15_24", "marital_status", "relationship_to_head",
+               "can_read", "can_write", "head_sex", "head_education"]
+    field = st.selectbox("Input to explore", options, format_func=lambda x: x.replace("_", " ").title(),
+                         help="Change one input at a time while keeping the other answers fixed.", key="explore_input")
+    if field in metadata["features"]["categorical"]:
+        choices = metadata["features"]["categorical"][field]
+    else:
+        lo, hi = metadata["features"]["numeric"][field]
+        choices = range(int(lo), int(hi) + 1)
+    rows = []
+    for value in choices:
+        candidate = {**values, field: value}
+        if validate_inputs(candidate, metadata):
+            continue
+        row = build_input(candidate, metadata, census)
+        rows.append({"value": LABELS.get(field, {}).get(int(value), str(int(value))),
+                     "probability": predict_probability(model, row), "current": value == values[field],
+                     "rare": is_rare_combination(candidate, flags)})
+    if not rows:
+        st.info("No alternative values fit the current answers.")
         return
-    errors = validate_inputs(values, metadata)
-    if errors:
-        for error in errors:
-            st.error(error)
+    frame = pd.DataFrame(rows)
+    st.caption("Only combinations that pass the input checks are shown.")
+    chart = alt.Chart(frame).mark_point(size=95, filled=True).encode(
+        x=alt.X("value:N", sort=None, title=field.replace("_", " ").title()),
+        y=alt.Y("probability:Q", title="Predicted probability", scale=alt.Scale(domain=[0, 1])),
+        color=alt.Color("current:N", scale=alt.Scale(domain=[True, False], range=["#7A1F5C", "#1D2B64"]),
+                        legend=alt.Legend(title="Current value")),
+        shape=alt.Shape("current:N", title="Current value"),
+        tooltip=["value:N", alt.Tooltip("probability:Q", format=".4f"), alt.Tooltip("rare:N", title="Rare combination")])
+    st.altair_chart(chart, width="stretch")
+    if frame.rare.any():
+        st.caption("Some alternatives are rare in the survey data, so their estimates are less reliable.")
+
+
+@st.fragment(key="live_result")
+def result_panel(model, metadata):
+    """Display live results without rerunning the other tabs."""
+    names = [name for name in HELP if name not in {"head_sex", "head_education"}]
+    values = {name: st.session_state[name] for name in names}
+    if values["relationship_to_head"] == 1:
+        values["head_sex"], values["head_education"] = values["sex"], values["education_level"]
+    else:
+        values["head_sex"], values["head_education"] = st.session_state["head_sex"], st.session_state["head_education"]
+    st.subheader("Your estimate")
+    for error in validate_inputs(values, metadata):
+        st.error(error)
+    if validate_inputs(values, metadata):
         return
     if values["age"] <= 17 and values["education_level"] >= 8:
         st.warning("A university degree at this age is unusual. Please check the education selection.")
@@ -133,16 +195,56 @@ def estimator(model, metadata):
         left.metric("Estimated unemployment probability", f"{probability:.1%}")
         right.metric("Training sample base rate", f"{metadata['prevalence_train']:.1%}")
         st.write(f"**Relative band:** {risk_label(probability, metadata)}")
-        if probability >= metadata["threshold_f1"]:
-            st.write("**Flagged for follow-up** at the validation-selected threshold.")
-        else:
-            st.write("Not flagged for follow-up at the validation-selected threshold.")
-        st.subheader("How the model uses information")
-        importance_chart()
+        ruler(probability, metadata)
+        st.write("**Flagged for follow-up** at the validation-selected threshold." if probability >= metadata["threshold_f1"]
+                 else "Not flagged for follow-up at the validation-selected threshold.")
+        st.info(NOTE)
         st.subheader("What changes this estimate")
         what_if_chart(model, row, metadata)
+        st.subheader("Explore one input")
+        explore_input(model, values, metadata, census, flags)
+        with st.expander("How the model uses information"):
+            importance_chart()
     except Exception:
         st.error("The estimate is temporarily unavailable. Please check the inputs and try again.")
+
+
+def estimator(model, metadata):
+    """Collect approved fields in four groups and show the live result beside them."""
+    st.header("Explore an estimate")
+    st.caption("For youth aged 15–24 in the labour force. Examples are synthetic; inputs are not stored.")
+    st.write("Try an example")
+    for column, (name, changes) in zip(st.columns(3), EXAMPLES.items()):
+        column.button(name, on_click=apply_example, args=(metadata, changes), width="stretch", help="Fill the form with this synthetic example.")
+    inputs, result = st.columns([1, 1], gap="large")
+    with inputs:
+        st.subheader("About the person")
+        age_min, age_max = metadata["features"]["numeric"]["age"]
+        if "age" not in st.session_state:
+            st.session_state["age"] = int(metadata["reference_values"]["age"])
+        st.slider("Age (years)", int(age_min), int(age_max), value=None,
+                  key="age", help=HELP["age"], on_change=refresh_result)
+        category("sex", metadata, "Sex")
+        category("marital_status", metadata, "Marital status")
+        relationship = category("relationship_to_head", metadata, "Relationship to household head")
+        st.subheader("Education and training")
+        for name, label in [("education_level", "Education level"), ("can_read", "Can read"), ("can_write", "Can write"),
+                            ("currently_enrolled", "Current enrolment"), ("has_training", "Ever received or currently receiving training")]:
+            category(name, metadata, label)
+        st.subheader("Location")
+        category("province", metadata, "Province"); category("area", metadata, "Area")
+        st.subheader("Household")
+        for name, label in [("household_size", "Household size, including this person"),
+                            ("children_under_15", "Children under 15 in the household"),
+                            ("other_youth_15_24", "Other youth aged 15–24 in the household")]:
+            number(name, metadata, label)
+        if relationship == 1:
+            st.caption("As the household head, this person's sex and education are used for the head fields.")
+        else:
+            category("head_sex", metadata, "Household head's sex")
+            category("head_education", metadata, "Household head's education")
+    with result:
+        result_panel(model, metadata)
 
 
 def insights():
@@ -151,6 +253,13 @@ def insights():
     st.subheader("Model experiments")
     experiment = pd.read_csv(TABLES / "experiments.csv")
     chosen = experiment.loc[experiment.exp_id.eq("E4"), ["model", "cv_ap_mean", "val_f1_best", "threshold"]]
+    comparison = alt.Chart(chosen).mark_bar(color="#1D2B64").encode(
+        x=alt.X("cv_ap_mean:Q", title="Grouped CV average precision"),
+        y=alt.Y("model:N", sort="-x", title="Model"),
+        tooltip=[alt.Tooltip("model:N", title="Model"), alt.Tooltip("cv_ap_mean:Q", format=".4f", title="CV PR-AUC"),
+                 alt.Tooltip("val_f1_best:Q", format=".4f", title="Validation F1"),
+                 alt.Tooltip("threshold:Q", format=".4f", title="Tuned threshold")])
+    st.altair_chart(comparison, width="stretch")
     st.dataframe(chosen.rename(columns={"model": "Model", "cv_ap_mean": "Grouped CV PR-AUC",
                                         "val_f1_best": "Validation F1", "threshold": "Tuned threshold"}), hide_index=True)
     st.caption("Validation F1 is optimistic: thresholds were chosen on the same validation labels. The final HGB threshold uses the approved near-optimal midpoint rule.")
@@ -182,6 +291,10 @@ def about():
 
 def main():
     st.set_page_config(page_title="HunarLens", page_icon="🌱", layout="wide")
+    try:
+        st.markdown(f"<style>{(ROOT / 'app' / 'style.css').read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
+    except OSError:
+        pass
     st.title("HunarLens")
     try:
         metadata = load_metadata()
@@ -195,13 +308,13 @@ def main():
     except Exception:
         st.error("The model is temporarily unavailable. Please try again later.")
         return
-    page = st.sidebar.radio("Explore", ["Risk estimator", "Insights", "About and limits"])
     try:
-        if page == "Risk estimator":
+        estimate_tab, insights_tab, about_tab = st.tabs(["Estimate", "Insights", "About"])
+        with estimate_tab:
             estimator(model, metadata)
-        elif page == "Insights":
+        with insights_tab:
             insights()
-        else:
+        with about_tab:
             about()
     except Exception:
         st.error("This page is temporarily unavailable. Please try again later.")

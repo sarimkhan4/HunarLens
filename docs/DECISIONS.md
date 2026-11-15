@@ -106,3 +106,9 @@
 
 - Describe enrolment results as associations in the labour-force sample; selection and the availability/search rules are hypotheses, not established explanations. The enrolment tooltip, the unweighted test summary and the privacy and non-affiliation statements provide context without changing prediction behavior.
 - Report validation calibration for enrolment × sex × area only when a cell has at least 30 records. Flag an absolute mean-prediction versus observed-rate gap over 0.05. These descriptive cells do not establish individual calibration and do not replace the frozen test evaluation.
+
+## 2026-11-15 — Stage 9b interface
+
+- Replace the submit form with live widget updates and a named Streamlit result fragment. Widget state is session-scoped; application code does not persist or log user-entered values. Validation and prediction continue through the existing functions and unchanged frozen pipeline.
+- Generate the risk ruler from 101 aggregate validation-score quantiles; the saved metadata continues to define the bands and thresholds. The ruler is a relative position among validation youth in the labour force, not a population percentile or an individual diagnosis.
+- Pin the already-installed Altair version for the interactive charts. Keep the Streamlit default font: no Atkinson Hyperlegible font file is included. Configure pytest to discover only the project's `tests` directory, so ignored local clone checks are not collected as duplicate tests.

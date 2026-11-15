@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from hunarlens.app_utils import build_input, is_rare_combination, predict_probability, validate_inputs
 from hunarlens.config import FEATURES
+from hunarlens.ui import score_percentile
 
 
 @pytest.fixture(scope="module")
@@ -32,11 +33,8 @@ def test_app_smoke_and_navigation():
     assert not app.exception and not app.error
     assert any(box.label == "Relationship to household head" for box in app.selectbox)
     assert "most are working" in app.selectbox(key="currently_enrolled").help
-    app.sidebar.radio[0].set_value("Insights").run()
-    assert not app.exception and not app.error
+    assert [tab.label for tab in app.tabs] == ["Estimate", "Insights", "About"]
     assert len(app.dataframe) >= 3
-    app.sidebar.radio[0].set_value("About and limits").run()
-    assert not app.exception and not app.error
     about = " ".join(item.value for item in app.markdown)
     assert "not affiliated with or endorsed by PBS" in about
     assert "Inputs are not stored" in about
@@ -44,12 +42,13 @@ def test_app_smoke_and_navigation():
 
 def test_head_display_and_form_validation():
     app = AppTest.from_file(str(ROOT / "app" / "streamlit_app.py"), default_timeout=60).run()
-    app.selectbox[0].select(1.0).run()
+    app.selectbox(key="relationship_to_head").select(1.0).run()
     assert not any(box.label == "Household head's sex" for box in app.selectbox)
     app.number_input(key="household_size").set_value(1)
     app.number_input(key="children_under_15").set_value(2)
-    app.button[0].click().run()
+    app.run()
     assert any("Household size must include" in error.value for error in app.error)
+    assert not app.metric
     assert not app.exception
 
 
@@ -59,7 +58,6 @@ def test_app_submission_matches_pipeline(artifacts):
     with threadpool_limits(limits=1):
         expected = predict_probability(model, expected_row)
         app = AppTest.from_file(str(ROOT / "app" / "streamlit_app.py"), default_timeout=60).run()
-        app.button[0].click().run()
     assert not app.exception and not app.error
     assert app.metric[0].value == f"{expected:.1%}"
 
@@ -141,7 +139,7 @@ def test_rare_flags_and_warnings(artifacts):
         app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=60).run()
         app.slider[0].set_value(15)
         app.selectbox(key="education_level").select(8.0)
-        app.button[0].click().run()
+        app.run()
     assert app.metric and any("combination is rare" in warning.value for warning in app.warning)
 
 
@@ -150,5 +148,21 @@ def test_marital_relationship_warning_does_not_block():
         app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=60).run()
         app.selectbox(key="relationship_to_head").select(3.0).run()
         app.selectbox(key="marital_status").select(2.0)
-        app.button[0].click().run()
+        app.run()
     assert app.metric and any("relationship says" in warning.value for warning in app.warning)
+
+
+def test_live_examples_and_ruler():
+    with threadpool_limits(limits=1):
+        app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=60).run()
+        assert app.metric[0].value == "9.3%"
+        app.button[0].click().run()
+        assert app.metric[0].value == "0.7%"
+        app.button[2].click().run()
+        assert app.metric[0].value == "34.0%"
+        assert app.selectbox(key="area").value == 2.0
+        app.number_input(key="household_size").set_value(1).run()
+        assert not app.metric and any("Household size" in error.value for error in app.error)
+    quantiles = json.loads((ROOT / "models/score_quantiles.json").read_text(encoding="utf-8"))["quantiles"]
+    positions = [score_percentile(value, quantiles) for value in [0, .01, .1, .3, 1]]
+    assert positions == sorted(positions) and positions[0] == 0 and positions[-1] == 100

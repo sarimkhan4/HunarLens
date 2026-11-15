@@ -125,3 +125,13 @@
 **What does the local what-if chart show?** It compares the prediction with one field replaced by a typical training value; it describes the model's response, not a causal effect.
 
 **Why is the app not an individual decision tool?** The survey sample, unweighted model, possible subgroup differences and uncertainty limit what a single estimate can support.
+
+## Stage 9b: live interface
+
+**What does the risk ruler compare?** It locates a score among aggregate validation predictions for youth in the labour force.
+
+**Why use a Streamlit fragment?** An input change can update the result area without rerunning the Insights and About tabs.
+
+**Do interactive charts refit the model?** No. They use the same frozen pipeline and approved input checks to compare predictions.
+
+**Why can a rare-combination warning appear?** The training split contained fewer than 20 rows for at least one relevant age and education or enrolment combination.

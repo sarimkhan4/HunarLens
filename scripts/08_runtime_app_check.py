@@ -53,7 +53,7 @@ def check_fixture(name, changes, expected, model, metadata, census):
     app.slider[0].set_value(int(values["age"]))
     for field in ["sex", "area", "education_level", "currently_enrolled"]:
         app.selectbox(key=field).select(values[field])
-    app.button[0].click().run()
+    app.run()
     if app.exception or app.error or not app.metric or app.metric[0].value != f"{probability:.1%}":
         raise AssertionError(f"{name}: app submission and prediction function differ")
     print(f"{name}: PASS, probability={probability:.6f}, displayed={app.metric[0].value}")
@@ -73,13 +73,11 @@ def main():
             for name, (changes, expected) in FIXTURES.items():
                 check_fixture(name, changes, expected, model, metadata, census)
             app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90).run()
-            for page in ["Insights", "About and limits"]:
-                app.sidebar.radio[0].set_value(page).run()
-                if app.exception or app.error:
-                    raise AssertionError(f"{page} page did not load")
+            if [tab.label for tab in app.tabs] != ["Estimate", "Insights", "About"] or app.exception or app.error:
+                raise AssertionError("App tabs did not load")
     finally:
         builtins.open, io.open = original_open, original_io_open
-    opened.add("app/streamlit_app.py")
+    opened.update({"app/streamlit_app.py", ".streamlit/config.toml"})
     for module in list(sys.modules.values()):
         path = getattr(module, "__file__", None)
         if path:
