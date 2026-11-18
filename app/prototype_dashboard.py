@@ -42,7 +42,7 @@ def static_data():
     tables["census"] = pd.read_csv(ROOT / "data/processed/census_lookup.csv")
     tables["flags"] = pd.read_csv(ROOT / "data/processed/rare_combinations.csv", dtype={"age_key": str, "rare": bool})
     tables["quantiles"] = json.loads((ROOT / "models/score_quantiles.json").read_text(encoding="utf-8"))["quantiles"]
-    tables["pr_curve"] = base64.b64encode((ROOT / "reports/figures/test_pr_curve.png").read_bytes()).decode("ascii")
+    tables["pr_curve"] = base64.b64encode((ROOT / "reports/figures/test_pr_curve_wide.png").read_bytes()).decode("ascii")
     return tables
 
 

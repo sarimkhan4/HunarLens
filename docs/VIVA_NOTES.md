@@ -151,6 +151,14 @@
 
 **Why are some public files cached but profile answers are not?** Aggregate references are shared and unchanging; caching a person's selections or estimate could retain private information.
 
-**What does the comparison button retain?** Only the previous model score in the browser session, which can be cleared; it does not save the profile.
+**Why was the comparison option removed?** The team preferred a simpler profile explorer. Save/clear controls and the code retaining a previous score were removed; Copy summary remains available.
 
 **What does the explanation direction mean?** It compares the current score with the score after replacing one input with its typical value; the difference is an association in the model, not a causal effect.
+
+## Desktop visual refinement
+
+**Can a visual redesign change the model's predictions?** These changes only arrange the existing controls and display their results. The same values still reach the same validation functions and frozen pipeline.
+
+**Why label the chart scale?** Longer bars help small differences become visible, but the scale must be explicit so a rate such as 14% is not mistaken for 70%. Exact percentages remain beside each bar.
+
+**Why put the PR curve before the detailed tables?** It shows the precision–recall trade-off alongside the headline metrics, while the expandable tables retain the full results for closer inspection.

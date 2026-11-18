@@ -96,7 +96,7 @@ def test_curve_is_sent_after_navigation_and_profile_changes(monkeypatch):
         for page, profile in [("performance", {}), ("explorer", {"age": 24}), ("performance", {"age": 24})]:
             state["prototype_ui"] = {"page": page, "profile": profile}
             dashboard.show_dashboard(metadata, model)
-    expected = (ROOT / "reports/figures/test_pr_curve.png").read_bytes()
+    expected = (ROOT / "reports/figures/test_pr_curve_wide.png").read_bytes()
     assert len(sent) == 4
     assert all(base64.b64decode(data["pr_curve"]) == expected for data in sent)
 

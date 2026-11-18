@@ -2,6 +2,7 @@
 # Why: check the layouts without placing real survey records in screenshots.
 # Viva: the screenshots use the default synthetic profile, never real user input.
 import base64
+import argparse
 import importlib.util
 import json
 from pathlib import Path
@@ -21,9 +22,9 @@ PORT = 9250
 PAGES = ["overview", "explorer", "performance", "methodology"]
 
 
-def main():
-    """Capture four pages at two desktop sizes and the mobile profile screen."""
-    OUTPUT.mkdir(parents=True, exist_ok=True)
+def main(url: str = "http://localhost:8513", desktop_only: bool = False, output: Path = OUTPUT):
+    """Capture synthetic pages and compare displayed figures with saved reports."""
+    output.mkdir(parents=True, exist_ok=True)
     profile = ROOT / "data/interim/stage9e_browser"
     browser = subprocess.Popen([capture.find_chrome(), "--headless=new", "--disable-gpu", "--no-first-run",
                                 "--remote-allow-origins=*", f"--remote-debugging-port={PORT}",
@@ -43,7 +44,7 @@ def main():
             target = capture.request(ws, 1, "Target.createTarget", {"url": "about:blank"})["targetId"]
             session = capture.request(ws, 2, "Target.attachToTarget", {"targetId": target, "flatten": True})["sessionId"]
             capture.request(ws, 3, "Page.enable", session=session)
-            capture.request(ws, 4, "Page.navigate", {"url": "http://localhost:8513"}, session)
+            capture.request(ws, 4, "Page.navigate", {"url": url}, session)
             counter = 10
             shadow = "(()=>{for(const e of document.querySelectorAll('*'))if(e.shadowRoot&&e.shadowRoot.querySelector('.shell'))return e.shadowRoot;return null})()"
             def evaluate(expression):
@@ -70,7 +71,8 @@ def main():
                 time.sleep(.5)
             else:
                 raise RuntimeError("Dashboard did not load.")
-            for width, height in [(1440, 900), (1024, 768), (390, 844)]:
+            sizes = [(1440, 900), (1280, 900)] if desktop_only else [(1440, 900), (1024, 768), (390, 844)]
+            for width, height in sizes:
                 counter += 1
                 capture.request(ws, counter, "Emulation.setDeviceMetricsOverride",
                                 {"width": width, "height": height, "deviceScaleFactor": 1, "mobile": False}, session)
@@ -116,7 +118,7 @@ def main():
                     evaluate("window.scrollTo(0,0)")
                     counter += 1
                     screenshot = capture.request(ws, counter, "Page.captureScreenshot", {"format": "png"}, session)
-                    path = OUTPUT / f"{page}-{width}x{height}.png"
+                    path = output / f"{page}-{width}x{height}.png"
                     path.write_bytes(base64.b64decode(screenshot["data"]))
                     print(f"Saved {path}", flush=True)
     finally:
@@ -124,4 +126,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Verify saved dashboard numbers and capture synthetic UI screenshots.")
+    parser.add_argument("--url", default="http://localhost:8513")
+    parser.add_argument("--desktop-only", action="store_true")
+    parser.add_argument("--output", type=Path, default=OUTPUT)
+    arguments = parser.parse_args()
+    main(arguments.url, arguments.desktop_only, arguments.output)

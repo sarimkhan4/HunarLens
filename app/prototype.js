@@ -33,7 +33,19 @@
   const form=$('model-inputs');
   form.className='form-grid';
   form.style.gridColumn='1 / -1';
-  data.fields.forEach(field=>{
+  const inputGroups=[
+    ['person','About the person',['age','sex','marital_status','relationship_to_head']],
+    ['education','Education and training',['education_level','can_read','can_write','currently_enrolled','has_training']],
+    ['location','Location',['province','area']],
+    ['household','Household',['household_size','children_under_15','other_youth_15_24','head_sex','head_education']]
+  ];
+  inputGroups.forEach(([id,title])=>{
+    if(form.querySelector('[data-input-group="'+id+'"]'))return;
+    const section=document.createElement('fieldset');section.className='input-section';section.dataset.inputGroup=id;
+    const legend=document.createElement('legend');legend.textContent=title;section.appendChild(legend);form.appendChild(section);
+  });
+  const orderedFields=inputGroups.flatMap(([, , names])=>names.map(name=>data.fields.find(field=>field.name===name)));
+  orderedFields.forEach(field=>{
     let div=form.querySelector('[data-field="'+field.name+'"]');
     if ((field.name === 'head_sex' || field.name === 'head_education') && state.relationship_to_head === 1) {
       if(div)div.remove();
@@ -73,7 +85,9 @@
       const out=div.querySelector('.section-note')||document.createElement('span');out.className='section-note';out.textContent=String(state.age);
       input.oninput=()=>out.textContent=input.value;if(!existing)div.appendChild(out);
     }
-    if(!existing)form.appendChild(div);
+    const group=inputGroups.find(([, , names])=>names.includes(field.name));
+    const section=form.querySelector('[data-input-group="'+group[0]+'"]');
+    if(div.parentElement!==section)section.appendChild(div);
   });
   root.querySelectorAll('.example').forEach((button,index)=>{
     const examples=[
@@ -85,22 +99,17 @@
     button.onclick=()=>{Object.assign(state,data.defaults,examples[index]);send();};
   });
   $('resetProfile').onclick=()=>{Object.assign(state,data.defaults);send();};
-  const savedHost=root.host;
-  const comparison=$('compareBox');
-  $('clearProfile').hidden=savedHost.savedScore === undefined;
-  comparison.hidden=savedHost.savedScore === undefined || results.errors.length>0;
-  if(!comparison.hidden) comparison.textContent='Saved estimate: '+(savedHost.savedScore*100).toFixed(1)+'%. Current estimate: '+(results.probability*100).toFixed(1)+'%. Difference: '+((results.probability-savedHost.savedScore)*100).toFixed(1)+' percentage points.';
-  $('saveProfile').disabled=results.errors.length>0;
+  const copyStatus=$('copyStatus');
+  copyStatus.hidden=true;
+  copyStatus.textContent='';
   $('copyProfile').disabled=results.errors.length>0;
-  $('saveProfile').onclick=()=>{savedHost.savedScore=results.probability;comparison.textContent='Estimate saved for this session only.';comparison.hidden=false;$('clearProfile').hidden=false;};
-  $('clearProfile').onclick=()=>{delete savedHost.savedScore;comparison.hidden=true;$('clearProfile').hidden=true;};
   $('copyProfile').onclick=async()=>{
     const profile=data.fields.map(f=>{const control=$('input-'+f.name);if(!control)return null;return f.label+': '+(control.selectedOptions?control.selectedOptions[0].textContent:control.value);}).filter(Boolean).join(', ');
     const text='HunarLens model estimate: '+profile+' -> '+(results.probability*100).toFixed(1)+'%. Experimental, association not causation, not a decision tool.';
-    try {await navigator.clipboard.writeText(text);comparison.textContent='Summary copied.';} catch (_) {comparison.textContent='Copy unavailable. Select and copy this summary: '+text;}
-    comparison.hidden=false;
+    try {await navigator.clipboard.writeText(text);copyStatus.textContent='Summary copied.';} catch (_) {copyStatus.textContent='Copy unavailable. Select and copy this summary: '+text;}
+    copyStatus.hidden=false;
   };
-  const resultCard=root.querySelector('#page-explorer article:nth-of-type(2)');
+  const resultCard=root.querySelector('.profile-result');
   $('multiple').nextElementSibling.textContent='Versus training-sample rate ('+(data.base_rate*100).toFixed(1)+'%)';
   $('flag').nextElementSibling.textContent=(data.threshold*100).toFixed(1)+'% follow-up threshold';
   let message=root.querySelector('#form-messages');
@@ -141,6 +150,13 @@
     if(!factors.children.length) factors.textContent='Each displayed change is smaller than 0.05 percentage points.';
   }
   resultCard.querySelectorAll('.extra-model-tools').forEach(node=>node.remove());
+  const analysis=$('profile-analysis');
+  const information=$('profile-information');
+  const explainOpen=information.querySelector('[data-tool="importance"]')?.open||false;
+  analysis.replaceChildren();
+  information.replaceChildren();
+  analysis.hidden=results.errors.length>0;
+  information.hidden=results.errors.length>0;
   if (!results.errors.length) {
     const extra=document.createElement('div');extra.className='extra-model-tools';
     const ruler=document.createElement('div');ruler.className='risk-ruler';
@@ -149,8 +165,9 @@
     ruler.querySelector('i').style.left=Math.min(results.percentile,99.5)+'%';extra.appendChild(ruler);
     const labels=document.createElement('div');labels.className='risk-labels';labels.innerHTML='<span>Lower than most</span><span>Elevated</span><span>High</span>';extra.appendChild(labels);
     const text=document.createElement('p');text.className='section-note';text.textContent='Higher than about '+Math.round(results.percentile)+'% of youth in the validation sample.';extra.appendChild(text);
-    const explore=document.createElement('details');explore.className='extra-section';explore.open=true;
-    const summary=document.createElement('summary');summary.textContent='Explore one input';explore.appendChild(summary);
+    resultCard.querySelector('.result-grid').after(extra);
+    const explore=document.createElement('article');explore.className='card extra-section';explore.dataset.tool='explore';
+    const summary=document.createElement('h2');summary.textContent='Explore one input';explore.appendChild(summary);
     const label=document.createElement('label');label.htmlFor='explore-choice';label.textContent='Input to explore';explore.appendChild(label);
     const select=document.createElement('select');select.id='explore-choice';
     data.fields.forEach(field=>{const option=document.createElement('option');option.value=field.name;option.textContent=field.label;select.appendChild(option);});
@@ -160,8 +177,8 @@
       const track=document.createElement('div');track.className='factor-track';const bar=document.createElement('div');bar.className='factor-fill';bar.style.width=(row.probability*100)+'%';track.appendChild(bar);line.appendChild(track);
       const value=document.createElement('span');value.textContent=(row.probability*100).toFixed(1)+'%'+(row.rare?' · rare':'');line.appendChild(value);
       line.title='Predicted probability '+(row.probability*100).toFixed(1)+'%';explore.appendChild(line);});
-    const caveat=document.createElement('p');caveat.className='section-note';caveat.textContent='Changes are model associations, not causal effects. Rare combinations are less reliable.';explore.appendChild(caveat);extra.appendChild(explore);
-    const explain=document.createElement('details');explain.className='extra-section';
+    const caveat=document.createElement('p');caveat.className='section-note';caveat.textContent='Changes are model associations, not causal effects. Rare combinations are less reliable.';explore.appendChild(caveat);analysis.appendChild(explore);
+    const explain=document.createElement('details');explain.className='card extra-section';explain.dataset.tool='importance';explain.open=explainOpen;
     const head=document.createElement('summary');head.textContent='How the model uses information';explain.appendChild(head);
     data.importance.forEach(item=>{const line=document.createElement('div');line.className='factor';
       const name=document.createElement('span');name.className='factor-name';name.textContent=item.group;line.appendChild(name);
@@ -169,8 +186,7 @@
       const bar=document.createElement('div');bar.className='factor-fill';bar.style.width=Math.max(0,Math.min(100,item.importance_mean/0.12*100))+'%';track.appendChild(bar);line.appendChild(track);
       const error=document.createElement('span');error.style.cssText='position:absolute;top:2px;height:3px;background:#17233d';error.style.left=Math.max(0,(item.importance_mean-item.importance_std)/0.12*100)+'%';error.style.width=Math.min(100,2*item.importance_std/0.12*100)+'%';track.appendChild(error);
       const value=document.createElement('span');value.textContent=item.importance_mean.toFixed(3)+' ± '+item.importance_std.toFixed(3);line.appendChild(value);explain.appendChild(line);});
-    const explainNote=document.createElement('p');explainNote.className='section-note';explainNote.textContent='Decrease in validation average precision when each group is shuffled. Variation is across 20 shuffles; importance is not causation.';explain.appendChild(explainNote);extra.appendChild(explain);
-    resultCard.appendChild(extra);
+    const explainNote=document.createElement('p');explainNote.className='section-note';explainNote.textContent='Decrease in validation average precision when each group is shuffled. Variation is across 20 shuffles; importance is not causation.';explain.appendChild(explainNote);information.appendChild(explain);
   }
   const survey=data.survey;
   const cards=root.querySelectorAll('#page-overview .kpi-value');
@@ -179,7 +195,9 @@
     ...['15_19','20_24'].flatMap(age=>['male','female'].map(sex=>[age.replace('_','–')+' · '+sex,survey['unemployment_'+age+'_'+sex]]))].filter(([,v])=>Number.isFinite(v));
   const chart=$('ageChart');chart.removeAttribute('aria-label');
   chart.setAttribute('aria-label','Official unemployment rates for labour-force youth by age, sex and area');
-  chart.innerHTML=chosen.map(([label,value])=>'<div class="metric-row"><span>'+label+'</span><div class="track"><div class="fill" style="width:'+(value*100)+'%"></div></div><strong>'+(value*100).toFixed(1)+'%</strong></div>').join('');
+  const surveyScale=Math.max(5,Math.ceil(Math.max(...chosen.map(([,value])=>value))*100/5)*5);
+  chart.innerHTML=chosen.map(([label,value])=>'<div class="metric-row"><span>'+label+'</span><div class="track"><div class="fill" style="width:'+(value*100/surveyScale*100)+'%"></div></div><strong>'+(value*100).toFixed(1)+'%</strong></div>').join('');
+  const scale=document.createElement('p');scale.className='section-note chart-scale';scale.textContent='Bar scale: 0–'+surveyScale+'%. Exact rates shown at right.';chart.appendChild(scale);
   chart.closest('.card').querySelector('h2').textContent='Youth unemployment by age, sex and area';
   chart.closest('.card').querySelector('.card-desc').textContent='Official weighted rate · ages 15–24';
   const chartLegend=chart.closest('.card').querySelector('.legend');if(chartLegend)chartLegend.remove();
@@ -198,7 +216,7 @@
   const perfCards=root.querySelectorAll('#page-performance .grid.two');
   const outcome=perfCards[0].querySelectorAll('.card')[0];
   const values=[['Flagged youth',(m.tp+m.fp)/m.n],['Unemployed among flagged',m.precision],['Unemployed detected',m.recall]];
-  outcome.querySelector('.metric-list').innerHTML=values.map(([label,v])=>'<div><div class="metric-row"><span>'+label+'</span><strong>'+(v*100).toFixed(1)+'%</strong></div><div class="track"><div class="fill" style="width:'+(v*100)+'%"></div></div></div>').join('');
+  outcome.querySelector('.metric-list').innerHTML=values.map(([label,v])=>'<div><div class="metric-row metric-label"><span>'+label+'</span><strong>'+(v*100).toFixed(1)+'%</strong></div><div class="track"><div class="fill" style="width:'+(v*100)+'%"></div></div></div>').join('');
   outcome.querySelector('.insight').textContent='Among unemployed youth, '+(m.recall*100).toFixed(1)+'% were flagged and '+((1-m.recall)*100).toFixed(1)+'% were missed. Of those flagged, '+(m.precision*100).toFixed(1)+'% were unemployed.';
   const core=perfCards[0].querySelectorAll('.card')[1];
   core.querySelector('.metric-list').innerHTML=[['F1',m.f1],['PR-AUC',m.pr_auc],['ROC-AUC',m.roc_auc]].map(([label,v])=>'<div class="metric-row"><span>'+label+'</span><div class="track"><div class="fill" style="width:'+(v*100)+'%"></div></div><strong>'+v.toFixed(3)+'</strong></div>').join('');
@@ -207,13 +225,18 @@
   const foot=root.querySelectorAll('#page-performance .kpi-foot');foot[1].textContent=m.positives.toLocaleString()+' of '+m.n.toLocaleString()+' youth';foot[2].textContent='At the selected threshold';
   const education=perfCards[1].querySelectorAll('.card')[1].querySelector('.metric-list');
   const ed=data.subgroups.filter(r=>r.subgroup.toLowerCase().includes('education')&&r.threshold==='f1');
-  education.innerHTML=ed.map(r=>'<div class="metric-row"><span>'+r.value+' (n='+r.n+', positives='+r.positives+')</span><div class="track"><div class="fill" style="width:'+(r.recall*100)+'%"></div></div><strong>'+(r.recall*100).toFixed(1)+'%'+(r.positives<50?' †':'')+'</strong></div>').join('');
+  education.classList.add('subgroup-chart');
+  education.innerHTML=ed.map(r=>'<div class="metric-row"><span>'+r.value+'<small>n='+r.n+' · positives='+r.positives+'</small></span><div class="track"><div class="fill" style="width:'+(r.recall*100)+'%"></div></div><strong>'+(r.recall*100).toFixed(1)+'%'+(r.positives<50?' †':'')+'</strong></div>').join('');
   perfCards[1].querySelectorAll('.card')[1].querySelector('.callout').textContent='† Fewer than 50 positives: unreliable. Differences are descriptive and do not establish causation.';
   const importance=$('importance');
   importance.innerHTML=data.importance.slice(0,5).map(r=>'<div class="metric-row"><span>'+r.group+'</span><div class="track"><div class="fill" style="width:'+Math.max(0,Math.min(100,r.importance_mean/0.12*100))+'%"></div></div><strong>'+r.importance_mean.toFixed(3)+'</strong></div>').join('');
   const impTitle=importance.closest('.card').querySelector('.card-desc');
   if(impTitle)impTitle.textContent='Decrease in validation average precision when inputs are shuffled';
   root.querySelectorAll('.generated-report').forEach(node=>node.remove());
+  const detailHeading=document.createElement('div');detailHeading.className='generated-report report-heading';
+  const detailTitle=document.createElement('h2');detailTitle.textContent='Detailed results';detailHeading.appendChild(detailTitle);
+  const detailNote=document.createElement('p');detailNote.className='section-note';detailNote.textContent='Expand a table to compare models, review uncertainty or inspect subgroup performance.';detailHeading.appendChild(detailNote);
+  root.querySelector('#page-performance').appendChild(detailHeading);
   function addTable(title, rows) {
     const details=document.createElement('details');details.className='card generated-report';details.style.marginTop='16px';
     const summary=document.createElement('summary');summary.textContent=title;details.appendChild(summary);
@@ -228,10 +251,15 @@
   addTable('Final test metrics · model and Dummy',data.test_table);
   addTable('95% grouped bootstrap confidence intervals',data.confidence);
   addTable('Subgroup performance · fewer than 50 positives is unreliable',data.subgroups);
-  const pr=document.createElement('article');pr.className='card generated-report';pr.style.marginTop='16px';
+  const pr=document.createElement('article');pr.className='card generated-report pr-card';
   const prTitle=document.createElement('h2');prTitle.textContent='Final test precision–recall curve';pr.appendChild(prTitle);
+  const prNote=document.createElement('p');prNote.className='section-note';prNote.textContent='Precision is the share of flagged youth who are unemployed; recall is the share of unemployed youth detected. The dashed line shows the no-skill prevalence.';pr.appendChild(prNote);
   const prImage=document.createElement('img');prImage.src='data:image/png;base64,'+data.pr_curve;prImage.alt='Test precision–recall curve with the no-skill prevalence line';prImage.style.maxWidth='100%';pr.appendChild(prImage);
-  root.querySelector('#page-performance').appendChild(pr);
+  perfCards[0].after(pr);
+  root.querySelectorAll('.metric-row').forEach(row=>{
+    const label=row.querySelector('span'),value=row.querySelector('strong');
+    if(label&&value)row.title=label.textContent+': '+value.textContent;
+  });
   root.querySelectorAll('.source-pill').forEach(e=>e.textContent='Pakistan · National view');
   const method=root.querySelector('#page-methodology');
   if(!method.querySelector('.project-context')){

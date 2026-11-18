@@ -38,20 +38,24 @@
 <section class="page" id="page-explorer">
 <div class="page-head"><div><div class="eyebrow">Interactive tool</div><h1>Profile explorer</h1><p class="sub">Explore the frozen model for youth aged 15–24 in the labour force. Association is not causation.</p></div><div class="actions"><button class="btn" id="resetProfile">Reset profile</button></div></div>
 <div class="grid profile-layout">
-<article class="card"><div class="card-head"><div><h2>Build a profile</h2><div class="card-desc">Select characteristics to update the model estimate.</div></div><span class="tag">Frozen model</span></div>
+<article class="card profile-inputs"><div class="card-head"><div><h2>Build a profile</h2><div class="card-desc">Select characteristics to update the model estimate.</div></div><span class="tag">Frozen model</span></div>
 <div class="form-grid"><div id="model-inputs"></div></div>
 <div style="margin-top:18px"><div class="card-desc" style="font-weight:800;margin-bottom:8px">Try an example</div><div class="actions"><button class="btn example" data-example="0">Rural, not enrolled</button><button class="btn example" data-example="1">Urban student</button><button class="btn example" data-example="2">Urban graduate</button></div></div>
 <div class="disclaimer">Inputs are not stored. Census values are filled automatically.</div>
 </article>
-<article aria-live="polite" class="card"><div class="card-head"><div><h2>What the survey pattern suggests</h2><div class="card-desc" id="profileDesc"></div></div><span class="tag">Model output</span></div>
+<div class="profile-output">
+<article aria-live="polite" aria-label="Profile estimate and explanations" tabindex="0" class="card profile-result"><div class="card-head"><div><h2>What the survey pattern suggests</h2><div class="card-desc" id="profileDesc"></div></div><span class="tag">Model output</span></div>
 <div class="result-band band-low" id="band"></div><div class="result-number" id="probability"></div><div class="result-sub">Estimated unemployment probability in the labour-force sample</div>
+<div class="disclaimer">Association is not causation. Not a decision tool for individuals.</div>
 <div aria-label="Model estimate in squares" class="dot-grid" id="dotGrid" role="img"></div>
 <div class="result-grid"><div class="mini"><b id="per100"></b><span>Out of 100 similar youth</span></div><div class="mini"><b id="multiple"></b><span>Versus training-sample rate</span></div><div class="mini"><b id="flag"></b><span>Follow-up threshold</span></div></div>
 <h3 style="margin:18px 0 5px">What changes the estimate?</h3><div id="factors"></div>
-<div class="disclaimer">Association is not causation. Not a decision tool for individuals.</div>
-<div class="actions" style="margin-top:14px"><button class="btn" id="copyProfile">Copy summary</button><button class="btn" id="saveProfile">Save comparison</button><button class="btn" id="clearProfile">Clear comparison</button></div><div class="insight" hidden="" id="compareBox"></div>
+<div class="actions" style="margin-top:14px"><button class="btn" id="copyProfile">Copy summary</button></div><div class="insight" hidden="" id="copyStatus" role="status"></div>
 </article>
+<section id="profile-analysis" class="profile-analysis" aria-label="Model exploration"></section>
 </div>
+</div>
+<section id="profile-information" class="profile-information" aria-label="How the model uses information"></section>
 </section>
 <section class="page" id="page-performance">
 <div class="page-head"><div><div class="eyebrow">Evaluation &amp; reliability</div><h1>Model performance</h1><p class="sub">Understand what the experimental model can—and cannot—identify in its held-out evaluation sample.</p></div></div>

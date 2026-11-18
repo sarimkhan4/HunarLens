@@ -398,7 +398,7 @@ def insights():
     st.dataframe(test_metrics[display_columns].rename(columns={"model_threshold": "Model and threshold", "f1": "F1", "precision": "Precision", "recall": "Recall", "pr_auc": "PR-AUC", "roc_auc": "ROC-AUC", "lift_10": "Top 10% lift", "prevalence": "Prevalence"}), hide_index=True)
     st.write("95% household-grouped bootstrap intervals")
     st.dataframe(pd.read_csv(TABLES / "test_bootstrap_ci.csv"), hide_index=True)
-    st.image(str(FIGURES / "test_pr_curve.png"), caption="Test precision–recall curve; dashed line is prevalence.")
+    st.image(str(FIGURES / "test_pr_curve_wide.png"), caption="Test precision–recall curve; dashed line is prevalence.")
     st.subheader("Subgroup caveats")
     groups = pd.read_csv(TABLES / "test_subgroups.csv")
     st.dataframe(groups, hide_index=True)
