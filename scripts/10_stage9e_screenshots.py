@@ -52,11 +52,15 @@ def main():
                 return capture.request(ws, counter, "Runtime.evaluate",
                                        {"expression": expression, "returnByValue": True}, session)["result"].get("value")
             indicators = pd.read_csv(ROOT / "reports/tables/overview_indicators.csv").query('status == "verified"').set_index("indicator")
-            metrics = pd.read_csv(ROOT / "reports/tables/test_metrics.csv").set_index("model_threshold").loc["HGB F1"]
+            metric_table = pd.read_csv(ROOT / "reports/tables/test_metrics.csv").set_index("model_threshold")
+            metrics = metric_table.loc["HGB F1"]
+            dummy = metric_table.loc["Stratified Dummy"]
             confidence = pd.read_csv(ROOT / "reports/tables/test_bootstrap_ci.csv")
             interval = confidence[(confidence.model_threshold == "HGB F1") & (confidence.metric == "f1")].iloc[0]
             subgroup = pd.read_csv(ROOT / "reports/tables/test_subgroups.csv")
             education = subgroup[subgroup.subgroup.str.contains("education", case=False) & subgroup.threshold.eq("f1")]
+            importance = pd.read_csv(ROOT / "reports/tables/grouped_permutation_importance.csv")
+            importance = importance[~importance.group.isin(["Region", "Sex and area"])].sort_values("importance_mean", ascending=False).head(5)
             expected_overview = [f"{indicators.loc[key, 'pbs_value']:.1%}" for key in ["youth_all", "all_ages", "youth_male", "youth_female"]]
             expected_performance = [f"{int(metrics['n']):,}", f"{metrics['prevalence']:.1%}",
                                     f"{(metrics['tp'] + metrics['fp']) / metrics['n']:.1%}", f"{metrics['roc_auc']:.3f}"]
@@ -98,9 +102,15 @@ def main():
                             expected_values = [f"{indicators.loc[key, 'pbs_value']:.1%}" for key in keys]
                         else:
                             expected_values = [f"{metrics['precision']:.1%}", f"{metrics['recall']:.1%}",
+                                               f"{1 - metrics['recall']:.1%}", f"{metrics['prevalence']:.3f}",
                                                f"{metrics['f1']:.3f}", f"{metrics['pr_auc']:.3f}",
-                                               f"{interval.lower_95:.3f}", f"{interval.upper_95:.3f}"]
+                                               f"{metrics['roc_auc']:.3f}", f"{dummy['f1']:.3f}",
+                                               f"{interval.lower_95:.3f}", f"{interval.upper_95:.3f}",
+                                               f"{int(metrics['positives']):,}"]
+                            expected_values += [str(int(value)) for value in education["n"]]
                             expected_values += [str(int(value)) for value in education.positives]
+                            expected_values += [f"{value:.1%}" for value in education.recall]
+                            expected_values += [f"{value:.3f}" for value in importance.importance_mean]
                         if any(value not in page_text for value in expected_values):
                             raise RuntimeError(f"{page} contains a missing or inconsistent generated value")
                     evaluate("window.scrollTo(0,0)")
