@@ -170,3 +170,23 @@
 **Does the phone app use a different prediction function?** No. The same controls, category values, validation functions and frozen pipeline are used; only the visual arrangement changes.
 
 **Why can a table scroll sideways while the page cannot?** Wide result tables need room for their columns. Their own container handles horizontal scrolling so the rest of the page remains fitted to the phone screen.
+# Skills-gap S0 and S1
+
+**Why is this work on a separate branch?** It lets the team review the extension
+before any change reaches the deployed main branch.
+
+**Why can occupation not enter the model?** Occupation describes labour-market
+activity and would violate the predictor allowlist and leakage safeguards.
+
+**What does a survey weight do?** It helps estimate population totals; the
+unweighted count tells us how many sampled people support that estimate.
+
+**Why are some counts hidden?** Cells with fewer than 30 respondents are
+suppressed, and groups below 50 are marked unreliable.
+
+**Why check the questionnaire against Stata labels?** A label can be wrong:
+the previous-work question has an employment-agency label, while its routing
+is consistent with the questionnaire.
+
+**Does this audit measure employer demand?** No. Education and training are
+proxies; the survey does not directly count vacancies or employer demand.

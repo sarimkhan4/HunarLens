@@ -157,3 +157,36 @@ Make Explore one input a permanently visible card below the estimate. Move How t
 Extend the approved visual styling using only media queries at widths of 760px and below. Restore the four input-group headings, use one column of form controls on phones (two within groups at 540–760px), provide 44px minimum input/button touch targets, and increase mobile label readability. Keep profile output and exploration on normal page scrolling, keep tables scrollable within their cards, and reserve space for the mobile navigation and safe area. The native fallback receives mobile typography adjustments under the same breakpoint.
 
 Do not modify the desktop selectors or the HTML, JavaScript, prediction/validation functions, model, metadata, feature code, dependencies or saved evaluation results. Compare the rendered desktop styles before and after at 761px, 1280px and 1440px; verify all four pages at 360px, 390px, 430px and 760px and check the approved fixture probabilities and invalid-input behavior on the mobile layout.
+# 2026-11-19 — skills-gap S0 and S1 audit
+
+- Begin the skills extension on the separate `skills-gap` branch; R15 keeps
+  labour-market fields out of the frozen model. S1 is an inventory and
+  disclosure-safe aggregate audit, not approval to build the extension.
+- Treat `S9C10` as an unresolved questionnaire/Stata label mismatch: its
+  prior-occupation routing supports the questionnaire's previous-work meaning.
+  The source course-code list was found, but training type remains excluded
+  pending the team's decision. The PBS occupation version discrepancy and
+  unlabelled `Fstatus` need review.
+- The proposed education and occupation groupings, normative mapping,
+  optional analyses and five-variable check remain at Gate S1. In particular,
+  codes 2–3 are below primary and cannot accurately be labelled primary/middle.
+  The team has not approved these proposals.
+# 2026-11-19 — skills-gap autopilot verification and stop
+
+- The team authorized one-digit occupation groups, exclusion of armed forces,
+  the specified statistical norms and the normative sensitivity. PBS's
+  [LFS overview](https://www.pbs.gov.pk/labour-force-statistics/) describes
+  PSCO 2015, while its linked [occupation code document](https://www.pbs.gov.pk/wp-content/uploads/2020/07/Occuptions-Classification-4-digits.pdf)
+  is titled PSCO 2012. The team explicitly accepts this version ambiguity.
+- Exclude the optional industry, detailed study-field and unemployment-barrier
+  lenses for this run: the industry code document was not verified; the study
+  fields are not comprehensive; and reasons for not searching are not general
+  reasons for failing to find work. `Fstatus` is not used.
+- The S2 comparison uses PBS table 17 for occupation and table 7 for literacy
+  and education. The denominators differ: table 17 is a distribution among
+  employed people, whereas table 7 cells are shares of the whole age-10-plus
+  population. The generated reproduction table records each comparison.
+- S3 is stopped at the user-specified uncovered-definition condition. A move
+  to the next education band does not specify which actual model input code
+  to use when that band contains several distinct categories. Different choices
+  may change the estimated model shift; no representative code was selected.

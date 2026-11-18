@@ -63,6 +63,9 @@ Raw data comes only from the official PBS pages (LFS "Labour Force Statistics" p
 **R14 — Weights and design variables are not features.**
 Survey weights, PSU/household identifiers, record IDs and other sampling-design variables are never predictors. The weight is used only for the label reproduction test in Stage 2 (and for an optional sensitivity check if the team approves).
 
+**R15 — Skills-gap work.**
+Skills-gap work follows docs/SKILLS_GAP_PLAN.md; labour-market variables are used only in scripts/09_* and src/hunarlens/skills.py, never in model inputs.
+
 ---
 
 ## 3. Repository layout

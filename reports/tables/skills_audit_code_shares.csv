@@ -1,0 +1,311 @@
+scope,variable,category,n,weighted_n,flag,total_n,total_weight,sample_share,weighted_share
+all youth,S4C5,ALL,59491,46314711,,59491,46314711,1.0,1.0
+all youth,S4C5,1.0,31421,24234335,,59491,46314711,0.528164,0.523254
+all youth,S4C5,2.0,28070,22080376,,59491,46314711,0.471836,0.476746
+all youth,S4C5,missing / not asked,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C6,ALL,59491,46314711,,59491,46314711,1.0,1.0
+all youth,S4C6,recorded,59491,46314711,,59491,46314711,1.0,1.0
+all youth,S4C6,missing / not asked,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,Region,ALL,59491,46314711,,59491,46314711,1.0,1.0
+all youth,Region,1.0,39907,28148218,,59491,46314711,0.670807,0.60776
+all youth,Region,2.0,19584,18166493,,59491,46314711,0.329193,0.39224
+all youth,Region,missing / not asked,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C9,ALL,59491,46314711,,59491,46314711,1.0,1.0
+all youth,S4C9,1.0,13632,9236486,,59491,46314711,0.229144,0.199429
+all youth,S4C9,2.0,181,136148,,59491,46314711,0.003042,0.00294
+all youth,S4C9,3.0,1858,1376139,,59491,46314711,0.031232,0.029713
+all youth,S4C9,4.0,6748,5363333,,59491,46314711,0.113429,0.115802
+all youth,S4C9,5.0,12504,10059502,,59491,46314711,0.210183,0.217199
+all youth,S4C9,6.0,12581,10173472,,59491,46314711,0.211477,0.21966
+all youth,S4C9,7.0,9465,7815805,,59491,46314711,0.1591,0.168754
+all youth,S4C9,8.0,170,129673,,59491,46314711,0.002858,0.0028
+all youth,S4C9,9.0,125,107638,,59491,46314711,0.002101,0.002324
+all youth,S4C9,10.0,151,124981,,59491,46314711,0.002538,0.002699
+all youth,S4C9,11.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C9,12.0,954,843062,,59491,46314711,0.016036,0.018203
+all youth,S4C9,13.0,673,575403,,59491,46314711,0.011313,0.012424
+all youth,S4C9,14.0,425,353654,,59491,46314711,0.007144,0.007636
+all youth,S4C9,15.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C9,missing / not asked,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C10,ALL,59491,46314711,,59491,46314711,1.0,1.0
+all youth,S4C10,1.0,38323,29218627,,59491,46314711,0.644181,0.630871
+all youth,S4C10,4.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C10,5.0,685,524224,,59491,46314711,0.011514,0.011319
+all youth,S4C10,6.0,6586,5246184,,59491,46314711,0.110706,0.113273
+all youth,S4C10,7.0,6801,5439645,,59491,46314711,0.11432,0.11745
+all youth,S4C10,8.0,418,331332,,59491,46314711,0.007026,0.007154
+all youth,S4C10,9.0,272,236060,,59491,46314711,0.004572,0.005097
+all youth,S4C10,10.0,257,219208,,59491,46314711,0.00432,0.004733
+all youth,S4C10,11.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C10,12.0,840,703515,,59491,46314711,0.01412,0.01519
+all youth,S4C10,13.0,4992,4127214,,59491,46314711,0.083912,0.089112
+all youth,S4C10,14.0,200,172640,,59491,46314711,0.003362,0.003728
+all youth,S4C10,15.0,85,72432,,59491,46314711,0.001429,0.001564
+all youth,S4C10,16.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C10,missing / not asked,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C11,ALL,59491,46314711,,59491,46314711,1.0,1.0
+all youth,S4C11,1.0,748,607706,,59491,46314711,0.012573,0.013121
+all youth,S4C11,2.0,3877,3149777,,59491,46314711,0.06517,0.068008
+all youth,S4C11,3.0,1433,1165518,,59491,46314711,0.024088,0.025165
+all youth,S4C11,4.0,53433,41391710,,59491,46314711,0.898169,0.893705
+all youth,S4C11,missing / not asked,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,ALL,59491,46314711,,59491,46314711,1.0,1.0
+all youth,S4C12,1.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,2.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,3.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,4.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,5.0,109,90979,,59491,46314711,0.001832,0.001964
+all youth,S4C12,6.0,36,31967,unreliable: n < 50,59491,46314711,0.000605,0.00069
+all youth,S4C12,7.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,8.0,220,211622,,59491,46314711,0.003698,0.004569
+all youth,S4C12,9.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,10.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,12.0,45,40745,unreliable: n < 50,59491,46314711,0.000756,0.00088
+all youth,S4C12,13.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,14.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,16.0,87,81941,,59491,46314711,0.001462,0.001769
+all youth,S4C12,17.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,19.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,20.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,21.0,347,280956,,59491,46314711,0.005833,0.006066
+all youth,S4C12,22.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,23.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,24.0,61,47454,,59491,46314711,0.001025,0.001025
+all youth,S4C12,25.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,26.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,27.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,28.0,53,47562,,59491,46314711,0.000891,0.001027
+all youth,S4C12,29.0,33,28753,unreliable: n < 50,59491,46314711,0.000555,0.000621
+all youth,S4C12,30.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,31.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,32.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,33.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,34.0,1184,880256,,59491,46314711,0.019902,0.019006
+all youth,S4C12,35.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,36.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,37.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,38.0,243,225915,,59491,46314711,0.004085,0.004878
+all youth,S4C12,39.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,40.0,487,312760,,59491,46314711,0.008186,0.006753
+all youth,S4C12,41.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,42.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,43.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,44.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,45.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,46.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,48.0,31,25438,unreliable: n < 50,59491,46314711,0.000521,0.000549
+all youth,S4C12,49.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,50.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,51.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,52.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,53.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,54.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,55.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,56.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,57.0,33,21706,unreliable: n < 50,59491,46314711,0.000555,0.000469
+all youth,S4C12,59.0,109,87419,,59491,46314711,0.001832,0.001887
+all youth,S4C12,60.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,61.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,63.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,64.0,102,92388,,59491,46314711,0.001715,0.001995
+all youth,S4C12,65.0,167,148552,,59491,46314711,0.002807,0.003207
+all youth,S4C12,66.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,68.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,69.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,71.0,61,53599,,59491,46314711,0.001025,0.001157
+all youth,S4C12,72.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,73.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,74.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,75.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,76.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,77.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,78.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,79.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,81.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,82.0,1974,1658547,,59491,46314711,0.033181,0.03581
+all youth,S4C12,83.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,84.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,86.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,88.0,48,26463,unreliable: n < 50,59491,46314711,0.000807,0.000571
+all youth,S4C12,89.0,111,101412,,59491,46314711,0.001866,0.00219
+all youth,S4C12,90.0,suppressed,suppressed,suppressed: n < 30,59491,46314711,,
+all youth,S4C12,91.0,82,64893,,59491,46314711,0.001378,0.001401
+all youth,S4C12,missing / not asked,53433,41391710,,59491,46314711,0.898169,0.893705
+all youth,S4C13,ALL,59491,46314711,,59491,46314711,1.0,1.0
+all youth,S4C13,recorded,6058,4923001,,59491,46314711,0.101831,0.106295
+all youth,S4C13,missing / not asked,53433,41391710,,59491,46314711,0.898169,0.893705
+all youth,S4C14,ALL,59491,46314711,,59491,46314711,1.0,1.0
+all youth,S4C14,1.0,236,204589,,59491,46314711,0.003967,0.004417
+all youth,S4C14,2.0,1221,965901,,59491,46314711,0.020524,0.020855
+all youth,S4C14,3.0,4601,3752512,,59491,46314711,0.077339,0.081022
+all youth,S4C14,missing / not asked,53433,41391710,,59491,46314711,0.898169,0.893705
+employed youth,S5C11,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C11,1.0,119,97286,,23270,17922306,0.005114,0.005428
+employed youth,S5C11,2.0,5657,4354932,,23270,17922306,0.243103,0.242989
+employed youth,S5C11,3.0,9721,7702850,,23270,17922306,0.417748,0.429791
+employed youth,S5C11,4.0,7172,5248161,,23270,17922306,0.308208,0.292828
+employed youth,S5C11,5.0,475,409557,,23270,17922306,0.020413,0.022852
+employed youth,S5C11,6.0,126,109520,,23270,17922306,0.005415,0.006111
+employed youth,S5C11,missing / not asked,suppressed,suppressed,suppressed: n < 30,23270,17922306,,
+employed youth,S5C12,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C12,recorded,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C12,missing / not asked,suppressed,suppressed,suppressed: n < 30,23270,17922306,,
+employed youth,S5C13,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C13,recorded,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C13,missing / not asked,suppressed,suppressed,suppressed: n < 30,23270,17922306,,
+employed youth,S5C15,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C15,1.0,155,114849,,23270,17922306,0.006661,0.006408
+employed youth,S5C15,2.0,611,466442,,23270,17922306,0.026257,0.026026
+employed youth,S5C15,3.0,38,29512,unreliable: n < 50,23270,17922306,0.001633,0.001647
+employed youth,S5C15,4.0,suppressed,suppressed,suppressed: n < 30,23270,17922306,,
+employed youth,S5C15,5.0,suppressed,suppressed,suppressed: n < 30,23270,17922306,,
+employed youth,S5C15,6.0,1275,1057720,,23270,17922306,0.054792,0.059017
+employed youth,S5C15,8.0,50,39771,,23270,17922306,0.002149,0.002219
+employed youth,S5C15,9.0,8083,5738920,,23270,17922306,0.347357,0.320211
+employed youth,S5C15,10.0,12888,10356695,,23270,17922306,0.553846,0.577866
+employed youth,S5C15,11.0,153,105171,,23270,17922306,0.006575,0.005868
+employed youth,S5C15,missing / not asked,suppressed,suppressed,suppressed: n < 30,23270,17922306,,
+employed youth,S5C16,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C16,1.0,716,628017,,23270,17922306,0.030769,0.035041
+employed youth,S5C16,2.0,17322,13254757,,23270,17922306,0.744392,0.739568
+employed youth,S5C16,3.0,3086,2318011,,23270,17922306,0.132617,0.129337
+employed youth,S5C16,missing / not asked,2146,1721520,,23270,17922306,0.092222,0.096055
+employed youth,S5C17,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C17,1.0,428,353046,,23270,17922306,0.018393,0.019699
+employed youth,S5C17,2.0,1226,941953,,23270,17922306,0.052686,0.052558
+employed youth,S5C17,3.0,4466,3422633,,23270,17922306,0.191921,0.190971
+employed youth,S5C17,4.0,10616,8163541,,23270,17922306,0.45621,0.455496
+employed youth,S5C17,5.0,4388,3319612,,23270,17922306,0.188569,0.185222
+employed youth,S5C17,missing / not asked,2146,1721520,,23270,17922306,0.092222,0.096055
+employed youth,S5C18,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C18,recorded,21124,16200786,,23270,17922306,0.907778,0.903945
+employed youth,S5C18,missing / not asked,2146,1721520,,23270,17922306,0.092222,0.096055
+employed youth,S5C19,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C19,1.0,3363,2722488,,23270,17922306,0.144521,0.151905
+employed youth,S5C19,2.0,17761,13478298,,23270,17922306,0.763257,0.75204
+employed youth,S5C19,missing / not asked,2146,1721520,,23270,17922306,0.092222,0.096055
+employed youth,S5C20,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,S5C20,1.0,991,806321,,23270,17922306,0.042587,0.04499
+employed youth,S5C20,2.0,18795,14557333,,23270,17922306,0.807692,0.812247
+employed youth,S5C20,3.0,3484,2558652,,23270,17922306,0.149721,0.142764
+employed youth,S5C20,missing / not asked,suppressed,suppressed,suppressed: n < 30,23270,17922306,,
+employed youth,Fstatus,ALL,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,Fstatus,1.0,23270,17922306,,23270,17922306,1.0,1.0
+employed youth,Fstatus,missing / not asked,suppressed,suppressed,suppressed: n < 30,23270,17922306,,
+unemployed youth,S9C1,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C1,1.0,3317,2588355,,3383,2639656,0.980491,0.980565
+unemployed youth,S9C1,2.0,66,51302,,3383,2639656,0.019509,0.019435
+unemployed youth,S9C1,missing / not asked,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C21,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C21,1.0,983,778779,,3383,2639656,0.29057,0.29503
+unemployed youth,S9C21,missing / not asked,2400,1860877,,3383,2639656,0.70943,0.70497
+unemployed youth,S9C22,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C22,2.0,711,592479,,3383,2639656,0.210168,0.224453
+unemployed youth,S9C22,missing / not asked,2672,2047177,,3383,2639656,0.789832,0.775547
+unemployed youth,S9C23,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C23,3.0,256,215808,,3383,2639656,0.075672,0.081756
+unemployed youth,S9C23,missing / not asked,3127,2423848,,3383,2639656,0.924328,0.918244
+unemployed youth,S9C24,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C24,4.0,906,677695,,3383,2639656,0.26781,0.256736
+unemployed youth,S9C24,missing / not asked,2477,1961961,,3383,2639656,0.73219,0.743264
+unemployed youth,S9C25,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C25,5.0,53,45915,,3383,2639656,0.015667,0.017394
+unemployed youth,S9C25,missing / not asked,3330,2593741,,3383,2639656,0.984333,0.982606
+unemployed youth,S9C26,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C26,6.0,108,91242,,3383,2639656,0.031924,0.034566
+unemployed youth,S9C26,missing / not asked,3275,2548414,,3383,2639656,0.968076,0.965434
+unemployed youth,S9C27,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C27,7.0,884,728099,,3383,2639656,0.261307,0.275831
+unemployed youth,S9C27,missing / not asked,2499,1911557,,3383,2639656,0.738693,0.724169
+unemployed youth,S9C28,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C28,8.0,232,201832,,3383,2639656,0.068578,0.076461
+unemployed youth,S9C28,missing / not asked,3151,2437824,,3383,2639656,0.931422,0.923539
+unemployed youth,S9C29,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C29,9.0,88,72885,,3383,2639656,0.026012,0.027612
+unemployed youth,S9C29,missing / not asked,3295,2566771,,3383,2639656,0.973988,0.972388
+unemployed youth,S9C210,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C210,10.0,57,46590,,3383,2639656,0.016849,0.01765
+unemployed youth,S9C210,missing / not asked,3326,2593066,,3383,2639656,0.983151,0.98235
+unemployed youth,S9C211,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C211,11.0,53,43048,,3383,2639656,0.015667,0.016308
+unemployed youth,S9C211,missing / not asked,3330,2596609,,3383,2639656,0.984333,0.983692
+unemployed youth,S9C212,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C212,12.0,31,25049,unreliable: n < 50,3383,2639656,0.009163,0.009489
+unemployed youth,S9C212,missing / not asked,3352,2614607,,3383,2639656,0.990837,0.990511
+unemployed youth,S9C213,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C213,13.0,517,401973,,3383,2639656,0.152823,0.152282
+unemployed youth,S9C213,missing / not asked,2866,2237684,,3383,2639656,0.847177,0.847718
+unemployed youth,S9C3,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C3,1.0,538,421958,,3383,2639656,0.15903,0.159853
+unemployed youth,S9C3,2.0,773,585893,,3383,2639656,0.228495,0.221958
+unemployed youth,S9C3,3.0,716,536035,,3383,2639656,0.211646,0.20307
+unemployed youth,S9C3,4.0,429,350382,,3383,2639656,0.126811,0.132738
+unemployed youth,S9C3,5.0,861,694087,,3383,2639656,0.254508,0.262946
+unemployed youth,S9C3,missing / not asked,66,51302,,3383,2639656,0.019509,0.019435
+unemployed youth,S9C4,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C4,1.0,66,51302,,3383,2639656,0.019509,0.019435
+unemployed youth,S9C4,missing / not asked,3317,2588355,,3383,2639656,0.980491,0.980565
+unemployed youth,S9C5,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C5,1.0,66,51302,,3383,2639656,0.019509,0.019435
+unemployed youth,S9C5,missing / not asked,3317,2588355,,3383,2639656,0.980491,0.980565
+unemployed youth,S9C6,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C6,1.0,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C6,missing / not asked,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C7,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C7,1.0,907,673950,,3383,2639656,0.268105,0.255317
+unemployed youth,S9C7,2.0,466,403797,,3383,2639656,0.137748,0.152973
+unemployed youth,S9C7,3.0,216,186268,,3383,2639656,0.063849,0.070565
+unemployed youth,S9C7,4.0,178,141360,,3383,2639656,0.052616,0.053552
+unemployed youth,S9C7,5.0,183,139679,,3383,2639656,0.054094,0.052916
+unemployed youth,S9C7,6.0,1433,1094602,,3383,2639656,0.423589,0.414676
+unemployed youth,S9C7,missing / not asked,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C9,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C9,missing / not asked,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C10,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C10,1.0,107,88155,,3383,2639656,0.031629,0.033396
+unemployed youth,S9C10,2.0,3276,2551501,,3383,2639656,0.968371,0.966604
+unemployed youth,S9C10,missing / not asked,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C11,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C11,1.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C11,2.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C11,3.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C11,4.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C11,5.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C11,6.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C11,8.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C11,missing / not asked,3276,2551501,,3383,2639656,0.968371,0.966604
+unemployed youth,S9C12,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C12,recorded,107,88155,,3383,2639656,0.031629,0.033396
+unemployed youth,S9C12,missing / not asked,3276,2551501,,3383,2639656,0.968371,0.966604
+unemployed youth,S9C13,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C13,recorded,107,88155,,3383,2639656,0.031629,0.033396
+unemployed youth,S9C13,missing / not asked,3276,2551501,,3383,2639656,0.968371,0.966604
+unemployed youth,S9C14,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C14,1.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C14,2.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C14,3.0,87,73709,,3383,2639656,0.025717,0.027924
+unemployed youth,S9C14,4.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C14,missing / not asked,3276,2551501,,3383,2639656,0.968371,0.966604
+unemployed youth,S9C15,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C15,recorded,107,88155,,3383,2639656,0.031629,0.033396
+unemployed youth,S9C15,missing / not asked,3276,2551501,,3383,2639656,0.968371,0.966604
+unemployed youth,S9C16,ALL,3383,2639656,,3383,2639656,1.0,1.0
+unemployed youth,S9C16,1.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,2.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,3.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,4.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,5.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,8.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,9.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,10.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,11.0,33,26848,unreliable: n < 50,3383,2639656,0.009755,0.010171
+unemployed youth,S9C16,12.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,13.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,14.0,suppressed,suppressed,suppressed: n < 30,3383,2639656,,
+unemployed youth,S9C16,missing / not asked,3276,2551501,,3383,2639656,0.968371,0.966604
+all youth,Weights,missing / not asked,suppressed,suppressed,suppressed: n < 30,,,,
+all youth,employment classification,ambiguous absence excluded,suppressed,suppressed,suppressed: n < 30,,,,
+unemployed youth,S9C10 routing,1: previous occupation recorded,107,88155,,,,,
+unemployed youth,S9C10 routing,1: previous occupation missing,suppressed,suppressed,suppressed: n < 30,,,,
+unemployed youth,S9C10 routing,2: previous occupation recorded,suppressed,suppressed,suppressed: n < 30,,,,
+unemployed youth,S9C10 routing,2: previous occupation missing,3276,2551501,,,,,

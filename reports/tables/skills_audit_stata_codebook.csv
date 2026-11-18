@@ -1,0 +1,1876 @@
+variable,stata_variable_label,code,stata_value_label
+S4C5,1'Male' 2'Female',1,Male
+S4C5,1'Male' 2'Female',2,Female
+S4C6,Age,,No Stata value labels
+Region,Region,1,Rural
+Region,Region,2,Urban
+S4C9,Education Level,1,No formal education
+S4C9,Education Level,2,Nursery but below K.G.
+S4C9,Education Level,3,K.G but below primary
+S4C9,Education Level,4,Primary but below middle
+S4C9,Education Level,5,Middle but below matric
+S4C9,Education Level,6,Matric but below intermediate
+S4C9,Education Level,7,Inter. but below degree
+S4C9,Education Level,8,Degree in engineering
+S4C9,Education Level,9,Degree in medicine
+S4C9,Education Level,10,Degree in computer
+S4C9,Education Level,11,Degree in agriculture
+S4C9,Education Level,12,Degree in other subjects (2-years)
+S4C9,Education Level,13,BS/BE (4-years)
+S4C9,Education Level,14,M.A/M.Sc.
+S4C9,Education Level,15,M.Phil/MS
+S4C9,Education Level,16,Ph.D
+S4C10,Current Enrollment,1,Currently Not Enrolled
+S4C10,Current Enrollment,2,Nursery
+S4C10,Current Enrollment,3,K.G
+S4C10,Current Enrollment,4,Primary
+S4C10,Current Enrollment,5,Middle
+S4C10,Current Enrollment,6,Matric
+S4C10,Current Enrollment,7,Intermediate
+S4C10,Current Enrollment,8,Graduation in engineering
+S4C10,Current Enrollment,9,Graduation in medicine
+S4C10,Current Enrollment,10,Graduation  in computer
+S4C10,Current Enrollment,11,Graduation  in agriculture
+S4C10,Current Enrollment,12,Graduation  in other subjects
+S4C10,Current Enrollment,13,BS/BE (4-years)
+S4C10,Current Enrollment,14,M.A/M.Sc.
+S4C10,Current Enrollment,15,M.Phil/MS
+S4C10,Current Enrollment,16,Ph.D
+S4C11,  Ever received or currently receiving any training,1,Yes received During Job
+S4C11,  Ever received or currently receiving any training,2,Yes received Before Job
+S4C11,  Ever received or currently receiving any training,3,Currently Receiving
+S4C11,  Ever received or currently receiving any training,4,Not Received/Receiving
+S4C12, Type of Training,,No Stata value labels
+S4C13,Duration of training in weeks,,No Stata value labels
+S4C14, Provider of training,1,Govt./ Public Technical/ Vocational Institute
+S4C14, Provider of training,2,Private Technical/ Vocational Institute
+S4C14, Provider of training,3,Informal apprentice
+S5C11,Status of Employment,1,Employers
+S5C11,Status of Employment,2,Independent Worker
+S5C11,Status of Employment,3,Employee
+S5C11,Status of Employment,4,Contributing Family worker
+S5C11,Status of Employment,5,Paid Apprentice
+S5C11,Status of Employment,6,Dependent Contractor
+S5C12,Major Occuption,343,"343Artistic, cultural and culinary associate professionals"
+S5C12,Major Occuption,1111,1111Legislators
+S5C12,Major Occuption,1112,1112Senior government officials
+S5C12,Major Occuption,1113,1113Traditional chiefs and heads of village
+S5C12,Major Occuption,1114,1114Senior officials of special-interest organizations
+S5C12,Major Occuption,1211,1211Finance managers
+S5C12,Major Occuption,1212,1212Human resource managers
+S5C12,Major Occuption,1213,1213Policy and planning managers
+S5C12,Major Occuption,1219,1219Business services and administration managers not elsewhere classified
+S5C12,Major Occuption,1221,1221Sales and marketing managers
+S5C12,Major Occuption,1222,1222Advertising and public relations managers
+S5C12,Major Occuption,1223,1223Research and development managers
+S5C12,Major Occuption,1311,1311Agricultural and forestry production managers
+S5C12,Major Occuption,1312,1312Aquaculture and fisheries production managers
+S5C12,Major Occuption,1321,1321Manufacturing managers
+S5C12,Major Occuption,1322,1322Mining managers
+S5C12,Major Occuption,1323,1323Construction managers
+S5C12,Major Occuption,1324,"1324Supply, distribution and related managers"
+S5C12,Major Occuption,1330,1330Information and communications technology service managers
+S5C12,Major Occuption,1341,1341Child care services managers
+S5C12,Major Occuption,1342,1342Health services managers
+S5C12,Major Occuption,1343,1343Aged care services managers
+S5C12,Major Occuption,1344,1344Social welfare managers
+S5C12,Major Occuption,1345,1345Education managers
+S5C12,Major Occuption,1346,1346Financial and insurance services branch managers
+S5C12,Major Occuption,1349,1349Professional services managers not elsewhere classified
+S5C12,Major Occuption,1411,1411Hotel managers
+S5C12,Major Occuption,1412,1412Restaurant managers
+S5C12,Major Occuption,1420,1420Retail and wholesale trade managers
+S5C12,Major Occuption,1431,"1431Sports, recreation and cultural centre managers"
+S5C12,Major Occuption,1439,1439Services managers not elsewhere classified
+S5C12,Major Occuption,2111,2111Physicists and astronomers
+S5C12,Major Occuption,2112,2112Meteorologists
+S5C12,Major Occuption,2113,2113Chemists
+S5C12,Major Occuption,2114,2114Geologists and geophysicists
+S5C12,Major Occuption,2120,"2120Mathematicians, actuaries and statisticians"
+S5C12,Major Occuption,2131,"2131Biologists, botanists, zoologists and related professionals"
+S5C12,Major Occuption,2132,"2132Farming, forestry and fisheries advisers"
+S5C12,Major Occuption,2133,2133Environmental protection professionals
+S5C12,Major Occuption,2141,2141Industrial and production engineers
+S5C12,Major Occuption,2142,2142Civil engineers
+S5C12,Major Occuption,2143,2143Environmental engineers
+S5C12,Major Occuption,2144,2144Mechanical engineers
+S5C12,Major Occuption,2145,2145Chemical engineers
+S5C12,Major Occuption,2146,"2146Mining engineers, metallurgists and related professionals"
+S5C12,Major Occuption,2149,2149Engineering professionals not elsewhere classified
+S5C12,Major Occuption,2151,2151Electrical engineers
+S5C12,Major Occuption,2152,2152Electronics engineers
+S5C12,Major Occuption,2153,2153Telecommunications engineers
+S5C12,Major Occuption,2161,2161Building architects
+S5C12,Major Occuption,2162,2162Landscape architects
+S5C12,Major Occuption,2163,2163Product and garment designers
+S5C12,Major Occuption,2164,2164Town and traffic planners
+S5C12,Major Occuption,2165,2165Cartographers and surveyors
+S5C12,Major Occuption,2166,2166Graphic and multimedia designers
+S5C12,Major Occuption,2211,2211Generalist medical practitioners
+S5C12,Major Occuption,2212,2212Specialist medical practitioners
+S5C12,Major Occuption,2221,2221Nursing professionals
+S5C12,Major Occuption,2222,2222Midwifery professionals
+S5C12,Major Occuption,2230,2230Traditional and complementary medicine professionals
+S5C12,Major Occuption,2240,2240Paramedical practitioners
+S5C12,Major Occuption,2250,2250Veterinarians
+S5C12,Major Occuption,2261,2261Dentists
+S5C12,Major Occuption,2262,2262Pharmacists
+S5C12,Major Occuption,2263,2263Environmental and occupational health and hygiene professionals
+S5C12,Major Occuption,2264,2264Physiotherapists
+S5C12,Major Occuption,2265,2265Dieticians and nutritionists
+S5C12,Major Occuption,2266,2266Audiologists and speech therapists
+S5C12,Major Occuption,2267,2267Optometrists and ophthalmic opticians
+S5C12,Major Occuption,2269,2269Health professionals not elsewhere classified
+S5C12,Major Occuption,2310,2310University and higher education teachers
+S5C12,Major Occuption,2320,2320Vocational education teachers
+S5C12,Major Occuption,2330,2330Secondary education teachers
+S5C12,Major Occuption,2341,2341Primary school teachers
+S5C12,Major Occuption,2342,2342Early childhood educators
+S5C12,Major Occuption,2351,2351Education methods specialists
+S5C12,Major Occuption,2352,2352Special needs teachers
+S5C12,Major Occuption,2353,2353Other language teachers
+S5C12,Major Occuption,2354,2354Other music teachers
+S5C12,Major Occuption,2355,2355Other arts teachers
+S5C12,Major Occuption,2356,2356Information technology trainers
+S5C12,Major Occuption,2359,2359Teaching professionals not elsewhere classified
+S5C12,Major Occuption,2411,2411Accountants
+S5C12,Major Occuption,2412,2412Financial and investment advisers
+S5C12,Major Occuption,2413,2413Financial analysts
+S5C12,Major Occuption,2421,2421Management and organization analysts
+S5C12,Major Occuption,2422,2422Policy administration professionals
+S5C12,Major Occuption,2423,2423Personnel and careers professionals
+S5C12,Major Occuption,2424,2424Training and staff development professionals
+S5C12,Major Occuption,2431,2431Advertising and marketing professionals
+S5C12,Major Occuption,2432,2432Public relations professionals
+S5C12,Major Occuption,2433,2433Technical and medical sales professionals (excluding ICT)
+S5C12,Major Occuption,2434,2434Information and communications technology sales professionals
+S5C12,Major Occuption,2511,2511Systems analysts
+S5C12,Major Occuption,2512,2512Software developers
+S5C12,Major Occuption,2513,2513Web and multimedia developers
+S5C12,Major Occuption,2514,2514Applications programmers
+S5C12,Major Occuption,2519,2519Software and applications developers and analysts not elsewhere classified
+S5C12,Major Occuption,2521,2521Database designers and administrators
+S5C12,Major Occuption,2522,2522Systems administrators
+S5C12,Major Occuption,2523,2523Computer network professionals
+S5C12,Major Occuption,2529,2529Database and network professionals not elsewhere classified
+S5C12,Major Occuption,2611,2611Lawyers
+S5C12,Major Occuption,2612,2612Judges
+S5C12,Major Occuption,2619,2619Legal professionals not elsewhere classified
+S5C12,Major Occuption,2621,2621Archivists and curators
+S5C12,Major Occuption,2622,2622Librarians and related information professionals
+S5C12,Major Occuption,2631,2631Economists
+S5C12,Major Occuption,2632,"2632Sociologists, anthropologists and related professionals"
+S5C12,Major Occuption,2633,"2633Philosophers, historians and political scientists"
+S5C12,Major Occuption,2634,2634Psychologists
+S5C12,Major Occuption,2635,2635Social work and counseling professionals
+S5C12,Major Occuption,2636,2636Religious professionals
+S5C12,Major Occuption,2641,2641Authors and related writers
+S5C12,Major Occuption,2642,2642Journalists
+S5C12,Major Occuption,2643,"2643Translators, interpreters and other linguists"
+S5C12,Major Occuption,2651,2651Visual artists
+S5C12,Major Occuption,2652,"2652Musicians, singers and composers"
+S5C12,Major Occuption,2653,2653Dancers and choreographers
+S5C12,Major Occuption,2654,"2654Film, stage and related directors and producers"
+S5C12,Major Occuption,2655,2655Actors
+S5C12,Major Occuption,2656,"2656Announcers on radio, television and other media"
+S5C12,Major Occuption,2659,2659Creative and performing artists not elsewhere classified
+S5C12,Major Occuption,3111,3111Chemical and physical science technicians
+S5C12,Major Occuption,3112,3112Civil engineering technicians
+S5C12,Major Occuption,3113,3113Electrical engineering technicians
+S5C12,Major Occuption,3114,3114Electronics engineering technicians
+S5C12,Major Occuption,3115,3115Mechanical engineering technicians
+S5C12,Major Occuption,3116,3116Chemical engineering technicians
+S5C12,Major Occuption,3117,3117Mining and metallurgical technicians
+S5C12,Major Occuption,3118,3118Draughts persons
+S5C12,Major Occuption,3119,3119Physical and engineering science technicians not elsewhere classified
+S5C12,Major Occuption,3121,3121Mining supervisors
+S5C12,Major Occuption,3122,3122Manufacturing supervisors
+S5C12,Major Occuption,3123,3123Construction supervisors
+S5C12,Major Occuption,3131,3131Power production plant operators
+S5C12,Major Occuption,3132,3132Incinerator and water treatment plant operators
+S5C12,Major Occuption,3133,3133Chemical processing plant controllers
+S5C12,Major Occuption,3134,3134Petroleum and natural gas refining plant operators
+S5C12,Major Occuption,3135,3135Metal production process controllers
+S5C12,Major Occuption,3139,3139Process control technicians not elsewhere classified
+S5C12,Major Occuption,3141,3141Life science technicians (excluding medical)
+S5C12,Major Occuption,3142,3142Agricultural technicians
+S5C12,Major Occuption,3143,3143Forestry technicians
+S5C12,Major Occuption,3151,3151Ships' engineers
+S5C12,Major Occuption,3152,3152Ships' deck officers and pilots
+S5C12,Major Occuption,3153,3153Aircraft pilots and related associate professionals
+S5C12,Major Occuption,3154,3154Air traffic controllers
+S5C12,Major Occuption,3155,3155Air traffic safety electronics technicians
+S5C12,Major Occuption,3211,3211Medical imaging and therapeutic equipment technicians
+S5C12,Major Occuption,3212,3212Medical and pathology laboratory technicians
+S5C12,Major Occuption,3213,3213Pharmaceutical technicians and assistants
+S5C12,Major Occuption,3214,3214Medical and dental prosthetic technicians
+S5C12,Major Occuption,3221,3221Nursing associate professionals
+S5C12,Major Occuption,3222,3222Midwifery associate professionals
+S5C12,Major Occuption,3230,3230Traditional and complementary medicine associate professionals
+S5C12,Major Occuption,3240,3240Veterinary technicians and assistants
+S5C12,Major Occuption,3251,3251Dental assistants and therapists
+S5C12,Major Occuption,3252,3252Medical records and health information technicians
+S5C12,Major Occuption,3253,3253Community health workers
+S5C12,Major Occuption,3254,3254Dispensing opticians
+S5C12,Major Occuption,3255,3255Physiotherapy technicians and assistants
+S5C12,Major Occuption,3256,3256Medical assistants
+S5C12,Major Occuption,3257,3257Environmental and occupational health inspectors and associates
+S5C12,Major Occuption,3258,3258Ambulance workers
+S5C12,Major Occuption,3259,3259Health associate professionals not elsewhere classified
+S5C12,Major Occuption,3311,3311Securities and finance dealers and brokers
+S5C12,Major Occuption,3312,3312Credit and loans officers
+S5C12,Major Occuption,3313,3313Accounting associate professionals
+S5C12,Major Occuption,3314,"3314Statistical, mathematical and related associate professionals"
+S5C12,Major Occuption,3315,3315Valuers and loss assessors
+S5C12,Major Occuption,3321,3321Insurance representatives
+S5C12,Major Occuption,3322,3322Commercial sales representatives
+S5C12,Major Occuption,3323,3323Buyers
+S5C12,Major Occuption,3324,3324Trade brokers
+S5C12,Major Occuption,3331,3331Clearing and forwarding agents
+S5C12,Major Occuption,3332,3332Conference and event planners
+S5C12,Major Occuption,3333,3333Employment agents and contractors
+S5C12,Major Occuption,3334,3334Real estate agents and property managers
+S5C12,Major Occuption,3339,3339Business services agents not elsewhere classified
+S5C12,Major Occuption,3341,3341Office supervisors
+S5C12,Major Occuption,3342,3342Legal secretaries
+S5C12,Major Occuption,3343,3343Administrative and executive secretaries
+S5C12,Major Occuption,3344,3344Medical secretaries
+S5C12,Major Occuption,3351,3351Customs and border inspectors
+S5C12,Major Occuption,3352,3352Government tax and excise officials
+S5C12,Major Occuption,3353,3353Government social benefits officials
+S5C12,Major Occuption,3354,3354Government licensing officials
+S5C12,Major Occuption,3355,3355Police inspectors and detectives
+S5C12,Major Occuption,3359,3359Regulatory government associate professionals not elsewhere classified
+S5C12,Major Occuption,3411,3411Police inspectors and detectives
+S5C12,Major Occuption,3412,3412Social work associate professionals
+S5C12,Major Occuption,3413,3413Religious associate professionals
+S5C12,Major Occuption,3421,3421Athletes and sports players
+S5C12,Major Occuption,3422,"3422Sports coaches, instructors and officials"
+S5C12,Major Occuption,3423,3423Fitness and recreation instructors and program leaders
+S5C12,Major Occuption,3431,3431Photographers
+S5C12,Major Occuption,3432,3432Interior designers and decorators
+S5C12,Major Occuption,3433,"3433Gallery, museum and library technicians"
+S5C12,Major Occuption,3434,3434Chefs
+S5C12,Major Occuption,3435,3435Other artistic and cultural associate professionals
+S5C12,Major Occuption,3511,3511Information and communications technology operations technicians
+S5C12,Major Occuption,3512,3512Information and communications technology user support technicians
+S5C12,Major Occuption,3513,3513Computer network and systems technicians
+S5C12,Major Occuption,3514,3514Web technicians
+S5C12,Major Occuption,3521,3521Broadcasting and audio-visual technicians
+S5C12,Major Occuption,3522,3522Telecommunications engineering technicians
+S5C12,Major Occuption,4110,4110General office clerks
+S5C12,Major Occuption,4120,4120Secretaries (general)
+S5C12,Major Occuption,4131,4131Typists and word processing operators
+S5C12,Major Occuption,4132,4132Data entry clerks
+S5C12,Major Occuption,4211,4211Bank tellers and related clerks
+S5C12,Major Occuption,4212,"4212Bookmakers, croupiers and related gaming workers"
+S5C12,Major Occuption,4213,4213Pawnbrokers and money-lenders
+S5C12,Major Occuption,4214,4214Debt-collectors and related workers
+S5C12,Major Occuption,4221,4221Travel consultants and clerks
+S5C12,Major Occuption,4222,4222Contact centre information clerks
+S5C12,Major Occuption,4223,4223Telephone switchboard operators
+S5C12,Major Occuption,4224,4224Hotel receptionists
+S5C12,Major Occuption,4225,4225Enquiry clerks
+S5C12,Major Occuption,4226,4226Receptionists (general)
+S5C12,Major Occuption,4227,4227Survey and market research interviewers
+S5C12,Major Occuption,4229,4229Client information workers not elsewhere classified
+S5C12,Major Occuption,4311,4311Accounting and bookkeeping clerks
+S5C12,Major Occuption,4312,"4312Statistical, finance and insurance clerks"
+S5C12,Major Occuption,4313,4313Payroll clerks
+S5C12,Major Occuption,4321,4321Stock clerks
+S5C12,Major Occuption,4322,4322Production clerks
+S5C12,Major Occuption,4323,4323Transport clerks
+S5C12,Major Occuption,4411,4411Library clerks
+S5C12,Major Occuption,4412,4412Mail carriers and sorting clerks
+S5C12,Major Occuption,4413,"4413Coding, proof-reading and related clerks"
+S5C12,Major Occuption,4414,4414Scribes and related workers
+S5C12,Major Occuption,4415,4415Filing and copying clerks
+S5C12,Major Occuption,4416,4416Personnel clerks
+S5C12,Major Occuption,4419,4419Clerical support workers not elsewhere classified
+S5C12,Major Occuption,5111,5111Travel attendants and travel stewards
+S5C12,Major Occuption,5112,5112Transport conductors
+S5C12,Major Occuption,5113,5113Travel guides
+S5C12,Major Occuption,5120,5120Cooks
+S5C12,Major Occuption,5131,5131Waiters
+S5C12,Major Occuption,5132,5132Bartenders
+S5C12,Major Occuption,5141,5141Hairdressers
+S5C12,Major Occuption,5142,5142Beauticians and related workers
+S5C12,Major Occuption,5151,"5151Cleaning and housekeeping supervisors in offices, hotels and other establish"
+S5C12,Major Occuption,5152,5152Domestic housekeepers
+S5C12,Major Occuption,5153,5153Building caretakers
+S5C12,Major Occuption,5161,"5161Astrologers, fortune-tellers and related workers"
+S5C12,Major Occuption,5162,5162Companions and valets
+S5C12,Major Occuption,5163,5163Undertakers and embalmers
+S5C12,Major Occuption,5164,5164Pet groomers and animal care workers
+S5C12,Major Occuption,5165,5165Driving instructors
+S5C12,Major Occuption,5169,5169Personal services workers not elsewhere classified
+S5C12,Major Occuption,5211,5211Stall and market salespersons
+S5C12,Major Occuption,5212,5212Street food salespersons
+S5C12,Major Occuption,5221,5221Shop keepers
+S5C12,Major Occuption,5222,5222Shop supervisors
+S5C12,Major Occuption,5223,5223Shop sales assistants
+S5C12,Major Occuption,5230,5230Cashiers and ticket clerks
+S5C12,Major Occuption,5241,5241Fashion and other models
+S5C12,Major Occuption,5242,5242Sales demonstrators
+S5C12,Major Occuption,5243,5243Door to door salespersons
+S5C12,Major Occuption,5244,5244Contact centre salespersons
+S5C12,Major Occuption,5245,5245Service station attendants
+S5C12,Major Occuption,5246,5246Food service counter attendants
+S5C12,Major Occuption,5249,5249Sales workers not elsewhere classified
+S5C12,Major Occuption,5311,5311Child care workers
+S5C12,Major Occuption,5312,5312Teachers' aides
+S5C12,Major Occuption,5321,5321Health care assistants
+S5C12,Major Occuption,5322,5322Home-based personal care workers
+S5C12,Major Occuption,5329,5329Personal care workers in health services not elsewhere classified
+S5C12,Major Occuption,5411,5411Fire-fighters
+S5C12,Major Occuption,5412,5412Police officers
+S5C12,Major Occuption,5413,5413Prison guards
+S5C12,Major Occuption,5414,5414Security guards
+S5C12,Major Occuption,5419,5419Protective services workers not elsewhere classified
+S5C12,Major Occuption,6111,6111Field crop and vegetable growers
+S5C12,Major Occuption,6112,6112Tree and shrub crop growers
+S5C12,Major Occuption,6113,"6113Gardeners, horticultural and nursery growers"
+S5C12,Major Occuption,6114,6114Mixed crop growers
+S5C12,Major Occuption,6121,6121Livestock and dairy producers
+S5C12,Major Occuption,6122,6122Poultry producers
+S5C12,Major Occuption,6123,6123Apiarists and sericulturists
+S5C12,Major Occuption,6129,6129Animal producers not elsewhere classified
+S5C12,Major Occuption,6130,6130Mixed crop and animal producers
+S5C12,Major Occuption,6210,6210Forestry and related workers
+S5C12,Major Occuption,6221,6221Aquaculture workers
+S5C12,Major Occuption,6222,6222Inland and coastal waters fishery workers
+S5C12,Major Occuption,6223,6223Deep-sea fishery workers
+S5C12,Major Occuption,6224,6224Hunters and trappers
+S5C12,Major Occuption,6310,6310Subsistence crop farmers
+S5C12,Major Occuption,6320,6320Subsistence livestock farmers
+S5C12,Major Occuption,6330,6330Subsistence mixed crop and livestock farmers
+S5C12,Major Occuption,6340,"6340Subsistence fishers, hunters, trappers and gatherers"
+S5C12,Major Occuption,7111,7111House builders
+S5C12,Major Occuption,7112,7112Bricklayers and related workers
+S5C12,Major Occuption,7113,"7113Stonemasons, stone cutters, splitters and carvers"
+S5C12,Major Occuption,7114,"7114Concrete placers, concrete finishers and related workers"
+S5C12,Major Occuption,7115,7115Carpenters and joiners
+S5C12,Major Occuption,7119,7119Building frame and related trades workers not elsewhere classified
+S5C12,Major Occuption,7121,7121Roofers
+S5C12,Major Occuption,7122,7122Floor layers and tile setters
+S5C12,Major Occuption,7123,7123Plasterers
+S5C12,Major Occuption,7124,7124Insulation workers
+S5C12,Major Occuption,7125,7125Glaziers
+S5C12,Major Occuption,7126,7126Plumbers and pipe fitters
+S5C12,Major Occuption,7127,7127Air conditioning and refrigeration mechanics
+S5C12,Major Occuption,7131,7131Painters and related workers
+S5C12,Major Occuption,7132,7132Spray painters and varnishers
+S5C12,Major Occuption,7133,7133Building structure cleaners
+S5C12,Major Occuption,7211,7211Metal moulders and core makers
+S5C12,Major Occuption,7212,7212Welders and flame cutters
+S5C12,Major Occuption,7213,7213Sheet-metal workers
+S5C12,Major Occuption,7214,7214Structural-metal preparers and erectors
+S5C12,Major Occuption,7215,7215Riggers and cable splicers
+S5C12,Major Occuption,7221,"7221Blacksmiths, hammer smiths and forging press workers"
+S5C12,Major Occuption,7222,7222Toolmakers and related workers
+S5C12,Major Occuption,7223,7223Metal working machine tool setters and operators
+S5C12,Major Occuption,7224,"7224Metal polishers, wheel grinders and tool sharpeners"
+S5C12,Major Occuption,7231,7231Motor vehicle mechanics and repairers
+S5C12,Major Occuption,7232,7232Aircraft engine mechanics and repairers
+S5C12,Major Occuption,7233,7233Agricultural and industrial machinery mechanics and repairers
+S5C12,Major Occuption,7234,7234Bicycle and related repairers
+S5C12,Major Occuption,7311,7311Precision-instrument makers and repairers
+S5C12,Major Occuption,7312,7312Musical instrument makers and tuners
+S5C12,Major Occuption,7313,7313Jewellery and precious-metal workers
+S5C12,Major Occuption,7314,7314Potters and related workers
+S5C12,Major Occuption,7315,"7315Glass makers, cutters, grinders and finishers"
+S5C12,Major Occuption,7316,"7316Sign writers, decorative painters, engravers and etchers"
+S5C12,Major Occuption,7317,"7317Handicraft workers in wood, basketry and related materials"
+S5C12,Major Occuption,7318,"7318Handicraft workers in textile, leather and related materials"
+S5C12,Major Occuption,7319,7319Handicraft workers not elsewhere classified
+S5C12,Major Occuption,7321,7321Pre-press technicians
+S5C12,Major Occuption,7322,7322Printers
+S5C12,Major Occuption,7323,7323Print finishing and binding workers
+S5C12,Major Occuption,7411,7411Building and related electricians
+S5C12,Major Occuption,7412,7412Electrical mechanics and fitters
+S5C12,Major Occuption,7413,7413Electrical line installers and repairers
+S5C12,Major Occuption,7421,7421Electronics mechanics and servicers
+S5C12,Major Occuption,7422,7422Information and communications technology installers and servicers
+S5C12,Major Occuption,7511,"7511Butchers, fishmongers and related food preparers"
+S5C12,Major Occuption,7512,"7512Bakers, pastry-cooks and confectionery makers"
+S5C12,Major Occuption,7513,7513Dairy-products makers
+S5C12,Major Occuption,7514,"7514Fruit, vegetable and related preservers"
+S5C12,Major Occuption,7515,7515Food and beverage tasters and graders
+S5C12,Major Occuption,7516,7516Tobacco preparers and tobacco products makers
+S5C12,Major Occuption,7521,7521Wood treaters
+S5C12,Major Occuption,7522,7522Cabinet-makers and related workers
+S5C12,Major Occuption,7523,7523Woodworking-machine tool setters and operators
+S5C12,Major Occuption,7531,"7531Tailors, dressmakers, furriers and hatters"
+S5C12,Major Occuption,7532,7532Garment and related pattern-makers and cutters
+S5C12,Major Occuption,7533,"7533Sewing, embroidery and related workers"
+S5C12,Major Occuption,7534,7534Upholsterers and related workers
+S5C12,Major Occuption,7535,"7535Pelt dressers, tanners and fell mongers"
+S5C12,Major Occuption,7536,7536Shoemakers and related workers
+S5C12,Major Occuption,7541,7541Underwater divers
+S5C12,Major Occuption,7542,7542Shot firers and blasters
+S5C12,Major Occuption,7543,7543Product graders and testers (excluding foods and beverages)
+S5C12,Major Occuption,7544,7544Fumigators and other pest and weed controllers
+S5C12,Major Occuption,7549,7549Craft and related workers not elsewhere classified
+S5C12,Major Occuption,8111,8111Miners and quarries
+S5C12,Major Occuption,8112,8112Mineral and stone processing plant operators
+S5C12,Major Occuption,8113,8113Well drillers and borers and related workers
+S5C12,Major Occuption,8114,"8114Cement, stone and other mineral products machine operators"
+S5C12,Major Occuption,8121,8121Metal processing plant operators
+S5C12,Major Occuption,8122,"8122Metal finishing, plating and coating machine operators"
+S5C12,Major Occuption,8131,8131Chemical products plant and machine operators
+S5C12,Major Occuption,8132,8132Photographic products machine operators
+S5C12,Major Occuption,8141,8141Rubber products machine operators
+S5C12,Major Occuption,8142,8142Plastic products machine operators
+S5C12,Major Occuption,8143,8143Paper products machine operators
+S5C12,Major Occuption,8151,"8151Fibre preparing, spinning and winding machine operators"
+S5C12,Major Occuption,8152,8152Weaving and knitting machine operators
+S5C12,Major Occuption,8153,8153Sewing machine operators
+S5C12,Major Occuption,8154,"8154Bleaching, dyeing and fabric cleaning machine operators"
+S5C12,Major Occuption,8155,8155Fur and leather preparing machine operators
+S5C12,Major Occuption,8156,8156Shoemaking and related machine operators
+S5C12,Major Occuption,8157,8157Laundry machine operators
+S5C12,Major Occuption,8159,"8159Textile, fur and leather products machine operators not elsewhere classified"
+S5C12,Major Occuption,8160,8160Food and related products machine operators
+S5C12,Major Occuption,8171,8171Pulp and papermaking plant operators
+S5C12,Major Occuption,8172,8172Wood processing plant operators
+S5C12,Major Occuption,8181,8181Glass and ceramics plant operators
+S5C12,Major Occuption,8182,8182Steam engine and boiler operators
+S5C12,Major Occuption,8183,"8183Packing, bottling and labelling machine operators"
+S5C12,Major Occuption,8189,8189Stationary plant and machine operators not elsewhere classified
+S5C12,Major Occuption,8211,8211Mechanical machinery assemblers
+S5C12,Major Occuption,8212,8212Electrical and electronic equipment assemblers
+S5C12,Major Occuption,8219,8219Assemblers not elsewhere classified
+S5C12,Major Occuption,8311,8311Locomotive engine drivers
+S5C12,Major Occuption,8312,"8312Railway brake, signal and switch operators"
+S5C12,Major Occuption,8321,8321Motorcycle drivers
+S5C12,Major Occuption,8322,"8322Car, taxi and van drivers"
+S5C12,Major Occuption,8331,8331Bus and tram drivers
+S5C12,Major Occuption,8332,8332Heavy truck and lorry drivers
+S5C12,Major Occuption,8341,8341Mobile farm and forestry plant operators
+S5C12,Major Occuption,8342,8342Earthmoving and related plant operators
+S5C12,Major Occuption,8343,"8343Crane, hoist and related plant operators"
+S5C12,Major Occuption,8344,8344Lifting truck operators
+S5C12,Major Occuption,8350,8350Ships' deck crews and related workers
+S5C12,Major Occuption,9111,9111Domestic cleaners and helpers
+S5C12,Major Occuption,9112,"9112Cleaners and helpers in offices, hotels and other establishments"
+S5C12,Major Occuption,9121,9121Hand launderers and pressers
+S5C12,Major Occuption,9122,9122Vehicle cleaners
+S5C12,Major Occuption,9123,9123Window cleaners
+S5C12,Major Occuption,9129,9129Other cleaning workers
+S5C12,Major Occuption,9211,9211Crop farm labourers
+S5C12,Major Occuption,9212,9212Livestock farm labourers
+S5C12,Major Occuption,9213,9213Mixed crop and livestock farm labourers
+S5C12,Major Occuption,9214,9214Garden and horticultural labourers
+S5C12,Major Occuption,9215,9215Forestry labourers
+S5C12,Major Occuption,9216,9216Fishery and aquaculture labourers
+S5C12,Major Occuption,9311,9311Mining and quarrying labourers
+S5C12,Major Occuption,9312,9312Civil engineering labourers
+S5C12,Major Occuption,9313,9313Building construction labourers
+S5C12,Major Occuption,9321,9321Hand packers
+S5C12,Major Occuption,9329,9329Manufacturing labourers not elsewhere classified
+S5C12,Major Occuption,9331,9331Hand and pedal vehicle drivers
+S5C12,Major Occuption,9332,9332Drivers of animal-drawn vehicles and machinery
+S5C12,Major Occuption,9333,9333Freight handlers
+S5C12,Major Occuption,9334,9334Shelf fillers
+S5C12,Major Occuption,9411,9411Fast food preparers
+S5C12,Major Occuption,9412,9412Kitchen helpers
+S5C12,Major Occuption,9510,9510Street and related service workers
+S5C12,Major Occuption,9520,9520Street vendors (excluding food)
+S5C12,Major Occuption,9611,9611Garbage and recycling collectors
+S5C12,Major Occuption,9612,9612Refuse sorters
+S5C12,Major Occuption,9613,9613Sweepers and related labourers
+S5C12,Major Occuption,9621,"9621Messengers, package deliverers and luggage porters"
+S5C12,Major Occuption,9622,9622Odd job persons
+S5C12,Major Occuption,9623,9623Meter readers and vending-machine collectors
+S5C12,Major Occuption,9624,9624Water and firewood collectors
+S5C12,Major Occuption,9629,9629Elementary workers not elsewhere classified
+S5C13,Major industry,111,"0111Growing of cereals (except rice), leguminous crops and oil seeds"
+S5C13,Major industry,112,0112Growing of rice
+S5C13,Major industry,113,"0113Growing of vegetables and melons, roots and tubers"
+S5C13,Major industry,114,0114Growing of sugar cane
+S5C13,Major industry,115,0115Growing of tobacco
+S5C13,Major industry,116,0116Growing of fibre crops
+S5C13,Major industry,119,0119Growing of other non-perennial crops
+S5C13,Major industry,121,0121Growing of grapes
+S5C13,Major industry,122,0122Growing of tropical and subtropical fruits
+S5C13,Major industry,123,0123Growing of citrus fruits
+S5C13,Major industry,124,0124Growing of pome fruits and stone fruits
+S5C13,Major industry,125,0125Growing of other tree and bush fruits and nuts
+S5C13,Major industry,126,0126Growing of oleaginous fruits
+S5C13,Major industry,127,0127Growing of beverage crops
+S5C13,Major industry,128,"0128Growing of spices, aromatic, drug and pharmaceutical crops"
+S5C13,Major industry,129,0129Growing of other perennial crops
+S5C13,Major industry,130,0130Plant propagation
+S5C13,Major industry,141,0141Raising of cattle and buffaloes
+S5C13,Major industry,142,0142Raising of horses and other equines
+S5C13,Major industry,143,0143Raising of camels and camelids
+S5C13,Major industry,144,0144Raising of sheep and goats
+S5C13,Major industry,145,0145Raising of swine/pigs
+S5C13,Major industry,146,0146Raising of poultry
+S5C13,Major industry,149,0149Raising of other animals
+S5C13,Major industry,150,0150Mixed farming
+S5C13,Major industry,161,0161Support activities for crop production
+S5C13,Major industry,162,0162Support activities for animal production
+S5C13,Major industry,163,0163Post-harvest crop activities
+S5C13,Major industry,164,0164Seed processing for propagation
+S5C13,Major industry,170,"0170Hunting, trapping and related service activities"
+S5C13,Major industry,210,0210Silviculture and other forestry activities
+S5C13,Major industry,220,0220Logging
+S5C13,Major industry,230,0230Gathering of non-wood forest products
+S5C13,Major industry,240,0240Support services to forestry
+S5C13,Major industry,311,0311Marine fishing
+S5C13,Major industry,312,0312Freshwater fishing
+S5C13,Major industry,321,0321Marine aquaculture
+S5C13,Major industry,322,0322Freshwater aquaculture
+S5C13,Major industry,510,0510Mining of hard coal
+S5C13,Major industry,520,0520Mining of lignite
+S5C13,Major industry,610,0610Extraction of crude petroleum
+S5C13,Major industry,620,0620Extraction of natural gas
+S5C13,Major industry,710,0710Mining of iron ores
+S5C13,Major industry,721,0721Mining of uranium and thorium ores
+S5C13,Major industry,729,0729Mining of other non-ferrous metal ores
+S5C13,Major industry,810,"0810Quarrying of stone, sand and clay"
+S5C13,Major industry,891,0891Mining of chemical and fertilizer minerals
+S5C13,Major industry,892,0892Extraction of peat
+S5C13,Major industry,893,0893Extraction of salt
+S5C13,Major industry,899,0899Other mining and quarrying n.e.c.
+S5C13,Major industry,910,0910Support activities for petroleum and natural gas extraction
+S5C13,Major industry,990,0990Support activities for other mining and quarrying
+S5C13,Major industry,1010,1010Processing and preserving of meat
+S5C13,Major industry,1020,"1020Processing and preserving of fish, crustaceans and mollusks"
+S5C13,Major industry,1030,1030Processing and preserving of fruit and vegetables
+S5C13,Major industry,1040,1040Manufacture of vegetable and animal oils and fats
+S5C13,Major industry,1050,1050Manufacture of dairy products
+S5C13,Major industry,1061,1061Manufacture of grain mill products
+S5C13,Major industry,1062,1062Manufacture of starches and starch products
+S5C13,Major industry,1071,1071Manufacture of bakery products
+S5C13,Major industry,1072,1072Manufacture of sugar
+S5C13,Major industry,1073,"1073Manufacture of cocoa, chocolate and sugar confectionery"
+S5C13,Major industry,1074,"1074Manufacture of macaroni, noodles, couscous and similar farinaceous products"
+S5C13,Major industry,1075,1075Manufacture of prepared meals and dishes
+S5C13,Major industry,1079,1079Manufacture of other food products n.e.c.
+S5C13,Major industry,1080,1080Manufacture of prepared animal feeds
+S5C13,Major industry,1101,"1101Distilling, rectifying and blending of spirits"
+S5C13,Major industry,1102,1102Manufacture of wines
+S5C13,Major industry,1103,1103Manufacture of malt liquors and malt
+S5C13,Major industry,1104,1104Manufacture of soft drinks; production of mineral waters and other bottled w
+S5C13,Major industry,1200,1200Manufacture of tobacco products
+S5C13,Major industry,1311,1311Preparation and spinning of textile fibres
+S5C13,Major industry,1312,1312Weaving of textiles
+S5C13,Major industry,1313,1313Finishing of textiles
+S5C13,Major industry,1391,1391Manufacture of knitted and crocheted fabrics
+S5C13,Major industry,1392,"1392Manufacture of made-up textile articles, except apparel"
+S5C13,Major industry,1393,1393Manufacture of carpets and rugs
+S5C13,Major industry,1394,"1394Manufacture of cordage, rope, twine and netting"
+S5C13,Major industry,1399,1399Manufacture of other textiles n.e.c.
+S5C13,Major industry,1410,"1410Manufacture of wearing apparel, except fur apparel"
+S5C13,Major industry,1420,1420Manufacture of articles of fur
+S5C13,Major industry,1430,1430Manufacture of knitted and crocheted apparel
+S5C13,Major industry,1511,1511Tanning and dressing of leather; dressing and dyeing of fur
+S5C13,Major industry,1512,"1512Manufacture of luggage, handbags and the like, saddlery and harness"
+S5C13,Major industry,1520,1520Manufacture of footwear
+S5C13,Major industry,1610,1610Sawmilling and planning of wood
+S5C13,Major industry,1621,1621Manufacture of veneer sheets and wood-based panels
+S5C13,Major industry,1622,1622Manufacture of builders carpentry and joinery
+S5C13,Major industry,1623,1623Manufacture of wooden containers
+S5C13,Major industry,1629,"1629Manufacture of other products of wood; manufacture of articles of cork, stra"
+S5C13,Major industry,1701,"1701Manufacture of pulp, paper and paperboard"
+S5C13,Major industry,1702,1702Manufacture of corrugated paper and paperboard and of containers of paper an
+S5C13,Major industry,1709,1709Manufacture of other articles of paper and paperboard
+S5C13,Major industry,1811,1811Printing
+S5C13,Major industry,1812,1812Service activities related to printing
+S5C13,Major industry,1820,1820Reproduction of recorded media
+S5C13,Major industry,1910,1910Manufacture of coke oven products
+S5C13,Major industry,1920,1920Manufacture of refined petroleum products
+S5C13,Major industry,2011,2011Manufacture of basic chemicals
+S5C13,Major industry,2012,2012Manufacture of fertilizers and nitrogen compounds
+S5C13,Major industry,2013,2013Manufacture of plastics and synthetic rubber in primary forms
+S5C13,Major industry,2021,2021Manufacture of pesticides and other agrochemical products
+S5C13,Major industry,2022,"2022Manufacture of paints, varnishes and similar coatings, printing ink and mast"
+S5C13,Major industry,2023,"2023Manufacture of soap and detergents, cleaning and polishing preparations, per"
+S5C13,Major industry,2029,2029Manufacture of other chemical products n.e.c.
+S5C13,Major industry,2030,2030Manufacture of man-made fibres
+S5C13,Major industry,2100,"2100Manufacture of pharmaceuticals, medicinal chemical and botanical products"
+S5C13,Major industry,2211,2211Manufacture of rubber tyres and tubes;  retreating and rebuilding of rubber
+S5C13,Major industry,2219,2219Manufacture of other rubber products
+S5C13,Major industry,2220,2220Manufacture of plastics products
+S5C13,Major industry,2310,2310Manufacture of glass and glass products
+S5C13,Major industry,2391,2391Manufacture of refractory products
+S5C13,Major industry,2392,2392Manufacture of clay building materials
+S5C13,Major industry,2393,2393Manufacture of other porcelain and ceramic products
+S5C13,Major industry,2394,"2394Manufacture of cement, lime and plaster"
+S5C13,Major industry,2395,"2395Manufacture of articles of concrete, cement and plaster"
+S5C13,Major industry,2396,"2396Cutting, shaping and finishing of stone"
+S5C13,Major industry,2399,2399Manufacture of other non-metallic mineral products n.e.c.
+S5C13,Major industry,2410,2410Manufacture of basic iron and steel
+S5C13,Major industry,2420,2420Manufacture of basic precious and other non-ferrous metals
+S5C13,Major industry,2431,2431Casting of iron and steel
+S5C13,Major industry,2432,2432Casting of non-ferrous metals
+S5C13,Major industry,2511,2511Manufacture of structural metal products
+S5C13,Major industry,2512,"2512Manufacture of tanks, reservoirs and containers of metal"
+S5C13,Major industry,2513,"2513Manufacture of steam generators, except central heating hot water boilers"
+S5C13,Major industry,2520,2520Manufacture of weapons and ammunition
+S5C13,Major industry,2591,"2591Forging, pressing, stamping and roll-forming of metal; powder metallurgy"
+S5C13,Major industry,2592,2592Treatment and coating of metals; machining
+S5C13,Major industry,2593,"2593Manufacture of cutlery, hand tools and general hardware"
+S5C13,Major industry,2599,2599Manufacture of other fabricated metal products n.e.c.
+S5C13,Major industry,2610,2610Manufacture of electronic components and boards
+S5C13,Major industry,2620,2620Manufacture of computers and peripheral equipment
+S5C13,Major industry,2630,2630Manufacture of communication equipment
+S5C13,Major industry,2640,2640Manufacture of consumer electronics
+S5C13,Major industry,2651,"2651Manufacture of measuring, testing, navigating and control equipment"
+S5C13,Major industry,2652,2652Manufacture of watches and clocks
+S5C13,Major industry,2660,"2660Manufacture of irradiation, electro-medical and electrotherapeutic equipment"
+S5C13,Major industry,2670,2670Manufacture of optical instruments and photographic equipment
+S5C13,Major industry,2680,2680Manufacture of magnetic and optical media
+S5C13,Major industry,2710,"2710Manufacture of electric motors, generators, transformers and electricity dis"
+S5C13,Major industry,2720,2720Manufacture of batteries and accumulators
+S5C13,Major industry,2731,2731Manufacture of fibre optic cables
+S5C13,Major industry,2732,2732Manufacture of other electronic and electric wires and cables
+S5C13,Major industry,2733,2733Manufacture of wiring devices
+S5C13,Major industry,2740,2740Manufacture of electric lighting equipment
+S5C13,Major industry,2750,2750Manufacture of domestic appliances
+S5C13,Major industry,2790,2790Manufacture of other electrical equipment
+S5C13,Major industry,2811,"2811Manufacture of engines and turbines, except aircraft, vehicle and cycle engi"
+S5C13,Major industry,2812,2812Manufacture of fluid power equipment
+S5C13,Major industry,2813,"2813Manufacture of other pumps, compressors, taps and valves"
+S5C13,Major industry,2814,"2814Manufacture of bearings, gears, gearing and driving elements"
+S5C13,Major industry,2815,"2815Manufacture of ovens, furnaces and furnace burners"
+S5C13,Major industry,2816,2816Manufacture of lifting and handling equipment
+S5C13,Major industry,2817,2817Manufacture of office machinery and equipment (except computers and peripher
+S5C13,Major industry,2818,2818Manufacture of power-driven hand tools
+S5C13,Major industry,2819,2819Manufacture of other general-purpose machinery
+S5C13,Major industry,2821,2821Manufacture of agricultural and forestry machinery
+S5C13,Major industry,2822,2822Manufacture of metal-forming machinery and machine tools
+S5C13,Major industry,2823,2823Manufacture of machinery for metallurgy
+S5C13,Major industry,2824,"2824Manufacture of machinery for mining, quarrying and construction"
+S5C13,Major industry,2825,"2825Manufacture of machinery for food, beverage and tobacco processing"
+S5C13,Major industry,2826,"2826Manufacture of machinery for textile, apparel and leather production"
+S5C13,Major industry,2829,2829Manufacture of other special-purpose machinery
+S5C13,Major industry,2910,2910Manufacture of motor vehicles
+S5C13,Major industry,2920,2920Manufacture of bodies (coachwork) for motor vehicles; manufacture of trailer
+S5C13,Major industry,2930,2930Manufacture of parts and accessories for motor vehicles
+S5C13,Major industry,3011,3011Building of ships and floating structures
+S5C13,Major industry,3012,3012Building of pleasure and sporting boats
+S5C13,Major industry,3020,3020Manufacture of railway locomotives and rolling stock
+S5C13,Major industry,3030,3030Manufacture of air and spacecraft and related machinery
+S5C13,Major industry,3040,3040Manufacture of military fighting vehicles
+S5C13,Major industry,3091,3091Manufacture of motorcycles
+S5C13,Major industry,3092,3092Manufacture of bicycles and invalid carriages
+S5C13,Major industry,3099,3099Manufacture of other transport equipment n.e.c.
+S5C13,Major industry,3100,3100Manufacture of furniture
+S5C13,Major industry,3211,3211Manufacture of jewellery and related articles
+S5C13,Major industry,3212,3212Manufacture of imitation jewellery and related articles
+S5C13,Major industry,3220,3220Manufacture of musical instruments
+S5C13,Major industry,3230,3230Manufacture of sports goods
+S5C13,Major industry,3240,3240Manufacture of games and toys
+S5C13,Major industry,3250,3250Manufacture of medical and dental instruments and supplies
+S5C13,Major industry,3290,3290Other manufacturing n.e.c.
+S5C13,Major industry,3311,3311Repair of fabricated metal products
+S5C13,Major industry,3312,3312Repair of machinery
+S5C13,Major industry,3313,3313Repair of electronic and optical equipment
+S5C13,Major industry,3314,3314Repair of electrical equipment
+S5C13,Major industry,3315,"3315Repair of transport equipment, except motor vehicles"
+S5C13,Major industry,3319,3319Repair of other equipment
+S5C13,Major industry,3320,3320Installation of industrial machinery and equipment
+S5C13,Major industry,3510,"3510Electric power generation, transmission and distribution"
+S5C13,Major industry,3520,3520Manufacture of gas; distribution of gaseous fuels through mains
+S5C13,Major industry,3530,3530Steam and air conditioning supply
+S5C13,Major industry,3600,"3600Water collection, treatment and supply"
+S5C13,Major industry,3700,3700Sewerage
+S5C13,Major industry,3811,3811Collection of non-hazardous waste
+S5C13,Major industry,3812,3812Collection of hazardous waste
+S5C13,Major industry,3821,3821Treatment and disposal of non-hazardous waste
+S5C13,Major industry,3822,3822Treatment and disposal of hazardous waste
+S5C13,Major industry,3830,3830Materials recovery
+S5C13,Major industry,3900,3900Remediation activities and other waste management services
+S5C13,Major industry,4100,4100Construction of buildings
+S5C13,Major industry,4210,4210Construction of roads and railways
+S5C13,Major industry,4220,4220Construction of utility projects
+S5C13,Major industry,4290,4290Construction of other civil engineering projects
+S5C13,Major industry,4311,4311Demolition
+S5C13,Major industry,4312,4312Site preparation
+S5C13,Major industry,4321,4321Electrical installation
+S5C13,Major industry,4322,"4322Plumbing, heat and air-conditioning installation"
+S5C13,Major industry,4329,4329Other construction installation
+S5C13,Major industry,4330,4330Building completion and finishing
+S5C13,Major industry,4390,4390Other specialized construction activities
+S5C13,Major industry,4510,4510Sale of motor vehicles
+S5C13,Major industry,4520,4520Maintenance and repair of motor vehicles
+S5C13,Major industry,4530,4530Sale of motor vehicle parts and accessories
+S5C13,Major industry,4540,"4540Sale, maintenance and repair of motorcycles and related parts and accessorie"
+S5C13,Major industry,4610,4610Wholesale on a fee or contract basis
+S5C13,Major industry,4620,4620Wholesale of agricultural raw materials and live animals
+S5C13,Major industry,4630,"4630Wholesale of food, beverages and tobacco"
+S5C13,Major industry,4641,"4641Wholesale of textiles, clothing and footwear"
+S5C13,Major industry,4649,4649Wholesale of other household goods
+S5C13,Major industry,4651,"4651Wholesale of computers, computer peripheral equipment and software"
+S5C13,Major industry,4652,4652Wholesale of electronic and telecommunications equipment and parts
+S5C13,Major industry,4653,"4653Wholesale of agricultural machinery, equipment and supplies"
+S5C13,Major industry,4659,4659Wholesale of other machinery and equipment
+S5C13,Major industry,4661,"4661Wholesale of solid, liquid and gaseous fuels and related products"
+S5C13,Major industry,4662,4662Wholesale of metals and metal ores
+S5C13,Major industry,4663,"4663Wholesale of construction materials, hardware, plumbing and heating equipmen"
+S5C13,Major industry,4669,4669Wholesale of waste and scrap and other products n.e.c.
+S5C13,Major industry,4690,4690Non-specialized wholesale trade
+S5C13,Major industry,4711,"4711Retail sale in non-specialized stores with food, beverages or tobacco predom"
+S5C13,Major industry,4719,4719Other retail sale in non-specialized stores
+S5C13,Major industry,4721,4721Retail sale of food in specialized stores
+S5C13,Major industry,4722,4722Retail sale of beverages in specialized stores
+S5C13,Major industry,4723,4723Retail sale of tobacco products in specialized stores
+S5C13,Major industry,4730,4730Retail sale of automotive fuel in specialized stores
+S5C13,Major industry,4741,"4741Retail sale of computers, peripheral units, software and telecommunications"
+S5C13,Major industry,4742,4742Retail sale of audio and video equipment in specialized stores
+S5C13,Major industry,4751,4751Retail sale of textiles in specialized stores
+S5C13,Major industry,4752,"4752Retail sale of hardware, paints and glass in specialized stores"
+S5C13,Major industry,4753,"4753Retail sale of carpets, rugs, wall and floor coverings in specialized stores"
+S5C13,Major industry,4759,"4759Retail sale of electrical household appliances, furniture, lighting equipmen"
+S5C13,Major industry,4761,"4761Retail sale of books, newspapers and stationary in specialized stores"
+S5C13,Major industry,4762,4762Retail sale of music and video recordings in specialized stores
+S5C13,Major industry,4763,4763Retail sale of sporting equipment in specialized stores
+S5C13,Major industry,4764,4764Retail sale of games and toys in specialized stores
+S5C13,Major industry,4771,"4771Retail sale of clothing, footwear and leather articles in specialized stores"
+S5C13,Major industry,4772,"4772Retail sale of pharmaceutical and medical goods, cosmetic and toilet article"
+S5C13,Major industry,4773,4773Other retail sale of new goods in specialized stores
+S5C13,Major industry,4774,4774Retail sale of second-hand goods
+S5C13,Major industry,4781,"4781Retail sale via stalls and markets of food, beverages and tobacco products"
+S5C13,Major industry,4782,"4782Retail sale via stalls and markets of textiles, clothing and footwear"
+S5C13,Major industry,4789,4789Retail sale via stalls and markets of other goods
+S5C13,Major industry,4791,4791Retail sale via mail order houses or via Internet
+S5C13,Major industry,4799,"4799Other retail sale not in stores, stalls or markets"
+S5C13,Major industry,4911,"4911Passenger rail transport, interurban"
+S5C13,Major industry,4912,4912Freight rail transport
+S5C13,Major industry,4921,4921Urban and suburban passenger land transport
+S5C13,Major industry,4922,4922Other passenger land transport
+S5C13,Major industry,4923,4923Freight transport by road
+S5C13,Major industry,4930,4930Transport via pipeline
+S5C13,Major industry,5011,5011Sea and coastal passenger water transport
+S5C13,Major industry,5012,5012Sea and coastal freight water transport
+S5C13,Major industry,5021,5021Inland passenger water transport
+S5C13,Major industry,5022,5022Inland freight water transport
+S5C13,Major industry,5110,5110Passenger air transport
+S5C13,Major industry,5120,5120Freight air transport
+S5C13,Major industry,5210,5210Warehousing and storage
+S5C13,Major industry,5221,5221Service activities incidental to land transportation
+S5C13,Major industry,5222,5222Service activities incidental to water transportation
+S5C13,Major industry,5223,5223Service activities incidental to air transportation
+S5C13,Major industry,5224,5224Cargo handling
+S5C13,Major industry,5229,5229Other transportation support activities
+S5C13,Major industry,5310,5310Postal activities
+S5C13,Major industry,5320,5320Courier activities
+S5C13,Major industry,5510,5510Short term accommodation activities
+S5C13,Major industry,5520,"5520Camping grounds, recreational vehicle parks and trailer parks"
+S5C13,Major industry,5590,5590Other accommodation
+S5C13,Major industry,5610,5610Restaurants and mobile food service activities
+S5C13,Major industry,5621,5621Event catering
+S5C13,Major industry,5629,5629Other food service activities
+S5C13,Major industry,5630,5630Beverage serving activities
+S5C13,Major industry,5811,5811Book publishing
+S5C13,Major industry,5812,5812Publishing of directories and mailing lists
+S5C13,Major industry,5813,"5813Publishing of newspapers, journals and periodicals"
+S5C13,Major industry,5819,5819Other publishing activities
+S5C13,Major industry,5820,5820Software publishing
+S5C13,Major industry,5911,"5911Motion picture, video and television programme production activities"
+S5C13,Major industry,5912,"5912Motion picture, video and television programme post-production activities"
+S5C13,Major industry,5913,"5913Motion picture, video and television programme distribution activities"
+S5C13,Major industry,5914,5914Motion picture projection activities
+S5C13,Major industry,5920,5920Sound recording and music publishing activities
+S5C13,Major industry,6010,6010Radio broadcasting
+S5C13,Major industry,6020,6020Television programming and broadcasting activities
+S5C13,Major industry,6110,6110Wired telecommunications activities
+S5C13,Major industry,6120,6120Wireless telecommunications activities
+S5C13,Major industry,6130,6130Satellite telecommunications activities
+S5C13,Major industry,6190,6190Other telecommunications activities
+S5C13,Major industry,6201,6201Computer programming activities
+S5C13,Major industry,6202,6202Computer consultancy and computer facilities management activities
+S5C13,Major industry,6209,6209Other information technology and computer service activities
+S5C13,Major industry,6311,"6311Data processing, hosting and related activities"
+S5C13,Major industry,6312,6312Web portals
+S5C13,Major industry,6391,6391News agency activities
+S5C13,Major industry,6399,6399Other information service activities n.e.c.
+S5C13,Major industry,6411,6411Central banking
+S5C13,Major industry,6419,6419Other monetary intermediation
+S5C13,Major industry,6420,6420Activities of holding companies
+S5C13,Major industry,6430,"6430Trusts, funds and similar financial entities"
+S5C13,Major industry,6491,6491Financial leasing
+S5C13,Major industry,6492,6492Other credit granting
+S5C13,Major industry,6499,"6499Other financial service activities, except insurance and pension funding act"
+S5C13,Major industry,6511,6511Life insurance
+S5C13,Major industry,6512,6512Non-life insurance
+S5C13,Major industry,6520,6520Reinsurance
+S5C13,Major industry,6530,6530Pension funding
+S5C13,Major industry,6611,6611Administration of financial markets
+S5C13,Major industry,6612,6612Security and commodity contracts brokerage
+S5C13,Major industry,6619,6619Other activities auxiliary to financial service activities
+S5C13,Major industry,6621,6621Risk and damage evaluation
+S5C13,Major industry,6622,6622Activities of insurance agents and brokers
+S5C13,Major industry,6629,6629Other activities auxiliary to insurance and pension funding
+S5C13,Major industry,6630,6630Fund management activities
+S5C13,Major industry,6810,6810Real estate activities with own or leased property
+S5C13,Major industry,6820,6820Real estate activities on a fee or contract basis
+S5C13,Major industry,6910,6910Legal activities
+S5C13,Major industry,6920,"6920Accounting, bookkeeping and auditing activities; tax consultancy"
+S5C13,Major industry,7010,7010Activities of head offices
+S5C13,Major industry,7020,7020Management consultancy activities
+S5C13,Major industry,7110,7110Architectural and engineering activities and related technical consultancy
+S5C13,Major industry,7120,7120Technical testing and analysis
+S5C13,Major industry,7210,7210Research and experimental development on natural sciences and engineering
+S5C13,Major industry,7220,7220Research and experimental development on social sciences and humanities
+S5C13,Major industry,7310,7310Advertising
+S5C13,Major industry,7320,7320Market research and public opinion polling
+S5C13,Major industry,7410,7410Specialized design activities
+S5C13,Major industry,7420,7420Photographic activities
+S5C13,Major industry,7490,"7490Other professional, scientific and technical activities n.e.c."
+S5C13,Major industry,7500,7500Veterinary activities
+S5C13,Major industry,7710,7710Renting and leasing of motor vehicles
+S5C13,Major industry,7721,7721Renting and leasing of recreational and sports goods
+S5C13,Major industry,7722,7722Renting of video tapes and disks
+S5C13,Major industry,7729,7729Renting and leasing of other personal and household goods
+S5C13,Major industry,7730,"7730Renting and leasing of other machinery, equipment and tangible goods"
+S5C13,Major industry,7740,"7740Leasing of intellectual property and similar products, except copyrighted wo"
+S5C13,Major industry,7810,7810Activities of employment placement agencies
+S5C13,Major industry,7820,7820Temporary employment agency activities
+S5C13,Major industry,7830,7830Other human resources provision
+S5C13,Major industry,7911,7911Travel agency activities
+S5C13,Major industry,7912,7912Tour operator activities
+S5C13,Major industry,7990,7990Other reservation service and related activities
+S5C13,Major industry,8010,8010Private security activities
+S5C13,Major industry,8020,8020Security systems service activities
+S5C13,Major industry,8030,8030Investigation activities
+S5C13,Major industry,8110,8110Combined facilities support activities
+S5C13,Major industry,8121,8121General cleaning of buildings
+S5C13,Major industry,8129,8129Other building and industrial cleaning activities
+S5C13,Major industry,8130,8130Landscape care and maintenance service activities
+S5C13,Major industry,8211,8211Combined office administrative service activities
+S5C13,Major industry,8219,"8219Photocopying, document preparation and other specialized office support acti"
+S5C13,Major industry,8220,8220Activities of call centres
+S5C13,Major industry,8230,8230Organization of conventions and trade shows
+S5C13,Major industry,8291,8291Activities of collection agencies and credit bureaus
+S5C13,Major industry,8292,8292Packaging activities
+S5C13,Major industry,8299,8299Other business support service activities n.e.c.
+S5C13,Major industry,8411,8411General public administration activities
+S5C13,Major industry,8412,"8412Regulation of the activities of providing health care, education, cultural s"
+S5C13,Major industry,8413,8413Regulation of and contribution to more efficient operation of businesses
+S5C13,Major industry,8421,8421Foreign affairs
+S5C13,Major industry,8422,8422Defense activities
+S5C13,Major industry,8423,8423Public order and safety activities
+S5C13,Major industry,8430,8430Compulsory social security activities
+S5C13,Major industry,8510,8510Pre-primary and primary education
+S5C13,Major industry,8521,8521General secondary education
+S5C13,Major industry,8522,8522Technical and vocational secondary education
+S5C13,Major industry,8530,8530Higher education
+S5C13,Major industry,8541,8541Sports and recreation education
+S5C13,Major industry,8542,8542Cultural education
+S5C13,Major industry,8549,8549Other education n.e.c.
+S5C13,Major industry,8550,8550Educational support activities
+S5C13,Major industry,8610,8610Hospital activities
+S5C13,Major industry,8620,8620Medical and dental practice activities
+S5C13,Major industry,8690,8690Other human health activities
+S5C13,Major industry,8710,8710Residential nursing care facilities
+S5C13,Major industry,8720,"8720Residential care activities for mental retardation, mental health and substa"
+S5C13,Major industry,8730,8730Residential care activities for the elderly and disabled
+S5C13,Major industry,8790,8790Other residential care activities
+S5C13,Major industry,8810,8810Social work activities without accommodation for the elderly and disabled
+S5C13,Major industry,8890,8890Other social work activities without accommodation
+S5C13,Major industry,9000,"9000Creative, arts and entertainment activities"
+S5C13,Major industry,9101,9101Library and archives activities
+S5C13,Major industry,9102,9102Museums activities and operation of historical sites and buildings
+S5C13,Major industry,9103,9103Botanical and zoological gardens and nature reserves activities
+S5C13,Major industry,9200,9200Gambling and betting activities
+S5C13,Major industry,9311,9311Operation of sports facilities
+S5C13,Major industry,9312,9312Activities of sports clubs
+S5C13,Major industry,9319,9319Other sports activities
+S5C13,Major industry,9321,9321Activities of amusement parks and theme parks
+S5C13,Major industry,9329,9329Other amusement and recreation activities n.e.c.
+S5C13,Major industry,9411,9411Activities of business and employers membership organizations
+S5C13,Major industry,9412,9412Activities of professional membership organizations
+S5C13,Major industry,9420,9420Activities of trade unions
+S5C13,Major industry,9491,9491Activities of religious organizations
+S5C13,Major industry,9492,9492Activities of political organizations
+S5C13,Major industry,9499,9499Activities of other membership organizations n.e.c.
+S5C13,Major industry,9511,9511Repair of computers and peripheral equipment
+S5C13,Major industry,9512,9512Repair of communication equipment
+S5C13,Major industry,9521,9521Repair of consumer electronics
+S5C13,Major industry,9522,9522Repair of household appliances and home and garden equipment
+S5C13,Major industry,9523,9523Repair of footwear and leather goods
+S5C13,Major industry,9524,9524Repair of furniture and home furnishings
+S5C13,Major industry,9529,9529Repair of other personal and household goods
+S5C13,Major industry,9601,9601Washing and (dry-) cleaning of textile and fur products
+S5C13,Major industry,9602,9602Hairdressing and other beauty treatment
+S5C13,Major industry,9603,9603Funeral and related activities
+S5C13,Major industry,9609,9609Other personal service activities n.e.c.
+S5C13,Major industry,9700,9700Activities of households as employers of domestic personnel
+S5C13,Major industry,9810,9810Undifferentiated goods-producing activities of private households for own us
+S5C13,Major industry,9820,9820Undifferentiated service-producing activities of private households for own
+S5C13,Major industry,9900,9900Activities of extraterritorial organizations and bodies
+S5C15,Kind of Establishment,1,1 Federal Govt.
+S5C15,Kind of Establishment,2,2 Provincial Govt.
+S5C15,Kind of Establishment,3,3 Local Body Govt.
+S5C15,Kind of Establishment,4,4 Public Enterprise (Corp)
+S5C15,Kind of Establishment,5,5 Public Ltd. Company
+S5C15,Kind of Establishment,6,6 Private Ltd. Company
+S5C15,Kind of Establishment,7,7 International Organization
+S5C15,Kind of Establishment,8,8 An NGO
+S5C15,Kind of Establishment,9,9 Agriculture farm
+S5C15,Kind of Establishment,10,10  Private Business
+S5C15,Kind of Establishment,11,11 Other
+S5C16,Business Registered in,1,Yes
+S5C16,Business Registered in,2,No
+S5C16,Business Registered in,3,Dont know
+S5C17,Kind of records keeps,1,A complete set of written accounts for tax purposes
+S5C17,Kind of records keeps,2,Simplified written accounts not for tax purposes
+S5C17,Kind of records keeps,3,"Informal records of orders, sales, purchases"
+S5C17,Kind of records keeps,4,No records are kept
+S5C17,Kind of records keeps,5,"Dont, Know"
+S5C18,Person engaged in businees/enterprise,,No Stata value labels
+S5C19,Business hire any regular paid employee,1,Yes
+S5C19,Business hire any regular paid employee,2,No
+S5C20,Member of any Association,1,Yes
+S5C20,Member of any Association,2,No
+S5C20,Member of any Association,3,Dont know
+Fstatus,,,No Stata value labels
+S9C1,Was looking for work during last 4-weeks,1,Yes
+S9C1,Was looking for work during last 4-weeks,2,No
+S9C21,Applied to prospective employer,,No Stata value labels
+S9C22,Take a test or interview,,No Stata value labels
+S9C23,Post/Update resume or professional/social networking sites,,No Stata value labels
+S9C24,"Checked at work sites, farms, factories, markets, etc.",,No Stata value labels
+S9C25,"Applied for permit or license to set up own enterprise such as a shop, business,",,No Stata value labels
+S9C26,"Looked for land, building, machinery or equipment for setting up own enterprise",,No Stata value labels
+S9C27,Sought assistance from friends or relatives,,No Stata value labels
+S9C28,Placed or answered advertisements,,No Stata value labels
+S9C29,Registered with Government employment agency,,No Stata value labels
+S9C210,Registered with Private Employment Agency,,No Stata value labels
+S9C211,Arranged for financial resources,,No Stata value labels
+S9C212,Applied for loan/credit,,No Stata value labels
+S9C213,Other (Specify),,No Stata value labels
+S9C3,How long was being looking for work,1,Less than one month
+S9C3,How long was being looking for work,2,one month to three months
+S9C3,How long was being looking for work,3,Three months to six months
+S9C3,How long was being looking for work,4,six months to 12 months
+S9C3,How long was being looking for work,5,One year and over
+S9C4,At present does want to work for pay or start a business,1,Yes
+S9C4,At present does want to work for pay or start a business,2,No
+S9C5, Reasons why did not try to find paid job or start business,1,Already has a job or business to start in the near future
+S9C5, Reasons why did not try to find paid job or start business,2,Awaiting to be recalled from a previous job
+S9C5, Reasons why did not try to find paid job or start business,3,Waiting for results from a previous search
+S9C5, Reasons why did not try to find paid job or start business,4,Waiting for the season to start
+S9C5, Reasons why did not try to find paid job or start business,5,"Tired of looking, no jobs in the area"
+S9C5, Reasons why did not try to find paid job or start business,6,"No jobs matching his/her skills, lacks experience"
+S9C5, Reasons why did not try to find paid job or start business,7,Considered too be young/too be old by employers
+S9C5, Reasons why did not try to find paid job or start business,8,Family does not approve
+S9C5, Reasons why did not try to find paid job or start business,9,Busy studying or doing apprentice work
+S9C5, Reasons why did not try to find paid job or start business,10,Busy with household or family responsibilities
+S9C5, Reasons why did not try to find paid job or start business,11, Busy farming or fishing for household use
+S9C5, Reasons why did not try to find paid job or start business,12,"With a disability, injury or illness"
+S9C5, Reasons why did not try to find paid job or start business,13,Has other sources of income
+S9C5, Reasons why did not try to find paid job or start business,14,Other (Specify)
+S9C6,Could start work within next 2 weeks,1,Yes
+S9C6,Could start work within next 2 weeks,2,No
+S9C7,Type of work would prefer to do,1,Full-time Job in Public Sector
+S9C7,Type of work would prefer to do,2,Full time Job with private Sector/business
+S9C7,Type of work would prefer to do,3,Part-time paid employment
+S9C7,Type of work would prefer to do,4,Self employment in own business
+S9C7,Type of work would prefer to do,5,"Other work (short term work, casual, daily work)"
+S9C7,Type of work would prefer to do,6,Any type of work
+S9C9,Why not available to start work within next two weeks,1,Illness
+S9C9,Why not available to start work within next two weeks,2,Will take a job within a  month
+S9C9,Why not available to start work within next two weeks,3,Temporarily laid off
+S9C9,Why not available to start work within next two weeks,4,Apprentice and not  willing to work
+S9C9,Why not available to start work within next two weeks,5,Agricultural landlord/ property owner and not willing to work
+S9C9,Why not available to start work within next two weeks,6,Too young to work
+S9C9,Why not available to start work within next two weeks,7,Student and not willing to work
+S9C9,Why not available to start work within next two weeks,8,Unable to work/handicapped
+S9C9,Why not available to start work within next two weeks,9,Housekeeping and not willing to work
+S9C9,Why not available to start work within next two weeks,10,Retired and not willing to work
+S9C9,Why not available to start work within next two weeks,11,Too old to work
+S9C9,Why not available to start work within next two weeks,12,Family does not allow to work
+S9C9,Why not available to start work within next two weeks,13,Other reason
+S9C10,Registered with private employment agency,1,Yes
+S9C10,Registered with private employment agency,2,No
+S9C11,How long ago you stop working,1, Less than one month ago
+S9C11,How long ago you stop working,2, 1 To less than 3 months ago
+S9C11,How long ago you stop working,3, 3 To less than 6 months ago
+S9C11,How long ago you stop working,4, 6 To less than 12 months ago
+S9C11,How long ago you stop working,5, 1 To less than 3 years ago
+S9C11,How long ago you stop working,6, 3 To less than 5 years ago
+S9C11,How long ago you stop working,7, 5 To less than 8 years ago
+S9C11,How long ago you stop working,8, 8 years and more ago
+S9C11,How long ago you stop working,9, Dont know
+S9C12, Main Occuption,343,"343Artistic, cultural and culinary associate professionals"
+S9C12, Main Occuption,1111,1111Legislators
+S9C12, Main Occuption,1112,1112Senior government officials
+S9C12, Main Occuption,1113,1113Traditional chiefs and heads of village
+S9C12, Main Occuption,1114,1114Senior officials of special-interest organizations
+S9C12, Main Occuption,1211,1211Finance managers
+S9C12, Main Occuption,1212,1212Human resource managers
+S9C12, Main Occuption,1213,1213Policy and planning managers
+S9C12, Main Occuption,1219,1219Business services and administration managers not elsewhere classified
+S9C12, Main Occuption,1221,1221Sales and marketing managers
+S9C12, Main Occuption,1222,1222Advertising and public relations managers
+S9C12, Main Occuption,1223,1223Research and development managers
+S9C12, Main Occuption,1311,1311Agricultural and forestry production managers
+S9C12, Main Occuption,1312,1312Aquaculture and fisheries production managers
+S9C12, Main Occuption,1321,1321Manufacturing managers
+S9C12, Main Occuption,1322,1322Mining managers
+S9C12, Main Occuption,1323,1323Construction managers
+S9C12, Main Occuption,1324,"1324Supply, distribution and related managers"
+S9C12, Main Occuption,1330,1330Information and communications technology service managers
+S9C12, Main Occuption,1341,1341Child care services managers
+S9C12, Main Occuption,1342,1342Health services managers
+S9C12, Main Occuption,1343,1343Aged care services managers
+S9C12, Main Occuption,1344,1344Social welfare managers
+S9C12, Main Occuption,1345,1345Education managers
+S9C12, Main Occuption,1346,1346Financial and insurance services branch managers
+S9C12, Main Occuption,1349,1349Professional services managers not elsewhere classified
+S9C12, Main Occuption,1411,1411Hotel managers
+S9C12, Main Occuption,1412,1412Restaurant managers
+S9C12, Main Occuption,1420,1420Retail and wholesale trade managers
+S9C12, Main Occuption,1431,"1431Sports, recreation and cultural centre managers"
+S9C12, Main Occuption,1439,1439Services managers not elsewhere classified
+S9C12, Main Occuption,2111,2111Physicists and astronomers
+S9C12, Main Occuption,2112,2112Meteorologists
+S9C12, Main Occuption,2113,2113Chemists
+S9C12, Main Occuption,2114,2114Geologists and geophysicists
+S9C12, Main Occuption,2120,"2120Mathematicians, actuaries and statisticians"
+S9C12, Main Occuption,2131,"2131Biologists, botanists, zoologists and related professionals"
+S9C12, Main Occuption,2132,"2132Farming, forestry and fisheries advisers"
+S9C12, Main Occuption,2133,2133Environmental protection professionals
+S9C12, Main Occuption,2141,2141Industrial and production engineers
+S9C12, Main Occuption,2142,2142Civil engineers
+S9C12, Main Occuption,2143,2143Environmental engineers
+S9C12, Main Occuption,2144,2144Mechanical engineers
+S9C12, Main Occuption,2145,2145Chemical engineers
+S9C12, Main Occuption,2146,"2146Mining engineers, metallurgists and related professionals"
+S9C12, Main Occuption,2149,2149Engineering professionals not elsewhere classified
+S9C12, Main Occuption,2151,2151Electrical engineers
+S9C12, Main Occuption,2152,2152Electronics engineers
+S9C12, Main Occuption,2153,2153Telecommunications engineers
+S9C12, Main Occuption,2161,2161Building architects
+S9C12, Main Occuption,2162,2162Landscape architects
+S9C12, Main Occuption,2163,2163Product and garment designers
+S9C12, Main Occuption,2164,2164Town and traffic planners
+S9C12, Main Occuption,2165,2165Cartographers and surveyors
+S9C12, Main Occuption,2166,2166Graphic and multimedia designers
+S9C12, Main Occuption,2211,2211Generalist medical practitioners
+S9C12, Main Occuption,2212,2212Specialist medical practitioners
+S9C12, Main Occuption,2221,2221Nursing professionals
+S9C12, Main Occuption,2222,2222Midwifery professionals
+S9C12, Main Occuption,2230,2230Traditional and complementary medicine professionals
+S9C12, Main Occuption,2240,2240Paramedical practitioners
+S9C12, Main Occuption,2250,2250Veterinarians
+S9C12, Main Occuption,2261,2261Dentists
+S9C12, Main Occuption,2262,2262Pharmacists
+S9C12, Main Occuption,2263,2263Environmental and occupational health and hygiene professionals
+S9C12, Main Occuption,2264,2264Physiotherapists
+S9C12, Main Occuption,2265,2265Dieticians and nutritionists
+S9C12, Main Occuption,2266,2266Audiologists and speech therapists
+S9C12, Main Occuption,2267,2267Optometrists and ophthalmic opticians
+S9C12, Main Occuption,2269,2269Health professionals not elsewhere classified
+S9C12, Main Occuption,2310,2310University and higher education teachers
+S9C12, Main Occuption,2320,2320Vocational education teachers
+S9C12, Main Occuption,2330,2330Secondary education teachers
+S9C12, Main Occuption,2341,2341Primary school teachers
+S9C12, Main Occuption,2342,2342Early childhood educators
+S9C12, Main Occuption,2351,2351Education methods specialists
+S9C12, Main Occuption,2352,2352Special needs teachers
+S9C12, Main Occuption,2353,2353Other language teachers
+S9C12, Main Occuption,2354,2354Other music teachers
+S9C12, Main Occuption,2355,2355Other arts teachers
+S9C12, Main Occuption,2356,2356Information technology trainers
+S9C12, Main Occuption,2359,2359Teaching professionals not elsewhere classified
+S9C12, Main Occuption,2411,2411Accountants
+S9C12, Main Occuption,2412,2412Financial and investment advisers
+S9C12, Main Occuption,2413,2413Financial analysts
+S9C12, Main Occuption,2421,2421Management and organization analysts
+S9C12, Main Occuption,2422,2422Policy administration professionals
+S9C12, Main Occuption,2423,2423Personnel and careers professionals
+S9C12, Main Occuption,2424,2424Training and staff development professionals
+S9C12, Main Occuption,2431,2431Advertising and marketing professionals
+S9C12, Main Occuption,2432,2432Public relations professionals
+S9C12, Main Occuption,2433,2433Technical and medical sales professionals (excluding ICT)
+S9C12, Main Occuption,2434,2434Information and communications technology sales professionals
+S9C12, Main Occuption,2511,2511Systems analysts
+S9C12, Main Occuption,2512,2512Software developers
+S9C12, Main Occuption,2513,2513Web and multimedia developers
+S9C12, Main Occuption,2514,2514Applications programmers
+S9C12, Main Occuption,2519,2519Software and applications developers and analysts not elsewhere classified
+S9C12, Main Occuption,2521,2521Database designers and administrators
+S9C12, Main Occuption,2522,2522Systems administrators
+S9C12, Main Occuption,2523,2523Computer network professionals
+S9C12, Main Occuption,2529,2529Database and network professionals not elsewhere classified
+S9C12, Main Occuption,2611,2611Lawyers
+S9C12, Main Occuption,2612,2612Judges
+S9C12, Main Occuption,2619,2619Legal professionals not elsewhere classified
+S9C12, Main Occuption,2621,2621Archivists and curators
+S9C12, Main Occuption,2622,2622Librarians and related information professionals
+S9C12, Main Occuption,2631,2631Economists
+S9C12, Main Occuption,2632,"2632Sociologists, anthropologists and related professionals"
+S9C12, Main Occuption,2633,"2633Philosophers, historians and political scientists"
+S9C12, Main Occuption,2634,2634Psychologists
+S9C12, Main Occuption,2635,2635Social work and counseling professionals
+S9C12, Main Occuption,2636,2636Religious professionals
+S9C12, Main Occuption,2641,2641Authors and related writers
+S9C12, Main Occuption,2642,2642Journalists
+S9C12, Main Occuption,2643,"2643Translators, interpreters and other linguists"
+S9C12, Main Occuption,2651,2651Visual artists
+S9C12, Main Occuption,2652,"2652Musicians, singers and composers"
+S9C12, Main Occuption,2653,2653Dancers and choreographers
+S9C12, Main Occuption,2654,"2654Film, stage and related directors and producers"
+S9C12, Main Occuption,2655,2655Actors
+S9C12, Main Occuption,2656,"2656Announcers on radio, television and other media"
+S9C12, Main Occuption,2659,2659Creative and performing artists not elsewhere classified
+S9C12, Main Occuption,3111,3111Chemical and physical science technicians
+S9C12, Main Occuption,3112,3112Civil engineering technicians
+S9C12, Main Occuption,3113,3113Electrical engineering technicians
+S9C12, Main Occuption,3114,3114Electronics engineering technicians
+S9C12, Main Occuption,3115,3115Mechanical engineering technicians
+S9C12, Main Occuption,3116,3116Chemical engineering technicians
+S9C12, Main Occuption,3117,3117Mining and metallurgical technicians
+S9C12, Main Occuption,3118,3118Draughts persons
+S9C12, Main Occuption,3119,3119Physical and engineering science technicians not elsewhere classified
+S9C12, Main Occuption,3121,3121Mining supervisors
+S9C12, Main Occuption,3122,3122Manufacturing supervisors
+S9C12, Main Occuption,3123,3123Construction supervisors
+S9C12, Main Occuption,3131,3131Power production plant operators
+S9C12, Main Occuption,3132,3132Incinerator and water treatment plant operators
+S9C12, Main Occuption,3133,3133Chemical processing plant controllers
+S9C12, Main Occuption,3134,3134Petroleum and natural gas refining plant operators
+S9C12, Main Occuption,3135,3135Metal production process controllers
+S9C12, Main Occuption,3139,3139Process control technicians not elsewhere classified
+S9C12, Main Occuption,3141,3141Life science technicians (excluding medical)
+S9C12, Main Occuption,3142,3142Agricultural technicians
+S9C12, Main Occuption,3143,3143Forestry technicians
+S9C12, Main Occuption,3151,3151Ships' engineers
+S9C12, Main Occuption,3152,3152Ships' deck officers and pilots
+S9C12, Main Occuption,3153,3153Aircraft pilots and related associate professionals
+S9C12, Main Occuption,3154,3154Air traffic controllers
+S9C12, Main Occuption,3155,3155Air traffic safety electronics technicians
+S9C12, Main Occuption,3211,3211Medical imaging and therapeutic equipment technicians
+S9C12, Main Occuption,3212,3212Medical and pathology laboratory technicians
+S9C12, Main Occuption,3213,3213Pharmaceutical technicians and assistants
+S9C12, Main Occuption,3214,3214Medical and dental prosthetic technicians
+S9C12, Main Occuption,3221,3221Nursing associate professionals
+S9C12, Main Occuption,3222,3222Midwifery associate professionals
+S9C12, Main Occuption,3230,3230Traditional and complementary medicine associate professionals
+S9C12, Main Occuption,3240,3240Veterinary technicians and assistants
+S9C12, Main Occuption,3251,3251Dental assistants and therapists
+S9C12, Main Occuption,3252,3252Medical records and health information technicians
+S9C12, Main Occuption,3253,3253Community health workers
+S9C12, Main Occuption,3254,3254Dispensing opticians
+S9C12, Main Occuption,3255,3255Physiotherapy technicians and assistants
+S9C12, Main Occuption,3256,3256Medical assistants
+S9C12, Main Occuption,3257,3257Environmental and occupational health inspectors and associates
+S9C12, Main Occuption,3258,3258Ambulance workers
+S9C12, Main Occuption,3259,3259Health associate professionals not elsewhere classified
+S9C12, Main Occuption,3311,3311Securities and finance dealers and brokers
+S9C12, Main Occuption,3312,3312Credit and loans officers
+S9C12, Main Occuption,3313,3313Accounting associate professionals
+S9C12, Main Occuption,3314,"3314Statistical, mathematical and related associate professionals"
+S9C12, Main Occuption,3315,3315Valuers and loss assessors
+S9C12, Main Occuption,3321,3321Insurance representatives
+S9C12, Main Occuption,3322,3322Commercial sales representatives
+S9C12, Main Occuption,3323,3323Buyers
+S9C12, Main Occuption,3324,3324Trade brokers
+S9C12, Main Occuption,3331,3331Clearing and forwarding agents
+S9C12, Main Occuption,3332,3332Conference and event planners
+S9C12, Main Occuption,3333,3333Employment agents and contractors
+S9C12, Main Occuption,3334,3334Real estate agents and property managers
+S9C12, Main Occuption,3339,3339Business services agents not elsewhere classified
+S9C12, Main Occuption,3341,3341Office supervisors
+S9C12, Main Occuption,3342,3342Legal secretaries
+S9C12, Main Occuption,3343,3343Administrative and executive secretaries
+S9C12, Main Occuption,3344,3344Medical secretaries
+S9C12, Main Occuption,3351,3351Customs and border inspectors
+S9C12, Main Occuption,3352,3352Government tax and excise officials
+S9C12, Main Occuption,3353,3353Government social benefits officials
+S9C12, Main Occuption,3354,3354Government licensing officials
+S9C12, Main Occuption,3355,3355Police inspectors and detectives
+S9C12, Main Occuption,3359,3359Regulatory government associate professionals not elsewhere classified
+S9C12, Main Occuption,3411,3411Police inspectors and detectives
+S9C12, Main Occuption,3412,3412Social work associate professionals
+S9C12, Main Occuption,3413,3413Religious associate professionals
+S9C12, Main Occuption,3421,3421Athletes and sports players
+S9C12, Main Occuption,3422,"3422Sports coaches, instructors and officials"
+S9C12, Main Occuption,3423,3423Fitness and recreation instructors and program leaders
+S9C12, Main Occuption,3431,3431Photographers
+S9C12, Main Occuption,3432,3432Interior designers and decorators
+S9C12, Main Occuption,3433,"3433Gallery, museum and library technicians"
+S9C12, Main Occuption,3434,3434Chefs
+S9C12, Main Occuption,3435,3435Other artistic and cultural associate professionals
+S9C12, Main Occuption,3511,3511Information and communications technology operations technicians
+S9C12, Main Occuption,3512,3512Information and communications technology user support technicians
+S9C12, Main Occuption,3513,3513Computer network and systems technicians
+S9C12, Main Occuption,3514,3514Web technicians
+S9C12, Main Occuption,3521,3521Broadcasting and audio-visual technicians
+S9C12, Main Occuption,3522,3522Telecommunications engineering technicians
+S9C12, Main Occuption,4110,4110General office clerks
+S9C12, Main Occuption,4120,4120Secretaries (general)
+S9C12, Main Occuption,4131,4131Typists and word processing operators
+S9C12, Main Occuption,4132,4132Data entry clerks
+S9C12, Main Occuption,4211,4211Bank tellers and related clerks
+S9C12, Main Occuption,4212,"4212Bookmakers, croupiers and related gaming workers"
+S9C12, Main Occuption,4213,4213Pawnbrokers and money-lenders
+S9C12, Main Occuption,4214,4214Debt-collectors and related workers
+S9C12, Main Occuption,4221,4221Travel consultants and clerks
+S9C12, Main Occuption,4222,4222Contact centre information clerks
+S9C12, Main Occuption,4223,4223Telephone switchboard operators
+S9C12, Main Occuption,4224,4224Hotel receptionists
+S9C12, Main Occuption,4225,4225Enquiry clerks
+S9C12, Main Occuption,4226,4226Receptionists (general)
+S9C12, Main Occuption,4227,4227Survey and market research interviewers
+S9C12, Main Occuption,4229,4229Client information workers not elsewhere classified
+S9C12, Main Occuption,4311,4311Accounting and bookkeeping clerks
+S9C12, Main Occuption,4312,"4312Statistical, finance and insurance clerks"
+S9C12, Main Occuption,4313,4313Payroll clerks
+S9C12, Main Occuption,4321,4321Stock clerks
+S9C12, Main Occuption,4322,4322Production clerks
+S9C12, Main Occuption,4323,4323Transport clerks
+S9C12, Main Occuption,4411,4411Library clerks
+S9C12, Main Occuption,4412,4412Mail carriers and sorting clerks
+S9C12, Main Occuption,4413,"4413Coding, proof-reading and related clerks"
+S9C12, Main Occuption,4414,4414Scribes and related workers
+S9C12, Main Occuption,4415,4415Filing and copying clerks
+S9C12, Main Occuption,4416,4416Personnel clerks
+S9C12, Main Occuption,4419,4419Clerical support workers not elsewhere classified
+S9C12, Main Occuption,5111,5111Travel attendants and travel stewards
+S9C12, Main Occuption,5112,5112Transport conductors
+S9C12, Main Occuption,5113,5113Travel guides
+S9C12, Main Occuption,5120,5120Cooks
+S9C12, Main Occuption,5131,5131Waiters
+S9C12, Main Occuption,5132,5132Bartenders
+S9C12, Main Occuption,5141,5141Hairdressers
+S9C12, Main Occuption,5142,5142Beauticians and related workers
+S9C12, Main Occuption,5151,"5151Cleaning and housekeeping supervisors in offices, hotels and other establish"
+S9C12, Main Occuption,5152,5152Domestic housekeepers
+S9C12, Main Occuption,5153,5153Building caretakers
+S9C12, Main Occuption,5161,"5161Astrologers, fortune-tellers and related workers"
+S9C12, Main Occuption,5162,5162Companions and valets
+S9C12, Main Occuption,5163,5163Undertakers and embalmers
+S9C12, Main Occuption,5164,5164Pet groomers and animal care workers
+S9C12, Main Occuption,5165,5165Driving instructors
+S9C12, Main Occuption,5169,5169Personal services workers not elsewhere classified
+S9C12, Main Occuption,5211,5211Stall and market salespersons
+S9C12, Main Occuption,5212,5212Street food salespersons
+S9C12, Main Occuption,5221,5221Shop keepers
+S9C12, Main Occuption,5222,5222Shop supervisors
+S9C12, Main Occuption,5223,5223Shop sales assistants
+S9C12, Main Occuption,5230,5230Cashiers and ticket clerks
+S9C12, Main Occuption,5241,5241Fashion and other models
+S9C12, Main Occuption,5242,5242Sales demonstrators
+S9C12, Main Occuption,5243,5243Door to door salespersons
+S9C12, Main Occuption,5244,5244Contact centre salespersons
+S9C12, Main Occuption,5245,5245Service station attendants
+S9C12, Main Occuption,5246,5246Food service counter attendants
+S9C12, Main Occuption,5249,5249Sales workers not elsewhere classified
+S9C12, Main Occuption,5311,5311Child care workers
+S9C12, Main Occuption,5312,5312Teachers' aides
+S9C12, Main Occuption,5321,5321Health care assistants
+S9C12, Main Occuption,5322,5322Home-based personal care workers
+S9C12, Main Occuption,5329,5329Personal care workers in health services not elsewhere classified
+S9C12, Main Occuption,5411,5411Fire-fighters
+S9C12, Main Occuption,5412,5412Police officers
+S9C12, Main Occuption,5413,5413Prison guards
+S9C12, Main Occuption,5414,5414Security guards
+S9C12, Main Occuption,5419,5419Protective services workers not elsewhere classified
+S9C12, Main Occuption,6111,6111Field crop and vegetable growers
+S9C12, Main Occuption,6112,6112Tree and shrub crop growers
+S9C12, Main Occuption,6113,"6113Gardeners, horticultural and nursery growers"
+S9C12, Main Occuption,6114,6114Mixed crop growers
+S9C12, Main Occuption,6121,6121Livestock and dairy producers
+S9C12, Main Occuption,6122,6122Poultry producers
+S9C12, Main Occuption,6123,6123Apiarists and sericulturists
+S9C12, Main Occuption,6129,6129Animal producers not elsewhere classified
+S9C12, Main Occuption,6130,6130Mixed crop and animal producers
+S9C12, Main Occuption,6210,6210Forestry and related workers
+S9C12, Main Occuption,6221,6221Aquaculture workers
+S9C12, Main Occuption,6222,6222Inland and coastal waters fishery workers
+S9C12, Main Occuption,6223,6223Deep-sea fishery workers
+S9C12, Main Occuption,6224,6224Hunters and trappers
+S9C12, Main Occuption,6310,6310Subsistence crop farmers
+S9C12, Main Occuption,6320,6320Subsistence livestock farmers
+S9C12, Main Occuption,6330,6330Subsistence mixed crop and livestock farmers
+S9C12, Main Occuption,6340,"6340Subsistence fishers, hunters, trappers and gatherers"
+S9C12, Main Occuption,7111,7111House builders
+S9C12, Main Occuption,7112,7112Bricklayers and related workers
+S9C12, Main Occuption,7113,"7113Stonemasons, stone cutters, splitters and carvers"
+S9C12, Main Occuption,7114,"7114Concrete placers, concrete finishers and related workers"
+S9C12, Main Occuption,7115,7115Carpenters and joiners
+S9C12, Main Occuption,7119,7119Building frame and related trades workers not elsewhere classified
+S9C12, Main Occuption,7121,7121Roofers
+S9C12, Main Occuption,7122,7122Floor layers and tile setters
+S9C12, Main Occuption,7123,7123Plasterers
+S9C12, Main Occuption,7124,7124Insulation workers
+S9C12, Main Occuption,7125,7125Glaziers
+S9C12, Main Occuption,7126,7126Plumbers and pipe fitters
+S9C12, Main Occuption,7127,7127Air conditioning and refrigeration mechanics
+S9C12, Main Occuption,7131,7131Painters and related workers
+S9C12, Main Occuption,7132,7132Spray painters and varnishers
+S9C12, Main Occuption,7133,7133Building structure cleaners
+S9C12, Main Occuption,7211,7211Metal moulders and core makers
+S9C12, Main Occuption,7212,7212Welders and flame cutters
+S9C12, Main Occuption,7213,7213Sheet-metal workers
+S9C12, Main Occuption,7214,7214Structural-metal preparers and erectors
+S9C12, Main Occuption,7215,7215Riggers and cable splicers
+S9C12, Main Occuption,7221,"7221Blacksmiths, hammer smiths and forging press workers"
+S9C12, Main Occuption,7222,7222Toolmakers and related workers
+S9C12, Main Occuption,7223,7223Metal working machine tool setters and operators
+S9C12, Main Occuption,7224,"7224Metal polishers, wheel grinders and tool sharpeners"
+S9C12, Main Occuption,7231,7231Motor vehicle mechanics and repairers
+S9C12, Main Occuption,7232,7232Aircraft engine mechanics and repairers
+S9C12, Main Occuption,7233,7233Agricultural and industrial machinery mechanics and repairers
+S9C12, Main Occuption,7234,7234Bicycle and related repairers
+S9C12, Main Occuption,7311,7311Precision-instrument makers and repairers
+S9C12, Main Occuption,7312,7312Musical instrument makers and tuners
+S9C12, Main Occuption,7313,7313Jewellery and precious-metal workers
+S9C12, Main Occuption,7314,7314Potters and related workers
+S9C12, Main Occuption,7315,"7315Glass makers, cutters, grinders and finishers"
+S9C12, Main Occuption,7316,"7316Sign writers, decorative painters, engravers and etchers"
+S9C12, Main Occuption,7317,"7317Handicraft workers in wood, basketry and related materials"
+S9C12, Main Occuption,7318,"7318Handicraft workers in textile, leather and related materials"
+S9C12, Main Occuption,7319,7319Handicraft workers not elsewhere classified
+S9C12, Main Occuption,7321,7321Pre-press technicians
+S9C12, Main Occuption,7322,7322Printers
+S9C12, Main Occuption,7323,7323Print finishing and binding workers
+S9C12, Main Occuption,7411,7411Building and related electricians
+S9C12, Main Occuption,7412,7412Electrical mechanics and fitters
+S9C12, Main Occuption,7413,7413Electrical line installers and repairers
+S9C12, Main Occuption,7421,7421Electronics mechanics and servicers
+S9C12, Main Occuption,7422,7422Information and communications technology installers and servicers
+S9C12, Main Occuption,7511,"7511Butchers, fishmongers and related food preparers"
+S9C12, Main Occuption,7512,"7512Bakers, pastry-cooks and confectionery makers"
+S9C12, Main Occuption,7513,7513Dairy-products makers
+S9C12, Main Occuption,7514,"7514Fruit, vegetable and related preservers"
+S9C12, Main Occuption,7515,7515Food and beverage tasters and graders
+S9C12, Main Occuption,7516,7516Tobacco preparers and tobacco products makers
+S9C12, Main Occuption,7521,7521Wood treaters
+S9C12, Main Occuption,7522,7522Cabinet-makers and related workers
+S9C12, Main Occuption,7523,7523Woodworking-machine tool setters and operators
+S9C12, Main Occuption,7531,"7531Tailors, dressmakers, furriers and hatters"
+S9C12, Main Occuption,7532,7532Garment and related pattern-makers and cutters
+S9C12, Main Occuption,7533,"7533Sewing, embroidery and related workers"
+S9C12, Main Occuption,7534,7534Upholsterers and related workers
+S9C12, Main Occuption,7535,"7535Pelt dressers, tanners and fell mongers"
+S9C12, Main Occuption,7536,7536Shoemakers and related workers
+S9C12, Main Occuption,7541,7541Underwater divers
+S9C12, Main Occuption,7542,7542Shot firers and blasters
+S9C12, Main Occuption,7543,7543Product graders and testers (excluding foods and beverages)
+S9C12, Main Occuption,7544,7544Fumigators and other pest and weed controllers
+S9C12, Main Occuption,7549,7549Craft and related workers not elsewhere classified
+S9C12, Main Occuption,8111,8111Miners and quarries
+S9C12, Main Occuption,8112,8112Mineral and stone processing plant operators
+S9C12, Main Occuption,8113,8113Well drillers and borers and related workers
+S9C12, Main Occuption,8114,"8114Cement, stone and other mineral products machine operators"
+S9C12, Main Occuption,8121,8121Metal processing plant operators
+S9C12, Main Occuption,8122,"8122Metal finishing, plating and coating machine operators"
+S9C12, Main Occuption,8131,8131Chemical products plant and machine operators
+S9C12, Main Occuption,8132,8132Photographic products machine operators
+S9C12, Main Occuption,8141,8141Rubber products machine operators
+S9C12, Main Occuption,8142,8142Plastic products machine operators
+S9C12, Main Occuption,8143,8143Paper products machine operators
+S9C12, Main Occuption,8151,"8151Fibre preparing, spinning and winding machine operators"
+S9C12, Main Occuption,8152,8152Weaving and knitting machine operators
+S9C12, Main Occuption,8153,8153Sewing machine operators
+S9C12, Main Occuption,8154,"8154Bleaching, dyeing and fabric cleaning machine operators"
+S9C12, Main Occuption,8155,8155Fur and leather preparing machine operators
+S9C12, Main Occuption,8156,8156Shoemaking and related machine operators
+S9C12, Main Occuption,8157,8157Laundry machine operators
+S9C12, Main Occuption,8159,"8159Textile, fur and leather products machine operators not elsewhere classified"
+S9C12, Main Occuption,8160,8160Food and related products machine operators
+S9C12, Main Occuption,8171,8171Pulp and papermaking plant operators
+S9C12, Main Occuption,8172,8172Wood processing plant operators
+S9C12, Main Occuption,8181,8181Glass and ceramics plant operators
+S9C12, Main Occuption,8182,8182Steam engine and boiler operators
+S9C12, Main Occuption,8183,"8183Packing, bottling and labelling machine operators"
+S9C12, Main Occuption,8189,8189Stationary plant and machine operators not elsewhere classified
+S9C12, Main Occuption,8211,8211Mechanical machinery assemblers
+S9C12, Main Occuption,8212,8212Electrical and electronic equipment assemblers
+S9C12, Main Occuption,8219,8219Assemblers not elsewhere classified
+S9C12, Main Occuption,8311,8311Locomotive engine drivers
+S9C12, Main Occuption,8312,"8312Railway brake, signal and switch operators"
+S9C12, Main Occuption,8321,8321Motorcycle drivers
+S9C12, Main Occuption,8322,"8322Car, taxi and van drivers"
+S9C12, Main Occuption,8331,8331Bus and tram drivers
+S9C12, Main Occuption,8332,8332Heavy truck and lorry drivers
+S9C12, Main Occuption,8341,8341Mobile farm and forestry plant operators
+S9C12, Main Occuption,8342,8342Earthmoving and related plant operators
+S9C12, Main Occuption,8343,"8343Crane, hoist and related plant operators"
+S9C12, Main Occuption,8344,8344Lifting truck operators
+S9C12, Main Occuption,8350,8350Ships' deck crews and related workers
+S9C12, Main Occuption,9111,9111Domestic cleaners and helpers
+S9C12, Main Occuption,9112,"9112Cleaners and helpers in offices, hotels and other establishments"
+S9C12, Main Occuption,9121,9121Hand launderers and pressers
+S9C12, Main Occuption,9122,9122Vehicle cleaners
+S9C12, Main Occuption,9123,9123Window cleaners
+S9C12, Main Occuption,9129,9129Other cleaning workers
+S9C12, Main Occuption,9211,9211Crop farm labourers
+S9C12, Main Occuption,9212,9212Livestock farm labourers
+S9C12, Main Occuption,9213,9213Mixed crop and livestock farm labourers
+S9C12, Main Occuption,9214,9214Garden and horticultural labourers
+S9C12, Main Occuption,9215,9215Forestry labourers
+S9C12, Main Occuption,9216,9216Fishery and aquaculture labourers
+S9C12, Main Occuption,9311,9311Mining and quarrying labourers
+S9C12, Main Occuption,9312,9312Civil engineering labourers
+S9C12, Main Occuption,9313,9313Building construction labourers
+S9C12, Main Occuption,9321,9321Hand packers
+S9C12, Main Occuption,9329,9329Manufacturing labourers not elsewhere classified
+S9C12, Main Occuption,9331,9331Hand and pedal vehicle drivers
+S9C12, Main Occuption,9332,9332Drivers of animal-drawn vehicles and machinery
+S9C12, Main Occuption,9333,9333Freight handlers
+S9C12, Main Occuption,9334,9334Shelf fillers
+S9C12, Main Occuption,9411,9411Fast food preparers
+S9C12, Main Occuption,9412,9412Kitchen helpers
+S9C12, Main Occuption,9510,9510Street and related service workers
+S9C12, Main Occuption,9520,9520Street vendors (excluding food)
+S9C12, Main Occuption,9611,9611Garbage and recycling collectors
+S9C12, Main Occuption,9612,9612Refuse sorters
+S9C12, Main Occuption,9613,9613Sweepers and related labourers
+S9C12, Main Occuption,9621,"9621Messengers, package deliverers and luggage porters"
+S9C12, Main Occuption,9622,9622Odd job persons
+S9C12, Main Occuption,9623,9623Meter readers and vending-machine collectors
+S9C12, Main Occuption,9624,9624Water and firewood collectors
+S9C12, Main Occuption,9629,9629Elementary workers not elsewhere classified
+S9C13,Main Industry,111,"0111Growing of cereals (except rice), leguminous crops and oil seeds"
+S9C13,Main Industry,112,0112Growing of rice
+S9C13,Main Industry,113,"0113Growing of vegetables and melons, roots and tubers"
+S9C13,Main Industry,114,0114Growing of sugar cane
+S9C13,Main Industry,115,0115Growing of tobacco
+S9C13,Main Industry,116,0116Growing of fibre crops
+S9C13,Main Industry,119,0119Growing of other non-perennial crops
+S9C13,Main Industry,121,0121Growing of grapes
+S9C13,Main Industry,122,0122Growing of tropical and subtropical fruits
+S9C13,Main Industry,123,0123Growing of citrus fruits
+S9C13,Main Industry,124,0124Growing of pome fruits and stone fruits
+S9C13,Main Industry,125,0125Growing of other tree and bush fruits and nuts
+S9C13,Main Industry,126,0126Growing of oleaginous fruits
+S9C13,Main Industry,127,0127Growing of beverage crops
+S9C13,Main Industry,128,"0128Growing of spices, aromatic, drug and pharmaceutical crops"
+S9C13,Main Industry,129,0129Growing of other perennial crops
+S9C13,Main Industry,130,0130Plant propagation
+S9C13,Main Industry,141,0141Raising of cattle and buffaloes
+S9C13,Main Industry,142,0142Raising of horses and other equines
+S9C13,Main Industry,143,0143Raising of camels and camelids
+S9C13,Main Industry,144,0144Raising of sheep and goats
+S9C13,Main Industry,145,0145Raising of swine/pigs
+S9C13,Main Industry,146,0146Raising of poultry
+S9C13,Main Industry,149,0149Raising of other animals
+S9C13,Main Industry,150,0150Mixed farming
+S9C13,Main Industry,161,0161Support activities for crop production
+S9C13,Main Industry,162,0162Support activities for animal production
+S9C13,Main Industry,163,0163Post-harvest crop activities
+S9C13,Main Industry,164,0164Seed processing for propagation
+S9C13,Main Industry,170,"0170Hunting, trapping and related service activities"
+S9C13,Main Industry,210,0210Silviculture and other forestry activities
+S9C13,Main Industry,220,0220Logging
+S9C13,Main Industry,230,0230Gathering of non-wood forest products
+S9C13,Main Industry,240,0240Support services to forestry
+S9C13,Main Industry,311,0311Marine fishing
+S9C13,Main Industry,312,0312Freshwater fishing
+S9C13,Main Industry,321,0321Marine aquaculture
+S9C13,Main Industry,322,0322Freshwater aquaculture
+S9C13,Main Industry,510,0510Mining of hard coal
+S9C13,Main Industry,520,0520Mining of lignite
+S9C13,Main Industry,610,0610Extraction of crude petroleum
+S9C13,Main Industry,620,0620Extraction of natural gas
+S9C13,Main Industry,710,0710Mining of iron ores
+S9C13,Main Industry,721,0721Mining of uranium and thorium ores
+S9C13,Main Industry,729,0729Mining of other non-ferrous metal ores
+S9C13,Main Industry,810,"0810Quarrying of stone, sand and clay"
+S9C13,Main Industry,891,0891Mining of chemical and fertilizer minerals
+S9C13,Main Industry,892,0892Extraction of peat
+S9C13,Main Industry,893,0893Extraction of salt
+S9C13,Main Industry,899,0899Other mining and quarrying n.e.c.
+S9C13,Main Industry,910,0910Support activities for petroleum and natural gas extraction
+S9C13,Main Industry,990,0990Support activities for other mining and quarrying
+S9C13,Main Industry,1010,1010Processing and preserving of meat
+S9C13,Main Industry,1020,"1020Processing and preserving of fish, crustaceans and mollusks"
+S9C13,Main Industry,1030,1030Processing and preserving of fruit and vegetables
+S9C13,Main Industry,1040,1040Manufacture of vegetable and animal oils and fats
+S9C13,Main Industry,1050,1050Manufacture of dairy products
+S9C13,Main Industry,1061,1061Manufacture of grain mill products
+S9C13,Main Industry,1062,1062Manufacture of starches and starch products
+S9C13,Main Industry,1071,1071Manufacture of bakery products
+S9C13,Main Industry,1072,1072Manufacture of sugar
+S9C13,Main Industry,1073,"1073Manufacture of cocoa, chocolate and sugar confectionery"
+S9C13,Main Industry,1074,"1074Manufacture of macaroni, noodles, couscous and similar farinaceous products"
+S9C13,Main Industry,1075,1075Manufacture of prepared meals and dishes
+S9C13,Main Industry,1079,1079Manufacture of other food products n.e.c.
+S9C13,Main Industry,1080,1080Manufacture of prepared animal feeds
+S9C13,Main Industry,1101,"1101Distilling, rectifying and blending of spirits"
+S9C13,Main Industry,1102,1102Manufacture of wines
+S9C13,Main Industry,1103,1103Manufacture of malt liquors and malt
+S9C13,Main Industry,1104,1104Manufacture of soft drinks; production of mineral waters and other bottled w
+S9C13,Main Industry,1200,1200Manufacture of tobacco products
+S9C13,Main Industry,1311,1311Preparation and spinning of textile fibres
+S9C13,Main Industry,1312,1312Weaving of textiles
+S9C13,Main Industry,1313,1313Finishing of textiles
+S9C13,Main Industry,1391,1391Manufacture of knitted and crocheted fabrics
+S9C13,Main Industry,1392,"1392Manufacture of made-up textile articles, except apparel"
+S9C13,Main Industry,1393,1393Manufacture of carpets and rugs
+S9C13,Main Industry,1394,"1394Manufacture of cordage, rope, twine and netting"
+S9C13,Main Industry,1399,1399Manufacture of other textiles n.e.c.
+S9C13,Main Industry,1410,"1410Manufacture of wearing apparel, except fur apparel"
+S9C13,Main Industry,1420,1420Manufacture of articles of fur
+S9C13,Main Industry,1430,1430Manufacture of knitted and crocheted apparel
+S9C13,Main Industry,1511,1511Tanning and dressing of leather; dressing and dyeing of fur
+S9C13,Main Industry,1512,"1512Manufacture of luggage, handbags and the like, saddlery and harness"
+S9C13,Main Industry,1520,1520Manufacture of footwear
+S9C13,Main Industry,1610,1610Sawmilling and planning of wood
+S9C13,Main Industry,1621,1621Manufacture of veneer sheets and wood-based panels
+S9C13,Main Industry,1622,1622Manufacture of builders carpentry and joinery
+S9C13,Main Industry,1623,1623Manufacture of wooden containers
+S9C13,Main Industry,1629,"1629Manufacture of other products of wood; manufacture of articles of cork, stra"
+S9C13,Main Industry,1701,"1701Manufacture of pulp, paper and paperboard"
+S9C13,Main Industry,1702,1702Manufacture of corrugated paper and paperboard and of containers of paper an
+S9C13,Main Industry,1709,1709Manufacture of other articles of paper and paperboard
+S9C13,Main Industry,1811,1811Printing
+S9C13,Main Industry,1812,1812Service activities related to printing
+S9C13,Main Industry,1820,1820Reproduction of recorded media
+S9C13,Main Industry,1910,1910Manufacture of coke oven products
+S9C13,Main Industry,1920,1920Manufacture of refined petroleum products
+S9C13,Main Industry,2011,2011Manufacture of basic chemicals
+S9C13,Main Industry,2012,2012Manufacture of fertilizers and nitrogen compounds
+S9C13,Main Industry,2013,2013Manufacture of plastics and synthetic rubber in primary forms
+S9C13,Main Industry,2021,2021Manufacture of pesticides and other agrochemical products
+S9C13,Main Industry,2022,"2022Manufacture of paints, varnishes and similar coatings, printing ink and mast"
+S9C13,Main Industry,2023,"2023Manufacture of soap and detergents, cleaning and polishing preparations,"
+S9C13,Main Industry,2029,2029Manufacture of other chemical products n.e.c.
+S9C13,Main Industry,2030,2030Manufacture of man-made fibres
+S9C13,Main Industry,2100,"2100Manufacture of pharmaceuticals, medicinal chemical and botanical products"
+S9C13,Main Industry,2211,2211Manufacture of rubber tyres and tubes;  retreating and rebuilding of rubber
+S9C13,Main Industry,2219,2219Manufacture of other rubber products
+S9C13,Main Industry,2220,2220Manufacture of plastics products
+S9C13,Main Industry,2310,2310Manufacture of glass and glass products
+S9C13,Main Industry,2391,2391Manufacture of refractory products
+S9C13,Main Industry,2392,2392Manufacture of clay building materials
+S9C13,Main Industry,2393,2393Manufacture of other porcelain and ceramic products
+S9C13,Main Industry,2394,"2394Manufacture of cement, lime and plaster"
+S9C13,Main Industry,2395,"2395Manufacture of articles of concrete, cement and plaster"
+S9C13,Main Industry,2396,"2396Cutting, shaping and finishing of stone"
+S9C13,Main Industry,2399,2399Manufacture of other non-metallic mineral products n.e.c.
+S9C13,Main Industry,2410,2410Manufacture of basic iron and steel
+S9C13,Main Industry,2420,2420Manufacture of basic precious and other non-ferrous metals
+S9C13,Main Industry,2431,2431Casting of iron and steel
+S9C13,Main Industry,2432,2432Casting of non-ferrous metals
+S9C13,Main Industry,2511,2511Manufacture of structural metal products
+S9C13,Main Industry,2512,"2512Manufacture of tanks, reservoirs and containers of metal"
+S9C13,Main Industry,2513,"2513Manufacture of steam generators, except central heating hot water boilers"
+S9C13,Main Industry,2520,2520Manufacture of weapons and ammunition
+S9C13,Main Industry,2591,"2591Forging, pressing, stamping and roll-forming of metal; powder metallurgy"
+S9C13,Main Industry,2592,2592Treatment and coating of metals; machining
+S9C13,Main Industry,2593,"2593Manufacture of cutlery, hand tools and general hardware"
+S9C13,Main Industry,2599,2599Manufacture of other fabricated metal products n.e.c.
+S9C13,Main Industry,2610,2610Manufacture of electronic components and boards
+S9C13,Main Industry,2620,2620Manufacture of computers and peripheral equipment
+S9C13,Main Industry,2630,2630Manufacture of communication equipment
+S9C13,Main Industry,2640,2640Manufacture of consumer electronics
+S9C13,Main Industry,2651,"2651Manufacture of measuring, testing, navigating and control equipment"
+S9C13,Main Industry,2652,2652Manufacture of watches and clocks
+S9C13,Main Industry,2660,"2660Manufacture of irradiation, electro-medical and electrotherapeutic equipment"
+S9C13,Main Industry,2670,2670Manufacture of optical instruments and photographic equipment
+S9C13,Main Industry,2680,2680Manufacture of magnetic and optical media
+S9C13,Main Industry,2710,"2710Manufacture of electric motors, generators, transformers and electricity dis"
+S9C13,Main Industry,2720,2720Manufacture of batteries and accumulators
+S9C13,Main Industry,2731,2731Manufacture of fibre optic cables
+S9C13,Main Industry,2732,2732Manufacture of other electronic and electric wires and cables
+S9C13,Main Industry,2733,2733Manufacture of wiring devices
+S9C13,Main Industry,2740,2740Manufacture of electric lighting equipment
+S9C13,Main Industry,2750,2750Manufacture of domestic appliances
+S9C13,Main Industry,2790,2790Manufacture of other electrical equipment
+S9C13,Main Industry,2811,"2811Manufacture of engines and turbines, except aircraft, vehicle and cycle engi"
+S9C13,Main Industry,2812,2812Manufacture of fluid power equipment
+S9C13,Main Industry,2813,"2813Manufacture of other pumps, compressors, taps and valves"
+S9C13,Main Industry,2814,"2814Manufacture of bearings, gears, gearing and driving elements"
+S9C13,Main Industry,2815,"2815Manufacture of ovens, furnaces and furnace burners"
+S9C13,Main Industry,2816,2816Manufacture of lifting and handling equipment
+S9C13,Main Industry,2817,2817Manufacture of office machinery and equipment (except computers and peripher
+S9C13,Main Industry,2818,2818Manufacture of power-driven hand tools
+S9C13,Main Industry,2819,2819Manufacture of other general-purpose machinery
+S9C13,Main Industry,2821,2821Manufacture of agricultural and forestry machinery
+S9C13,Main Industry,2822,2822Manufacture of metal-forming machinery and machine tools
+S9C13,Main Industry,2823,2823Manufacture of machinery for metallurgy
+S9C13,Main Industry,2824,"2824Manufacture of machinery for mining, quarrying and construction"
+S9C13,Main Industry,2825,"2825Manufacture of machinery for food, beverage and tobacco processing"
+S9C13,Main Industry,2826,"2826Manufacture of machinery for textile, apparel and leather production"
+S9C13,Main Industry,2829,2829Manufacture of other special-purpose machinery
+S9C13,Main Industry,2910,2910Manufacture of motor vehicles
+S9C13,Main Industry,2920,2920Manufacture of bodies (coachwork) for motor vehicles; manufacture of trailer
+S9C13,Main Industry,2930,2930Manufacture of parts and accessories for motor vehicles
+S9C13,Main Industry,3011,3011Building of ships and floating structures
+S9C13,Main Industry,3012,3012Building of pleasure and sporting boats
+S9C13,Main Industry,3020,3020Manufacture of railway locomotives and rolling stock
+S9C13,Main Industry,3030,3030Manufacture of air and spacecraft and related machinery
+S9C13,Main Industry,3040,3040Manufacture of military fighting vehicles
+S9C13,Main Industry,3091,3091Manufacture of motorcycles
+S9C13,Main Industry,3092,3092Manufacture of bicycles and invalid carriages
+S9C13,Main Industry,3099,3099Manufacture of other transport equipment n.e.c.
+S9C13,Main Industry,3100,3100Manufacture of furniture
+S9C13,Main Industry,3211,3211Manufacture of jewellery and related articles
+S9C13,Main Industry,3212,3212Manufacture of imitation jewellery and related articles
+S9C13,Main Industry,3220,3220Manufacture of musical instruments
+S9C13,Main Industry,3230,3230Manufacture of sports goods
+S9C13,Main Industry,3240,3240Manufacture of games and toys
+S9C13,Main Industry,3250,3250Manufacture of medical and dental instruments and supplies
+S9C13,Main Industry,3290,3290Other manufacturing n.e.c.
+S9C13,Main Industry,3311,3311Repair of fabricated metal products
+S9C13,Main Industry,3312,3312Repair of machinery
+S9C13,Main Industry,3313,3313Repair of electronic and optical equipment
+S9C13,Main Industry,3314,3314Repair of electrical equipment
+S9C13,Main Industry,3315,"3315Repair of transport equipment, except motor vehicles"
+S9C13,Main Industry,3319,3319Repair of other equipment
+S9C13,Main Industry,3320,3320Installation of industrial machinery and equipment
+S9C13,Main Industry,3510,"3510Electric power generation, transmission and distribution"
+S9C13,Main Industry,3520,3520Manufacture of gas; distribution of gaseous fuels through mains
+S9C13,Main Industry,3530,3530Steam and air conditioning supply
+S9C13,Main Industry,3600,"3600Water collection, treatment and supply"
+S9C13,Main Industry,3700,3700Sewerage
+S9C13,Main Industry,3811,3811Collection of non-hazardous waste
+S9C13,Main Industry,3812,3812Collection of hazardous waste
+S9C13,Main Industry,3821,3821Treatment and disposal of non-hazardous waste
+S9C13,Main Industry,3822,3822Treatment and disposal of hazardous waste
+S9C13,Main Industry,3830,3830Materials recovery
+S9C13,Main Industry,3900,3900Remediation activities and other waste management services
+S9C13,Main Industry,4100,4100Construction of buildings
+S9C13,Main Industry,4210,4210Construction of roads and railways
+S9C13,Main Industry,4220,4220Construction of utility projects
+S9C13,Main Industry,4290,4290Construction of other civil engineering projects
+S9C13,Main Industry,4311,4311Demolition
+S9C13,Main Industry,4312,4312Site preparation
+S9C13,Main Industry,4321,4321Electrical installation
+S9C13,Main Industry,4322,"4322Plumbing, heat and air-conditioning installation"
+S9C13,Main Industry,4329,4329Other construction installation
+S9C13,Main Industry,4330,4330Building completion and finishing
+S9C13,Main Industry,4390,4390Other specialized construction activities
+S9C13,Main Industry,4510,4510Sale of motor vehicles
+S9C13,Main Industry,4520,4520Maintenance and repair of motor vehicles
+S9C13,Main Industry,4530,4530Sale of motor vehicle parts and accessories
+S9C13,Main Industry,4540,"4540Sale, maintenance and repair of motorcycles and related parts and accessorie"
+S9C13,Main Industry,4610,4610Wholesale on a fee or contract basis
+S9C13,Main Industry,4620,4620Wholesale of agricultural raw materials and live animals
+S9C13,Main Industry,4630,"4630Wholesale of food, beverages and tobacco"
+S9C13,Main Industry,4641,"4641Wholesale of textiles, clothing and footwear"
+S9C13,Main Industry,4649,4649Wholesale of other household goods
+S9C13,Main Industry,4651,"4651Wholesale of computers, computer peripheral equipment and software"
+S9C13,Main Industry,4652,4652Wholesale of electronic and telecommunications equipment and parts
+S9C13,Main Industry,4653,"4653Wholesale of agricultural machinery, equipment and supplies"
+S9C13,Main Industry,4659,4659Wholesale of other machinery and equipment
+S9C13,Main Industry,4661,"4661Wholesale of solid, liquid and gaseous fuels and related products"
+S9C13,Main Industry,4662,4662Wholesale of metals and metal ores
+S9C13,Main Industry,4663,"4663Wholesale of construction materials, hardware, plumbing and heating equipmen"
+S9C13,Main Industry,4669,4669Wholesale of waste and scrap and other products n.e.c.
+S9C13,Main Industry,4690,4690Non-specialized wholesale trade
+S9C13,Main Industry,4711,"4711Retail sale in non-specialized stores with food, beverages or tobacco predom"
+S9C13,Main Industry,4719,4719Other retail sale in non-specialized stores
+S9C13,Main Industry,4721,4721Retail sale of food in specialized stores
+S9C13,Main Industry,4722,4722Retail sale of beverages in specialized stores
+S9C13,Main Industry,4723,4723Retail sale of tobacco products in specialized stores
+S9C13,Main Industry,4730,4730Retail sale of automotive fuel in specialized stores
+S9C13,Main Industry,4741,"4741Retail sale of computers, peripheral units, software and telecommunications"
+S9C13,Main Industry,4742,4742Retail sale of audio and video equipment in specialized stores
+S9C13,Main Industry,4751,4751Retail sale of textiles in specialized stores
+S9C13,Main Industry,4752,"4752Retail sale of hardware, paints and glass in specialized stores"
+S9C13,Main Industry,4753,"4753Retail sale of carpets, rugs, wall and floor coverings in specialized stores"
+S9C13,Main Industry,4759,"4759Retail sale of electrical household appliances, furniture, lighting equipmen"
+S9C13,Main Industry,4761,"4761Retail sale of books, newspapers and stationary in specialized stores"
+S9C13,Main Industry,4762,4762Retail sale of music and video recordings in specialized stores
+S9C13,Main Industry,4763,4763Retail sale of sporting equipment in specialized stores
+S9C13,Main Industry,4764,4764Retail sale of games and toys in specialized stores
+S9C13,Main Industry,4771,"4771Retail sale of clothing, footwear and leather articles in specialized stores"
+S9C13,Main Industry,4772,"4772Retail sale of pharmaceutical and medical goods, cosmetic and toilet article"
+S9C13,Main Industry,4773,4773Other retail sale of new goods in specialized stores
+S9C13,Main Industry,4774,4774Retail sale of second-hand goods
+S9C13,Main Industry,4781,"4781Retail sale via stalls and markets of food, beverages and tobacco products"
+S9C13,Main Industry,4782,"4782Retail sale via stalls and markets of textiles, clothing and footwear"
+S9C13,Main Industry,4789,4789Retail sale via stalls and markets of other goods
+S9C13,Main Industry,4791,4791Retail sale via mail order houses or via Internet
+S9C13,Main Industry,4799,"4799Other retail sale not in stores, stalls or markets"
+S9C13,Main Industry,4911,"4911Passenger rail transport, interurban"
+S9C13,Main Industry,4912,4912Freight rail transport
+S9C13,Main Industry,4921,4921Urban and suburban passenger land transport
+S9C13,Main Industry,4922,4922Other passenger land transport
+S9C13,Main Industry,4923,4923Freight transport by road
+S9C13,Main Industry,4930,4930Transport via pipeline
+S9C13,Main Industry,5011,5011Sea and coastal passenger water transport
+S9C13,Main Industry,5012,5012Sea and coastal freight water transport
+S9C13,Main Industry,5021,5021Inland passenger water transport
+S9C13,Main Industry,5022,5022Inland freight water transport
+S9C13,Main Industry,5110,5110Passenger air transport
+S9C13,Main Industry,5120,5120Freight air transport
+S9C13,Main Industry,5210,5210Warehousing and storage
+S9C13,Main Industry,5221,5221Service activities incidental to land transportation
+S9C13,Main Industry,5222,5222Service activities incidental to water transportation
+S9C13,Main Industry,5223,5223Service activities incidental to air transportation
+S9C13,Main Industry,5224,5224Cargo handling
+S9C13,Main Industry,5229,5229Other transportation support activities
+S9C13,Main Industry,5310,5310Postal activities
+S9C13,Main Industry,5320,5320Courier activities
+S9C13,Main Industry,5510,5510Short term accommodation activities
+S9C13,Main Industry,5520,"5520Camping grounds, recreational vehicle parks and trailer parks"
+S9C13,Main Industry,5590,5590Other accommodation
+S9C13,Main Industry,5610,5610Restaurants and mobile food service activities
+S9C13,Main Industry,5621,5621Event catering
+S9C13,Main Industry,5629,5629Other food service activities
+S9C13,Main Industry,5630,5630Beverage serving activities
+S9C13,Main Industry,5811,5811Book publishing
+S9C13,Main Industry,5812,5812Publishing of directories and mailing lists
+S9C13,Main Industry,5813,"5813Publishing of newspapers, journals and periodicals"
+S9C13,Main Industry,5819,5819Other publishing activities
+S9C13,Main Industry,5820,5820Software publishing
+S9C13,Main Industry,5911,"5911Motion picture, video and television programme production activities"
+S9C13,Main Industry,5912,"5912Motion picture, video and television programme post-production activities"
+S9C13,Main Industry,5913,"5913Motion picture, video and television programme distribution activities"
+S9C13,Main Industry,5914,5914Motion picture projection activities
+S9C13,Main Industry,5920,5920Sound recording and music publishing activities
+S9C13,Main Industry,6010,6010Radio broadcasting
+S9C13,Main Industry,6020,6020Television programming and broadcasting activities
+S9C13,Main Industry,6110,6110Wired telecommunications activities
+S9C13,Main Industry,6120,6120Wireless telecommunications activities
+S9C13,Main Industry,6130,6130Satellite telecommunications activities
+S9C13,Main Industry,6190,6190Other telecommunications activities
+S9C13,Main Industry,6201,6201Computer programming activities
+S9C13,Main Industry,6202,6202Computer consultancy and computer facilities management activities
+S9C13,Main Industry,6209,6209Other information technology and computer service activities
+S9C13,Main Industry,6311,"6311Data processing, hosting and related activities"
+S9C13,Main Industry,6312,6312Web portals
+S9C13,Main Industry,6391,6391News agency activities
+S9C13,Main Industry,6399,6399Other information service activities n.e.c.
+S9C13,Main Industry,6411,6411Central banking
+S9C13,Main Industry,6419,6419Other monetary intermediation
+S9C13,Main Industry,6420,6420Activities of holding companies
+S9C13,Main Industry,6430,"6430Trusts, funds and similar financial entities"
+S9C13,Main Industry,6491,6491Financial leasing
+S9C13,Main Industry,6492,6492Other credit granting
+S9C13,Main Industry,6499,"6499Other financial service activities, except insurance and pension funding act"
+S9C13,Main Industry,6511,6511Life insurance
+S9C13,Main Industry,6512,6512Non-life insurance
+S9C13,Main Industry,6520,6520Reinsurance
+S9C13,Main Industry,6530,6530Pension funding
+S9C13,Main Industry,6611,6611Administration of financial markets
+S9C13,Main Industry,6612,6612Security and commodity contracts brokerage
+S9C13,Main Industry,6619,6619Other activities auxiliary to financial service activities
+S9C13,Main Industry,6621,6621Risk and damage evaluation
+S9C13,Main Industry,6622,6622Activities of insurance agents and brokers
+S9C13,Main Industry,6629,6629Other activities auxiliary to insurance and pension funding
+S9C13,Main Industry,6630,6630Fund management activities
+S9C13,Main Industry,6810,6810Real estate activities with own or leased property
+S9C13,Main Industry,6820,6820Real estate activities on a fee or contract basis
+S9C13,Main Industry,6910,6910Legal activities
+S9C13,Main Industry,6920,"6920Accounting, bookkeeping and auditing activities; tax consultancy"
+S9C13,Main Industry,7010,7010Activities of head offices
+S9C13,Main Industry,7020,7020Management consultancy activities
+S9C13,Main Industry,7110,7110Architectural and engineering activities and related technical consultancy
+S9C13,Main Industry,7120,7120Technical testing and analysis
+S9C13,Main Industry,7210,7210Research and experimental development on natural sciences and engineering
+S9C13,Main Industry,7220,7220Research and experimental development on social sciences and humanities
+S9C13,Main Industry,7310,7310Advertising
+S9C13,Main Industry,7320,7320Market research and public opinion polling
+S9C13,Main Industry,7410,7410Specialized design activities
+S9C13,Main Industry,7420,7420Photographic activities
+S9C13,Main Industry,7490,"7490Other professional, scientific and technical activities n.e.c."
+S9C13,Main Industry,7500,7500Veterinary activities
+S9C13,Main Industry,7710,7710Renting and leasing of motor vehicles
+S9C13,Main Industry,7721,7721Renting and leasing of recreational and sports goods
+S9C13,Main Industry,7722,7722Renting of video tapes and disks
+S9C13,Main Industry,7729,7729Renting and leasing of other personal and household goods
+S9C13,Main Industry,7730,"7730Renting and leasing of other machinery, equipment and tangible goods"
+S9C13,Main Industry,7740,"7740Leasing of intellectual property and similar products, except copyrighted wo"
+S9C13,Main Industry,7810,7810Activities of employment placement agencies
+S9C13,Main Industry,7820,7820Temporary employment agency activities
+S9C13,Main Industry,7830,7830Other human resources provision
+S9C13,Main Industry,7911,7911Travel agency activities
+S9C13,Main Industry,7912,7912Tour operator activities
+S9C13,Main Industry,7990,7990Other reservation service and related activities
+S9C13,Main Industry,8010,8010Private security activities
+S9C13,Main Industry,8020,8020Security systems service activities
+S9C13,Main Industry,8030,8030Investigation activities
+S9C13,Main Industry,8110,8110Combined facilities support activities
+S9C13,Main Industry,8121,8121General cleaning of buildings
+S9C13,Main Industry,8129,8129Other building and industrial cleaning activities
+S9C13,Main Industry,8130,8130Landscape care and maintenance service activities
+S9C13,Main Industry,8211,8211Combined office administrative service activities
+S9C13,Main Industry,8219,"8219Photocopying, document preparation and other specialized office support acti"
+S9C13,Main Industry,8220,8220Activities of call centres
+S9C13,Main Industry,8230,8230Organization of conventions and trade shows
+S9C13,Main Industry,8291,8291Activities of collection agencies and credit bureaus
+S9C13,Main Industry,8292,8292Packaging activities
+S9C13,Main Industry,8299,8299Other business support service activities n.e.c.
+S9C13,Main Industry,8411,8411General public administration activities
+S9C13,Main Industry,8412,"8412Regulation of the activities of providing health care, education, cultural s"
+S9C13,Main Industry,8413,8413Regulation of and contribution to more efficient operation of businesses
+S9C13,Main Industry,8421,8421Foreign affairs
+S9C13,Main Industry,8422,8422Defense activities
+S9C13,Main Industry,8423,8423Public order and safety activities
+S9C13,Main Industry,8430,8430Compulsory social security activities
+S9C13,Main Industry,8510,8510Pre-primary and primary education
+S9C13,Main Industry,8521,8521General secondary education
+S9C13,Main Industry,8522,8522Technical and vocational secondary education
+S9C13,Main Industry,8530,8530Higher education
+S9C13,Main Industry,8541,8541Sports and recreation education
+S9C13,Main Industry,8542,8542Cultural education
+S9C13,Main Industry,8549,8549Other education n.e.c.
+S9C13,Main Industry,8550,8550Educational support activities
+S9C13,Main Industry,8610,8610Hospital activities
+S9C13,Main Industry,8620,8620Medical and dental practice activities
+S9C13,Main Industry,8690,8690Other human health activities
+S9C13,Main Industry,8710,8710Residential nursing care facilities
+S9C13,Main Industry,8720,"8720Residential care activities for mental retardation, mental health and substa"
+S9C13,Main Industry,8730,8730Residential care activities for the elderly and disabled
+S9C13,Main Industry,8790,8790Other residential care activities
+S9C13,Main Industry,8810,8810Social work activities without accommodation for the elderly and disabled
+S9C13,Main Industry,8890,8890Other social work activities without accommodation
+S9C13,Main Industry,9000,"9000Creative, arts and entertainment activities"
+S9C13,Main Industry,9101,9101Library and archives activities
+S9C13,Main Industry,9102,9102Museums activities and operation of historical sites and buildings
+S9C13,Main Industry,9103,9103Botanical and zoological gardens and nature reserves activities
+S9C13,Main Industry,9200,9200Gambling and betting activities
+S9C13,Main Industry,9311,9311Operation of sports facilities
+S9C13,Main Industry,9312,9312Activities of sports clubs
+S9C13,Main Industry,9319,9319Other sports activities
+S9C13,Main Industry,9321,9321Activities of amusement parks and theme parks
+S9C13,Main Industry,9329,9329Other amusement and recreation activities n.e.c.
+S9C13,Main Industry,9411,9411Activities of business and employers membership organizations
+S9C13,Main Industry,9412,9412Activities of professional membership organizations
+S9C13,Main Industry,9420,9420Activities of trade unions
+S9C13,Main Industry,9491,9491Activities of religious organizations
+S9C13,Main Industry,9492,9492Activities of political organizations
+S9C13,Main Industry,9499,9499Activities of other membership organizations n.e.c.
+S9C13,Main Industry,9511,9511Repair of computers and peripheral equipment
+S9C13,Main Industry,9512,9512Repair of communication equipment
+S9C13,Main Industry,9521,9521Repair of consumer electronics
+S9C13,Main Industry,9522,9522Repair of household appliances and home and garden equipment
+S9C13,Main Industry,9523,9523Repair of footwear and leather goods
+S9C13,Main Industry,9524,9524Repair of furniture and home furnishings
+S9C13,Main Industry,9529,9529Repair of other personal and household goods
+S9C13,Main Industry,9601,9601Washing and (dry-) cleaning of textile and fur products
+S9C13,Main Industry,9602,9602Hairdressing and other beauty treatment
+S9C13,Main Industry,9603,9603Funeral and related activities
+S9C13,Main Industry,9609,9609Other personal service activities n.e.c.
+S9C13,Main Industry,9700,9700Activities of households as employers of domestic personnel
+S9C13,Main Industry,9810,9810Undifferentiated goods-producing activities of private households for own us
+S9C13,Main Industry,9820,9820Undifferentiated service-producing activities of private households for own
+S9C13,Main Industry,9900,9900Activities of extraterritorial organizations and bodies
+S9C14, Worked as....,1, Employer
+S9C14, Worked as....,2, Independent worker without employee
+S9C14, Worked as....,3, Employee
+S9C14, Worked as....,4, Contributing family worker
+S9C14, Worked as....,5," Paid apprentice, internee"
+S9C14, Worked as....,6, Dependent contractor
+S9C15,For how many years been doing this sort of work,1, Less than one year
+S9C15,For how many years been doing this sort of work,2,one year but less than 5 years
+S9C15,For how many years been doing this sort of work,3, Five year but less than 10 Years
+S9C15,For how many years been doing this sort of work,4, 10 Years and above
+S9C16,Main reasons for leaving the last job/business,1,Dismissed or made redundant
+S9C16,Main reasons for leaving the last job/business,2,A job of limited duration has ended
+S9C16,Main reasons for leaving the last job/business,3,Personal or family responsibilities
+S9C16,Main reasons for leaving the last job/business,4,Own illness or disability
+S9C16,Main reasons for leaving the last job/business,5,Education or training
+S9C16,Main reasons for leaving the last job/business,6,Early retirement
+S9C16,Main reasons for leaving the last job/business,7,Normal retirement
+S9C16,Main reasons for leaving the last job/business,8,Could not do the job
+S9C16,Main reasons for leaving the last job/business,9,Did not like the job
+S9C16,Main reasons for leaving the last job/business,10,Did not like the employer
+S9C16,Main reasons for leaving the last job/business,11,The pay was too low
+S9C16,Main reasons for leaving the last job/business,12,Not consistent with qualification
+S9C16,Main reasons for leaving the last job/business,13,"Violence/harassment at work place, Security/law & order situation"
+S9C16,Main reasons for leaving the last job/business,14,Other  (Specify)
+Weights,,,No Stata value labels

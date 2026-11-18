@@ -1,0 +1,13 @@
+check,population,n,weighted_n,flag
+occupation recorded for employed,youth 15–24,23270,17922306,
+occupation missing for employed,youth 15–24,suppressed,suppressed,suppressed: n < 30
+occupation recorded outside employment,youth 15–24,suppressed,suppressed,suppressed: n < 30
+training course recorded for trainees,youth 15–24,6058,4923001,
+training course missing for trainees,youth 15–24,suppressed,suppressed,suppressed: n < 30
+training course recorded for non-trainees,youth 15–24,suppressed,suppressed,suppressed: n < 30
+training provider missing for trainees,youth 15–24,suppressed,suppressed,suppressed: n < 30
+enrolment missing or invalid,youth 15–24,suppressed,suppressed,suppressed: n < 30
+education missing or invalid,youth 15–24,suppressed,suppressed,suppressed: n < 30
+training missing or invalid,youth 15–24,suppressed,suppressed,suppressed: n < 30
+youth excluded: absence code 14,youth 15–24,suppressed,suppressed,suppressed: n < 30
+youth excluded: absent with missing reason,youth 15–24,suppressed,suppressed,suppressed: n < 30

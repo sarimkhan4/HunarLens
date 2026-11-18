@@ -1,0 +1,37 @@
+scope,variable,category,n,weighted_n,flag
+employed youth,occupation major / sex / area,1.0 / 1.0 / 1.0,115,82753,
+employed youth,occupation major / sex / area,1.0 / 1.0 / 2.0,89,75839,
+employed youth,occupation major / sex / area,1.0 / 2.0 / 1.0,suppressed,suppressed,suppressed: n < 30
+employed youth,occupation major / sex / area,1.0 / 2.0 / 2.0,suppressed,suppressed,suppressed: n < 30
+employed youth,occupation major / sex / area,2.0 / 1.0 / 1.0,311,217835,
+employed youth,occupation major / sex / area,2.0 / 1.0 / 2.0,170,155674,
+employed youth,occupation major / sex / area,2.0 / 2.0 / 1.0,507,382866,
+employed youth,occupation major / sex / area,2.0 / 2.0 / 2.0,260,263415,
+employed youth,occupation major / sex / area,3.0 / 1.0 / 1.0,328,237916,
+employed youth,occupation major / sex / area,3.0 / 1.0 / 2.0,231,211686,
+employed youth,occupation major / sex / area,3.0 / 2.0 / 1.0,110,83034,
+employed youth,occupation major / sex / area,3.0 / 2.0 / 2.0,41,38412,unreliable: n < 50
+employed youth,occupation major / sex / area,4.0 / 1.0 / 1.0,105,74268,
+employed youth,occupation major / sex / area,4.0 / 1.0 / 2.0,119,119168,
+employed youth,occupation major / sex / area,4.0 / 2.0 / 1.0,suppressed,suppressed,suppressed: n < 30
+employed youth,occupation major / sex / area,4.0 / 2.0 / 2.0,suppressed,suppressed,suppressed: n < 30
+employed youth,occupation major / sex / area,5.0 / 1.0 / 1.0,2358,1673432,
+employed youth,occupation major / sex / area,5.0 / 1.0 / 2.0,1665,1533589,
+employed youth,occupation major / sex / area,5.0 / 2.0 / 1.0,115,89231,
+employed youth,occupation major / sex / area,5.0 / 2.0 / 2.0,63,66781,
+employed youth,occupation major / sex / area,6.0 / 1.0 / 1.0,3846,2565861,
+employed youth,occupation major / sex / area,6.0 / 1.0 / 2.0,263,250301,
+employed youth,occupation major / sex / area,6.0 / 2.0 / 1.0,2507,1792028,
+employed youth,occupation major / sex / area,6.0 / 2.0 / 2.0,195,186559,
+employed youth,occupation major / sex / area,7.0 / 1.0 / 1.0,1529,1179073,
+employed youth,occupation major / sex / area,7.0 / 1.0 / 2.0,1029,965887,
+employed youth,occupation major / sex / area,7.0 / 2.0 / 1.0,768,578402,
+employed youth,occupation major / sex / area,7.0 / 2.0 / 2.0,185,185700,
+employed youth,occupation major / sex / area,8.0 / 1.0 / 1.0,1040,752656,
+employed youth,occupation major / sex / area,8.0 / 1.0 / 2.0,528,461978,
+employed youth,occupation major / sex / area,8.0 / 2.0 / 1.0,suppressed,suppressed,suppressed: n < 30
+employed youth,occupation major / sex / area,8.0 / 2.0 / 2.0,suppressed,suppressed,suppressed: n < 30
+employed youth,occupation major / sex / area,9.0 / 1.0 / 1.0,3255,2325554,
+employed youth,occupation major / sex / area,9.0 / 1.0 / 2.0,912,844427,
+employed youth,occupation major / sex / area,9.0 / 2.0 / 1.0,428,335394,
+employed youth,occupation major / sex / area,9.0 / 2.0 / 2.0,86,94526,
