@@ -1,0 +1,424 @@
+variable,code,n,weighted_n,flag
+S4C5,1.0,31421,24234335,
+S4C5,2.0,28070,22080376,
+S4C6,15.0,7263,5597756,
+S4C6,16.0,7486,5735791,
+S4C6,17.0,5902,4618515,
+S4C6,18.0,8526,6591716,
+S4C6,19.0,4361,3464098,
+S4C6,20.0,7366,5679914,
+S4C6,21.0,3434,2727779,
+S4C6,22.0,6567,5119628,
+S4C6,23.0,3815,2996037,
+S4C6,24.0,4771,3783477,
+S4C81,1.0,46059,36856816,
+S4C81,2.0,13432,9457895,
+S4C82,1.0,44917,36194857,
+S4C82,2.0,14574,10119854,
+S4C9,1.0,13632,9236486,
+S4C9,2.0,181,136148,
+S4C9,3.0,1858,1376139,
+S4C9,4.0,6748,5363333,
+S4C9,5.0,12504,10059502,
+S4C9,6.0,12581,10173472,
+S4C9,7.0,9465,7815805,
+S4C9,8.0,170,129673,
+S4C9,9.0,125,107638,
+S4C9,10.0,151,124981,
+S4C9,11.0,suppressed,suppressed,suppressed: n < 30
+S4C9,12.0,954,843062,
+S4C9,13.0,673,575403,
+S4C9,14.0,425,353654,
+S4C9,15.0,suppressed,suppressed,suppressed: n < 30
+S4C10,1.0,38323,29218627,
+S4C10,4.0,suppressed,suppressed,suppressed: n < 30
+S4C10,5.0,685,524224,
+S4C10,6.0,6586,5246184,
+S4C10,7.0,6801,5439645,
+S4C10,8.0,418,331332,
+S4C10,9.0,272,236060,
+S4C10,10.0,257,219208,
+S4C10,11.0,suppressed,suppressed,suppressed: n < 30
+S4C10,12.0,840,703515,
+S4C10,13.0,4992,4127214,
+S4C10,14.0,200,172640,
+S4C10,15.0,85,72432,
+S4C10,16.0,suppressed,suppressed,suppressed: n < 30
+S4C11,1.0,748,607706,
+S4C11,2.0,3877,3149777,
+S4C11,3.0,1433,1165518,
+S4C11,4.0,53433,41391710,
+S5C1,1.0,10196,8112407,
+S5C1,2.0,49295,38202304,
+S5C2,1.0,6050,4676362,
+S5C2,2.0,43245,33525942,
+S5C2,missing,10196,8112407,
+S5C3,1.0,7379,5417261,
+S5C3,2.0,35866,28108681,
+S5C3,missing,16246,12788769,
+S5C4,1.0,50,37897,
+S5C4,2.0,35816,28070784,
+S5C4,missing,23625,18206030,
+S5C5,0.0,60,32186,
+S5C5,1.0,32,26937,unreliable: n < 50
+S5C5,2.0,suppressed,suppressed,suppressed: n < 30
+S5C5,3.0,suppressed,suppressed,suppressed: n < 30
+S5C5,4.0,suppressed,suppressed,suppressed: n < 30
+S5C5,6.0,suppressed,suppressed,suppressed: n < 30
+S5C5,11.0,suppressed,suppressed,suppressed: n < 30
+S5C5,13.0,suppressed,suppressed,suppressed: n < 30
+S5C5,14.0,suppressed,suppressed,suppressed: n < 30
+S5C5,missing,59384,46246910,
+S5C6,0.0,60,32186,
+S5C6,1.0,suppressed,suppressed,suppressed: n < 30
+S5C6,2.0,suppressed,suppressed,suppressed: n < 30
+S5C6,3.0,suppressed,suppressed,suppressed: n < 30
+S5C6,missing,59414,46272167,
+S5C7,0.0,60,32186,
+S5C7,1.0,suppressed,suppressed,suppressed: n < 30
+S5C7,2.0,suppressed,suppressed,suppressed: n < 30
+S5C7,missing,59415,46273007,
+S5C8,0.0,60,32186,
+S5C8,1.0,95,46184,
+S5C8,2.0,205,146277,
+S5C8,3.0,40,26790,unreliable: n < 50
+S5C8,4.0,35524,27888206,
+S5C8,missing,23567,18175067,
+S5C9,1.0,5609,3857973,
+S5C9,2.0,1550,1220662,
+S5C9,3.0,suppressed,suppressed,suppressed: n < 30
+S5C9,4.0,6243,4997548,
+S5C9,missing,46062,36221088,
+S5C10,1.0,214,135010,
+S5C10,2.0,6617,4677341,
+S5C10,3.0,373,282870,
+S5C10,4.0,322,220106,
+S5C10,missing,51965,40999384,
+S5C12,1111.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1112.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1120.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1211.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1212.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1221.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1222.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1311.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1312.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1321.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1322.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1323.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1324.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1330.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1345.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1346.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1349.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1411.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1412.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1420.0,59,43203,
+S5C12,1431.0,suppressed,suppressed,suppressed: n < 30
+S5C12,1439.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2141.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2142.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2144.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2145.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2151.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2163.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2166.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2211.0,56,44669,
+S5C12,2212.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2221.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2222.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2230.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2250.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2261.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2262.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2267.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2269.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2310.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2320.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2330.0,252,201012,
+S5C12,2341.0,394,326284,
+S5C12,2342.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2351.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2352.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2353.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2359.0,245,194770,
+S5C12,2411.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2412.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2413.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2431.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2432.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2433.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2434.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2512.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2513.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2519.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2521.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2523.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2529.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2611.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2619.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2635.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2636.0,69,44915,
+S5C12,2642.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2643.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2651.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2652.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2656.0,suppressed,suppressed,suppressed: n < 30
+S5C12,2659.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3112.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3113.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3115.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3116.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3118.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3122.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3123.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3132.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3134.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3139.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3142.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3143.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3211.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3212.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3213.0,61,47207,
+S5C12,3214.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3221.0,67,50497,
+S5C12,3222.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3240.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3251.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3253.0,47,38125,unreliable: n < 50
+S5C12,3256.0,40,32942,unreliable: n < 50
+S5C12,3257.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3259.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3312.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3313.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3314.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3321.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3322.0,47,41344,unreliable: n < 50
+S5C12,3323.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3324.0,90,68466,
+S5C12,3331.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3332.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3333.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3334.0,41,34529,unreliable: n < 50
+S5C12,3339.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3341.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3342.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3343.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3351.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3355.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3411.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3412.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3413.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3421.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3422.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3423.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3431.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3432.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3434.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3511.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3512.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3513.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3514.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3521.0,suppressed,suppressed,suppressed: n < 30
+S5C12,3522.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4110.0,89,73171,
+S5C12,4120.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4131.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4132.0,33,30275,unreliable: n < 50
+S5C12,4140.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4211.0,32,27794,unreliable: n < 50
+S5C12,4214.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4221.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4222.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4223.0,48,47007,unreliable: n < 50
+S5C12,4224.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4225.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4226.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4311.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4313.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4321.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4322.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4323.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4411.0,suppressed,suppressed,suppressed: n < 30
+S5C12,4412.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5111.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5112.0,63,42990,
+S5C12,5113.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5120.0,133,94051,
+S5C12,5131.0,271,197477,
+S5C12,5141.0,214,182448,
+S5C12,5142.0,47,46630,unreliable: n < 50
+S5C12,5151.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5153.0,71,49924,
+S5C12,5169.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5211.0,122,104420,
+S5C12,5212.0,172,151319,
+S5C12,5221.0,1929,1530871,
+S5C12,5222.0,141,106935,
+S5C12,5223.0,675,579246,
+S5C12,5230.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5242.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5243.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5245.0,56,44735,
+S5C12,5246.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5311.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5321.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5322.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5411.0,suppressed,suppressed,suppressed: n < 30
+S5C12,5412.0,158,111097,
+S5C12,5414.0,94,74107,
+S5C12,6111.0,1364,883310,
+S5C12,6112.0,32,14825,unreliable: n < 50
+S5C12,6113.0,30,23966,unreliable: n < 50
+S5C12,6114.0,88,55987,
+S5C12,6121.0,1271,994574,
+S5C12,6122.0,52,40316,
+S5C12,6123.0,suppressed,suppressed,suppressed: n < 30
+S5C12,6129.0,suppressed,suppressed,suppressed: n < 30
+S5C12,6130.0,3920,2748619,
+S5C12,6210.0,suppressed,suppressed,suppressed: n < 30
+S5C12,6222.0,suppressed,suppressed,suppressed: n < 30
+S5C12,6223.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7112.0,203,159411,
+S5C12,7113.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7114.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7115.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7121.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7122.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7123.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7126.0,55,46695,
+S5C12,7127.0,35,30813,unreliable: n < 50
+S5C12,7131.0,91,76716,
+S5C12,7132.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7212.0,159,143784,
+S5C12,7213.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7214.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7215.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7221.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7222.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7223.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7224.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7231.0,358,288857,
+S5C12,7233.0,41,35190,unreliable: n < 50
+S5C12,7234.0,121,93490,
+S5C12,7311.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7313.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7314.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7315.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7316.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7317.0,39,32220,unreliable: n < 50
+S5C12,7318.0,35,35361,unreliable: n < 50
+S5C12,7319.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7322.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7323.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7411.0,34,29504,unreliable: n < 50
+S5C12,7412.0,180,160319,
+S5C12,7413.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7421.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7422.0,84,76392,
+S5C12,7511.0,70,54146,
+S5C12,7512.0,89,71864,
+S5C12,7514.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7515.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7516.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7521.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7522.0,134,117132,
+S5C12,7531.0,1150,940351,
+S5C12,7532.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7533.0,289,216082,
+S5C12,7534.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7535.0,suppressed,suppressed,suppressed: n < 30
+S5C12,7536.0,39,32084,unreliable: n < 50
+S5C12,8111.0,31,23063,unreliable: n < 50
+S5C12,8112.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8113.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8114.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8121.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8122.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8131.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8141.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8142.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8143.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8151.0,48,41286,unreliable: n < 50
+S5C12,8152.0,94,82218,
+S5C12,8153.0,97,82062,
+S5C12,8154.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8155.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8156.0,43,37784,unreliable: n < 50
+S5C12,8157.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8159.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8160.0,89,70190,
+S5C12,8172.0,31,25303,unreliable: n < 50
+S5C12,8181.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8182.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8183.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8189.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8211.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8212.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8312.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8321.0,335,266780,
+S5C12,8322.0,331,240972,
+S5C12,8331.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8332.0,156,102295,
+S5C12,8341.0,119,79850,
+S5C12,8342.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8343.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8344.0,suppressed,suppressed,suppressed: n < 30
+S5C12,8350.0,suppressed,suppressed,suppressed: n < 30
+S5C12,9111.0,171,149316,
+S5C12,9112.0,123,100223,
+S5C12,9121.0,suppressed,suppressed,suppressed: n < 30
+S5C12,9122.0,34,23099,unreliable: n < 50
+S5C12,9211.0,935,699974,
+S5C12,9212.0,140,105248,
+S5C12,9213.0,104,79189,
+S5C12,9214.0,suppressed,suppressed,suppressed: n < 30
+S5C12,9215.0,suppressed,suppressed,suppressed: n < 30
+S5C12,9216.0,45,30245,unreliable: n < 50
+S5C12,9311.0,48,28075,unreliable: n < 50
+S5C12,9312.0,suppressed,suppressed,suppressed: n < 30
+S5C12,9313.0,2089,1564372,
+S5C12,9321.0,31,25520,unreliable: n < 50
+S5C12,9329.0,408,343119,
+S5C12,9331.0,suppressed,suppressed,suppressed: n < 30
+S5C12,9332.0,63,48466,
+S5C12,9333.0,117,88890,
+S5C12,9411.0,36,28847,unreliable: n < 50
+S5C12,9412.0,suppressed,suppressed,suppressed: n < 30
+S5C12,9510.0,suppressed,suppressed,suppressed: n < 30
+S5C12,9520.0,78,71400,
+S5C12,9613.0,63,50911,
+S5C12,9621.0,84,77528,
+S5C12,9624.0,suppressed,suppressed,suppressed: n < 30
+S5C12,9629.0,suppressed,suppressed,suppressed: n < 30
+S5C12,missing,36219,28391182,
+S9C1,1.0,3841,2929349,
+S9C1,2.0,32378,25461832,
+S9C1,missing,23272,17923529,
+S9C5,1.0,81,62194,
+S9C5,2.0,64,50422,
+S9C5,3.0,74,59592,
+S9C5,4.0,95,72985,
+S9C5,5.0,128,81964,
+S9C5,6.0,31,24802,unreliable: n < 50
+S9C5,7.0,suppressed,suppressed,suppressed: n < 30
+S9C5,8.0,135,105367,
+S9C5,9.0,suppressed,suppressed,suppressed: n < 30
+S9C5,10.0,97,68714,
+S9C5,11.0,suppressed,suppressed,suppressed: n < 30
+S9C5,12.0,suppressed,suppressed,suppressed: n < 30
+S9C5,13.0,suppressed,suppressed,suppressed: n < 30
+S9C5,14.0,suppressed,suppressed,suppressed: n < 30
+S9C5,missing,58712,45732014,
+S9C6,1.0,3818,2970095,
+S9C6,2.0,803,542676,
+S9C6,missing,54870,42801940,
+Province,1.0,12479,8418849,
+Province,2.0,26193,25101774,
+Province,3.0,13991,10413823,
+Province,4.0,6828,2380265,
+Region,1.0,39907,28148218,
+Region,2.0,19584,18166493,
+Weights,nonmissing; values withheld,59491,46314711,
+PCode,nonmissing; values withheld,59491,46314711,
+EBCode,nonmissing; values withheld,59491,46314711,

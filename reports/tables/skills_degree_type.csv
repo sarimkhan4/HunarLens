@@ -1,0 +1,6 @@
+group,category,n,positive_n,estimate,ci_low,ci_high,flag
+Engineering,unemployment rate,81,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
+Medicine,unemployment rate,35,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
+Computer,unemployment rate,34,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
+Agriculture,unemployment rate,suppressed,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
+Other two-year degree,unemployment rate,479,120,0.25102675479172476,0.20986998300746276,0.2926618903123048,

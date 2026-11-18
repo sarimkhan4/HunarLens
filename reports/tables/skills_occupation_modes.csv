@@ -1,0 +1,28 @@
+norm,occupation,mode_band,mode_label,n
+all_15_plus,1.0,5,Degree or above,2133
+all_15_plus,2.0,5,Degree or above,5932
+all_15_plus,3.0,5,Degree or above,4151
+all_15_plus,4.0,5,Degree or above,1664
+all_15_plus,5.0,2,Below matric,16244
+all_15_plus,6.0,1,No formal,28878
+all_15_plus,7.0,2,Below matric,12194
+all_15_plus,8.0,2,Below matric,7935
+all_15_plus,9.0,1,No formal,17987
+age_25_44,1.0,5,Degree or above,1049
+age_25_44,2.0,5,Degree or above,3209
+age_25_44,3.0,5,Degree or above,2212
+age_25_44,4.0,5,Degree or above,960
+age_25_44,5.0,2,Below matric,7611
+age_25_44,6.0,1,No formal,12599
+age_25_44,7.0,2,Below matric,5968
+age_25_44,8.0,2,Below matric,4228
+age_25_44,9.0,1,No formal,8859
+youth,1.0,2,Below matric,239
+youth,2.0,4,Intermediate,1248
+youth,3.0,4,Intermediate,710
+youth,4.0,4,Intermediate,269
+youth,5.0,2,Below matric,4201
+youth,6.0,1,No formal,6811
+youth,7.0,2,Below matric,3511
+youth,8.0,2,Below matric,1600
+youth,9.0,2,Below matric,4681

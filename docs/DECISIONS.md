@@ -190,3 +190,25 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
   to the next education band does not specify which actual model input code
   to use when that band contains several distinct categories. Different choices
   may change the estimated model shift; no representative code was selected.
+# 2026-11-19 — skills-gap S1 verification and S3
+
+- The team specified the education-profile scenario: average predictions for
+  all valid non-rare codes in the next band using their training-split code
+  frequencies, with the minimum and maximum as a sensitivity range. The
+  training scenario sets training to yes. Both use validation profiles only.
+- The normative sensitivity distinguishes primary and middle using the
+  original questionnaire education code; the five headline bands are retained
+  for statistical norms. Conditional bootstrap intervals hold estimated
+  occupational modes fixed and do not include uncertainty in estimating them.
+- For the requested degree-type lens, codes with explicitly recorded subjects
+  are used; BS/BE and postgraduate codes do not establish a field and are not
+  assigned one. Industry, detailed field of study and unemployment barriers
+  remain excluded. The generated tables suppress small and complementary cells.
+# 2026-11-19 — mismatch bootstrap and pytest temporary files
+
+- Re-estimate the occupation-specific weighted education modes in every PSU
+  bootstrap resample for the primary and statistical sensitivity norms. The
+  predefined normative mapping remains fixed. Point estimates are unchanged.
+- Use a git-ignored repository-local pytest temporary directory to avoid
+  Windows sandbox access errors; record the completed test result from pytest's
+  JUnit output before regenerating the sign-off.

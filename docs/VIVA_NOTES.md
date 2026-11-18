@@ -190,3 +190,22 @@ is consistent with the questionnaire.
 
 **Does this audit measure employer demand?** No. Education and training are
 proxies; the survey does not directly count vacancies or employer demand.
+# Skills-gap S1–S3
+
+**What is the statistical education mismatch?** A worker's education band is
+compared with the most common education band in that occupation's reference group.
+It is a statistical description and does not assess the worker's skills.
+
+**Why use different reference groups?** Education differs across cohorts, so
+all workers, prime-age workers and youth can yield different comparison norms.
+
+**What does the approximate NEET measure include?** Youth who are neither
+employed nor currently enrolled. It does not establish all non-formal training.
+
+**What does the bootstrap do?** It repeatedly resamples survey clusters to
+summarise sampling variation. The statistical occupation modes are re-estimated
+within each resample. These intervals ignore stratification.
+
+**What does a model-profile shift mean?** It compares frozen-model predictions
+for alternative valid input profiles; it does not establish an effect of
+changing a person's education or training.
