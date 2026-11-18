@@ -131,3 +131,5 @@ The overview uses weighted estimates from the approved label and only displays P
 ## 2026-11-18 — Curve rendering and footer correction
 
 Send the saved final-test precision–recall figure with every dashboard render. Depending on a browser host property after sending an empty image payload could lose the figure on navigation or rerender. The figure is unchanged and no test records are rescored. Keep the footer to the project name and data source, removing the trailing input-storage note as requested; privacy information remains in the methodology section.
+
+Remove the performance-page evaluation badge entirely. Key component registration caching on the HTML, CSS and JavaScript contents so a running app cannot keep an older interface after asset edits. The footer retains only the brand and PBS source; neither prototype label is part of the current interface. Model and prediction behavior remain unchanged.

@@ -140,12 +140,18 @@ def dashboard_data(metadata, model, profile, page, explore="age"):
             "pr_curve": static["pr_curve"]}
 
 @st.cache_resource
-def dashboard_component():
-    """Register the component once for all sessions."""
+def register_dashboard_component(html: str, css: str, js: str):
+    """Reuse the component only while its asset contents are unchanged."""
     return st.components.v2.component("hunarlens.prototype",
-        html=(ROOT / "app/prototype.html").read_text(encoding="utf-8"),
-        css=(ROOT / "app/prototype.css").read_text(encoding="utf-8"),
-        js=(ROOT / "app/prototype.js").read_text(encoding="utf-8"))
+        html=html, css=css, js=js)
+
+
+def dashboard_component():
+    """Read current UI assets so edits cannot reuse a stale HTML registration."""
+    return register_dashboard_component(
+        (ROOT / "app/prototype.html").read_text(encoding="utf-8"),
+        (ROOT / "app/prototype.css").read_text(encoding="utf-8"),
+        (ROOT / "app/prototype.js").read_text(encoding="utf-8"))
 
 
 def show_dashboard(metadata, model):

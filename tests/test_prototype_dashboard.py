@@ -107,6 +107,24 @@ def test_footer_has_only_brand_and_source():
     assert footer.count("<span>") == 2
     assert "HunarLens" in footer and "Pakistan Bureau of Statistics" in footer
     assert "Prototype UI" not in html and "No personal data stored" not in html
+    performance = html.split('id="page-performance">', 1)[1].split('<div class="grid kpis">', 1)[0]
+    assert 'class="tag"' not in performance
+
+
+def test_component_cache_refreshes_when_ui_assets_change(monkeypatch):
+    import prototype_dashboard as dashboard
+    import streamlit as st
+
+    registered = []
+    monkeypatch.setattr(st.components.v2, "component", lambda name, **assets: registered.append(assets) or object())
+    dashboard.register_dashboard_component.clear()
+    try:
+        first = dashboard.register_dashboard_component("original", "css", "js")
+        assert dashboard.register_dashboard_component("original", "css", "js") is first
+        assert dashboard.register_dashboard_component("updated", "css", "js") is not first
+        assert [assets["html"] for assets in registered] == ["original", "updated"]
+    finally:
+        dashboard.register_dashboard_component.clear()
 
 
 def test_replacement_delta_is_reversed_for_plain_language():
