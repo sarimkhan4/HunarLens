@@ -156,7 +156,5 @@ def show_dashboard(metadata, model):
     page = state.get("page", "overview") or "overview"
     explore = state.get("explore", "age") or "age"
     data = dashboard_data(metadata, model, profile, page, explore)
-    if state:
-        data["pr_curve"] = ""
     component(key="prototype_ui", data=data, on_profile_change=lambda: None, on_page_change=lambda: None,
               on_explore_change=lambda: None)

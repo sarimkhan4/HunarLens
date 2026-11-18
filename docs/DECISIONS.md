@@ -127,3 +127,7 @@ Use the supplied HTML and CSS in a Streamlit custom component to reproduce its l
 ## 2026-11-18 — Dashboard verification and accessibility
 
 The overview uses weighted estimates from the approved label and only displays PBS values whose difference is at most 0.3 percentage points. The verified Table 15 excerpt records the source used for age-group comparisons. Results and uncertainty on the model page come from saved evaluation tables. User selections remain transient; client-side comparison retains only the previous model score until cleared or the session ends. Public aggregate reference files are cached, while user selections and profile results are never cached or logged.
+
+## 2026-11-18 — Curve rendering and footer correction
+
+Send the saved final-test precision–recall figure with every dashboard render. Depending on a browser host property after sending an empty image payload could lose the figure on navigation or rerender. The figure is unchanged and no test records are rescored. Keep the footer to the project name and data source, removing the trailing input-storage note as requested; privacy information remains in the methodology section.

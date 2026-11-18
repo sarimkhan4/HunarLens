@@ -230,8 +230,7 @@
   addTable('Subgroup performance · fewer than 50 positives is unreliable',data.subgroups);
   const pr=document.createElement('article');pr.className='card generated-report';pr.style.marginTop='16px';
   const prTitle=document.createElement('h2');prTitle.textContent='Final test precision–recall curve';pr.appendChild(prTitle);
-  if(data.pr_curve)root.host.prCurve=data.pr_curve;
-  const prImage=document.createElement('img');prImage.src='data:image/png;base64,'+(root.host.prCurve||'');prImage.alt='Test precision–recall curve with the no-skill prevalence line';prImage.style.maxWidth='100%';pr.appendChild(prImage);
+  const prImage=document.createElement('img');prImage.src='data:image/png;base64,'+data.pr_curve;prImage.alt='Test precision–recall curve with the no-skill prevalence line';prImage.style.maxWidth='100%';pr.appendChild(prImage);
   root.querySelector('#page-performance').appendChild(pr);
   root.querySelectorAll('.source-pill').forEach(e=>e.textContent='Pakistan · National view');
   const method=root.querySelector('#page-methodology');

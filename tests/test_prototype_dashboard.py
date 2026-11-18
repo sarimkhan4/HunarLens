@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 import subprocess
 import shutil
+import base64
 
 import joblib
 import pandas as pd
@@ -79,6 +80,33 @@ def test_prototype_app_loads():
     with threadpool_limits(limits=1):
         app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90).run()
     assert not app.exception and not app.error
+
+
+def test_curve_is_sent_after_navigation_and_profile_changes(monkeypatch):
+    import prototype_dashboard as dashboard
+
+    metadata = json.loads((ROOT / "models/metadata.json").read_text(encoding="utf-8"))
+    model = joblib.load(ROOT / "models/final_pipeline.joblib")
+    sent = []
+    monkeypatch.setattr(dashboard, "dashboard_component", lambda: lambda **kwargs: sent.append(kwargs["data"]))
+    state = {}
+    monkeypatch.setattr(dashboard.st, "session_state", state)
+    with threadpool_limits(limits=1):
+        dashboard.show_dashboard(metadata, model)
+        for page, profile in [("performance", {}), ("explorer", {"age": 24}), ("performance", {"age": 24})]:
+            state["prototype_ui"] = {"page": page, "profile": profile}
+            dashboard.show_dashboard(metadata, model)
+    expected = (ROOT / "reports/figures/test_pr_curve.png").read_bytes()
+    assert len(sent) == 4
+    assert all(base64.b64decode(data["pr_curve"]) == expected for data in sent)
+
+
+def test_footer_has_only_brand_and_source():
+    html = (ROOT / "app/prototype.html").read_text(encoding="utf-8")
+    footer = html.split('<footer class="footer">', 1)[1].split("</footer>", 1)[0]
+    assert footer.count("<span>") == 2
+    assert "HunarLens" in footer and "Pakistan Bureau of Statistics" in footer
+    assert "Prototype UI" not in html and "No personal data stored" not in html
 
 
 def test_replacement_delta_is_reversed_for_plain_language():
