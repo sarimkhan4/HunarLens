@@ -162,3 +162,11 @@
 **Why label the chart scale?** Longer bars help small differences become visible, but the scale must be explicit so a rate such as 14% is not mistaken for 70%. Exact percentages remain beside each bar.
 
 **Why put the PR curve before the detailed tables?** It shows the precision–recall trade-off alongside the headline metrics, while the expandable tables retain the full results for closer inspection.
+
+## Mobile styling
+
+**How can mobile styling improve without changing desktop?** The new rules only match screens at or below 760px. The existing desktop rules remain unchanged, and browser checks compare the rendered desktop styles before and after.
+
+**Does the phone app use a different prediction function?** No. The same controls, category values, validation functions and frozen pipeline are used; only the visual arrangement changes.
+
+**Why can a table scroll sideways while the page cannot?** Wide result tables need room for their columns. Their own container handles horizontal scrolling so the rest of the page remains fitted to the phone screen.

@@ -38,6 +38,14 @@ section[data-testid="stSidebar"] :focus-visible { outline: 3px solid #fff !impor
 @media (max-width: 760px) { section[data-testid="stMain"] > div.block-container { padding:1rem 1rem 4rem; } .dashboard-hero { display:block; } .hero-age { border-left:0; border-top:1px solid #ffffff55; padding: .8rem 0 0; margin-top: .8rem; } }
 @media (prefers-reduced-motion: reduce) { .ruler-marker { transition: none; } }
 /* Keep the native fallback's desktop typography aligned with the dashboard. */
+@media (max-width:760px) {
+ section[data-testid="stMain"] h1 { font-size:1.625rem; line-height:1.3; }
+ section[data-testid="stMain"] h2, section[data-testid="stMain"] h3 { font-size:1.0625rem; line-height:1.4; }
+ section[data-testid="stMain"] p { line-height:1.7; }
+ .dashboard-hero { padding:1.25rem; border-radius:14px; }
+ .dashboard-topbar { font-size:.8125rem; gap:.75rem; flex-wrap:wrap; }
+ .ruler-labels { font-size:12px; gap:8px; }
+}
 @media (min-width: 761px) {
  section[data-testid="stMain"] > div.block-container { padding-top:1.625rem; }
  section[data-testid="stMain"] h1 { font-size:1.75rem; line-height:1.3; margin-bottom:.75rem; }

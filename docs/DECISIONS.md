@@ -151,3 +151,9 @@ The original 6:5 PR image cannot fill a wide card and remain short without disto
 Remove the profile's save/clear comparison controls and their browser score-retention code at the team's request. Keep Copy summary with a dedicated status message; no other layout or prediction behavior changes.
 
 Make Explore one input a permanently visible card below the estimate. Move How the model uses information to a centered expandable card beneath the input/output columns, preserving its open state across updates. Both tools remain hidden for invalid profiles, and prediction and explanation calculations are unchanged.
+
+## 2026-11-18 — Mobile styling with desktop preserved
+
+Extend the approved visual styling using only media queries at widths of 760px and below. Restore the four input-group headings, use one column of form controls on phones (two within groups at 540–760px), provide 44px minimum input/button touch targets, and increase mobile label readability. Keep profile output and exploration on normal page scrolling, keep tables scrollable within their cards, and reserve space for the mobile navigation and safe area. The native fallback receives mobile typography adjustments under the same breakpoint.
+
+Do not modify the desktop selectors or the HTML, JavaScript, prediction/validation functions, model, metadata, feature code, dependencies or saved evaluation results. Compare the rendered desktop styles before and after at 761px, 1280px and 1440px; verify all four pages at 360px, 390px, 430px and 760px and check the approved fixture probabilities and invalid-input behavior on the mobile layout.
