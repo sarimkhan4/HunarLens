@@ -73,6 +73,9 @@ def main():
         model = joblib.load(ROOT / "models/final_pipeline.joblib")
         census = pd.read_csv(ROOT / "data/processed/census_lookup.csv")
         with threadpool_limits(limits=1):
+            dashboard = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90).run()
+            if dashboard.exception or dashboard.error:
+                raise AssertionError("Interactive dashboard did not load")
             for name, (changes, expected) in FIXTURES.items():
                 check_fixture(name, changes, expected, model, metadata, census)
             app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=90)
@@ -84,7 +87,9 @@ def main():
                     raise AssertionError(f"App page did not load: {page}")
     finally:
         builtins.open, io.open = original_open, original_io_open
-    opened.update({"app/streamlit_app.py", ".streamlit/config.toml"})
+    opened.update({"app/streamlit_app.py", "app/prototype_dashboard.py", "app/prototype.html", "app/prototype.css",
+                   "app/prototype.js", "models/score_quantiles.json", "reports/tables/overview_indicators.csv",
+                   ".streamlit/config.toml"})
     for module in list(sys.modules.values()):
         path = getattr(module, "__file__", None)
         if path:

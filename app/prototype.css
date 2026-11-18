@@ -5,6 +5,10 @@
  --amberbg:#fff5df;--red:#b94b55;--redbg:#fff0f0;--blue:#5278c7;--bluebg:#edf2ff;
  --shadow:0 8px 28px rgba(22,39,78,.055);--radius:16px;
 }
+[hidden]{display:none!important}
+.bottom-nav{display:none}
+.sidebar :focus-visible,.bottom-nav :focus-visible{outline:3px solid #fff;outline-offset:3px}
+.bottom-nav :focus-visible{background:#101d42;color:#fff}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 .shell{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -96,6 +100,7 @@ td strong{color:var(--navy)}
 .dot-grid{display:grid;grid-template-columns:repeat(20,1fr);gap:4px;max-width:370px;margin:14px 0}
 .dot-grid i{aspect-ratio:1;border-radius:3px;background:#e8edf4}.dot-grid i.on{background:var(--teal)}
 .risk-ruler{position:relative;display:flex;margin-top:20px;height:28px;border-radius:6px;overflow:visible;color:#111820;font-size:10px;font-weight:700;text-align:center}.risk-ruler span{display:grid;place-items:center}.risk-ruler span:nth-child(1){width:70%;background:#6b8ba4}.risk-ruler span:nth-child(2){width:20%;background:#f0a202}.risk-ruler span:nth-child(3){width:10%;background:#7a1f5c;color:white}.risk-ruler i{position:absolute;top:-5px;height:38px;border-left:3px solid #111820;transition:left .18s ease-out}.extra-section{border-top:1px solid var(--line);padding:14px 0}.extra-section summary{cursor:pointer;font-weight:700}.extra-section label{display:block;margin:10px 0 4px}.extra-section select{width:100%;padding:8px;border:1px solid #d9e0eb;border-radius:8px;background:white}
+.risk-labels{display:flex;justify-content:space-between;gap:6px;margin-top:8px;font-size:12px;font-weight:700;color:#17233d}
 .disclaimer{font-size:11px;color:#795e2b;background:var(--amberbg);border:1px solid #f3e3bd;border-radius:10px;padding:12px;margin-top:14px}
 .factor{display:flex;align-items:center;gap:10px;margin:12px 0;font-size:11px}.factor-name{width:100px;color:#506079}.factor-track{flex:1;height:7px;background:#edf1f6;border-radius:20px}.factor-fill{height:100%;background:var(--blue);border-radius:20px}.factor-val{width:38px;text-align:right;font-weight:800}
 .tabs{display:flex;gap:5px;border-bottom:1px solid var(--line);margin-bottom:18px}.tabs button{border:0;background:none;padding:10px 13px;color:var(--muted);font-size:12px;font-weight:700;border-bottom:2px solid transparent}.tabs button[aria-selected=true]{color:var(--teal);border-color:var(--teal)}

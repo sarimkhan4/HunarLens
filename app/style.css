@@ -31,7 +31,9 @@ section[data-testid="stSidebar"] [data-testid="stRadio"] label { border-radius: 
 .ruler-marker { position: absolute; top: -10px; height: 58px; border-left: 3px solid #111820; transition: left 180ms ease-out; }
 .ruler-marker::before { content: ''; position: absolute; top: -1px; left: -7px; border: 6px solid transparent; border-top-color: #111820; }
 :focus-visible { outline: 3px solid #1D2B64 !important; outline-offset: 3px; }
+section[data-testid="stSidebar"] :focus-visible { outline: 3px solid #fff !important; }
+.ruler-band { font-size:0; }
+.ruler-labels { display:flex; justify-content:space-between; gap:6px; margin-top:8px; font-size:12px; font-weight:700; }
 [data-testid="stButton"] button { border-radius: 9px; }
 @media (max-width: 760px) { section[data-testid="stMain"] > div.block-container { padding:1rem 1rem 4rem; } .dashboard-hero { display:block; } .hero-age { border-left:0; border-top:1px solid #ffffff55; padding: .8rem 0 0; margin-top: .8rem; } }
-@media (max-width: 640px) { .ruler-band { font-size: 0.66rem; } .ruler-high { font-size: 0.57rem; } }
 @media (prefers-reduced-motion: reduce) { .ruler-marker { transition: none; } }

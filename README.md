@@ -18,4 +18,6 @@ On macOS or Linux, use `python3.12 -m venv .venv` and `source .venv/bin/activate
 
 The data sources are described in [data/README.md](data/README.md). Stage instructions and decisions are in `docs/`; reusable code is in `src/hunarlens/`.
 
+To use the native Streamlit fallback, add `?classic=1` to the app URL (for example, `http://localhost:8501/?classic=1`).
+
 Five tests marked `full_data` read the complete processed dataset, including test rows. Stage 8 has opened the test split, so they are enabled in the default `python -m pytest -q` run. To run only those checks, use `python -m pytest -q -m full_data`.

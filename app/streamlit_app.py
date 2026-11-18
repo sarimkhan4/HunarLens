@@ -8,6 +8,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 import json
+import logging
+import textwrap
 import altair as alt
 import joblib
 import matplotlib.pyplot as plt
@@ -20,6 +22,7 @@ from hunarlens.explain import local_what_if
 from hunarlens.ui import score_percentile
 
 TABLES = ROOT / "reports" / "tables"
+LOGGER = logging.getLogger(__name__)
 FIGURES = ROOT / "reports" / "figures"
 NOTE = "Association from survey data, not a cause. Not a decision tool for individuals."
 HELP = {"age": "Age in completed years.", "sex": "Sex recorded in the survey.",
@@ -36,11 +39,6 @@ HELP = {"age": "Age in completed years.", "sex": "Sex recorded in the survey.",
 EXAMPLES = {"Rural, enrolled": {"age": 18, "education_level": 6.0, "currently_enrolled": 7.0},
             "Rural, not enrolled": {},
             "Urban graduate": {"age": 22, "sex": 2.0, "area": 2.0, "education_level": 13.0, "currently_enrolled": 1.0}}
-
-
-def refresh_result():
-    """Refresh the page so form controls remain available after each change."""
-    st.rerun()
 
 
 def apply_example(metadata, changes):
@@ -62,6 +60,13 @@ def load_model():
     return joblib.load(ROOT / "models" / "final_pipeline.joblib")
 
 
+@st.cache_data(show_spinner=False)
+def load_reference_tables():
+    """Reuse non-personal regional and rare-combination reference data."""
+    return (pd.read_csv(ROOT / "data/processed/census_lookup.csv"),
+            pd.read_csv(ROOT / "data/processed/rare_combinations.csv", dtype={"age_key": str, "rare": bool}))
+
+
 def category(name, metadata, label):
     """Offer only training-observed categories, with the training mode selected."""
     choices = metadata["features"]["categorical"][name]
@@ -70,7 +75,7 @@ def category(name, metadata, label):
         st.session_state[name] = default if default in choices else choices[0]
     return st.selectbox(label, choices, index=None,
                         format_func=lambda value: LABELS[name].get(int(value), f"Code {value:g}"), key=name,
-                        help=HELP[name], on_change=None if name == "relationship_to_head" else refresh_result)
+                        help=HELP[name])
 
 
 def number(name, metadata, label):
@@ -80,7 +85,7 @@ def number(name, metadata, label):
     if name not in st.session_state:
         st.session_state[name] = default
     return st.number_input(label, min_value=int(low), max_value=int(high), value=None, step=1, key=name,
-                           help=HELP[name], on_change=refresh_result)
+                           help=HELP[name])
 
 
 def importance_chart():
@@ -123,7 +128,7 @@ def ruler(probability, metadata):
                 '<div class="ruler-band ruler-elevated">Elevated</div>'
                 '<div class="ruler-band ruler-high">High</div>'
                 f'<span class="ruler-marker" style="left: {min(percentile, 99.5):.2f}%"></span>'
-                '</div></div>', unsafe_allow_html=True)
+                '</div><div class="ruler-labels"><span>Lower than most</span><span>Elevated</span><span>High</span></div></div>', unsafe_allow_html=True)
     st.write(f"Higher than about **{round(percentile)}%** of youth in the survey sample")
     st.caption("Position is relative to validation scores for youth in the labour force.")
 
@@ -177,6 +182,10 @@ def result_panel(model, metadata):
         values["head_sex"], values["head_education"] = st.session_state["head_sex"], st.session_state["head_education"]
     st.subheader("What the survey pattern suggests")
     st.caption("Estimated unemployment probability · youth in the labour force")
+    for name in ("household_size", "children_under_15", "other_youth_15_24", "age"):
+        if values[name] is None:
+            st.error(f"Enter a number for {name.replace('_', ' ')}.")
+            return
     for error in validate_inputs(values, metadata):
         st.error(error)
     if validate_inputs(values, metadata):
@@ -186,9 +195,8 @@ def result_panel(model, metadata):
     if values["relationship_to_head"] == 3 and values["marital_status"] != 1:
         st.warning("The relationship says son or daughter (unmarried), but the marital status is not never married. Please check the selections.")
     try:
-        census = pd.read_csv(ROOT / "data" / "processed" / "census_lookup.csv")
+        census, flags = load_reference_tables()
         row = build_input(values, metadata, census)
-        flags = pd.read_csv(ROOT / "data" / "processed" / "rare_combinations.csv", dtype={"age_key": str, "rare": bool})
         if is_rare_combination(values, flags):
             st.warning("This combination is rare in the survey data, so the estimate is less reliable.")
         probability = predict_probability(model, row)
@@ -214,7 +222,8 @@ def result_panel(model, metadata):
         explore_input(model, values, metadata, census, flags)
         with st.expander("How the model uses information"):
             importance_chart()
-    except Exception:
+    except Exception as error:
+        LOGGER.error("Estimate unavailable (%s)", type(error).__name__)
         st.error("The estimate is temporarily unavailable. Please check the inputs and try again.")
 
 
@@ -236,7 +245,7 @@ def estimator(model, metadata):
         if "age" not in st.session_state:
             st.session_state["age"] = int(metadata["reference_values"]["age"])
         st.slider("Age (years)", int(age_min), int(age_max), value=None,
-                  key="age", help=HELP["age"], on_change=refresh_result)
+                  key="age", help=HELP["age"])
         edu_col, enrol_col = st.columns(2)
         with edu_col:
             category("education_level", metadata, "Education level")
@@ -272,7 +281,7 @@ def estimator(model, metadata):
 
 def overview():
     """Present published survey rates separately from model-sample estimates."""
-    survey = pd.read_csv(TABLES / "label_reproduction.csv").set_index("group")
+    survey = pd.read_csv(TABLES / "overview_indicators.csv").query('status == "verified"').set_index("indicator")
     heading, actions = st.columns([3, 1])
     with heading:
         st.markdown('<div class="page-eyebrow">PAKISTAN LABOUR MARKET · 2024–25</div>', unsafe_allow_html=True)
@@ -288,33 +297,25 @@ def overview():
               ("Youth · male", "youth_male"), ("Youth · female", "youth_female")]
     for column, (label, group) in zip(st.columns(4), groups):
         with column.container(border=True):
-            st.metric(label, f"{survey.loc[group, 'pbs_unemployment_rate']:.1%}")
+            if group in survey.index:
+                st.metric(label, f"{survey.loc[group, 'pbs_value']:.1%}")
             st.caption("PBS · ages 15–24" if group != "all_ages" else "PBS · ages 10+")
     st.caption("Official weighted rates, rounded as reported by PBS. Model evaluation uses unweighted records.")
-    st.markdown("[PBS Labour Force Survey annual report](https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf) · "
+    st.markdown("[PBS Labour Force Survey annual report](https://www.pbs.gov.pk/labour-force-statistics/) · "
                 "[Age and sex table](https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-15.pdf)")
     left, right = st.columns([1.45, 1])
     with left.container(border=True):
         st.subheader("Youth unemployment by sex and area")
         selected = [("Male", "youth_male"), ("Female", "youth_female"),
                     ("Rural", "youth_rural"), ("Urban", "youth_urban")]
-        rates = pd.DataFrame([{"Group": name, "Rate": survey.loc[key, "pbs_unemployment_rate"]}
-                              for name, key in selected])
+        rates = pd.DataFrame([{"Group": name, "Rate": survey.loc[key, "pbs_value"]}
+                              for name, key in selected if key in survey.index])
         chart = alt.Chart(rates).mark_bar(color="#087e8b", cornerRadiusEnd=4).encode(
             x=alt.X("Rate:Q", title="Unemployment rate", axis=alt.Axis(format="%")),
             y=alt.Y("Group:N", sort=None, title=None),
             tooltip=["Group:N", alt.Tooltip("Rate:Q", format=".1%")])
         st.altair_chart(chart, width="stretch")
         st.caption("Sex and area are separate comparisons, not mutually exclusive groups.")
-    with right.container(border=True):
-        st.subheader("Youth labour force by area")
-        area = survey.loc[["youth_rural", "youth_urban"], ["pbs_unemployment_rate"]].copy()
-        area.index = ["Rural", "Urban"]
-        for label, row in area.iterrows():
-            rate = row["pbs_unemployment_rate"]
-            st.write(f"**{label}** · {rate:.1%} unemployed")
-            st.progress(float(rate))
-        st.caption("Unemployment among labour-force youth, not a participation rate.")
     left, right = st.columns([1.45, 1])
     with left.container(border=True):
         st.subheader("Youth group comparison")
@@ -392,78 +393,88 @@ def insights():
                                         "val_f1_best": "Validation F1", "threshold": "Tuned threshold"}), hide_index=True)
     st.caption("Validation F1 is optimistic: thresholds were chosen on the same validation labels. The final HGB threshold uses the approved near-optimal midpoint rule.")
     st.subheader("Final test results")
-    st.dataframe(pd.read_csv(TABLES / "test_metrics.csv"), hide_index=True)
+    test_metrics = pd.read_csv(TABLES / "test_metrics.csv")
+    display_columns = ["model_threshold", "f1", "precision", "recall", "pr_auc", "roc_auc", "lift_10", "prevalence"]
+    st.dataframe(test_metrics[display_columns].rename(columns={"model_threshold": "Model and threshold", "f1": "F1", "precision": "Precision", "recall": "Recall", "pr_auc": "PR-AUC", "roc_auc": "ROC-AUC", "lift_10": "Top 10% lift", "prevalence": "Prevalence"}), hide_index=True)
     st.write("95% household-grouped bootstrap intervals")
     st.dataframe(pd.read_csv(TABLES / "test_bootstrap_ci.csv"), hide_index=True)
     st.image(str(FIGURES / "test_pr_curve.png"), caption="Test precision–recall curve; dashed line is prevalence.")
     st.subheader("Subgroup caveats")
     groups = pd.read_csv(TABLES / "test_subgroups.csv")
     st.dataframe(groups, hide_index=True)
+    with st.expander("Show full tables"):
+        st.dataframe(test_metrics, hide_index=True)
+        st.dataframe(experiment, hide_index=True)
     st.warning("Subgroups with fewer than 50 unemployed people are flagged as unreliable; larger groups may still have substantial uncertainty. Performance differs across education, sex and area.")
     st.caption(NOTE)
 
 
 def about():
-    """Explain the approved label, public sources and limitations in plain language."""
-    st.markdown('<div class="page-eyebrow">EVIDENCE & GOVERNANCE</div>', unsafe_allow_html=True)
+    """Explain data sources, the label and limitations using saved results."""
     st.title("Data and methodology")
-    st.caption("Definitions, sources and limitations behind the indicators and experimental estimator.")
-    sources, definitions = st.columns([1.45, 1])
-    with sources.container(border=True):
-        st.subheader("Official data sources")
-        st.markdown("""**01 · [PBS Labour Force Statistics](https://www.pbs.gov.pk/labour-force-statistics/)**
-        Labour Force Survey 2024–25, annual report and tables.
+    st.subheader("Official data sources")
+    st.markdown(textwrap.dedent("""
+        - [PBS Labour Force Statistics](https://www.pbs.gov.pk/labour-force-statistics/)
+        - [PBS Census 2023](https://www.pbs.gov.pk/result-excel/)
+        - [LFS Annual Report](https://www.pbs.gov.pk/labour-force-statistics/)
+        - [LFS Table 15](https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-15.pdf)
+        Sources accessed 15 November 2026.
+    """))
+    st.subheader("Definitions and limitations")
+    st.markdown(textwrap.dedent("""
+        The model covers youth aged 15?24 in the labour force. Unemployed people were not
+        employed, were available within two weeks and either searched in the previous four
+        weeks or had a job or business to start. The file does not record the start date,
+        so the three-month future-starter condition cannot be verified.
 
-        **02 · [PBS Census 2023](https://pbs.gov.pk/result-excel/)**
-        Population and Housing Census detailed results.
-
-        **03 · [LFS Annual Report](https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf)**
-        Survey methods and labour-market definitions.
-
-        **04 · [LFS Table 15](https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-15.pdf)**
-        Rates by age, sex and area. Sources accessed 15 November 2026.""")
-    with definitions.container(border=True):
-        st.subheader("Definitions that matter")
-        st.markdown("**Youth** · Ages 15–24.\n\n**Unemployment rate** · Unemployed people as a share of the labour force.\n\n"
-                    "**Labour force** · People employed or meeting the survey's unemployment definition.\n\n"
-                    "**Participation rate** · The labour force as a share of the relevant population.")
-    with st.container(border=True):
-        st.subheader("Important limitations and responsible use")
-        st.markdown("""HunarLens describes patterns in Pakistan's **Labour Force Survey 2024–25** and **Population and Housing Census 2023**. Sources: [Pakistan Bureau of Statistics labour-force statistics](https://www.pbs.gov.pk/labour-force-statistics/) and [Census detailed results](https://pbs.gov.pk/result-excel/), accessed **15 November 2026**.
-
-    The model uses youth aged **15–24 in the labour force**. Employed people worked for pay or profit, did qualifying family or sale-oriented farm work, or were temporarily absent under the survey rules. Unemployed people were not employed, were available within two weeks and either searched in the previous four weeks or had a job or business to start in the near future. The data do not record the start date, so the [ILO's generally three-month future-starter condition](https://webapps.ilo.org/ilostat-files/LFS/ILO_PAPI_LFS_VARIABLE_DERIVATION_GUIDE%20%28A1V2%29.pdf) could not be verified. See the [PBS annual report](https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf) for the survey's definitions.
-
-    Results are **unweighted** and describe survey associations, not causes. Census density and urban share are constant within province; Census household size is constant within province and area. Enrolment is a strong correlate partly reflecting selection into the labour-force-only sample. Performance and errors vary by subgroup, and small groups are uncertain.
-
-    Inputs are not stored by this app. HunarLens is not affiliated with or endorsed by PBS. On the unweighted test set, the frozen model had F1 **0.360**, PR-AUC **0.303** and ROC-AUC **0.752**. Performance was weaker for some groups: recall for people with no formal education was **17.9%** at the primary threshold. Students outside the labour force are not included in the sample, so these results do not describe them.
-
-    **Association from survey data, not a cause. Not a decision tool for individuals.**""")
+        Results use unweighted records and describe associations, not causes. Census features
+        are constant within province or province and area. Enrolment associations partly
+        reflect selection into the labour-force sample. Students outside the labour force
+        are not included. Inputs are not stored. HunarLens is not affiliated with or endorsed by PBS.
+        It is not a decision tool for individuals.
+    """))
+    metrics = pd.read_csv(TABLES / "test_metrics.csv").set_index("model_threshold").loc["HGB F1"]
+    groups = pd.read_csv(TABLES / "test_subgroups.csv")
+    no_formal = groups[(groups.subgroup.str.contains("education", case=False)) &
+                       (groups.value == "No formal education") & (groups.threshold == "f1")]
+    st.write(f"On the unweighted test set, F1 was **{metrics.f1:.3f}**, PR-AUC **{metrics.pr_auc:.3f}** and ROC-AUC **{metrics.roc_auc:.3f}**.")
+    if not no_formal.empty:
+        st.write(f"Recall for people with no formal education was **{no_formal.iloc[0].recall:.1%}**.")
 
 
 def main():
     st.set_page_config(page_title="HunarLens", page_icon="🌱", layout="wide")
     try:
         st.markdown(f"<style>{(ROOT / 'app' / 'style.css').read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
-    except OSError:
-        pass
+    except OSError as error:
+        LOGGER.error("Styles unavailable (%s)", type(error).__name__)
     try:
         metadata = load_metadata()
-    except Exception:
+    except Exception as error:
+        LOGGER.error("Model details unavailable (%s)", type(error).__name__)
         st.error("The model details are temporarily unavailable. Please try again later.")
         return
     if sklearn.__version__ != metadata.get("sklearn_version"):
         st.warning("The installed scikit-learn version differs from the model's saved version; predictions may be unreliable.")
     try:
         model = load_model()
-    except Exception:
+    except Exception as error:
+        LOGGER.error("Model unavailable (%s)", type(error).__name__)
         st.error("The model is temporarily unavailable. Please try again later.")
         return
+    # Add ?classic=1 to the URL to use the native Streamlit interface.
     if st.query_params.get("classic") != "1":
-        from prototype_dashboard import show_dashboard
-        st.markdown('<style>[data-testid="stMainBlockContainer"] {padding:0!important;max-width:none!important;width:100%!important;} '
-                    'header[data-testid="stHeader"] {visibility:hidden;}</style>', unsafe_allow_html=True)
-        show_dashboard(metadata, model)
-        return
+        try:
+            if not hasattr(st.components, "v2"):
+                raise RuntimeError("Streamlit custom components are unavailable")
+            from prototype_dashboard import show_dashboard
+            show_dashboard(metadata, model)
+            st.markdown('<style>[data-testid="stMainBlockContainer"] {padding:0!important;max-width:none!important;width:100%!important;} '
+                        'header[data-testid="stHeader"] {visibility:hidden;}</style>', unsafe_allow_html=True)
+            return
+        except Exception as error:
+            LOGGER.error("Dashboard component unavailable (%s)", type(error).__name__)
+            st.warning("The interactive dashboard is unavailable; showing the classic view.")
     try:
         with st.sidebar:
             st.markdown('<div class="sidebar-brand"><span>H</span> HunarLens</div>'
@@ -481,7 +492,8 @@ def main():
             insights()
         else:
             about()
-    except Exception:
+    except Exception as error:
+        LOGGER.error("Page unavailable (%s)", type(error).__name__)
         st.error("This page is temporarily unavailable. Please try again later.")
 
 

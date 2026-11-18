@@ -123,3 +123,7 @@ The next layout revision follows the supplied prototype's two-card profile explo
 ## 2026-11-16 — Original prototype integration
 
 Use the supplied HTML and CSS in a Streamlit custom component to reproduce its layout, instead of approximating it with native widgets. The prototype's illustrative JavaScript scoring formula is removed. Component selections are transient session state and are validated by the existing Python input builder before the unchanged frozen pipeline is called. Saved survey and evaluation tables supply dashboard results. The prior native interface remains accessible with `?classic=1` and its existing AppTests continue to run against that route.
+
+## 2026-11-18 — Dashboard verification and accessibility
+
+The overview uses weighted estimates from the approved label and only displays PBS values whose difference is at most 0.3 percentage points. The verified Table 15 excerpt records the source used for age-group comparisons. Results and uncertainty on the model page come from saved evaluation tables. User selections remain transient; client-side comparison retains only the previous model score until cleared or the session ends. Public aggregate reference files are cached, while user selections and profile results are never cached or logged.

@@ -144,3 +144,13 @@
 **Why is the survey download safe to share?** It contains aggregate rates only, not information entered into the profile explorer.
 
 **How does the original prototype show real model results?** A Streamlit component displays the supplied HTML and CSS; Python validates its selections and calls the same frozen pipeline as the original interface.
+
+## Stage 9e: final interface checks
+
+**Why compare survey indicators with PBS?** It catches incorrect labels or stale numbers before they appear on the dashboard.
+
+**Why are some public files cached but profile answers are not?** Aggregate references are shared and unchanging; caching a person's selections or estimate could retain private information.
+
+**What does the comparison button retain?** Only the previous model score in the browser session, which can be cleared; it does not save the profile.
+
+**What does the explanation direction mean?** It compares the current score with the score after replacing one input with its typical value; the difference is an association in the model, not a causal effect.
