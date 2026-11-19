@@ -222,3 +222,13 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
 - Label the survey's not-employed-and-not-enrolled measure approximate NEET
   and distinguish it from the PBS reference indicator, which considers training.
 - Preserve the frozen model, its metadata, and the sealed model test results.
+# 2026-11-19 — skills-gap sign-off suppression and diagnostics
+
+- The team authorized treating impossible-by-construction outcomes as
+  structural zeros, displaying a dash and zero cases. Suppress only nonzero
+  cells below 30 and remove complementary suppression for aggregate rates.
+- Publish unemployment by education, per-replicate occupation-mode stability,
+  bootstrap medians and median-minus-estimate diagnostics; keep the frozen
+  model and sealed model evaluation unchanged.
+- The existing privacy-test assertions were updated only to distinguish
+  structural or observed zeros from nonzero small cells, as the team authorized.

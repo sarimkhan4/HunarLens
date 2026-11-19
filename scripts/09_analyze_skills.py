@@ -97,24 +97,37 @@ def mismatch_bootstrap(bootstrap, frame, replicate_modes, denominator=None):
 
 def replace_interval(row, samples):
     """Replace the fixed-mode interval only for a publishable cell."""
-    if row["estimate"] != "suppressed":
+    if row["estimate"] not in ("n<30", "—"):
         finite = samples[np.isfinite(samples)]
         if not len(finite):
             raise RuntimeError("STOP: no valid bootstrap intervals.")
         row["ci_low"], row["ci_high"] = np.quantile(finite, [.025, .975])
+        row["bootstrap_median"] = float(np.median(finite))
+        row["bootstrap_bias"] = row["bootstrap_median"] - row["estimate"]
 
 
-def result_row(bootstrap, frame, condition, group, category, reliability="denominator"):
+def result_row(bootstrap, frame, condition, group, category, reliability="denominator", structural=False):
     subset = frame.loc[condition]
     n = len(frame)
     positive = len(subset)
-    count, _, flag = safe_cell(n, frame.weight.sum())
-    small = n < 30 or positive < 30 or n - positive < 30
-    # Suppress both tails to prevent subtraction from revealing a small cell.
+    count = "n<30" if 0 < n < 30 else n
+    flag = "unreliable: n < 50" if n < 50 else ""
+    if n == 0:
+        return {"group": group, "category": category, "n": 0, "positive_n": 0,
+                "estimate": "—", "ci_low": "—", "ci_high": "—", "flag": "no observations"}
+    if structural:
+        if positive:
+            raise RuntimeError("STOP: a structural zero has observed cases.")
+        return {"group": group, "category": category, "n": n, "positive_n": 0,
+                "estimate": "—", "ci_low": "—", "ci_high": "—", "flag": "structural zero"}
+    small = 0 < n < 30 or 0 < positive < 30
     if small:
-        return {"group": group, "category": category, "n": count, "positive_n": "suppressed",
-                "estimate": "suppressed", "ci_low": "suppressed", "ci_high": "suppressed",
-                "flag": "suppressed: small cell"}
+        reason = "suppressed: n<30"
+        if reliability == "positive" and positive < 50:
+            reason += "; unreliable: fewer than 50 positives"
+        return {"group": group, "category": category, "n": count, "positive_n": "n<30",
+                "estimate": "n<30", "ci_low": "n<30", "ci_high": "n<30",
+                "flag": reason}
     total = frame.weight.sum()
     value = subset.weight.sum() / total
     independent = np.sum(frame.weight.to_numpy() * np.asarray(condition, dtype=float)) / np.sum(frame.weight.to_numpy())
@@ -140,28 +153,12 @@ def save(name, rows):
     pd.DataFrame(rows).to_csv(TABLES / f"skills_{name}.csv", index=False)
 
 
-def secondary_suppress(rows, is_partition_member):
-    """Hide an additional category if a partition has one suppressed cell."""
-    groups = {}
-    for row in rows:
-        if is_partition_member(row):
-            groups.setdefault(row["group"], []).append(row)
-    for members in groups.values():
-        suppressed = [r for r in members if r["estimate"] == "suppressed"]
-        visible = [r for r in members if r["estimate"] != "suppressed"]
-        if len(suppressed) == 1 and visible:
-            row = min(visible, key=lambda r: r["positive_n"])
-            for field in ("positive_n", "estimate", "ci_low", "ci_high"):
-                row[field] = "suppressed"
-            row["flag"] = "suppressed: complementary cell"
-
-
 def difference_row(boot, employed, unemployed, predicate, group, category):
     first = result_row(boot, employed, predicate(employed), group, category)
     second = result_row(boot, unemployed, predicate(unemployed), group, category)
-    if first["estimate"] == "suppressed" or second["estimate"] == "suppressed":
+    if first["estimate"] == "n<30" or second["estimate"] == "n<30":
         return {"group": group, "category": category, "employed_n": first["n"], "unemployed_n": second["n"],
-                "difference": "suppressed", "ci_low": "suppressed", "ci_high": "suppressed",
+                "difference": "n<30", "ci_low": "n<30", "ci_high": "n<30",
                 "flag": "suppressed: small cell"}
     def draws(frame):
         den = boot.draws @ boot.vector(frame)
@@ -185,7 +182,7 @@ def analysis():
         if path.exists():
             previous = pd.read_csv(path, keep_default_na=False)
             for row in previous.itertuples(index=False):
-                if row.group.startswith("overall; norm=") and row.ci_low != "suppressed":
+                if row.group.startswith("overall; norm=") and row.ci_low not in ("suppressed", "n<30", "—"):
                     prior[(row.group, row.category)] = float(row.ci_high) - float(row.ci_low)
     comparison_path = TABLES / "skills_mismatch_interval_comparison.csv"
     if comparison_path.exists():
@@ -201,6 +198,19 @@ def analysis():
                   "age_25_44": workers.loc[workers.age.between(25, 44)],
                   "youth": workers.loc[workers.age.between(15, 24)]}
     replicate_modes = {name: bootstrap_modes(boot, frame) for name, frame in references.items()}
+    stability = []
+    for name, replicated in replicate_modes.items():
+        point = modes(references[name])
+        for occupation in range(1, 10):
+            current = int(point.loc[occupation])
+            changed = float(np.mean(replicated[:, occupation - 1] != current))
+            for band in BANDS:
+                stability.append({"norm": name, "occupation": occupation, "education_band": band,
+                                  "band_label": BANDS[band], "point_mode": current,
+                                  "reference_n": len(references[name].loc[references[name].occupation.eq(occupation)]),
+                                  "replicate_share": np.mean(replicated[:, occupation - 1] == band),
+                                  "change_share": changed, "mode_sensitive": changed > .1})
+    save("mode_stability", stability)
     if norm.get(9) == 5 or norm.get(2) == 1:
         raise RuntimeError("STOP: occupational education modes fail plausibility check.")
     over = employed.band.gt(employed.all_15_plus)
@@ -237,7 +247,10 @@ def analysis():
         if not np.allclose(sum(mask.astype(int) for mask in categories.values()), 1):
             raise RuntimeError("STOP: outcomes do not partition the labour force.")
         for category, mask in categories.items():
-            row = result_row(boot, frame, mask, BANDS[int(band)], category)
+            structural = ((category == "employed over" and band == min(BANDS)) or
+                          (category == "employed under" and band == max(BANDS)) or
+                          (category == "employed matched" and band not in norm.values))
+            row = result_row(boot, frame, mask, BANDS[int(band)], category, structural=structural)
             if category.startswith("employed "):
                 samples = mismatch_bootstrap(boot, frame.loc[frame.employed], replicate_modes["all_15_plus"], denominator=frame)
                 replace_interval(row, samples[:, {"employed matched": 0, "employed over": 1, "employed under": 2}[category]])
@@ -280,10 +293,6 @@ def analysis():
     for code, label in [(8, "Engineering"), (9, "Medicine"), (10, "Computer"), (11, "Agriculture"), (12, "Other two-year degree")]:
         frame = labour.loc[labour.enrolment.eq(1) & labour.education.eq(code)]
         degrees.append(result_row(boot, frame, frame.unemployed, label, "unemployment rate", reliability="positive"))
-    secondary_suppress(attainment, lambda row: row["category"] in BANDS.values())
-    secondary_suppress(outcomes, lambda row: row["category"] in {"unemployed", "employed matched", "employed over", "employed under"})
-    secondary_suppress(matrix, lambda row: row["category"].startswith("occupation "))
-    secondary_suppress(mismatch, lambda row: True)
     for name, rows in [("attainment_gap", attainment), ("attainment_difference", attainment_difference), ("outcomes_by_education", outcomes),
                        ("education_occupation_matrix", matrix), ("training_by_occupation", training),
                        ("mismatch", [row for row in mismatch if "norm=all_15_plus" in row["group"]]),
@@ -293,7 +302,7 @@ def analysis():
     comparisons = []
     for row in mismatch:
         key = (row["group"], row["category"])
-        if key in prior and row["ci_low"] != "suppressed":
+        if key in prior and row["ci_low"] not in ("suppressed", "n<30", "—"):
             comparisons.append({"group": key[0], "category": key[1], "fixed_width": prior[key],
                                 "reestimated_width": row["ci_high"] - row["ci_low"]})
     save("mismatch_interval_comparison", comparisons)

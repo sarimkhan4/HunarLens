@@ -1,8 +1,8 @@
 group,category,n,positive_n,estimate,ci_low,ci_high,flag
-No formal,occupation 1,6477,suppressed,suppressed,suppressed,suppressed,suppressed: complementary cell
+No formal,occupation 1,6477,39,0.005859958303043876,0.003998090531591796,0.007972215904433115,
 No formal,occupation 2,6477,110,0.01691473993217418,0.013434085982732887,0.02050850446964558,
 No formal,occupation 3,6477,82,0.013204097981063537,0.009867231875757176,0.016602280850885998,
-No formal,occupation 4,6477,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
+No formal,occupation 4,6477,n<30,n<30,n<30,n<30,suppressed: n<30
 No formal,occupation 5,6477,668,0.11217288936535935,0.10183814573197233,0.12297253722550978,
 No formal,occupation 6,6477,2753,0.38903410913953446,0.36764472636887513,0.4109856904509404,
 No formal,occupation 7,6477,816,0.13855426799377915,0.12595819666131683,0.15116125900976218,

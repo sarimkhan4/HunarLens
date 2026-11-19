@@ -44,8 +44,10 @@ def test_shift_coverage_and_suppression_are_reported():
     table = pd.read_csv(ROOT / "reports/tables/skills_model_shift.csv", keep_default_na=False)
     assert {"coverage", "n", "minimum", "mean", "maximum"} <= set(table.columns)
     for row in table.itertuples(index=False):
-        if row.n == "suppressed":
-            assert row.mean == "suppressed" and row.coverage == "suppressed"
+        if row.n == "n<30":
+            assert row.mean == "n<30" and row.coverage == "n<30"
+        elif int(row.n) == 0:
+            assert row.mean == "—" and float(row.coverage) == 0
         else:
             assert int(row.n) >= 30
             assert 0 <= float(row.coverage) <= 1
@@ -67,10 +69,13 @@ def test_survey_outputs_respect_disclosure_and_required_sanity():
                  "training_by_occupation", "mismatch", "mismatch_sensitivity", "neet", "degree_type"]:
         table = pd.read_csv(ROOT / "reports/tables" / f"skills_{name}.csv", keep_default_na=False)
         for row in table.itertuples(index=False):
-            if row.estimate == "suppressed":
-                assert row.ci_low == "suppressed" and row.ci_high == "suppressed"
+            if row.estimate == "n<30":
+                assert row.ci_low == "n<30" and row.ci_high == "n<30"
+            elif row.estimate == "—":
+                assert int(row.positive_n) == 0
+                assert row.flag in ("structural zero", "no observations")
             else:
-                assert int(row.n) >= 30 and int(row.positive_n) >= 30
+                assert int(row.n) >= 30 and (int(row.positive_n) == 0 or int(row.positive_n) >= 30)
                 assert 0 <= float(row.estimate) <= 1
     modes = pd.read_csv(ROOT / "reports/tables/skills_occupation_modes.csv")
     primary = modes.loc[modes.norm.eq("all_15_plus")].set_index("occupation")

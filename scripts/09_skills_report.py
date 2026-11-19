@@ -35,10 +35,93 @@ def interval(row):
     return f"{pct(row.ci_low)}–{pct(row.ci_high)}"
 
 
+def bias_note(row):
+    return (f"bootstrap median {pct(row['bootstrap_median'])}, median minus estimate "
+            f"{100*float(row['bootstrap_bias']):+.1f} percentage points")
+
+
 def result_cell(row):
-    if row["estimate"] == "suppressed":
-        return "Suppressed"
-    return f"{pct(row['estimate'])} (95% CI {pct(row['ci_low'])}–{pct(row['ci_high'])})"
+    if row["estimate"] in ("suppressed", "n<30"):
+        return "n<30"
+    if row["estimate"] == "—":
+        return "— (n=0)" if row["flag"] == "structural zero" else "—"
+    result = f"{pct(row['estimate'])} (n={row['positive_n']}; 95% CI {pct(row['ci_low'])}–{pct(row['ci_high'])})"
+    median = row.get("bootstrap_median", "")
+    if median != "" and pd.notna(median):
+        bias = float(median) - float(row["estimate"])
+        result += f"; bootstrap median {pct(median)}, median minus estimate {100*bias:+.1f} pp"
+    return result
+
+
+def unemployment_table():
+    table = pd.read_csv(TABLES / "skills_unemployment_by_education.csv", keep_default_na=False)
+    names = {"overall": "All", "sex=1.0": "Male", "sex=2.0": "Female",
+             "area=1.0": "Rural", "area=2.0": "Urban"}
+    rows = ["| Group | Education band | Labour-force n | Unemployed n | Unemployment rate (95% CI) | Flag |",
+            "|---|---|---:|---:|---|---|"]
+    for row in table.to_dict("records"):
+        rows.append(f"| {names[row['group']]} | {row['category']} | {row['n']} | {row['positive_n']} | {result_cell(row)} | {row['flag'] or 'Not flagged'} |")
+    return "\n".join(rows)
+
+
+def absorption_table():
+    table = pd.read_csv(TABLES / "skills_graduate_absorption.csv", keep_default_na=False)
+    table = table.loc[table.group.eq("overall")]
+    rows = ["| Degree-level labour-force outcome | Share (n; 95% CI) |", "|---|---|"]
+    for row in table.to_dict("records"):
+        rows.append(f"| {row['category']} | {result_cell(row)} |")
+    return "\n".join(rows)
+
+
+def mismatch_table():
+    strict = pd.concat([pd.read_csv(TABLES / "skills_mismatch.csv", keep_default_na=False),
+                        pd.read_csv(TABLES / "skills_mismatch_sensitivity.csv", keep_default_na=False)])
+    variant = pd.read_csv(TABLES / "skills_mismatch_variants.csv", keep_default_na=False)
+    rows = ["| Norm | Definition | Denominator n | Share (cell n; 95% CI; bootstrap median and bias) |",
+            "|---|---|---:|---|"]
+    for norm in ["all_15_plus", "age_25_44", "youth"]:
+        for category in ["over", "under"]:
+            row = strict.loc[strict.group.eq(f"overall; norm={norm}") & strict.category.eq(category)].iloc[0]
+            rows.append(f"| {norm} | Strict {category} | {row['n']} | {result_cell(row)} |")
+        for category in ["within one band", "two or more bands above"]:
+            row = variant.loc[variant.group.eq(norm) & variant.category.eq(category)].iloc[0]
+            rows.append(f"| {norm} | {category} | {row['n']} | {result_cell(row)} |")
+    return "\n".join(rows)
+
+
+def occupation_table():
+    table = pd.read_csv(TABLES / "skills_mismatch_by_occupation.csv", keep_default_na=False)
+    rows = ["| Norm | Occupation | Denominator n | Above mode (cell n; 95% CI; median and bias) |",
+            "|---|---|---:|---|"]
+    for row in table.to_dict("records"):
+        rows.append(f"| {row['group']} | {row['category']} | {row['n']} | {result_cell(row)} |")
+    return "\n".join(rows)
+
+
+def reproduction_table():
+    table = pd.read_csv(TABLES / "skills_reproduction.csv", keep_default_na=False)
+    rows = ["| Indicator | n | Our share (%) | PBS share (%) | Difference (pp) | Status |",
+            "|---|---:|---:|---:|---:|---|"]
+    for row in table.itertuples(index=False):
+        rows.append(f"| {row.indicator} | {row.n} | {float(row.our_value):.2f} | {float(row.pbs_value):.1f} | {float(row.difference_pp):.3f} | {row.status} |")
+    return "\n".join(rows)
+
+
+def unemployment_headline():
+    table = pd.read_csv(TABLES / "skills_unemployment_by_education.csv", keep_default_na=False)
+    table = table.loc[table.group.eq("overall")].set_index("category")
+    bands = ["No formal", "Below matric", "Matric", "Intermediate", "Degree or above"]
+    parts = [f"{band.lower()}: {result_cell(table.loc[band])}, labour-force n={table.loc[band, 'n']}"
+             for band in bands]
+    return "Unemployment by education, from the lowest to the highest band: " + "; ".join(parts) + "."
+
+
+def absorption_headline():
+    table = pd.read_csv(TABLES / "skills_graduate_absorption.csv", keep_default_na=False)
+    table = table.loc[table.group.eq("overall")].set_index("category")
+    categories = ["Employed: groups 1–4", "Employed: groups 5–9", "Unemployed"]
+    parts = [f"{category.lower()}: {result_cell(table.loc[category])}" for category in categories]
+    return f"Among degree-level labour-force youth (n={table.iloc[0]['n']}), " + "; ".join(parts) + "."
 
 
 def outcome_table():
@@ -63,8 +146,10 @@ def model_shift_table():
                    "2.0/1.0": "Female, rural", "2.0/2.0": "Female, urban"}
     for row in table.itertuples(index=False):
         group = group_names.get(str(row.group), band_names.get(str(row.group), str(row.group)))
-        if row.n == "suppressed":
-            rows.append(f"| {group} | Suppressed | Suppressed | Suppressed |")
+        if row.n == "n<30":
+            rows.append(f"| {group} | n<30 | n<30 | n<30 |")
+        elif int(row.n) == 0:
+            rows.append(f"| {group} | 0 | — | — |")
         else:
             rows.append(f"| {group} | {row.n} | {100*float(row.mean):+.1f} ({100*float(row.ci_low):+.1f} to {100*float(row.ci_high):+.1f}) | {100*float(row.minimum):+.1f} to {100*float(row.maximum):+.1f} |")
     return "\n".join(rows)
@@ -94,17 +179,22 @@ def content():
     gap = one("attainment_difference", group="overall", category="Training ever/current")
     mismatch = one("mismatch", group="overall; norm=all_15_plus", category="over")
     sensitivity = one("mismatch_sensitivity", group="overall; norm=youth", category="over")
+    variants = pd.read_csv(TABLES / "skills_mismatch_variants.csv", keep_default_na=False)
+    severe = variants.loc[variants.category.eq("two or more bands above")].copy()
+    severe["estimate"] = pd.to_numeric(severe["estimate"])
+    lower = severe.loc[severe["estimate"].idxmin()]
     neet = one("neet", group="overall", category="not employed and not enrolled")
+    external = one("neet_external", indicator="PBS NEET youth 2024-25, all areas")
     shift = one("model_shift", scenario="education", grouping="overall", group="overall")
     reproduction = pd.read_csv(TABLES / "skills_reproduction.csv")
     max_occ = reproduction.loc[reproduction.indicator.str.startswith("occupation_"), "difference_pp"].max()
     max_edu = reproduction.loc[~reproduction.indicator.str.startswith("occupation_"), "difference_pp"].max()
     findings = [
+        unemployment_headline(),
+        absorption_headline(),
+        f"Across the displayed definitions and samples, the above-mode share ranges from {pct(lower['estimate'])} (n={lower['n']}; 95% CI {interval(lower)}; {bias_note(lower)}) for the severe {lower['group']} comparison to {pct(mismatch.estimate)} (n={mismatch.n}; 95% CI {interval(mismatch)}; {bias_note(mismatch)}) for the strict all-employed comparison. Low-education occupations make above-mode shares large; this is not a count of wasted degrees.",
         f"The share with training was {abs(100 * float(gap.difference)):.1f} percentage points {'lower' if float(gap.difference) < 0 else 'higher'} among unemployed than employed youth (n={gap.unemployed_n} unemployed, {gap.employed_n} employed; 95% CI {100*float(gap.ci_low):+.1f} to {100*float(gap.ci_high):+.1f} percentage points).",
-        f"Using the all-employed norm, {pct(mismatch.estimate)} of employed youth were above their occupation group's modal education band (n={mismatch.n}; 95% CI {interval(mismatch)}).",
-        f"Using the youth-only norm, the corresponding share was {pct(sensitivity.estimate)} (n={sensitivity.n}; 95% CI {interval(sensitivity)}).",
-        f"Not employed and not enrolled (approximate NEET) described {pct(neet.estimate)} of youth (n={neet.n}; 95% CI {interval(neet)}).",
-        "The education-outcome table below shows four mutually exclusive shares for each education band; together the underlying shares sum to the whole band.",
+        f"Not employed and not enrolled (approximate NEET) described {pct(neet.estimate)} of youth (n={neet.n}; 95% CI {interval(neet)}); PBS reported {pct(external.estimate)} for its separate NEET measure (n and CI not reported). The definitions differ because our approximation cannot identify recent training.",
     ]
     return findings, shift, max_occ, max_edu
 
@@ -136,11 +226,27 @@ def write():
                  for norm in ["all_15_plus", "age_25_44", "youth"]]
         modes.append(f"| {int(occupation)} | " + " | ".join(cells) + " |")
     modes = "\n".join(modes)
-    status_path = TABLES / "skills_test_status.csv"
+    status_path = TABLES / "skills_signoff_test_status.csv"
     status = pd.read_csv(status_path).iloc[0] if status_path.exists() else None
-    status_text = ("The previously recorded suite passed; the refinement run is reported separately."
+    status_text = (f"Final full pytest run: {int(status['tests'])} passed, {int(status['failures'])} failed, {int(status['errors'])} errors."
                    if status is not None and status["failures"] == 0 and status["errors"] == 0 else
                    "Tests pending; not ready for sign-off.")
+    stability = pd.read_csv(TABLES / "skills_mode_stability.csv")
+    changed = stability.loc[(stability.norm.eq("youth")) & stability.mode_sensitive]
+    sensitive = sorted(changed.occupation.unique())
+    sensitivity = one("mismatch_sensitivity", group="overall; norm=youth", category="over")
+    sensitive_text = (", ".join(str(int(x)) for x in sensitive) if sensitive else "none")
+    agricultural = stability.loc[(stability.norm.eq("youth")) & stability.occupation.eq(6) &
+                                 stability.education_band.eq(2)].iloc[0]
+    stability_text = (f"The youth-only strict estimate is {pct(sensitivity.estimate)} "
+                      f"(n={sensitivity.n}; 95% CI {interval(sensitivity)}; {bias_note(sensitivity)}). "
+                      f"In the youth reference, occupation groups {sensitive_text} are mode-sensitive: "
+                      "their modal band changes in more than one tenth of resamples. The resampled modes "
+                      f"can change the classification of many workers together. In particular, the agricultural "
+                      f"group's youth mode switches from no formal education to below matric in {pct(agricultural.replicate_share)} "
+                      f"of resamples (reference n={agricultural.reference_n}). That switch moves the comparison "
+                      "threshold upward and can place fewer workers above the mode. This produces a lower tail "
+                      "in the bootstrap distribution, leaving the point estimate near the upper interval endpoint.")
     findings_doc = f"""# Skills-gap findings
 
 {DEFINITION}
@@ -150,10 +256,30 @@ they do not describe an individual's abilities.
 
 {bullets}
 
+## Unemployment by education
+
+{unemployment_table()}
+
+## Degree-level labour-force outcomes
+
+{absorption_table()}
+
+## Strict and sensitivity mismatch comparisons
+
+{mismatch_table()}
+
+{stability_text}
+
+The [mode-stability table](../reports/tables/skills_mode_stability.csv) gives the share of resamples for
+every occupation, norm and education band. Mode-sensitive means the point mode changes in more than ten
+percent of resamples. Bootstrap bias here means the bootstrap median minus the point estimate; it is a
+diagnostic, not a correction.
+
 {outcome_table()}
 
-The four underlying outcome shares sum to the whole education band before rounding. Suppressed cells
-are withheld to protect small groups. See [graduate absorption](../reports/tables/skills_graduate_absorption.csv)
+The four underlying outcome shares sum to the whole education band before rounding. A dash marks a
+structural zero: the outcome cannot occur under the displayed point-estimate definition. An observed
+small nonzero cell is shown as n<30. See [graduate absorption](../reports/tables/skills_graduate_absorption.csv)
 for the division between occupations and unemployment, including sex and area.
 
 The mismatch results depend on the coarse five-band scheme and the occupation structure: agriculture and
@@ -207,8 +333,9 @@ level 2, and 8–16 with levels 3–4. This is an occupation-level proxy rather 
 The percentile intervals use 1,000 PSU-cluster resamples with seed 42. They do not account for stratification.
 For each statistical mismatch replicate, the occupation modes are re-estimated from the corresponding
 resampled reference population, and youth are classified against those replicate-specific modes.
-The normative comparison uses its fixed, predefined rules. A cell below 30 is
-suppressed and groups below 50 are flagged; complementary cells are suppressed when needed.
+The normative comparison uses its fixed, predefined rules. A nonzero cell below 30 is suppressed,
+and groups below 50 are flagged. Structural zeros are displayed as a dash and do not trigger
+suppression; no complementary suppression is applied to the aggregate rates.
 Mismatch results depend on the coarse five-band scheme and occupation structure: agriculture and elementary
 occupations have low modal education. The strict result must not be read as “wasted degrees”.
 The tolerance variant matches education within one band of the mode; the severe variant identifies at least
@@ -244,6 +371,8 @@ The PBS occupation-version discrepancy and bootstrap design are documented in th
 | Occupation groups | {max_occ:.3f} | Pass |
 | Education/literacy | {max_edu:.3f} | Pass |
 
+{reproduction_table()}
+
 [Full reproduction table](../reports/tables/skills_reproduction.csv) and
 [waterfall](../reports/tables/skills_row_waterfall.csv).
 
@@ -255,13 +384,38 @@ The PBS occupation-version discrepancy and bootstrap design are documented in th
 
 {bullets}
 
+**Unemployment by education, sex and area**
+
+{unemployment_table()}
+
+**Degree-level labour-force outcomes**
+
+{absorption_table()}
+
+**Mismatch definitions and samples**
+
+{mismatch_table()}
+
+{stability_text}
+
+**Over-education by occupation**
+
+{occupation_table()}
+
+**Education outcomes**
+
 {outcome_table()}
 
 {shift_text}
 
-Cells under 30 are suppressed, and small groups are flagged. Results show associations only; the extension
-does not measure vacancies, employer demand or individual skills. Review the degree-type table's suppressed
-groups and the scenario-coverage table before use.
+**Flagged items**
+
+- Youth occupation groups {sensitive_text} are mode-sensitive; see the
+  [mode-stability table](../reports/tables/skills_mode_stability.csv).
+- The PSU bootstrap ignores stratification; future-starter timing cannot be verified.
+- Approximate NEET differs from PBS NEET; model-shift estimates are affected by labour-force selection.
+- Cells marked n<30 are suppressed; a dash is a structural zero. Results show association, and do not
+  measure vacancies, employer demand or individual skills.
 """
     (DOCS / "skills_gap_findings.md").write_text(findings_doc, encoding="utf-8")
     (DOCS / "skills_gap_methods.md").write_text(methods, encoding="utf-8")
@@ -292,7 +446,7 @@ def record_test_results():
     totals = {name: sum(int(suite.get(name, 0)) for suite in suites) for name in ("tests", "failures", "errors")}
     if not totals["tests"] or totals["failures"] or totals["errors"]:
         raise RuntimeError("Test results do not establish a passing suite.")
-    pd.DataFrame([totals]).to_csv(TABLES / "skills_test_status.csv", index=False)
+    pd.DataFrame([totals]).to_csv(TABLES / "skills_signoff_test_status.csv", index=False)
 
 
 if __name__ == "__main__":

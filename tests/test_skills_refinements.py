@@ -51,7 +51,9 @@ def test_outcome_shares_partition_each_education_band():
         assert np.isclose(sum(shares.values()), 1, atol=1e-9, rtol=0)
         for category, share in shares.items():
             row = table.loc[table.group.eq(analysis.BANDS[int(band)]) & table.category.eq(category)].iloc[0]
-            if row["estimate"] != "suppressed":
+            if row["estimate"] == "—":
+                assert share == 0
+            elif row["estimate"] != "n<30":
                 assert np.isclose(float(row["estimate"]), share, atol=1e-9, rtol=0)
 
 

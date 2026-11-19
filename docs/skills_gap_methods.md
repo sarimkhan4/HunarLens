@@ -17,8 +17,9 @@ level 2, and 8–16 with levels 3–4. This is an occupation-level proxy rather 
 The percentile intervals use 1,000 PSU-cluster resamples with seed 42. They do not account for stratification.
 For each statistical mismatch replicate, the occupation modes are re-estimated from the corresponding
 resampled reference population, and youth are classified against those replicate-specific modes.
-The normative comparison uses its fixed, predefined rules. A cell below 30 is
-suppressed and groups below 50 are flagged; complementary cells are suppressed when needed.
+The normative comparison uses its fixed, predefined rules. A nonzero cell below 30 is suppressed,
+and groups below 50 are flagged. Structural zeros are displayed as a dash and do not trigger
+suppression; no complementary suppression is applied to the aggregate rates.
 Mismatch results depend on the coarse five-band scheme and occupation structure: agriculture and elementary
 occupations have low modal education. The strict result must not be read as “wasted degrees”.
 The tolerance variant matches education within one band of the mode; the severe variant identifies at least

@@ -114,10 +114,15 @@ def main():
             for group, denominator in val.groupby("group"):
                 selected = scenario_rows.loc[scenario_rows["index"].isin(denominator.index)]
                 n = len(selected)
-                if n < 30 or len(denominator) - n < 30:
-                    rows.append({"scenario": scenario, "grouping": key, "group": group, "n": "suppressed",
-                                 "coverage": "suppressed", "mean": "suppressed", "minimum": "suppressed", "maximum": "suppressed",
-                                 "ci_low": "suppressed", "ci_high": "suppressed", "flag": "suppressed: small cell"})
+                if n == 0:
+                    rows.append({"scenario": scenario, "grouping": key, "group": group, "n": 0,
+                                 "coverage": 0, "mean": "—", "minimum": "—", "maximum": "—",
+                                 "ci_low": "—", "ci_high": "—", "flag": "no valid scenario"})
+                    continue
+                if n < 30:
+                    rows.append({"scenario": scenario, "grouping": key, "group": group, "n": "n<30",
+                                 "coverage": "n<30", "mean": "n<30", "minimum": "n<30", "maximum": "n<30",
+                                 "ci_low": "n<30", "ci_high": "n<30", "flag": "suppressed: n<30"})
                     continue
                 psus = selected.psu.unique()
                 rng = np.random.default_rng(42)

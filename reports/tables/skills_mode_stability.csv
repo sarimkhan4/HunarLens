@@ -1,0 +1,136 @@
+norm,occupation,education_band,band_label,point_mode,reference_n,replicate_share,change_share,mode_sensitive
+all_15_plus,1,1,No formal,5,2133,0.0,0.0,False
+all_15_plus,1,2,Below matric,5,2133,0.0,0.0,False
+all_15_plus,1,3,Matric,5,2133,0.0,0.0,False
+all_15_plus,1,4,Intermediate,5,2133,0.0,0.0,False
+all_15_plus,1,5,Degree or above,5,2133,1.0,0.0,False
+all_15_plus,2,1,No formal,5,5932,0.0,0.0,False
+all_15_plus,2,2,Below matric,5,5932,0.0,0.0,False
+all_15_plus,2,3,Matric,5,5932,0.0,0.0,False
+all_15_plus,2,4,Intermediate,5,5932,0.0,0.0,False
+all_15_plus,2,5,Degree or above,5,5932,1.0,0.0,False
+all_15_plus,3,1,No formal,5,4151,0.0,0.025,False
+all_15_plus,3,2,Below matric,5,4151,0.025,0.025,False
+all_15_plus,3,3,Matric,5,4151,0.0,0.025,False
+all_15_plus,3,4,Intermediate,5,4151,0.0,0.025,False
+all_15_plus,3,5,Degree or above,5,4151,0.975,0.025,False
+all_15_plus,4,1,No formal,5,1664,0.0,0.0,False
+all_15_plus,4,2,Below matric,5,1664,0.0,0.0,False
+all_15_plus,4,3,Matric,5,1664,0.0,0.0,False
+all_15_plus,4,4,Intermediate,5,1664,0.0,0.0,False
+all_15_plus,4,5,Degree or above,5,1664,1.0,0.0,False
+all_15_plus,5,1,No formal,2,16244,0.0,0.0,False
+all_15_plus,5,2,Below matric,2,16244,1.0,0.0,False
+all_15_plus,5,3,Matric,2,16244,0.0,0.0,False
+all_15_plus,5,4,Intermediate,2,16244,0.0,0.0,False
+all_15_plus,5,5,Degree or above,2,16244,0.0,0.0,False
+all_15_plus,6,1,No formal,1,28878,1.0,0.0,False
+all_15_plus,6,2,Below matric,1,28878,0.0,0.0,False
+all_15_plus,6,3,Matric,1,28878,0.0,0.0,False
+all_15_plus,6,4,Intermediate,1,28878,0.0,0.0,False
+all_15_plus,6,5,Degree or above,1,28878,0.0,0.0,False
+all_15_plus,7,1,No formal,2,12194,0.0,0.0,False
+all_15_plus,7,2,Below matric,2,12194,1.0,0.0,False
+all_15_plus,7,3,Matric,2,12194,0.0,0.0,False
+all_15_plus,7,4,Intermediate,2,12194,0.0,0.0,False
+all_15_plus,7,5,Degree or above,2,12194,0.0,0.0,False
+all_15_plus,8,1,No formal,2,7935,0.0,0.0,False
+all_15_plus,8,2,Below matric,2,7935,1.0,0.0,False
+all_15_plus,8,3,Matric,2,7935,0.0,0.0,False
+all_15_plus,8,4,Intermediate,2,7935,0.0,0.0,False
+all_15_plus,8,5,Degree or above,2,7935,0.0,0.0,False
+all_15_plus,9,1,No formal,1,17987,1.0,0.0,False
+all_15_plus,9,2,Below matric,1,17987,0.0,0.0,False
+all_15_plus,9,3,Matric,1,17987,0.0,0.0,False
+all_15_plus,9,4,Intermediate,1,17987,0.0,0.0,False
+all_15_plus,9,5,Degree or above,1,17987,0.0,0.0,False
+age_25_44,1,1,No formal,5,1049,0.0,0.0,False
+age_25_44,1,2,Below matric,5,1049,0.0,0.0,False
+age_25_44,1,3,Matric,5,1049,0.0,0.0,False
+age_25_44,1,4,Intermediate,5,1049,0.0,0.0,False
+age_25_44,1,5,Degree or above,5,1049,1.0,0.0,False
+age_25_44,2,1,No formal,5,3209,0.0,0.0,False
+age_25_44,2,2,Below matric,5,3209,0.0,0.0,False
+age_25_44,2,3,Matric,5,3209,0.0,0.0,False
+age_25_44,2,4,Intermediate,5,3209,0.0,0.0,False
+age_25_44,2,5,Degree or above,5,3209,1.0,0.0,False
+age_25_44,3,1,No formal,5,2212,0.0,0.0,False
+age_25_44,3,2,Below matric,5,2212,0.0,0.0,False
+age_25_44,3,3,Matric,5,2212,0.0,0.0,False
+age_25_44,3,4,Intermediate,5,2212,0.0,0.0,False
+age_25_44,3,5,Degree or above,5,2212,1.0,0.0,False
+age_25_44,4,1,No formal,5,960,0.0,0.0,False
+age_25_44,4,2,Below matric,5,960,0.0,0.0,False
+age_25_44,4,3,Matric,5,960,0.0,0.0,False
+age_25_44,4,4,Intermediate,5,960,0.0,0.0,False
+age_25_44,4,5,Degree or above,5,960,1.0,0.0,False
+age_25_44,5,1,No formal,2,7611,0.0,0.0,False
+age_25_44,5,2,Below matric,2,7611,1.0,0.0,False
+age_25_44,5,3,Matric,2,7611,0.0,0.0,False
+age_25_44,5,4,Intermediate,2,7611,0.0,0.0,False
+age_25_44,5,5,Degree or above,2,7611,0.0,0.0,False
+age_25_44,6,1,No formal,1,12599,1.0,0.0,False
+age_25_44,6,2,Below matric,1,12599,0.0,0.0,False
+age_25_44,6,3,Matric,1,12599,0.0,0.0,False
+age_25_44,6,4,Intermediate,1,12599,0.0,0.0,False
+age_25_44,6,5,Degree or above,1,12599,0.0,0.0,False
+age_25_44,7,1,No formal,2,5968,0.0,0.0,False
+age_25_44,7,2,Below matric,2,5968,1.0,0.0,False
+age_25_44,7,3,Matric,2,5968,0.0,0.0,False
+age_25_44,7,4,Intermediate,2,5968,0.0,0.0,False
+age_25_44,7,5,Degree or above,2,5968,0.0,0.0,False
+age_25_44,8,1,No formal,2,4228,0.0,0.0,False
+age_25_44,8,2,Below matric,2,4228,1.0,0.0,False
+age_25_44,8,3,Matric,2,4228,0.0,0.0,False
+age_25_44,8,4,Intermediate,2,4228,0.0,0.0,False
+age_25_44,8,5,Degree or above,2,4228,0.0,0.0,False
+age_25_44,9,1,No formal,1,8859,0.982,0.018,False
+age_25_44,9,2,Below matric,1,8859,0.018,0.018,False
+age_25_44,9,3,Matric,1,8859,0.0,0.018,False
+age_25_44,9,4,Intermediate,1,8859,0.0,0.018,False
+age_25_44,9,5,Degree or above,1,8859,0.0,0.018,False
+youth,1,1,No formal,2,239,0.0,0.52,True
+youth,1,2,Below matric,2,239,0.48,0.52,True
+youth,1,3,Matric,2,239,0.025,0.52,True
+youth,1,4,Intermediate,2,239,0.267,0.52,True
+youth,1,5,Degree or above,2,239,0.228,0.52,True
+youth,2,1,No formal,4,1248,0.0,0.006,False
+youth,2,2,Below matric,4,1248,0.0,0.006,False
+youth,2,3,Matric,4,1248,0.0,0.006,False
+youth,2,4,Intermediate,4,1248,0.994,0.006,False
+youth,2,5,Degree or above,4,1248,0.006,0.006,False
+youth,3,1,No formal,4,710,0.0,0.003,False
+youth,3,2,Below matric,4,710,0.003,0.003,False
+youth,3,3,Matric,4,710,0.0,0.003,False
+youth,3,4,Intermediate,4,710,0.997,0.003,False
+youth,3,5,Degree or above,4,710,0.0,0.003,False
+youth,4,1,No formal,4,269,0.0,0.005,False
+youth,4,2,Below matric,4,269,0.0,0.005,False
+youth,4,3,Matric,4,269,0.002,0.005,False
+youth,4,4,Intermediate,4,269,0.995,0.005,False
+youth,4,5,Degree or above,4,269,0.003,0.005,False
+youth,5,1,No formal,2,4201,0.0,0.0,False
+youth,5,2,Below matric,2,4201,1.0,0.0,False
+youth,5,3,Matric,2,4201,0.0,0.0,False
+youth,5,4,Intermediate,2,4201,0.0,0.0,False
+youth,5,5,Degree or above,2,4201,0.0,0.0,False
+youth,6,1,No formal,1,6811,0.861,0.139,True
+youth,6,2,Below matric,1,6811,0.139,0.139,True
+youth,6,3,Matric,1,6811,0.0,0.139,True
+youth,6,4,Intermediate,1,6811,0.0,0.139,True
+youth,6,5,Degree or above,1,6811,0.0,0.139,True
+youth,7,1,No formal,2,3511,0.0,0.0,False
+youth,7,2,Below matric,2,3511,1.0,0.0,False
+youth,7,3,Matric,2,3511,0.0,0.0,False
+youth,7,4,Intermediate,2,3511,0.0,0.0,False
+youth,7,5,Degree or above,2,3511,0.0,0.0,False
+youth,8,1,No formal,2,1600,0.0,0.0,False
+youth,8,2,Below matric,2,1600,1.0,0.0,False
+youth,8,3,Matric,2,1600,0.0,0.0,False
+youth,8,4,Intermediate,2,1600,0.0,0.0,False
+youth,8,5,Degree or above,2,1600,0.0,0.0,False
+youth,9,1,No formal,2,4681,0.0,0.0,False
+youth,9,2,Below matric,2,4681,1.0,0.0,False
+youth,9,3,Matric,2,4681,0.0,0.0,False
+youth,9,4,Intermediate,2,4681,0.0,0.0,False
+youth,9,5,Degree or above,2,4681,0.0,0.0,False

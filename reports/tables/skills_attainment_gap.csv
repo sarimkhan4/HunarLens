@@ -94,7 +94,7 @@ province=3.0; unemployed,Below matric,661,203,0.3147332913333488,0.2705174852431
 province=3.0; unemployed,Matric,661,107,0.16833503335107947,0.13358472192461762,0.20198382236578288,
 province=3.0; unemployed,Intermediate,661,108,0.1661154499497686,0.13329980105287356,0.2014837027238317,
 province=3.0; unemployed,Degree or above,661,52,0.0830054061597522,0.06010966116278926,0.10714234108615249,
-province=3.0; unemployed,Training ever/current,661,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
+province=3.0; unemployed,Training ever/current,661,n<30,n<30,n<30,n<30,suppressed: n<30
 province=4.0; employed,No formal,2489,1130,0.4014933151662369,0.3623340806900027,0.4366596557686339,
 province=4.0; employed,Below matric,2489,699,0.29550380367474594,0.2673829809762538,0.32729898775085287,
 province=4.0; employed,Matric,2489,319,0.14498283991249533,0.12419627696154778,0.16524896896480099,
@@ -104,9 +104,9 @@ province=4.0; employed,Training ever/current,2489,342,0.15160785081434056,0.1265
 province=4.0; unemployed,No formal,357,180,0.46429596112752114,0.382731499987458,0.5445991220315816,
 province=4.0; unemployed,Below matric,357,91,0.25431219913915526,0.19900827009963254,0.31073357393120354,
 province=4.0; unemployed,Matric,357,42,0.11994199932333924,0.07718989457905383,0.16319550520350426,
-province=4.0; unemployed,Intermediate,357,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
-province=4.0; unemployed,Degree or above,357,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
-province=4.0; unemployed,Training ever/current,357,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
+province=4.0; unemployed,Intermediate,357,n<30,n<30,n<30,n<30,suppressed: n<30
+province=4.0; unemployed,Degree or above,357,n<30,n<30,n<30,n<30,suppressed: n<30
+province=4.0; unemployed,Training ever/current,357,n<30,n<30,n<30,n<30,suppressed: n<30
 age_band=15–19; employed,No formal,9734,3033,0.28630918123057025,0.26982811594524797,0.30057569814904045,
 age_band=15–19; employed,Below matric,9734,4116,0.4399151181306223,0.42631975797557586,0.4539038438259297,
 age_band=15–19; employed,Matric,9734,1452,0.15294480112189482,0.14466571082842167,0.16198989232943212,
@@ -116,8 +116,8 @@ age_band=15–19; employed,Training ever/current,9734,1681,0.18721671395638245,0
 age_band=15–19; unemployed,No formal,1569,408,0.20714115709446757,0.1810248250543667,0.23134366463744083,
 age_band=15–19; unemployed,Below matric,1569,652,0.45007970118074564,0.4199866758038396,0.4800573089911756,
 age_band=15–19; unemployed,Matric,1569,294,0.19427160529657514,0.17303165287399586,0.21791098830869682,
-age_band=15–19; unemployed,Intermediate,1569,suppressed,suppressed,suppressed,suppressed,suppressed: complementary cell
-age_band=15–19; unemployed,Degree or above,1569,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
+age_band=15–19; unemployed,Intermediate,1569,186,0.13070679317399855,0.10961933475755205,0.1523786710541544,
+age_band=15–19; unemployed,Degree or above,1569,n<30,n<30,n<30,n<30,suppressed: n<30
 age_band=15–19; unemployed,Training ever/current,1569,123,0.09387915679030259,0.07675953540820328,0.11116073874249216,
 age_band=20–24; employed,No formal,13536,3444,0.22729971978770144,0.21484000148393173,0.2380143483961354,
 age_band=20–24; employed,Below matric,13536,4433,0.33580747799979505,0.32571371790041176,0.34659240856812507,
@@ -173,8 +173,8 @@ age_band=20–24; unemployed,Training ever/current,1814,198,0.11585418128875813,
 "sex=2.0, area=2.0; employed",Intermediate,875,215,0.268386562509918,0.23374771911515863,0.30706808393070767,
 "sex=2.0, area=2.0; employed",Degree or above,875,177,0.19354791180997125,0.16290686453799585,0.22879572783804641,
 "sex=2.0, area=2.0; employed",Training ever/current,875,225,0.26366369719834587,0.22438482980570107,0.3014285137453461,
-"sex=2.0, area=2.0; unemployed",No formal,284,suppressed,suppressed,suppressed,suppressed,suppressed: small cell
-"sex=2.0, area=2.0; unemployed",Below matric,284,suppressed,suppressed,suppressed,suppressed,suppressed: complementary cell
+"sex=2.0, area=2.0; unemployed",No formal,284,n<30,n<30,n<30,n<30,suppressed: n<30
+"sex=2.0, area=2.0; unemployed",Below matric,284,48,0.17086739413570154,0.1242015202247767,0.22406940684727608,
 "sex=2.0, area=2.0; unemployed",Matric,284,62,0.18898195069713902,0.14125892072534513,0.23966559932876036,
 "sex=2.0, area=2.0; unemployed",Intermediate,284,93,0.3261564889707869,0.2586840567177919,0.3950290174297997,
 "sex=2.0, area=2.0; unemployed",Degree or above,284,55,0.22245161344786263,0.16461234605938385,0.2804191095947796,
