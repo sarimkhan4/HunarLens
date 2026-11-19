@@ -209,3 +209,13 @@ within each resample. These intervals ignore stratification.
 **What does a model-profile shift mean?** It compares frozen-model predictions
 for alternative valid input profiles; it does not establish an effect of
 changing a person's education or training.
+# Pre-S5: mismatch and reproduction
+
+**Why report separate mismatch definitions?** Strict above-mode, within-one-band, severe and normative measures answer different questions and cannot form a single range.
+
+**Why can an occupation's mode be unstable?** Resampling survey clusters can change the most common education band, which can move many workers between mismatch categories.
+
+**Why is the 25–44 norm not independent here?** It yields the same modal education band in every occupation as the all-employed reference, so their point classifications coincide.
+
+**What does the reproduction check compare?** Weighted unemployment rates among people aged 10 and above in each published education category against PBS Annual Report Table 9.7.
+

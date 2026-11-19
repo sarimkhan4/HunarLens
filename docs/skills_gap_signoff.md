@@ -1,6 +1,6 @@
 # Skills-gap sign-off — team review
 
-**Status:** Final full pytest run: 69 passed, 0 failed, 0 errors. Evidence: [audit](skills_gap_data_audit.md),
+**Status:** Last recorded full pytest run: 72 passed, 0 failed, 0 errors. Evidence: [audit](skills_gap_data_audit.md),
 [methods](skills_gap_methods.md), [findings](skills_gap_findings.md) and the linked aggregate tables.
 
 **Decisions:** approved one-digit occupations; armed forces excluded; all-employed, age 25–44, youth-only
@@ -12,6 +12,7 @@ The PBS occupation-version discrepancy and bootstrap design are documented in th
 |---|---:|---|
 | Occupation groups | 0.055 | Pass |
 | Education/literacy | 0.032 | Pass |
+| Unemployment by education (age 10+) | 0.046 | Pass |
 
 | Indicator | n | Our share (%) | PBS share (%) | Difference (pp) | Status |
 |---|---:|---:|---:|---:|---|
@@ -31,6 +32,12 @@ The PBS occupation-version discrepancy and bootstrap design are documented in th
 | literate_matric | 14231 | 6.41 | 6.4 | 0.007 | PASS |
 | literate_intermediate | 7943 | 3.57 | 3.6 | 0.032 | PASS |
 | literate_degree | 8523 | 3.87 | 3.9 | 0.029 | PASS |
+| unemployment_education_no_education | 1740 | 4.65 | 4.7 | 0.046 | PASS |
+| unemployment_education_below_matric | 2175 | 6.17 | 6.2 | 0.035 | PASS |
+| unemployment_education_matric | 1328 | 8.60 | 8.6 | 0.005 | PASS |
+| unemployment_education_intermediate | 1125 | 12.61 | 12.6 | 0.013 | PASS |
+| unemployment_education_degree | 680 | 10.94 | 10.9 | 0.038 | PASS |
+| unemployment_education_masters_mphil_phd | 374 | 11.72 | 11.7 | 0.022 | PASS |
 
 [Full reproduction table](../reports/tables/skills_reproduction.csv) and
 [waterfall](../reports/tables/skills_row_waterfall.csv).
@@ -53,7 +60,7 @@ The PBS occupation-version discrepancy and bootstrap design are documented in th
 
 - Unemployment by education, from the lowest to the highest band: no formal: 8.2% (n=617; 95% CI 7.3%–9.0%), labour-force n=7094; below matric: 11.4% (n=1080; 95% CI 10.6%–12.2%), labour-force n=9629; matric: 14.8% (n=679; 95% CI 13.7%–16.0%), labour-force n=4574; intermediate: 17.5% (n=664; 95% CI 16.1%–19.1%), labour-force n=3849; degree or above: 22.6% (n=343; 95% CI 20.3%–25.0%), labour-force n=1507.
 - Among degree-level labour-force youth (n=1507), employed: groups 1–4: 42.0% (n=624; 95% CI 39.3%–44.7%); employed: groups 5–9: 35.4% (n=540; 95% CI 33.0%–37.9%); unemployed: 22.6% (n=343; 95% CI 20.3%–25.0%).
-- Across the displayed definitions and samples, the above-mode share ranges from 17.4% (n=23270; 95% CI 12.9%–17.9%; bootstrap median 17.0%, median minus estimate -0.3 percentage points) for the severe youth comparison to 46.0% (n=23270; 95% CI 45.0%–47.2%; bootstrap median 46.0%, median minus estimate +0.0 percentage points) for the strict all-employed comparison. Low-education occupations make above-mode shares large; this is not a count of wasted degrees.
+- Strict above-mode shares across statistical norms: 41.0% (overall; norm=youth; n=23270; 95% CI 31.1%–41.6%) to 46.0% (overall; norm=all_15_plus; n=23270; 95% CI 45.0%–47.2%). Within-one-band matched shares across norms: 75.7% (all_15_plus; n=23270; 95% CI 74.8%–76.5%) to 80.3% (youth; n=23270; 95% CI 79.6%–84.5%). Severe shares, at least two bands above mode, across norms: 17.4% (youth; n=23270; 95% CI 12.9%–17.9%) to 19.8% (all_15_plus; n=23270; 95% CI 19.1%–20.8%). Normative ISCO above-level share: 10.6% (n=2378; 95% CI 10.1%–11.1%) (denominator n=23270). These are different definitions; low-education occupations make above-mode shares large, and this is not a count of wasted degrees.
 - The share with training was 8.9 percentage points lower among unemployed than employed youth (n=3383 unemployed, 23270 employed; 95% CI -10.3 to -7.5 percentage points).
 - Not employed and not enrolled (approximate NEET) described 29.3% of youth (n=59486; 95% CI 28.7%–29.8%); PBS reported 28.4% for its separate NEET measure (n and CI not reported). The definitions differ because our approximation cannot identify recent training.
 
@@ -111,49 +118,53 @@ The PBS occupation-version discrepancy and bootstrap design are documented in th
 | youth | Strict under | 23270 | 18.5% (n=4405; 95% CI 17.9%–28.3%); bootstrap median 18.8%, median minus estimate +0.3 pp |
 | youth | within one band | 23270 | 80.3% (n=18741; 95% CI 79.6%–84.5%); bootstrap median 80.4%, median minus estimate +0.1 pp |
 | youth | two or more bands above | 23270 | 17.4% (n=3991; 95% CI 12.9%–17.9%); bootstrap median 17.0%, median minus estimate -0.3 pp |
+| ISCO | Normative above level | 23270 | 10.6% (n=2378; 95% CI 10.1%–11.1%) |
+
+The age 25–44 reference and all-employed reference have the same occupation modes and identical point
+shares; the age 25–44 norm is not an independent sensitivity. Bootstrap ranges can differ.
 
 The youth-only strict estimate is 41.0% (n=23270; 95% CI 31.1%–41.6%; bootstrap median 40.6%, median minus estimate -0.4 percentage points). In the youth reference, occupation groups 1, 6 are mode-sensitive: their modal band changes in more than one tenth of resamples. The resampled modes can change the classification of many workers together. In particular, the agricultural group's youth mode switches from no formal education to below matric in 13.9% of resamples (reference n=6811). That switch moves the comparison threshold upward and can place fewer workers above the mode. This produces a lower tail in the bootstrap distribution, leaving the point estimate near the upper interval endpoint.
 
 **Over-education by occupation**
 
-| Norm | Occupation | Denominator n | Above mode (cell n; 95% CI; median and bias) |
-|---|---|---:|---|
-| all_15_plus | occupation 1 | 239 | — (n=0) |
-| all_15_plus | occupation 2 | 1248 | — (n=0) |
-| all_15_plus | occupation 3 | 710 | — (n=0) |
-| all_15_plus | occupation 4 | 269 | — (n=0) |
-| all_15_plus | occupation 5 | 4201 | 46.1% (n=1910; 95% CI 44.2%–48.1%); bootstrap median 46.1%, median minus estimate -0.0 pp |
-| all_15_plus | occupation 6 | 6811 | 63.4% (n=4058; 95% CI 61.2%–65.6%); bootstrap median 63.5%, median minus estimate +0.1 pp |
-| all_15_plus | occupation 7 | 3511 | 29.0% (n=996; 95% CI 27.2%–31.0%); bootstrap median 29.0%, median minus estimate -0.0 pp |
-| all_15_plus | occupation 8 | 1600 | 32.1% (n=514; 95% CI 29.5%–34.8%); bootstrap median 32.0%, median minus estimate -0.1 pp |
-| all_15_plus | occupation 9 | 4681 | 66.7% (n=3038; 95% CI 65.0%–68.7%); bootstrap median 66.8%, median minus estimate +0.1 pp |
-| age_25_44 | occupation 1 | 239 | — (n=0) |
-| age_25_44 | occupation 2 | 1248 | — (n=0) |
-| age_25_44 | occupation 3 | 710 | — (n=0) |
-| age_25_44 | occupation 4 | 269 | — (n=0) |
-| age_25_44 | occupation 5 | 4201 | 46.1% (n=1910; 95% CI 44.2%–48.1%); bootstrap median 46.1%, median minus estimate -0.0 pp |
-| age_25_44 | occupation 6 | 6811 | 63.4% (n=4058; 95% CI 61.2%–65.6%); bootstrap median 63.5%, median minus estimate +0.1 pp |
-| age_25_44 | occupation 7 | 3511 | 29.0% (n=996; 95% CI 27.2%–31.0%); bootstrap median 29.0%, median minus estimate -0.0 pp |
-| age_25_44 | occupation 8 | 1600 | 32.1% (n=514; 95% CI 29.5%–34.8%); bootstrap median 32.0%, median minus estimate -0.1 pp |
-| age_25_44 | occupation 9 | 4681 | 66.7% (n=3038; 95% CI 64.5%–68.6%); bootstrap median 66.8%, median minus estimate +0.0 pp |
-| youth | occupation 1 | 239 | 61.9% (n=143; 95% CI 0.0%–63.8%); bootstrap median 37.2%, median minus estimate -24.7 pp |
-| youth | occupation 2 | 1248 | 31.3% (n=386; 95% CI 28.3%–34.0%); bootstrap median 31.3%, median minus estimate +0.0 pp |
-| youth | occupation 3 | 710 | 18.3% (n=130; 95% CI 15.3%–21.4%); bootstrap median 18.2%, median minus estimate -0.0 pp |
-| youth | occupation 4 | 269 | 23.2% (n=60; 95% CI 17.8%–28.4%); bootstrap median 23.3%, median minus estimate +0.1 pp |
-| youth | occupation 5 | 4201 | 46.1% (n=1910; 95% CI 44.2%–48.1%); bootstrap median 46.1%, median minus estimate -0.0 pp |
-| youth | occupation 6 | 6811 | 63.4% (n=4058; 95% CI 28.6%–64.7%); bootstrap median 63.1%, median minus estimate -0.3 pp |
-| youth | occupation 7 | 3511 | 29.0% (n=996; 95% CI 27.2%–31.0%); bootstrap median 29.0%, median minus estimate -0.0 pp |
-| youth | occupation 8 | 1600 | 32.1% (n=514; 95% CI 29.5%–34.8%); bootstrap median 32.0%, median minus estimate -0.1 pp |
-| youth | occupation 9 | 4681 | 25.7% (n=1167; 95% CI 24.2%–27.5%); bootstrap median 25.7%, median minus estimate +0.0 pp |
-| ISCO | occupation 1 | 239 | — (n=0) |
-| ISCO | occupation 2 | 1248 | — (n=0) |
-| ISCO | occupation 3 | 710 | — (n=0) |
-| ISCO | occupation 4 | 269 | 23.2% (n=60; 95% CI 18.0%–28.4%) |
-| ISCO | occupation 5 | 4201 | 4.4% (n=187; 95% CI 3.7%–5.2%) |
-| ISCO | occupation 6 | 6811 | 2.5% (n=141; 95% CI 2.1%–3.0%) |
-| ISCO | occupation 7 | 3511 | 1.9% (n=66; 95% CI 1.4%–2.4%) |
-| ISCO | occupation 8 | 1600 | 2.4% (n=40; 95% CI 1.6%–3.3%) |
-| ISCO | occupation 9 | 4681 | 41.5% (n=1884; 95% CI 39.7%–43.4%) |
+| Norm | Occupation | Denominator n | Above mode (cell n; bootstrap range or CI; median and bias) | Reliability |
+|---|---|---:|---|---|
+| all_15_plus | occupation 1 | 239 | — (n=0) | Not flagged |
+| all_15_plus | occupation 2 | 1248 | — (n=0) | Not flagged |
+| all_15_plus | occupation 3 | 710 | — (n=0) | Not flagged |
+| all_15_plus | occupation 4 | 269 | — (n=0) | Not flagged |
+| all_15_plus | occupation 5 | 4201 | 46.1% (n=1910; 95% CI 44.2%–48.1%); bootstrap median 46.1%, median minus estimate -0.0 pp | Not flagged |
+| all_15_plus | occupation 6 | 6811 | 63.4% (n=4058; 95% CI 61.2%–65.6%); bootstrap median 63.5%, median minus estimate +0.1 pp | Not flagged |
+| all_15_plus | occupation 7 | 3511 | 29.0% (n=996; 95% CI 27.2%–31.0%); bootstrap median 29.0%, median minus estimate -0.0 pp | Not flagged |
+| all_15_plus | occupation 8 | 1600 | 32.1% (n=514; 95% CI 29.5%–34.8%); bootstrap median 32.0%, median minus estimate -0.1 pp | Not flagged |
+| all_15_plus | occupation 9 | 4681 | 66.7% (n=3038; 95% CI 65.0%–68.7%); bootstrap median 66.8%, median minus estimate +0.1 pp | Not flagged |
+| age_25_44 | occupation 1 | 239 | — (n=0) | Not flagged |
+| age_25_44 | occupation 2 | 1248 | — (n=0) | Not flagged |
+| age_25_44 | occupation 3 | 710 | — (n=0) | Not flagged |
+| age_25_44 | occupation 4 | 269 | — (n=0) | Not flagged |
+| age_25_44 | occupation 5 | 4201 | 46.1% (n=1910; 95% CI 44.2%–48.1%); bootstrap median 46.1%, median minus estimate -0.0 pp | Not flagged |
+| age_25_44 | occupation 6 | 6811 | 63.4% (n=4058; 95% CI 61.2%–65.6%); bootstrap median 63.5%, median minus estimate +0.1 pp | Not flagged |
+| age_25_44 | occupation 7 | 3511 | 29.0% (n=996; 95% CI 27.2%–31.0%); bootstrap median 29.0%, median minus estimate -0.0 pp | Not flagged |
+| age_25_44 | occupation 8 | 1600 | 32.1% (n=514; 95% CI 29.5%–34.8%); bootstrap median 32.0%, median minus estimate -0.1 pp | Not flagged |
+| age_25_44 | occupation 9 | 4681 | 66.7% (n=3038; 95% CI 64.5%–68.6%); bootstrap median 66.8%, median minus estimate +0.0 pp | Not flagged |
+| youth | occupation 1 | 239 | 61.9% (n=143; mode unstable; 95% bootstrap range 0.0%–63.8%); bootstrap median 37.2%, median minus estimate -24.7 pp | mode unstable |
+| youth | occupation 2 | 1248 | 31.3% (n=386; 95% CI 28.3%–34.0%); bootstrap median 31.3%, median minus estimate +0.0 pp | Not flagged |
+| youth | occupation 3 | 710 | 18.3% (n=130; 95% CI 15.3%–21.4%); bootstrap median 18.2%, median minus estimate -0.0 pp | Not flagged |
+| youth | occupation 4 | 269 | 23.2% (n=60; 95% CI 17.8%–28.4%); bootstrap median 23.3%, median minus estimate +0.1 pp | Not flagged |
+| youth | occupation 5 | 4201 | 46.1% (n=1910; 95% CI 44.2%–48.1%); bootstrap median 46.1%, median minus estimate -0.0 pp | Not flagged |
+| youth | occupation 6 | 6811 | 63.4% (n=4058; mode unstable; 95% bootstrap range 28.6%–64.7%); bootstrap median 63.1%, median minus estimate -0.3 pp | mode unstable |
+| youth | occupation 7 | 3511 | 29.0% (n=996; 95% CI 27.2%–31.0%); bootstrap median 29.0%, median minus estimate -0.0 pp | Not flagged |
+| youth | occupation 8 | 1600 | 32.1% (n=514; 95% CI 29.5%–34.8%); bootstrap median 32.0%, median minus estimate -0.1 pp | Not flagged |
+| youth | occupation 9 | 4681 | 25.7% (n=1167; 95% CI 24.2%–27.5%); bootstrap median 25.7%, median minus estimate +0.0 pp | Not flagged |
+| ISCO | occupation 1 | 239 | — (n=0) | Not flagged |
+| ISCO | occupation 2 | 1248 | — (n=0) | Not flagged |
+| ISCO | occupation 3 | 710 | — (n=0) | Not flagged |
+| ISCO | occupation 4 | 269 | 23.2% (n=60; 95% CI 18.0%–28.4%) | Not flagged |
+| ISCO | occupation 5 | 4201 | 4.4% (n=187; 95% CI 3.7%–5.2%) | Not flagged |
+| ISCO | occupation 6 | 6811 | 2.5% (n=141; 95% CI 2.1%–3.0%) | Not flagged |
+| ISCO | occupation 7 | 3511 | 1.9% (n=66; 95% CI 1.4%–2.4%) | Not flagged |
+| ISCO | occupation 8 | 1600 | 2.4% (n=40; 95% CI 1.6%–3.3%) | Not flagged |
+| ISCO | occupation 9 | 4681 | 41.5% (n=1884; 95% CI 39.7%–43.4%) | Not flagged |
 
 **Education outcomes**
 
@@ -164,6 +175,8 @@ The youth-only strict estimate is 41.0% (n=23270; 95% CI 31.1%–41.6%; bootstra
 | Matric | 4574 | — (n=0) | 76.3% (n=3500; 95% CI 74.8%–78.3%); bootstrap median 76.3%, median minus estimate -0.0 pp | 8.9% (n=395; 95% CI 7.3%–9.9%); bootstrap median 8.9%, median minus estimate -0.0 pp | 14.8% (n=679; 95% CI 13.7%–16.0%) |
 | Intermediate | 3849 | — (n=0) | 60.4% (n=2372; 95% CI 58.5%–63.9%); bootstrap median 60.5%, median minus estimate +0.0 pp | 22.0% (n=813; 95% CI 19.6%–23.6%); bootstrap median 22.0%, median minus estimate -0.0 pp | 17.5% (n=664; 95% CI 16.1%–19.1%) |
 | Degree or above | 1507 | 42.0% (n=624; 95% CI 37.5%–44.7%); bootstrap median 42.0%, median minus estimate +0.0 pp | 35.4% (n=540; 95% CI 33.0%–39.8%); bootstrap median 35.4%, median minus estimate +0.1 pp | — (n=0) | 22.6% (n=343; 95% CI 20.3%–25.0%) |
+
+Some intervals are asymmetric because re-estimated modes change classifications in some resamples.
 
 The model-estimated education-profile difference averaged +3.6 percentage points (95% CI +3.3 to +3.8) among covered profiles (n=3268); weighted coverage was 82.1%. This is a model-estimated difference between profiles within the labour-force sample, not a causal effect. Selection matters: less-educated workers are concentrated in agriculture and elementary jobs, and many less-educated women are outside the labour force. The comparison does not establish that education changes unemployment.
 

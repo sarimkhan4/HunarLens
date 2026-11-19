@@ -13,6 +13,13 @@ occupation is estimated in all employed persons aged 15+, in employed persons ag
 youth for the respective norms. A worker above, below or equal to that norm is called over-, under- or
 matched in this statistical sense. The normative sensitivity compares codes 1–4 with level 1, 5–7 with
 level 2, and 8–16 with levels 3–4. This is an occupation-level proxy rather than a measure of a person's skills.
+The age 25–44 norm has the same occupation modes as the all-employed norm and therefore identical point
+shares; it is not an independent sensitivity. Its resampled modes and bootstrap intervals may differ.
+
+For reproduction against [PBS Annual Report Table 9.7](https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf),
+the all-age labour-force denominator is age 10 and above. Education codes map to PBS categories as follows:
+1 no education; 2–5 below matric; 6 matric; 7 intermediate; 8–13 degree; and 14–16 master/MPhil/PhD.
+The PBS degree and postgraduate categories are combined in the youth analysis's degree-or-above band.
 
 The percentile intervals use 1,000 PSU-cluster resamples with seed 42. They do not account for stratification.
 For each statistical mismatch replicate, the occupation modes are re-estimated from the corresponding
@@ -24,6 +31,8 @@ Mismatch results depend on the coarse five-band scheme and occupation structure:
 occupations have low modal education. The strict result must not be read as “wasted degrees”.
 The tolerance variant matches education within one band of the mode; the severe variant identifies at least
 two bands above the mode. The graduate absorption denominator is labour-force youth with a degree or above.
+Occupation rows are labelled mode unstable when modes change in more than 10% of resamples or their
+bootstrap interval exceeds 30 percentage points; such estimates display the bootstrap range.
 
 The table compares overall mismatch interval widths under the former fixed-mode method and the new
 re-estimated-mode method; widths are in percentage points and use the same random seed.

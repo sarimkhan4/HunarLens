@@ -209,7 +209,8 @@ def analysis():
                                   "band_label": BANDS[band], "point_mode": current,
                                   "reference_n": len(references[name].loc[references[name].occupation.eq(occupation)]),
                                   "replicate_share": np.mean(replicated[:, occupation - 1] == band),
-                                  "change_share": changed, "mode_sensitive": changed > .1})
+                                  "change_share": changed, "mode_sensitive": changed > .1,
+                                  "reliability": "mode unstable" if changed > .1 else ""})
     save("mode_stability", stability)
     if norm.get(9) == 5 or norm.get(2) == 1:
         raise RuntimeError("STOP: occupational education modes fail plausibility check.")

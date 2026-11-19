@@ -53,6 +53,19 @@ def make():
         expected = 1 if code == 9 else 2 if 4 <= code <= 8 else 3
         occupation.append(analysis.result_row(boot, frame, observed > expected, "ISCO", f"occupation {int(code)}",
                                               structural=bool(expected == 3)))
+    stability = pd.read_csv(TABLES / "skills_mode_stability.csv")
+    for row in occupation:
+        code = int(row["category"].split()[-1])
+        matching = stability.loc[stability.norm.eq(row["group"]) & stability.occupation.eq(code)]
+        changed = not matching.empty and float(matching.iloc[0].change_share) > .1
+        try:
+            wide = float(row["ci_high"]) - float(row["ci_low"]) > .30
+        except (ValueError, TypeError):
+            wide = False
+        row["reliability"] = "mode unstable" if changed or wide else ""
+        if not matching.empty:
+            stability.loc[matching.index, "reliability"] = row["reliability"]
+    stability.to_csv(TABLES / "skills_mode_stability.csv", index=False)
     for group, frame in analysis.strata(labour):
         if not (group == "overall" or group.startswith("sex=") and ", " not in group or group.startswith("area=")):
             continue

@@ -232,3 +232,7 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
   model and sealed model evaluation unchanged.
 - The existing privacy-test assertions were updated only to distinguish
   structural or observed zeros from nonzero small cells, as the team authorized.
+# 2026-11-19: Pre-S5 mismatch and reproduction checks
+
+Report each mismatch definition separately, flag occupation estimates when the mode changes in more than 10% of bootstrap samples or the interval exceeds 30 percentage points, and show their bootstrap ranges. The 25–44 and all-employed reference modes coincide in these data, so their point estimates are not independent sensitivity evidence. The separate all-age education unemployment reproduction uses PBS Annual Report Table 9.7 and the approved label; no label was tuned.
+

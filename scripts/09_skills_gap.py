@@ -24,6 +24,16 @@ PBS_OCC = {1: 2.3, 2: 6.1, 3: 4.4, 4: 1.8, 5: 17.2, 6: 27.9, 7: 13.7, 8: 8.3, 9:
 PBS_EDU = {"illiterate": 15.1, "literate": 27.9, "literate_never": 0.5,
            "literate_below_matric": 13.5, "literate_matric": 6.4,
            "literate_intermediate": 3.6, "literate_degree": 3.9}
+# Annual Report table 9.7 (19th ICLS), all persons aged 10+.
+PBS_UNEMPLOYMENT_EDUCATION = {
+    "no_education": (range(1, 2), 4.7),
+    "below_matric": (range(2, 6), 6.2),
+    "matric": (range(6, 7), 8.6),
+    "intermediate": (range(7, 8), 12.6),
+    "degree": (range(8, 14), 10.9),
+    "masters_mphil_phd": (range(14, 17), 11.7),
+}
+ANNUAL_SOURCE = "https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf"
 
 
 def load_builder():
@@ -82,9 +92,19 @@ def reproduce(data):
              "literate_degree": literate & employed.education.between(8, 16)}
     for name, mask in masks.items():
         add_reproduction(rows, name, employed.loc[mask], data.weight.sum(), PBS_EDU[name], EDU_SOURCE)
+    labour = data.loc[(data.employed | data.unemployed) & data.age.ge(10)]
+    for name, (codes, official) in PBS_UNEMPLOYMENT_EDUCATION.items():
+        group = labour.loc[labour.education.isin(codes)]
+        add_reproduction(rows, f"unemployment_education_{name}", group.loc[group.unemployed],
+                         group.weight.sum(), official, ANNUAL_SOURCE)
+        rows[-1]["labour_force_n"] = len(group)
+        rows[-1]["status"] = "PASS" if rows[-1]["difference_pp"] <= .5 else "STOP"
     table = pd.DataFrame(rows)
     table.to_csv(TABLES / "skills_reproduction.csv", index=False)
     print(table.to_string(index=False))
+    if any(row["status"] == "STOP" for row in rows if row["indicator"].startswith("unemployment_education_")):
+        print(pd.crosstab(labour.education, [labour.employed, labour.unemployed]).to_string())
+        raise SystemExit("STOP: education unemployment reproduction differs by more than 0.5 percentage points.")
     if table.status.eq("STOP").any():
         raise SystemExit("STOP: a reproduction difference exceeds one percentage point.")
 
