@@ -19,7 +19,9 @@ def removed_paths(text):
 
 def validate_file(path, size):
     """Refuse raw, intermediate, person-level processed or oversized files."""
-    normalized = path.replace("\\", "/")
+    normalized = path.replace("\\", "/").lower()
+    if normalized.startswith("/") or ".." in normalized.split("/"):
+        raise ValueError(f"Refusing non-repository path: {path}")
     if normalized.startswith(("data/raw/", "data/interim/")):
         raise ValueError(f"Refusing private or intermediate path: {normalized}")
     if normalized.startswith("data/processed/") and normalized not in ALLOWED_PROCESSED:
@@ -63,6 +65,8 @@ def main():
         if path in removed or path == MANIFEST:
             continue
         absolute = ROOT / path
+        if absolute.is_symlink():
+            raise RuntimeError(f"Refusing symlink: {path}")
         if not absolute.is_file():
             raise RuntimeError(f"Tracked file is unavailable: {path}")
         size = absolute.stat().st_size

@@ -13,8 +13,9 @@ spec.loader.exec_module(module)
 
 
 def test_private_paths_and_large_files_are_rejected():
-    for path, size in [("data/raw/survey.dta", 1), ("data/interim/file.csv", 1),
-                       ("data/processed/person.csv", 1), ("models/large.bin", module.MAX_BYTES + 1)]:
+    for path, size in [("data/raw/survey.dta", 1), ("DATA/RAW/survey.dta", 1), ("data/interim/file.csv", 1),
+                       ("data/processed/person.csv", 1), ("data/../data/raw/file.csv", 1),
+                       ("models/large.bin", module.MAX_BYTES + 1)]:
         with pytest.raises(ValueError):
             module.validate_file(path, size)
     module.validate_file("data/processed/census_lookup.csv", module.MAX_BYTES)

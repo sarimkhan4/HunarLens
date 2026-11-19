@@ -16,6 +16,7 @@ OUTPUT = ROOT / "data/interim/submission_link_checks.json"
 
 def check(item):
     url, in_manifest = item
+    result = None
     try:
         response = requests.head(url, allow_redirects=True, timeout=18)
         if response.status_code in (403, 405, 501):
@@ -35,6 +36,9 @@ def check(item):
             response.close()
         return result
     except requests.RequestException as error:
+        if result is not None:
+            result["content_error"] = type(error).__name__
+            return result
         return {"url": url, "status": "unreachable", "error": type(error).__name__}
 
 

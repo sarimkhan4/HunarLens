@@ -21,6 +21,30 @@ def source_name(filename):
     return names.get(filename, "Census 2023 Table 1: " + filename)
 
 
+def reference_use(url):
+    """Describe the actual project role without inventing missing publication dates."""
+    checks = [
+        ("ILO_PAPI_LFS_VARIABLE_DERIVATION", "ILO labour-force and future-starter derivation guidance"),
+        ("ilostat.ilo.org", "Statistical and normative education–occupation mismatch methods"),
+        ("etf.europa.eu", "Skills mismatch measurement guidance and limitations"),
+        ("skillingpakistan.gov.pk", "NAVTTC / NSIS employer-skill information as external context only"),
+        ("tvetreform.jobs.gov.pk", "NAVTTC / NSIS Skills Trend Analysis report as external context only"),
+        ("Report-17.pdf", "PBS occupation distribution used for weighted reproduction"),
+        ("Report-7-3.pdf", "PBS literacy and education distribution used for weighted reproduction"),
+        ("Report-15.pdf", "PBS labour-force participation and unemployment by age and sex"),
+        ("Employment-Trend", "PBS historical labour-market context"),
+        ("MANUAL-of-LFS", "Survey enumerator and variable-routing audit"),
+        ("Occuptions-Classification", "Occupation classification audit and version comparison"),
+        ("TechnicalVocational", "Training-code audit and verified exclusions"),
+        ("Data-Dissemination-Policy", "Older PBS data-access and onward-supply policy"),
+        ("data-dissemination", "Current PBS data-dissemination and licensing description"),
+        ("result-excel", "Official Census results landing page"),
+        ("labour-force-statistics", "Official LFS download and publication landing page"),
+        ("streamlit.app", "Public dashboard deployment; not an external survey dataset"),
+    ]
+    return next((description for token, description in checks if token in url), "Source or methodological reference; VERIFY precise use")
+
+
 def main():
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     checks = json.loads(CHECKS.read_text(encoding="utf-8"))
@@ -56,13 +80,13 @@ def main():
         if url in manifest_urls:
             continue
         host = urlparse(url).netloc.lower()
-        publisher = ("Pakistan Bureau of Statistics" if "pbs.gov.pk" in host else "International Labour Organization / ILOSTAT" if "ilo.org" in host else "European Training Foundation" if "etf.europa.eu" in host else "NAVTTC / National Skills Information System" if "skillingpakistan.gov.pk" in host else host)
+        publisher = ("Pakistan Bureau of Statistics" if "pbs.gov.pk" in host else "International Labour Organization / ILOSTAT" if "ilo.org" in host else "European Training Foundation" if "etf.europa.eu" in host else "NAVTTC / National Skills Information System" if "skillingpakistan.gov.pk" in host or "tvetreform.jobs.gov.pk" in host else host)
         label = unquote(urlparse(url).path.rstrip("/").split("/")[-1]) or host
         status = item["status"]
-        flag = "" if isinstance(status, int) and 200 <= status < 400 else " **VERIFY: automated check failed**"
+        flag = "" if isinstance(status, int) and 200 <= status < 400 and not item.get("content_error") else " **VERIFY: automated retrieval failed or was incomplete**"
         description = (f"format: {item.get('content_type', 'unknown')}; size: {item['size_bytes']:,} bytes; SHA-256: `{item['sha256']}` (the response observed on the check date)."
                        if item.get("sha256") else "format: page or PDF; size and SHA-256 unavailable because the automated check did not retrieve the content.")
-        lines += [f"### {label}", "", f"- Publisher: {publisher}; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.",
+        lines += [f"### {label}", "", f"- Publisher: {publisher}; publication year: n.d. / VERIFY; use: {reference_use(url)}.",
                   f"- Landing/direct URL: {url}; HTTP status: {status}.{flag}",
                   f"- Accessed: {checks['checked_on']}; {description} Terms of reuse: VERIFY.",
                   f"- Suggested citation: {publisher}, {label}, n.d., {url} (accessed {checks['checked_on']}).",

@@ -6,10 +6,9 @@ No files have been deleted. REMOVE means exclude from a submission package; KEEP
 
 | Action | Scope | Files | Total bytes |
 |---|---|---:|---:|
-| ASK | untracked/ignored | 12 | 123093 |
-| KEEP | tracked | 209 | 5215455 |
+| KEEP | tracked | 221 | 5363726 |
 | REMOVE | tracked | 41 | 3110820 |
-| REMOVE | untracked/ignored | 111701 | 4746962786 |
+| REMOVE | untracked/ignored | 111703 | 4746984553 |
 
 ## Tracked screenshots not referenced by the report or README
 

@@ -237,6 +237,7 @@ Future work includes independent temporal or external validation, an explicit su
 - ILOSTAT. Educational mismatch methods. [Methodology](https://ilostat.ilo.org/blog/only-half-of-workers-worldwide-hold-jobs-corresponding-to-their-level-of-education/) — **VERIFY** automated access.
 - European Training Foundation. [Skills mismatch measurement](https://www.etf.europa.eu/en/publications-and-resources/publications/skills-mismatch-measurement-etf-partner-countries).
 - NAVTTC / NSIS. [Skills information](https://www.skillingpakistan.gov.pk/) — **VERIFY** automated access and survey-year attribution.
+- NAVTTC / NSIS. [Skills Trend Analysis](https://tevtreform.jobs.gov.pk/wp-content/uploads/downloads/governance/Skills%20Trend%20Analysis.pdf), n.d. — external context; **VERIFY** publication year and access.
 
 ## Individual contributions — placeholders
 

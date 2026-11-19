@@ -168,7 +168,7 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### hunar-lens.streamlit.app
 
-- Publisher: hunar-lens.streamlit.app; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: hunar-lens.streamlit.app; publication year: n.d. / VERIFY; use: Public dashboard deployment; not an external survey dataset.
 - Landing/direct URL: https://hunar-lens.streamlit.app/; HTTP status: 200.
 - Accessed: 2026-11-19; format: text/html; charset=utf-8; size: 9,782 bytes; SHA-256: `6233840e10d815a87ca8fcc1886c5258f48b11770eb70c5a6d42149688866609` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: hunar-lens.streamlit.app, hunar-lens.streamlit.app, n.d., https://hunar-lens.streamlit.app/ (accessed 2026-11-19).
@@ -176,23 +176,31 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### only-half-of-workers-worldwide-hold-jobs-corresponding-to-their-level-of-education
 
-- Publisher: International Labour Organization / ILOSTAT; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
-- Landing/direct URL: https://ilostat.ilo.org/blog/only-half-of-workers-worldwide-hold-jobs-corresponding-to-their-level-of-education/; HTTP status: 403. **VERIFY: automated check failed**
+- Publisher: International Labour Organization / ILOSTAT; publication year: n.d. / VERIFY; use: Statistical and normative education–occupation mismatch methods.
+- Landing/direct URL: https://ilostat.ilo.org/blog/only-half-of-workers-worldwide-hold-jobs-corresponding-to-their-level-of-education/; HTTP status: 403. **VERIFY: automated retrieval failed or was incomplete**
 - Accessed: 2026-11-19; format: page or PDF; size and SHA-256 unavailable because the automated check did not retrieve the content. Terms of reuse: VERIFY.
 - Suggested citation: International Labour Organization / ILOSTAT, only-half-of-workers-worldwide-hold-jobs-corresponding-to-their-level-of-education, n.d., https://ilostat.ilo.org/blog/only-half-of-workers-worldwide-hold-jobs-corresponding-to-their-level-of-education/ (accessed 2026-11-19).
 - Acquisition: open the link; not acquired by the project downloader.
 
 ### result-excel
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: Official Census results landing page.
 - Landing/direct URL: https://pbs.gov.pk/result-excel/; HTTP status: 200.
-- Accessed: 2026-11-19; format: text/html; charset=UTF-8; size: 1,975,745 bytes; SHA-256: `86555f28c13a1d13ec5c049ba0d3d2cc87f596974d8ef56702d1a14183e72af4` (the response observed on the check date). Terms of reuse: VERIFY.
+- Accessed: 2026-11-19; format: text/html; charset=UTF-8; size: 1,975,745 bytes; SHA-256: `6b18ebe2e1cc4759346cad8d80ad1f9781893031536acbc40aa768f0dc8cfef0` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, result-excel, n.d., https://pbs.gov.pk/result-excel/ (accessed 2026-11-19).
+- Acquisition: open the link; not acquired by the project downloader.
+
+### Skills Trend Analysis.pdf
+
+- Publisher: tevtreform.jobs.gov.pk; publication year: n.d. / VERIFY; use: Source or methodological reference; VERIFY precise use.
+- Landing/direct URL: https://tevtreform.jobs.gov.pk/wp-content/uploads/downloads/governance/Skills%20Trend%20Analysis.pdf; HTTP status: 200.
+- Accessed: 2026-11-19; format: application/pdf; size: 3,111,097 bytes; SHA-256: `a95bec7e89b7a7f71f61951423258480e65f4ee2c1df7b4e9c6fac08556ca57b` (the response observed on the check date). Terms of reuse: VERIFY.
+- Suggested citation: tevtreform.jobs.gov.pk, Skills Trend Analysis.pdf, n.d., https://tevtreform.jobs.gov.pk/wp-content/uploads/downloads/governance/Skills%20Trend%20Analysis.pdf (accessed 2026-11-19).
 - Acquisition: open the link; not acquired by the project downloader.
 
 ### ILO_PAPI_LFS_VARIABLE_DERIVATION_GUIDE (A1V2).pdf
 
-- Publisher: International Labour Organization / ILOSTAT; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: International Labour Organization / ILOSTAT; publication year: n.d. / VERIFY; use: ILO labour-force and future-starter derivation guidance.
 - Landing/direct URL: https://webapps.ilo.org/ilostat-files/LFS/ILO_PAPI_LFS_VARIABLE_DERIVATION_GUIDE%20%28A1V2%29.pdf; HTTP status: 200.
 - Accessed: 2026-11-19; format: application/pdf; size: 726,281 bytes; SHA-256: `0afe9649a57b73d98096ea4d662551d5882ca8ba079618792ec4b5807e469032` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: International Labour Organization / ILOSTAT, ILO_PAPI_LFS_VARIABLE_DERIVATION_GUIDE (A1V2).pdf, n.d., https://webapps.ilo.org/ilostat-files/LFS/ILO_PAPI_LFS_VARIABLE_DERIVATION_GUIDE%20%28A1V2%29.pdf (accessed 2026-11-19).
@@ -200,7 +208,7 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### skills-mismatch-measurement-etf-partner-countries
 
-- Publisher: European Training Foundation; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: European Training Foundation; publication year: n.d. / VERIFY; use: Skills mismatch measurement guidance and limitations.
 - Landing/direct URL: https://www.etf.europa.eu/en/publications-and-resources/publications/skills-mismatch-measurement-etf-partner-countries; HTTP status: 200.
 - Accessed: 2026-11-19; format: text/html; charset=UTF-8; size: 63,529 bytes; SHA-256: `0075e0bada5ba2bd96d23dabfa1dff44e0a4ff9676fe2be50531a62550355a2d` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: European Training Foundation, skills-mismatch-measurement-etf-partner-countries, n.d., https://www.etf.europa.eu/en/publications-and-resources/publications/skills-mismatch-measurement-etf-partner-countries (accessed 2026-11-19).
@@ -208,31 +216,31 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### data-dissemination
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: Current PBS data-dissemination and licensing description.
 - Landing/direct URL: https://www.pbs.gov.pk/data-dissemination/; HTTP status: 200.
-- Accessed: 2026-11-19; format: text/html; charset=UTF-8; size: 211,732 bytes; SHA-256: `fa99db8868321f0afabfbf06782a8a69817d8bfb309caef8f61c15d4ef354ac1` (the response observed on the check date). Terms of reuse: VERIFY.
+- Accessed: 2026-11-19; format: text/html; charset=UTF-8; size: 211,732 bytes; SHA-256: `1d7f650e4b3741762e29d1a98be7e6edb864ac7094a009643a71645716323cb2` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, data-dissemination, n.d., https://www.pbs.gov.pk/data-dissemination/ (accessed 2026-11-19).
 - Acquisition: open the link; not acquired by the project downloader.
 
 ### labour-force-statistics
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
-- Landing/direct URL: https://www.pbs.gov.pk/labour-force-statistics/; HTTP status: 200.
-- Accessed: 2026-11-19; format: text/html; charset=UTF-8; size: 1,365,935 bytes; SHA-256: `895c948572c7a6abd90a08cb34404bad1c48d1a62df9a1993405b5a836b8da8a` (the response observed on the check date). Terms of reuse: VERIFY.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: Official LFS download and publication landing page.
+- Landing/direct URL: https://www.pbs.gov.pk/labour-force-statistics/; HTTP status: 200. **VERIFY: automated retrieval failed or was incomplete**
+- Accessed: 2026-11-19; format: page or PDF; size and SHA-256 unavailable because the automated check did not retrieve the content. Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, labour-force-statistics, n.d., https://www.pbs.gov.pk/labour-force-statistics/ (accessed 2026-11-19).
 - Acquisition: open the link; not acquired by the project downloader.
 
 ### result-excel
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: Official Census results landing page.
 - Landing/direct URL: https://www.pbs.gov.pk/result-excel/; HTTP status: 200.
-- Accessed: 2026-11-19; format: text/html; charset=UTF-8; size: 1,975,745 bytes; SHA-256: `a93fec6bbbb07531f54b475da2689f2a425a7ea91ac2991a289954830520a671` (the response observed on the check date). Terms of reuse: VERIFY.
+- Accessed: 2026-11-19; format: text/html; charset=UTF-8; size: 1,975,745 bytes; SHA-256: `f16e48c05ec2fe7cd863fb2847053ceba480cb466c9e36bcc6ca4e5a8341899d` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, result-excel, n.d., https://www.pbs.gov.pk/result-excel/ (accessed 2026-11-19).
 - Acquisition: open the link; not acquired by the project downloader.
 
 ### Data-Dissemination-Policy.pdf
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: Older PBS data-access and onward-supply policy.
 - Landing/direct URL: https://www.pbs.gov.pk/wp-content/uploads/2020/07/Data-Dissemination-Policy.pdf; HTTP status: 200.
 - Accessed: 2026-11-19; format: application/pdf; size: 128,224 bytes; SHA-256: `97957a6fa85e443f47e9fc7b140dedd94740e6639350faea148fa69f25acf4ea` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, Data-Dissemination-Policy.pdf, n.d., https://www.pbs.gov.pk/wp-content/uploads/2020/07/Data-Dissemination-Policy.pdf (accessed 2026-11-19).
@@ -240,7 +248,7 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### Employment-Trend-Report-2025-Final.pdf
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: PBS historical labour-market context.
 - Landing/direct URL: https://www.pbs.gov.pk/wp-content/uploads/2020/07/Employment-Trend-Report-2025-Final.pdf; HTTP status: 200.
 - Accessed: 2026-11-19; format: application/pdf; size: 2,652,541 bytes; SHA-256: `b44ee7bc9f1293227c1ed058f682870e962015776604f9c9e11ba3e01a842530` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, Employment-Trend-Report-2025-Final.pdf, n.d., https://www.pbs.gov.pk/wp-content/uploads/2020/07/Employment-Trend-Report-2025-Final.pdf (accessed 2026-11-19).
@@ -248,7 +256,7 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### MANUAL-of-LFS2024-25-1.pdf
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: Survey enumerator and variable-routing audit.
 - Landing/direct URL: https://www.pbs.gov.pk/wp-content/uploads/2020/07/MANUAL-of-LFS2024-25-1.pdf; HTTP status: 200.
 - Accessed: 2026-11-19; format: application/pdf; size: 2,640,319 bytes; SHA-256: `077bef543c7b383bfaf715f13debff802be84b13d194169908116f01729a0a90` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, MANUAL-of-LFS2024-25-1.pdf, n.d., https://www.pbs.gov.pk/wp-content/uploads/2020/07/MANUAL-of-LFS2024-25-1.pdf (accessed 2026-11-19).
@@ -256,7 +264,7 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### Occuptions-Classification-4-digits.pdf
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: Occupation classification audit and version comparison.
 - Landing/direct URL: https://www.pbs.gov.pk/wp-content/uploads/2020/07/Occuptions-Classification-4-digits.pdf; HTTP status: 200.
 - Accessed: 2026-11-19; format: application/pdf; size: 372,301 bytes; SHA-256: `328c0786bb7344176ccabcb7e4c39d1f848149f9c2797037dd8f911701c38c96` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, Occuptions-Classification-4-digits.pdf, n.d., https://www.pbs.gov.pk/wp-content/uploads/2020/07/Occuptions-Classification-4-digits.pdf (accessed 2026-11-19).
@@ -264,7 +272,7 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### Report-15.pdf
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: PBS labour-force participation and unemployment by age and sex.
 - Landing/direct URL: https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-15.pdf; HTTP status: 200.
 - Accessed: 2026-11-19; format: application/pdf; size: 150,493 bytes; SHA-256: `84c9f3c9c36ba0e8a5e7b7c7446213970df87a925a33a7478c66ae11aa4eccdd` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, Report-15.pdf, n.d., https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-15.pdf (accessed 2026-11-19).
@@ -272,7 +280,7 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### Report-17.pdf
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: PBS occupation distribution used for weighted reproduction.
 - Landing/direct URL: https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-17.pdf; HTTP status: 200.
 - Accessed: 2026-11-19; format: application/pdf; size: 323,543 bytes; SHA-256: `6a124659ea9657eb6ea469e67156a639b3ab3553223bcde23afdbed924cf85d9` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, Report-17.pdf, n.d., https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-17.pdf (accessed 2026-11-19).
@@ -280,15 +288,15 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### Report-7-3.pdf
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
-- Landing/direct URL: https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-7-3.pdf; HTTP status: 200.
-- Accessed: 2026-11-19; format: application/pdf; size: 346,086 bytes; SHA-256: `deab83c127e941f3c22d33106d275126b7f9e065f90dd50c9432ed1cad1b61a1` (the response observed on the check date). Terms of reuse: VERIFY.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: PBS literacy and education distribution used for weighted reproduction.
+- Landing/direct URL: https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-7-3.pdf; HTTP status: 200. **VERIFY: automated retrieval failed or was incomplete**
+- Accessed: 2026-11-19; format: page or PDF; size and SHA-256 unavailable because the automated check did not retrieve the content. Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, Report-7-3.pdf, n.d., https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-7-3.pdf (accessed 2026-11-19).
 - Acquisition: open the link; not acquired by the project downloader.
 
 ### TechnicalVocational-Training-Course-Codes.pdf
 
-- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
+- Publisher: Pakistan Bureau of Statistics; publication year: n.d. / VERIFY; use: Training-code audit and verified exclusions.
 - Landing/direct URL: https://www.pbs.gov.pk/wp-content/uploads/2020/07/TechnicalVocational-Training-Course-Codes.pdf; HTTP status: 200.
 - Accessed: 2026-11-19; format: application/pdf; size: 26,784 bytes; SHA-256: `1aa35ee171ce42c896ce6d869f140fd31d6f78cf9135c78bc8f0683f367ba1e9` (the response observed on the check date). Terms of reuse: VERIFY.
 - Suggested citation: Pakistan Bureau of Statistics, TechnicalVocational-Training-Course-Codes.pdf, n.d., https://www.pbs.gov.pk/wp-content/uploads/2020/07/TechnicalVocational-Training-Course-Codes.pdf (accessed 2026-11-19).
@@ -296,8 +304,8 @@ These references are linked for methodology or context; they are not downloaded 
 
 ### www.skillingpakistan.gov.pk
 
-- Publisher: NAVTTC / National Skills Information System; publication year: n.d. / VERIFY; use: methodology, survey audit, source landing page or contextual reference.
-- Landing/direct URL: https://www.skillingpakistan.gov.pk/; HTTP status: unreachable. **VERIFY: automated check failed**
+- Publisher: NAVTTC / National Skills Information System; publication year: n.d. / VERIFY; use: NAVTTC / NSIS employer-skill information as external context only.
+- Landing/direct URL: https://www.skillingpakistan.gov.pk/; HTTP status: unreachable. **VERIFY: automated retrieval failed or was incomplete**
 - Accessed: 2026-11-19; format: page or PDF; size and SHA-256 unavailable because the automated check did not retrieve the content. Terms of reuse: VERIFY.
 - Suggested citation: NAVTTC / National Skills Information System, www.skillingpakistan.gov.pk, n.d., https://www.skillingpakistan.gov.pk/ (accessed 2026-11-19).
 - Acquisition: open the link; not acquired by the project downloader.
