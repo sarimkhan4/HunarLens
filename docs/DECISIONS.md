@@ -236,3 +236,7 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
 
 Report each mismatch definition separately, flag occupation estimates when the mode changes in more than 10% of bootstrap samples or the interval exceeds 30 percentage points, and show their bootstrap ranges. The 25–44 and all-employed reference modes coincide in these data, so their point estimates are not independent sensitivity evidence. The separate all-age education unemployment reproduction uses PBS Annual Report Table 9.7 and the approved label; no label was tuned.
 
+# 2026-11-19: Skills-gap dashboard
+
+Stage S5 reads cached, generated aggregate skills tables. Occupation-level tolerance and severe comparisons use the approved all-employed reference and the same re-estimated PSU-cluster bootstrap, saved separately from earlier analysis results. Subgroup filters offer only combinations present in the tables. The classic view presents the same estimates in tables.
+

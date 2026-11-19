@@ -219,3 +219,13 @@ changing a person's education or training.
 
 **What does the reproduction check compare?** Weighted unemployment rates among people aged 10 and above in each published education category against PBS Annual Report Table 9.7.
 
+# Stage S5: skills-gap dashboard
+
+**Why does the dashboard read aggregate tables?** The tables record the approved calculations and disclosure checks; the interface does not need survey person records.
+
+**What does an unstable mode mean?** The occupation's most common education band changes across enough resamples, or its bootstrap interval is very wide, so the dashboard shows the full range with a warning.
+
+**Why do the filters offer separate sex and area groups?** The unemployment and graduate tables contain those precomputed groups; unsupported combinations cannot be inferred from marginal rates.
+
+**Do these patterns measure a person's skills or the number of vacancies?** No. Education and training are proxies, and the survey does not measure employer demand or vacancies.
+

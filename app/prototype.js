@@ -9,7 +9,7 @@
   const sidebarNote=root.querySelector('.sidebar-bottom div');
   if(sidebarNote)sidebarNote.textContent='Frozen model · research use';
   root.querySelector('#page-explorer .sub').textContent='Explore the frozen model for youth aged 15–24 in the labour force. Association is not causation.';
-  const pages = ['overview','explorer','performance','methodology'];
+  const pages = ['overview','skills','explorer','performance','methodology'];
   const state = {...data.values};
   const results = data.result;
   function navigate(page) {
@@ -18,11 +18,12 @@
       if (b.dataset.page === page) b.setAttribute('aria-current','page');
       else b.removeAttribute('aria-current');
     });
-    $('crumb').textContent = ({overview:'Overview',explorer:'Profile explorer',performance:'Model performance',methodology:'Data & methodology'})[page];
+    $('crumb').textContent = ({overview:'Overview',skills:'Skills gap',explorer:'Profile explorer',performance:'Model performance',methodology:'Data & methodology'})[page];
   }
   root.querySelectorAll('[data-page]').forEach(b => b.onclick=()=>{navigate(b.dataset.page);setStateValue('page', b.dataset.page);});
   root.querySelectorAll('[data-goto]').forEach(b => b.onclick=()=>{navigate(b.dataset.goto);setStateValue('page', b.dataset.goto);});
   navigate(data.page);
+  renderSkills(root, data.skills);
   function send() {
     if (state.relationship_to_head === 1) {
       state.head_sex = state.sex;
@@ -278,6 +279,7 @@
 }
 
 export function relativeChange(change) { return -change; }
+
 export function indicatorCsv(rows) {
   const lines=['Indicator,Our value,PBS value,Source,Difference,Status',...rows.map(r=>[r.indicator,r.our_value,r.pbs_value,r.source_url,r.difference,r.status].join(','))];
   return lines.join('\n');

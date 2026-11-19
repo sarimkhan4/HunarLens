@@ -303,3 +303,23 @@ details.generated-report[open] summary{margin-bottom:20px}
  .input-section{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Skills tables and charts retain text values alongside colour. */
+#page-skills .skills-card,#page-skills .skills-grid{margin-top:16px}
+#page-skills select{min-height:44px;max-width:100%;margin:8px 0 14px}
+#page-skills summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:700}
+#page-skills :focus-visible{outline:3px solid #1d2b64;outline-offset:3px}
+#page-skills .skills-bar-group{margin:14px 0;font-size:12px}
+#page-skills .skills-stack{display:flex;gap:0;margin-top:5px;overflow:hidden;border-radius:5px}
+#page-skills .skills-segment{min-width:0;padding:7px 0;text-align:center;font-size:11px;font-weight:700;color:#17293b;overflow:hidden}
+#page-skills .skills-chart-values{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:5px;font-size:11px;color:#35445e}
+#page-skills .skills-segment-0{background:#bcded8}#page-skills .skills-segment-1{background:#e5d9bc}
+#page-skills .skills-segment-2{background:#cbd5ee}#page-skills .skills-segment-3{background:#f2cbd1}
+#page-skills .skills-legend{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+#page-skills .skills-key{padding:5px 8px;border-radius:5px;color:#17293b;font-size:11px}
+#page-skills .table-wrap{margin-top:12px}#page-skills th[scope=row]{text-align:left}
+#page-skills .skills-gap-row{display:grid;grid-template-columns:minmax(120px,1fr) minmax(80px,1fr) minmax(130px,auto);align-items:center;gap:12px;border-bottom:1px solid var(--line);padding:9px 0;font-size:12px}
+#page-skills .skills-gap-track{height:16px;position:relative;background:linear-gradient(to right,transparent 49.5%,#53627a 49.5%,#53627a 50.5%,transparent 50.5%)}
+#page-skills .skills-gap-fill{height:10px;position:absolute;top:3px;background:#5278a7;border-radius:4px}
+@media(max-width:500px){#page-skills .skills-gap-row{grid-template-columns:1fr auto}#page-skills .skills-gap-track{display:none}}
+@media(max-width:760px){.bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))}.bottom-nav button{min-height:48px;font-size:10px}}

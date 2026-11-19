@@ -33,12 +33,32 @@ HELP = {"currently_enrolled":"Enrolled youth in the labour-force sample are most
         "children_under_15":"Household members younger than 15.", "head_sex":"Sex of the household head.",
         "head_education":"Highest education level completed by the household head."}
 
+
+def aggregate_number(value):
+    """Preserve disclosure labels while turning saved numerical cells into numbers."""
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return value
+    return int(number) if number.is_integer() else number
+
+
 @st.cache_data(show_spinner=False)
 def static_data():
     """Cache only public aggregate data and non-personal reference artifacts."""
     tables = {name: pd.read_csv(TABLES / f"{name}.csv") for name in
               ["overview_indicators", "test_metrics", "grouped_permutation_importance", "test_bootstrap_ci",
                "test_subgroups", "experiments", "permutation_importance"]}
+    for name in ["skills_outcomes_by_education", "skills_unemployment_by_education",
+                 "skills_graduate_absorption", "skills_attainment_gap", "skills_attainment_difference",
+                 "skills_mismatch", "skills_mismatch_sensitivity", "skills_mismatch_variants",
+                 "skills_mismatch_by_occupation", "skills_mismatch_occupation_variants",
+                 "skills_education_occupation_matrix", "skills_neet", "skills_neet_external"]:
+        table = pd.read_csv(TABLES / f"{name}.csv", keep_default_na=False)
+        for column in ["n", "positive_n", "employed_n", "unemployed_n", "estimate", "difference", "ci_low", "ci_high"]:
+            if column in table:
+                table[column] = table[column].map(aggregate_number)
+        tables[name] = table
     tables["census"] = pd.read_csv(ROOT / "data/processed/census_lookup.csv")
     tables["flags"] = pd.read_csv(ROOT / "data/processed/rare_combinations.csv", dtype={"age_key": str, "rare": bool})
     tables["quantiles"] = json.loads((ROOT / "models/score_quantiles.json").read_text(encoding="utf-8"))["quantiles"]
@@ -137,7 +157,9 @@ def dashboard_data(metadata, model, profile, page, explore="age"):
             "subgroups": static["test_subgroups"].to_dict(orient="records"),
             "experiments": static["experiments"].query('exp_id == "E4"')
                 [["model", "cv_ap_mean", "val_f1_best", "threshold"]].to_dict(orient="records"),
-            "pr_curve": static["pr_curve"]}
+            "pr_curve": static["pr_curve"],
+            "skills": {name.removeprefix("skills_"): table.to_dict(orient="records")
+                       for name, table in static.items() if name.startswith("skills_")}}
 
 @st.cache_resource
 def register_dashboard_component(html: str, css: str, js: str):
@@ -151,7 +173,8 @@ def dashboard_component():
     return register_dashboard_component(
         (ROOT / "app/prototype.html").read_text(encoding="utf-8"),
         (ROOT / "app/prototype.css").read_text(encoding="utf-8"),
-        (ROOT / "app/prototype.js").read_text(encoding="utf-8"))
+        (ROOT / "app/prototype.js").read_text(encoding="utf-8") + "\n" +
+        (ROOT / "app/skills_dashboard.js").read_text(encoding="utf-8"))
 
 
 def show_dashboard(metadata, model):

@@ -421,13 +421,14 @@ def about():
         Sources accessed 15 November 2026.
     """))
     st.subheader("Definitions and limitations")
+    st.markdown("""Skills-gap sources: [ILOSTAT mismatch methods](https://ilostat.ilo.org/blog/only-half-of-workers-worldwide-hold-jobs-corresponding-to-their-level-of-education/), [ETF measurement guidance](https://www.etf.europa.eu/en/publications-and-resources/publications/skills-mismatch-measurement-etf-partner-countries), [NAVTTC / NSIS employer skill survey, 2024](https://www.skillingpakistan.gov.pk/), and [PBS Annual Report, Table 9.7](https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf).""")
     st.markdown(textwrap.dedent("""
         The model covers youth aged 15?24 in the labour force. Unemployed people were not
         employed, were available within two weeks and either searched in the previous four
         weeks or had a job or business to start. The file does not record the start date,
         so the three-month future-starter condition cannot be verified.
 
-        Results use unweighted records and describe associations, not causes. Census features
+        Results use unweighted records and describe associations, not causal effects. Census features
         are constant within province or province and area. Enrolment associations partly
         reflect selection into the labour-force sample. Students outside the labour force
         are not included. Inputs are not stored. HunarLens is not affiliated with or endorsed by PBS.
@@ -440,6 +441,69 @@ def about():
     st.write(f"On the unweighted test set, F1 was **{metrics.f1:.3f}**, PR-AUC **{metrics.pr_auc:.3f}** and ROC-AUC **{metrics.roc_auc:.3f}**.")
     if not no_formal.empty:
         st.write(f"Recall for people with no formal education was **{no_formal.iloc[0].recall:.1%}**.")
+
+
+def skills_gap():
+    """Show the cached survey aggregates in the accessible classic view."""
+    from prototype_dashboard import static_data
+    data = static_data()
+    st.title("Skills gap")
+    st.write("Skills gap, as measurable from the LFS: the difference in education and vocational-training attainment between unemployed and employed youth, the education mismatch of employed youth relative to the occupations they hold, and what happens to youth at each education level in the labour market. Education and training are proxies for skills. Vacancies and employer demand are not measured in the LFS; employer surveys (NAVTTC/NSIS) are cited as context only.")
+    st.caption("Our analysis · weighted estimates and unweighted sample counts")
+    unemployment = data["skills_unemployment_by_education"]
+    overall = unemployment.loc[unemployment.group.eq("overall")].set_index("category")
+    for band in ["No formal", "Degree or above"]:
+        row = overall.loc[band]
+        st.metric(f"Unemployment · {band}", f"{row['estimate']:.1%}", help=f"Labour-force n={row['n']}")
+    training = data["skills_attainment_gap"]
+    st.subheader("Training · unemployed and employed")
+    st.dataframe(training.loc[training.group.isin(["overall; employed", "overall; unemployed"]) & training.category.eq("Training ever/current")], hide_index=True)
+    st.dataframe(data["skills_attainment_difference"].query("group == 'overall' and category == 'Training ever/current'"), hide_index=True)
+    comparisons = pd.concat([data["skills_mismatch"], data["skills_mismatch_sensitivity"]])
+    norm_names = ["overall; norm=all_15_plus", "overall; norm=age_25_44", "overall; norm=youth"]
+    strict = comparisons.loc[comparisons.group.isin(norm_names) & comparisons.category.eq("over")]
+    st.metric("Strict above-typical range across statistical norms", f"{strict.estimate.min():.1%}–{strict.estimate.max():.1%}", help=f"Employed youth n={strict.iloc[0]['n']}")
+    neet = data["skills_neet"].query("group == 'overall'").iloc[0]
+    official = data["skills_neet_external"].iloc[0]
+    st.metric("Approximate NEET / PBS NEET", f"{neet['estimate']:.1%} / {official['estimate']:.1%}", help=f"Our survey n={neet['n']}; definitions differ")
+    st.subheader("What happens at each education level")
+    st.dataframe(data["skills_outcomes_by_education"], hide_index=True)
+    groups = {"All youth": "overall", "Male": "sex=1.0", "Female": "sex=2.0", "Rural": "area=1.0", "Urban": "area=2.0"}
+    group = groups[st.selectbox("Survey subgroup", list(groups), key="skills_classic_group")]
+    st.subheader("Unemployment by education")
+    st.dataframe(unemployment.loc[unemployment.group.eq(group)], hide_index=True)
+    st.subheader("Where do graduates work?")
+    graduates = data["skills_graduate_absorption"]
+    st.dataframe(graduates.loc[graduates.group.eq(group)], hide_index=True)
+    st.subheader("Education and training attainment gap")
+    gaps = data["skills_attainment_difference"]
+    gap_group = st.selectbox("Attainment subgroup", list(gaps.group.unique()), key="skills_classic_attainment")
+    st.dataframe(gaps.loc[gaps.group.eq(gap_group)], hide_index=True)
+    st.subheader("Education mismatch depends on the definition")
+    definitions = {"Strict: all employed": ("all_15_plus", "over"), "Strict: youth only": ("youth", "over"),
+                   "Within one band: all employed": ("all_15_plus", "within one band"),
+                   "Two or more bands above: all employed": ("all_15_plus", "two or more bands above"),
+                   "Normative ISCO": ("ISCO", "over")}
+    norm, category = definitions[st.selectbox("Mismatch definition", list(definitions), key="skills_classic_definition")]
+    if category == "over":
+        overall_mismatch = pd.concat([data["skills_mismatch"], data["skills_mismatch_sensitivity"]])
+        selected = overall_mismatch.loc[overall_mismatch.group.eq(f"overall; norm={norm}") & overall_mismatch.category.eq(category)]
+        occupation = data["skills_mismatch_by_occupation"].query("group == @norm")
+    else:
+        selected = data["skills_mismatch_variants"].query("group == @norm and category == @category")
+        occupation = data["skills_mismatch_occupation_variants"].query("group == @category")
+    st.dataframe(selected, hide_index=True)
+    st.caption("Mode unstable rows show their full bootstrap range in the lower and upper columns.")
+    st.dataframe(occupation, hide_index=True)
+    st.write("Above the typical level compares education bands with an occupation's mode; it does not assess the usefulness of a degree.")
+    st.subheader("Education to occupation")
+    st.dataframe(data["skills_education_occupation_matrix"], hide_index=True)
+    st.subheader("Not employed and not enrolled")
+    st.dataframe(data["skills_neet"].loc[lambda x: x.group.isin(groups.values())], hide_index=True)
+    st.dataframe(data["skills_neet_external"], hide_index=True)
+    st.write("Approximate NEET differs from the PBS measure: recent training cannot be identified.")
+    st.subheader("How to read this page")
+    st.write("Education and training are proxies for skills, not measures of individual ability. No vacancy or employer-demand data are measured. These are associations only; labour-force sample selection affects comparisons. Survey analyses use weights and cluster bootstrap intervals; the model does not. The age 25–44 reference has the same occupation modes as the all-employed reference and is not an independent sensitivity.")
 
 
 def main():
@@ -479,13 +543,15 @@ def main():
         with st.sidebar:
             st.markdown('<div class="sidebar-brand"><span>H</span> HunarLens</div>'
                         '<div class="sidebar-sub">YOUTH INTELLIGENCE</div>', unsafe_allow_html=True)
-            page = st.radio("Workspace", ["Overview", "Profile explorer", "Model performance", "Data & methodology"],
+            page = st.radio("Workspace", ["Overview", "Skills gap", "Profile explorer", "Model performance", "Data & methodology"],
                             key="navigation")
             st.caption("PBS Labour Force Survey 2024–25 · Independent research project")
         st.markdown(f'<div class="dashboard-topbar"><span>Workspace&nbsp; / &nbsp;<strong>{page}</strong></span>'
                     '<span class="location-pill">Pakistan · National view</span></div>', unsafe_allow_html=True)
         if page == "Overview":
             overview()
+        elif page == "Skills gap":
+            skills_gap()
         elif page == "Profile explorer":
             estimator(model, metadata)
         elif page == "Model performance":

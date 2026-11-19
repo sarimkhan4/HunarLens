@@ -4,6 +4,7 @@
 <div class="nav-label">Workspace</div>
 <nav class="nav">
 <button aria-current="page" data-page="overview"><span class="ico">◫</span>Overview</button>
+<button data-page="skills"><span class="ico">▤</span>Skills gap</button>
 <button data-page="explorer"><span class="ico">⌕</span>Profile explorer</button>
 <button data-page="performance"><span class="ico">▥</span>Model performance</button>
 <button data-page="methodology"><span class="ico">ⓘ</span>Data &amp; methodology</button>
@@ -34,6 +35,17 @@
 <div class="source"><div class="source-num">03</div><div><h3>Separate data from estimates</h3><p>Official survey statistics and experimental model outputs are different evidence types.</p></div></div>
 </div></article>
 </div>
+</section>
+<section class="page" id="page-skills">
+<div class="page-head"><div><div class="eyebrow">Education and employment</div><h1>Skills gap</h1><p class="sub">Skills gap, as measurable from the LFS: the difference in education and vocational-training attainment between unemployed and employed youth, the education mismatch of employed youth relative to the occupations they hold, and what happens to youth at each education level in the labour market. Education and training are proxies for skills. Vacancies and employer demand are not measured in the LFS; employer surveys (NAVTTC/NSIS) are cited as context only.</p></div></div>
+<div class="grid kpis" id="skills-kpis"></div>
+<article class="card skills-card"><div class="card-head"><div><h2>What happens at each education level</h2><p class="card-desc">Weighted shares of youth in the labour force</p></div><span class="tag">Our analysis</span></div><div id="skills-outcomes"></div><details><summary>Accessible education outcomes table</summary><div class="table-wrap" id="skills-outcomes-table"></div></details><p class="section-note">A dash marks a structural zero. Some bootstrap intervals are asymmetric when the typical education level changes in resamples.</p></article>
+<div class="grid two skills-grid"><article class="card"><div class="card-head"><h2>Unemployment by education</h2><span class="tag">Our analysis</span></div><label for="skills-unemployment-group">Survey subgroup</label><select id="skills-unemployment-group"></select><div class="table-wrap" id="skills-unemployment"></div><p class="section-note">Filters use available precomputed sex or area groups; they are not combined.</p></article>
+<article class="card"><div class="card-head"><h2>Where do graduates work?</h2><span class="tag">Our analysis</span></div><label for="skills-graduate-group">Survey subgroup</label><select id="skills-graduate-group"></select><div class="table-wrap" id="skills-graduates"></div><p class="section-note">Degree-level youth in the labour force; includes unemployed youth.</p></article></div>
+<article class="card skills-card"><div class="card-head"><h2>Education and training attainment gap</h2><span class="tag">Our analysis</span></div><p class="section-note">Percentage-point difference in attainment: unemployed youth minus employed youth.</p><label for="skills-attainment-group">Survey subgroup</label><select id="skills-attainment-group"></select><div id="skills-attainment-chart"></div><details><summary>Accessible attainment gap table</summary><div class="table-wrap" id="skills-attainment-table"></div></details></article>
+<article class="card skills-card"><div class="card-head"><h2>Education mismatch depends on the definition</h2><span class="tag">Our analysis</span></div><label for="skills-definition">Mismatch definition</label><select id="skills-definition"></select><div id="skills-mismatch-overall"></div><p class="section-note">Above the typical level compares education bands with the occupation's survey mode; it does not assess the usefulness of a degree. Mode instability can produce broad bootstrap ranges.</p><div class="table-wrap" id="skills-mismatch"></div></article>
+<div class="grid two skills-grid"><article class="card"><div class="card-head"><h2>Education to occupation</h2><span class="tag">Our analysis</span></div><p class="section-note">Within each education band, the share of employed youth in each occupation group. Cell text provides the value as well as shading.</p><div class="table-wrap" id="skills-matrix"></div></article><article class="card"><div class="card-head"><h2>Not employed and not enrolled</h2><span class="tag">Our analysis</span></div><div class="table-wrap" id="skills-neet"></div><p class="section-note">Approximate NEET is not the SDG indicator: recent training cannot be identified.</p></article></div>
+<article class="card skills-card"><div class="card-head"><h2>How to read this page</h2><span class="tag">Our analysis</span></div><p>Education and training are proxies for skills, not measures of individual ability. The survey does not measure vacancies or employer demand. These are associations only; labour-force sample selection affects the comparisons. The survey analysis uses weights and cluster bootstrap intervals; the model does not. The age 25–44 reference has the same occupation modes as the all-employed reference and is not an independent sensitivity.</p></article>
 </section>
 <section class="page" id="page-explorer">
 <div class="page-head"><div><div class="eyebrow">Interactive tool</div><h1>Profile explorer</h1><p class="sub">Explore the frozen model for youth aged 15–24 in the labour force. Association is not causation.</p></div><div class="actions"><button class="btn" id="resetProfile">Reset profile</button></div></div>
@@ -89,6 +101,7 @@
 <div class="source"><div class="source-num">03</div><div><h3><a href="https://www.pbs.gov.pk/wp-content/uploads/2020/07/Report-15.pdf" rel="noopener" target="_blank">LFS 2024–25 · Table 15</a></h3><p>Labour force participation and unemployment rates by age, sex and area.</p></div></div>
 <div class="source"><div class="source-num">04</div><div><h3><a href="https://www.pbs.gov.pk/wp-content/uploads/2020/07/Employment-Trend-Report-2025-Final.pdf" rel="noopener" target="_blank">Employment Trend Report 2025</a></h3><p>Historical and provincial youth employment-to-population trends.</p></div></div>
 <div class="source"><div class="source-num">05</div><div><h3><a href="https://www.pbs.gov.pk/result-excel/" rel="noopener" target="_blank">PBS Census 2023</a></h3><p>Population and Housing Census detailed results.</p></div></div></div></article>
+<article class="card"><div class="card-head"><h2>Skills-gap references</h2><span class="tag">Official survey</span></div><ul><li><a href="https://ilostat.ilo.org/blog/only-half-of-workers-worldwide-hold-jobs-corresponding-to-their-level-of-education/" target="_blank" rel="noopener">ILOSTAT: statistical and normative mismatch methods</a></li><li><a href="https://www.etf.europa.eu/en/publications-and-resources/publications/skills-mismatch-measurement-etf-partner-countries" target="_blank" rel="noopener">ETF: skills mismatch measurement guidance</a></li><li><a href="https://www.skillingpakistan.gov.pk/" target="_blank" rel="noopener">NAVTTC / NSIS employer skill survey, 2024: context</a></li><li><a href="https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf" target="_blank" rel="noopener">PBS Annual Report, Table 9.7</a></li></ul></article>
 <article class="card"><div class="card-head"><div><h2>Definitions that matter</h2></div></div>
 <div class="method-grid grid">
 <div class="method-item"><h3>Youth</h3><p>People aged 15–24.</p></div>
@@ -114,6 +127,6 @@
 </div>
 </main>
 <nav aria-label="Mobile navigation" class="bottom-nav">
-<button aria-current="page" data-page="overview"><span>◫</span>Overview</button><button data-page="explorer"><span>⌕</span>Explore</button><button data-page="performance"><span>▥</span>Model</button><button data-page="methodology"><span>ⓘ</span>Data</button>
+<button aria-current="page" data-page="overview"><span>◫</span>Overview</button><button data-page="skills"><span>▤</span>Skills</button><button data-page="explorer"><span>⌕</span>Explore</button><button data-page="performance"><span>▥</span>Model</button><button data-page="methodology"><span>ⓘ</span>Data</button>
 </nav>
 </div>
