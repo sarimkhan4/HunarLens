@@ -229,3 +229,13 @@ changing a person's education or training.
 
 **Do these patterns measure a person's skills or the number of vacancies?** No. Education and training are proxies, and the survey does not measure employer demand or vacancies.
 
+# Submission preparation: Phase A
+
+**Why is the download manifest useful?** It records the source URL, retrieval date, file size and checksum, making it possible to identify exactly which source was used.
+
+**Why are raw records excluded from the submission?** They can contain identifying survey information, and the applicable redistribution terms for the exact files need confirmation.
+
+**What does a successful link check establish?** It establishes that the checked endpoint responded at that time, not that redistribution is licensed or that the content will never change.
+
+**Why is the packaging script a dry run?** The team can review the selected files and flagged cleanup candidates before any archive is created or files are removed.
+

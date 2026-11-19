@@ -240,3 +240,7 @@ Report each mismatch definition separately, flag occupation estimates when the m
 
 Stage S5 reads cached, generated aggregate skills tables. Occupation-level tolerance and severe comparisons use the approved all-employed reference and the same re-estimated PSU-cluster bootstrap, saved separately from earlier analysis results. Subgroup filters offer only combinations present in the tables. The classic view presents the same estimates in tables.
 
+# 2026-11-19: Submission preparation, Phase A
+
+Prepare a source catalogue from the download manifest and separately record automated link checks. PBS's older and newer policy descriptions require file-specific clarification, so raw files are excluded pending confirmation. A dry-run manifest applies explicit privacy and size checks; cleanup entries are recommendations for review, not authorization to delete workspace files. Model artefacts and existing evaluation results remain frozen.
+
