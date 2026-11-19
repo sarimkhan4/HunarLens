@@ -212,3 +212,13 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
 - Use a git-ignored repository-local pytest temporary directory to avoid
   Windows sandbox access errors; record the completed test result from pytest's
   JUnit output before regenerating the sign-off.
+# 2026-11-19 — skills-gap interpretation refinements
+
+- Report a one-band tolerance and a two-or-more-band over-education variant
+  alongside the strict statistical comparison, with replicate-specific modes.
+  Describe the banding and occupation-structure limitations.
+- Add degree-or-above labour-force absorption by occupation grouping and
+  unemployment; suppress small cells and flag groups with few unemployed.
+- Label the survey's not-employed-and-not-enrolled measure approximate NEET
+  and distinguish it from the PBS reference indicator, which considers training.
+- Preserve the frozen model, its metadata, and the sealed model test results.

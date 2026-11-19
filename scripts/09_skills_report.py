@@ -31,32 +31,95 @@ def pct(value):
     return f"{100 * float(value):.1f}%"
 
 
+def interval(row):
+    return f"{pct(row.ci_low)}–{pct(row.ci_high)}"
+
+
+def result_cell(row):
+    if row["estimate"] == "suppressed":
+        return "Suppressed"
+    return f"{pct(row['estimate'])} (95% CI {pct(row['ci_low'])}–{pct(row['ci_high'])})"
+
+
+def outcome_table():
+    table = pd.read_csv(TABLES / "skills_outcomes_by_education.csv", keep_default_na=False)
+    categories = ["employed matched", "employed over", "employed under", "unemployed"]
+    headings = ["| Education band | n | Employed: matched | Employed: above mode | Employed: below mode | Unemployed |",
+                "|---|---:|---|---|---|---|"]
+    for band in ["No formal", "Below matric", "Matric", "Intermediate", "Degree or above"]:
+        group = table.loc[table.group.eq(band)].set_index("category")
+        headings.append(f"| {band} | {group.loc['unemployed', 'n']} | " +
+                        " | ".join(result_cell(group.loc[c]) for c in categories) + " |")
+    return "\n".join(headings)
+
+
+def model_shift_table():
+    table = pd.read_csv(TABLES / "skills_model_shift.csv", keep_default_na=False)
+    table = table.loc[table.scenario.eq("education") & table.grouping.isin(["sex_area", "education_band"])]
+    rows = ["| Validation group | n | Mean difference (95% CI), pp | Code sensitivity range, pp |",
+            "|---|---:|---|---|"]
+    band_names = {"1": "No formal", "2": "Below matric", "3": "Matric", "4": "Intermediate", "5": "Degree or above"}
+    group_names = {"1.0/1.0": "Male, rural", "1.0/2.0": "Male, urban",
+                   "2.0/1.0": "Female, rural", "2.0/2.0": "Female, urban"}
+    for row in table.itertuples(index=False):
+        group = group_names.get(str(row.group), band_names.get(str(row.group), str(row.group)))
+        if row.n == "suppressed":
+            rows.append(f"| {group} | Suppressed | Suppressed | Suppressed |")
+        else:
+            rows.append(f"| {group} | {row.n} | {100*float(row.mean):+.1f} ({100*float(row.ci_low):+.1f} to {100*float(row.ci_high):+.1f}) | {100*float(row.minimum):+.1f} to {100*float(row.maximum):+.1f} |")
+    return "\n".join(rows)
+
+
+def neet_table():
+    table = pd.read_csv(TABLES / "skills_neet.csv", keep_default_na=False)
+    names = {"overall": "All youth", "sex=1.0": "Male", "sex=2.0": "Female",
+             "area=1.0": "Rural", "area=2.0": "Urban"}
+    rows = ["| Group | n | Approximate NEET (95% CI) |", "|---|---:|---|"]
+    for name, label in names.items():
+        row = table.loc[table.group.eq(name)].iloc[0]
+        rows.append(f"| {label} | {row['n']} | {result_cell(row)} |")
+    return "\n".join(rows)
+
+
+def degree_table():
+    table = pd.read_csv(TABLES / "skills_degree_type.csv", keep_default_na=False)
+    rows = ["| Reported degree type | n | Unemployment (95% CI) | Reliability |",
+            "|---|---:|---|---|"]
+    for row in table.to_dict("records"):
+        rows.append(f"| {row['group']} | {row['n']} | {result_cell(row)} | {row['flag'] or 'Not flagged'} |")
+    return "\n".join(rows)
+
+
 def content():
     gap = one("attainment_difference", group="overall", category="Training ever/current")
     mismatch = one("mismatch", group="overall; norm=all_15_plus", category="over")
     sensitivity = one("mismatch_sensitivity", group="overall; norm=youth", category="over")
     neet = one("neet", group="overall", category="not employed and not enrolled")
-    degree = one("degree_type", group="Other two-year degree", category="unemployment rate")
     shift = one("model_shift", scenario="education", grouping="overall", group="overall")
     reproduction = pd.read_csv(TABLES / "skills_reproduction.csv")
     max_occ = reproduction.loc[reproduction.indicator.str.startswith("occupation_"), "difference_pp"].max()
     max_edu = reproduction.loc[~reproduction.indicator.str.startswith("occupation_"), "difference_pp"].max()
     findings = [
-        f"The training share among unemployed youth was {100 * float(gap.difference):+.1f} percentage points compared with employed youth.",
-        f"Under the all-employed norm, {pct(mismatch.estimate)} of employed youth were above their occupation group's modal education band.",
-        f"Using the youth-only norm, the corresponding share was {pct(sensitivity.estimate)}.",
-        f"The approximate not-employed-and-not-enrolled share was {pct(neet.estimate)} of all youth.",
-        f"Among non-enrolled youth in the labour force reporting another two-year degree, {pct(degree.estimate)} were unemployed.",
+        f"The share with training was {abs(100 * float(gap.difference)):.1f} percentage points {'lower' if float(gap.difference) < 0 else 'higher'} among unemployed than employed youth (n={gap.unemployed_n} unemployed, {gap.employed_n} employed; 95% CI {100*float(gap.ci_low):+.1f} to {100*float(gap.ci_high):+.1f} percentage points).",
+        f"Using the all-employed norm, {pct(mismatch.estimate)} of employed youth were above their occupation group's modal education band (n={mismatch.n}; 95% CI {interval(mismatch)}).",
+        f"Using the youth-only norm, the corresponding share was {pct(sensitivity.estimate)} (n={sensitivity.n}; 95% CI {interval(sensitivity)}).",
+        f"Not employed and not enrolled (approximate NEET) described {pct(neet.estimate)} of youth (n={neet.n}; 95% CI {interval(neet)}).",
+        "The education-outcome table below shows four mutually exclusive shares for each education band; together the underlying shares sum to the whole band.",
     ]
     return findings, shift, max_occ, max_edu
 
 
 def write():
     findings, shift, max_occ, max_edu = content()
+    external = one("neet_external", indicator="PBS NEET youth 2024-25, all areas")
     bullets = "\n".join(f"- {line}" for line in findings)
     shift_text = (f"The model-estimated education-profile difference averaged {100 * float(shift['mean']):+.1f} "
-                  f"percentage points among covered profiles; weighted coverage was {pct(shift.coverage)}. "
-                  "This is a model-estimated difference between profiles, not a causal effect.")
+                  f"percentage points (95% CI {100*float(shift.ci_low):+.1f} to {100*float(shift.ci_high):+.1f}) among covered profiles "
+                  f"(n={shift.n}); weighted coverage was {pct(shift.coverage)}. This is a model-estimated "
+                  "difference between profiles within the labour-force sample, not a causal effect. "
+                  "Selection matters: less-educated workers are concentrated in agriculture and elementary "
+                  "jobs, and many less-educated women are outside the labour force. The comparison does not "
+                  "establish that education changes unemployment.")
     comparison = pd.read_csv(TABLES / "skills_mismatch_interval_comparison.csv")
     width_rows = ["| Reference norm | Outcome | Fixed-mode width (pp) | Re-estimated width (pp) |",
                   "|---|---|---:|---:|"]
@@ -65,29 +128,62 @@ def write():
             width_rows.append(f"| {row.group.split('norm=')[1]} | {row.category} | {100 * row.fixed_width:.2f} | {100 * row.reestimated_width:.2f} |")
     widths = "\n".join(width_rows)
     mode = pd.read_csv(TABLES / "skills_occupation_modes.csv")
-    mode = mode.loc[mode.norm.eq("all_15_plus")]
-    modes = "\n".join(["| Occupation group | Modal education band | n |", "|---:|---|---:|"] +
-                      [f"| {int(row.occupation)} | {row.mode_label} | {int(row.n)} |" for row in mode.itertuples(index=False)])
+    modes = ["| Occupation | All employed mode (n) | Age 25–44 mode (n) | Youth mode (n) |",
+             "|---:|---|---|---|"]
+    for occupation in sorted(mode.occupation.unique()):
+        group = mode.loc[mode.occupation.eq(occupation)].set_index("norm")
+        cells = [f"{group.loc[norm, 'mode_label']} ({int(group.loc[norm, 'n'])})"
+                 for norm in ["all_15_plus", "age_25_44", "youth"]]
+        modes.append(f"| {int(occupation)} | " + " | ".join(cells) + " |")
+    modes = "\n".join(modes)
     status_path = TABLES / "skills_test_status.csv"
     status = pd.read_csv(status_path).iloc[0] if status_path.exists() else None
-    status_text = (f"Tests passed: {int(status['tests'])}; failures: {int(status['failures'])}; errors: {int(status['errors'])}."
+    status_text = ("The previously recorded suite passed; the refinement run is reported separately."
                    if status is not None and status["failures"] == 0 and status["errors"] == 0 else
                    "Tests pending; not ready for sign-off.")
     findings_doc = f"""# Skills-gap findings
 
 {DEFINITION}
 
-The weighted survey estimates describe associations, not causes. Education and training are skills proxies;
+The weighted survey estimates describe associations and do not establish causation. Education and training are skills proxies;
 they do not describe an individual's abilities.
 
 {bullets}
 
+{outcome_table()}
+
+The four underlying outcome shares sum to the whole education band before rounding. Suppressed cells
+are withheld to protect small groups. See [graduate absorption](../reports/tables/skills_graduate_absorption.csv)
+for the division between occupations and unemployment, including sex and area.
+
+The mismatch results depend on the coarse five-band scheme and the occupation structure: agriculture and
+elementary occupations have low modal education. The strict figure must not be read as “wasted degrees”.
+The [tolerance and severe variants](../reports/tables/skills_mismatch_variants.csv) and
+[occupation comparisons](../reports/tables/skills_mismatch_by_occupation.csv) show the sensitivity.
+
 {shift_text}
+
+{model_shift_table()}
+
+Not employed and not enrolled (approximate NEET) is not the SDG 8.6.1 indicator: recent training cannot be
+identified from the available questions.
+
+{neet_table()}
+
+The [PBS annual report]({external.source_url}) separately reports a national NEET estimate of {pct(external.estimate)}
+(sample count and interval not reported in the table). Its definition differs from our approximation.
+The external figure is recorded in [skills_neet_external.csv](../reports/tables/skills_neet_external.csv).
 
 See the aggregate skills tables for sample counts, 95% intervals, sensitivity ranges and suppressed cells.
 The approximate NEET measure means not employed and not enrolled; it does not establish that a youth is
 outside all non-formal training. Degree types are only identifiable for the explicitly labelled codes;
-other degree-level codes have no recorded field. Industry, detailed field of study and unemployment barriers
+other degree-level codes have no recorded field. The questionnaire's “other” category refers specifically to
+a two-year degree in other subjects; the [degree-type table](../reports/tables/skills_degree_type.csv)
+shows n and reliability flags:
+
+{degree_table()}
+
+Industry, detailed field of study and unemployment barriers
 were excluded and remain future work. The survey has no vacancy or employer-demand measure.
 Comparisons between norm populations are affected by cohort composition, and the model was trained without
 survey weights. Small groups are suppressed or marked unreliable.
@@ -113,6 +209,10 @@ For each statistical mismatch replicate, the occupation modes are re-estimated f
 resampled reference population, and youth are classified against those replicate-specific modes.
 The normative comparison uses its fixed, predefined rules. A cell below 30 is
 suppressed and groups below 50 are flagged; complementary cells are suppressed when needed.
+Mismatch results depend on the coarse five-band scheme and occupation structure: agriculture and elementary
+occupations have low modal education. The strict result must not be read as “wasted degrees”.
+The tolerance variant matches education within one band of the mode; the severe variant identifies at least
+two bands above the mode. The graduate absorption denominator is labour-force youth with a degree or above.
 
 The table compares overall mismatch interval widths under the former fixed-mode method and the new
 re-estimated-mode method; widths are in percentage points and use the same random seed.
@@ -147,13 +247,15 @@ The PBS occupation-version discrepancy and bootstrap design are documented in th
 [Full reproduction table](../reports/tables/skills_reproduction.csv) and
 [waterfall](../reports/tables/skills_row_waterfall.csv).
 
-**Occupation modes: all employed persons aged 15+**
+**Occupation modes and reference sample sizes**
 
 {modes}
 
 **Five headline findings**
 
 {bullets}
+
+{outcome_table()}
 
 {shift_text}
 

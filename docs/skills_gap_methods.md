@@ -19,6 +19,10 @@ For each statistical mismatch replicate, the occupation modes are re-estimated f
 resampled reference population, and youth are classified against those replicate-specific modes.
 The normative comparison uses its fixed, predefined rules. A cell below 30 is
 suppressed and groups below 50 are flagged; complementary cells are suppressed when needed.
+Mismatch results depend on the coarse five-band scheme and occupation structure: agriculture and elementary
+occupations have low modal education. The strict result must not be read as “wasted degrees”.
+The tolerance variant matches education within one band of the mode; the severe variant identifies at least
+two bands above the mode. The graduate absorption denominator is labour-force youth with a degree or above.
 
 The table compares overall mismatch interval widths under the former fixed-mode method and the new
 re-estimated-mode method; widths are in percentage points and use the same random seed.
