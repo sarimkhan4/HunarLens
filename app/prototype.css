@@ -306,7 +306,10 @@ details.generated-report[open] summary{margin-bottom:20px}
 
 /* Skills tables and charts retain text values alongside colour. */
 #page-skills .skills-card,#page-skills .skills-grid{margin-top:16px}
-#page-skills select{min-height:44px;max-width:100%;margin:8px 0 14px}
+#page-skills label[for^="skills-"]{display:block;margin-top:4px;color:var(--muted);font-size:12px;font-weight:700}
+#page-skills select{appearance:none;display:block;width:min(100%,320px);min-height:44px;margin:7px 0 16px;padding:10px 42px 10px 14px;border:1px solid #cdd7e6;border-radius:9px;background-color:#f8fafd;background-image:linear-gradient(45deg,transparent 50%,#53627a 50%),linear-gradient(135deg,#53627a 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;color:var(--navy);font-size:13px;font-weight:600;cursor:pointer;transition:border-color .15s ease,box-shadow .15s ease,background-color .15s ease}
+#page-skills select:hover{border-color:#8296b4;background-color:#fff}
+#page-skills select:focus-visible{border-color:var(--teal);outline:3px solid #b8dfdf;outline-offset:2px;box-shadow:0 0 0 1px var(--teal)}
 #page-skills summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:700}
 #page-skills :focus-visible{outline:3px solid #1d2b64;outline-offset:3px}
 #page-skills .skills-bar-group{margin:14px 0;font-size:12px}
