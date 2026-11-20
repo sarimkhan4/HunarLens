@@ -2,7 +2,7 @@
 
 Files listed below are tracked, apart from this generated manifest on its first run. REMOVE candidates are excluded.
 
-Files: 230; total: 5,789,052 bytes; maximum per file: 5,000,000 bytes.
+Files: 230; total: 5,789,001 bytes; maximum per file: 5,000,000 bytes.
 
 ```text
 .gitignore  (276 bytes)
@@ -179,14 +179,14 @@ scripts/audit_skills_data.py  (5,439 bytes)
 scripts/build_modeling_dataset.py  (9,393 bytes)
 scripts/build_rare_flags.py  (2,091 bytes)
 scripts/build_skills_dataset.py  (6,912 bytes)
-scripts/capture_dashboard_screenshots.py  (8,988 bytes)
+scripts/capture_dashboard_screenshots.py  (8,982 bytes)
 scripts/capture_screenshots.py  (4,802 bytes)
-scripts/capture_skills_screenshots.py  (5,133 bytes)
+scripts/capture_skills_screenshots.py  (5,126 bytes)
 scripts/capture_submission_screenshots.py  (4,146 bytes)
 scripts/check_app_runtime.py  (5,859 bytes)
 scripts/check_submission_links.py  (3,042 bytes)
 scripts/compare_models.py  (19,722 bytes)
-scripts/compile_report_numbers.py  (27,310 bytes)
+scripts/compile_report_numbers.py  (27,272 bytes)
 scripts/complete_skills_audit.py  (7,848 bytes)
 scripts/compute_baselines.py  (5,110 bytes)
 scripts/compute_score_quantiles.py  (1,237 bytes)
