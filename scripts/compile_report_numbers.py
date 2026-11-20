@@ -62,9 +62,9 @@ def main():
         ("Grouped permutation importance on validation", "../reports/figures/grouped_permutation_importance.png"),
         ("Frozen model precision–recall curve on the test split", "../reports/figures/test_pr_curve_wide.png"),
         ("Test confusion matrix", "../reports/figures/test_confusion_matrix.png"),
-        ("Profile explorer desktop screenshot", "screenshots/final/explorer-1440x900.png"),
-        ("Skills-gap dashboard desktop screenshot", "screenshots/skills/skills-1440x900.png"),
-        ("Model performance dashboard desktop screenshot", "screenshots/final/performance-1440x900.png"),
+        ("Profile explorer desktop screenshot", "screenshots/explorer-1440x900.png"),
+        ("Skills-gap dashboard desktop screenshot", "screenshots/skills-1440x900.png"),
+        ("Model performance dashboard desktop screenshot", "screenshots/performance-1440x900.png"),
     ]
     for _, path in figures:
         if not (DOCS / path).exists():
@@ -218,11 +218,11 @@ Our approximation cannot identify recent training and is not the complete SDG NE
 
 The application runs as a Streamlit service and reads a frozen model, metadata and tracked aggregate artefacts. It contains overview, skills-gap, profile, performance and methodology views. A native Streamlit fallback is available when the custom component is unavailable. Inputs are transient and are not intentionally stored. Screenshots of the desktop interface and skills page are linked in [report_figures.md](report_figures.md). **VERIFY** the deployed branch, URL and live rendering with the team before submission.
 
-![Profile explorer on desktop](screenshots/final/explorer-1440x900.png)
+![Profile explorer on desktop](screenshots/explorer-1440x900.png)
 
-![Skills-gap dashboard on desktop](screenshots/skills/skills-1440x900.png)
+![Skills-gap dashboard on desktop](screenshots/skills-1440x900.png)
 
-![Model performance dashboard on desktop](screenshots/final/performance-1440x900.png)
+![Model performance dashboard on desktop](screenshots/performance-1440x900.png)
 
 ## 10. Limitations and future work
 

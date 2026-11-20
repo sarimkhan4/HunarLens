@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location("capture", ROOT / "scripts/capture_screenshots.py")
 capture = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(capture)
-OUTPUT = ROOT / "docs/screenshots/final"
+OUTPUT = ROOT / "docs/screenshots"
 PORT = 9250
 PAGES = ["overview", "explorer", "performance", "methodology"]
 

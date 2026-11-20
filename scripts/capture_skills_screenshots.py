@@ -20,7 +20,7 @@ spec.loader.exec_module(capture)
 def main():
     """Connect to a running local app and capture three synthetic views."""
     profile = ROOT / "data/interim/skills_browser_profile"
-    output = ROOT / "docs/screenshots/skills"
+    output = ROOT / "docs/screenshots"
     output.mkdir(parents=True, exist_ok=True)
     browser = subprocess.Popen([capture.find_chrome(), "--headless=new", "--disable-gpu", "--no-first-run",
                                 "--remote-allow-origins=*", "--remote-debugging-port=9279",
