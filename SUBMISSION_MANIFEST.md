@@ -2,7 +2,7 @@
 
 Files listed below are tracked, apart from this generated manifest on its first run. REMOVE candidates are excluded.
 
-Files: 229; total: 5,785,189 bytes; maximum per file: 5,000,000 bytes.
+Files: 230; total: 5,789,052 bytes; maximum per file: 5,000,000 bytes.
 
 ```text
 .gitignore  (276 bytes)
@@ -10,7 +10,7 @@ Files: 229; total: 5,785,189 bytes; maximum per file: 5,000,000 bytes.
 AGENTS.md  (13,045 bytes)
 DATA_SOURCES.md  (14,677 bytes)
 README.md  (6,792 bytes)
-SUBMISSION_MANIFEST.md  (11,395 bytes)
+SUBMISSION_MANIFEST.md  (11,457 bytes)
 app/dashboard.css  (29,912 bytes)
 app/dashboard.html  (21,084 bytes)
 app/dashboard.js  (25,107 bytes)
@@ -56,6 +56,7 @@ notebooks/.gitkeep  (0 bytes)
 notebooks/baseline_and_pipeline.ipynb  (6,277 bytes)
 notebooks/data_audit.ipynb  (2,464 bytes)
 notebooks/exploratory_analysis.ipynb  (1,046,306 bytes)
+notebooks/final_model_and_explainability.ipynb  (3,801 bytes)
 notebooks/model_comparison.ipynb  (321,550 bytes)
 notebooks/skills_gap_analysis.ipynb  (6,611 bytes)
 notebooks/test_set_evaluation.ipynb  (450,487 bytes)
