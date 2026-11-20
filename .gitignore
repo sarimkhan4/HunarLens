@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 .pytest_tmp/
 .pytest-results.xml
+hunarlens_submission.zip
 *.ipynb_checkpoints/
 data/raw/
 data/interim/

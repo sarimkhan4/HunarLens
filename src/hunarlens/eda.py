@@ -1,4 +1,4 @@
-# What: generates the Stage 3 descriptive tables, figures and findings.
+# What: generates the exploratory analysis descriptive tables, figures and findings.
 # Why: every plot and count can be reproduced from the same analysis dataset.
 # Viva: EDA describes the sample; it does not fit or select a model.
 from pathlib import Path
@@ -111,7 +111,7 @@ def create_figures(data: pd.DataFrame, figures: Path) -> dict[str, str]:
 
 
 def run_eda(root: Path) -> pd.DataFrame:
-    """Generate Stage 3 outputs and a narrative from the permitted columns."""
+    """Generate exploratory analysis outputs and a narrative from the permitted columns."""
     tables, figures = root / "reports" / "tables", root / "reports" / "figures"
     tables.mkdir(parents=True, exist_ok=True)
     figures.mkdir(parents=True, exist_ok=True)
@@ -120,9 +120,9 @@ def run_eda(root: Path) -> pd.DataFrame:
         raise ValueError("Unexpected processed-data schema.")
     audit = value_audit(data, tables)
     findings = create_figures(data, figures)
-    lines = ["# Stage 3 EDA findings", "", "All results below use unweighted analysis records. The Stage 2 weighted youth unemployment rate was about 12.8% after the approved future-starter rule (the earlier active-search-only estimate was about 12.6%).", ""]
+    lines = ["# exploratory analysis EDA findings", "", "All results below use unweighted analysis records. The dataset construction weighted youth unemployment rate was about 12.8% after the approved future-starter rule (the earlier active-search-only estimate was about 12.6%).", ""]
     for name, finding in findings.items():
         lines.extend([f"## {name.replace('_', ' ').title()}", "", finding, f"Figure: `reports/figures/{name}.png`.", ""])
-    lines.extend(["## Category and missing-value review", "", "All 19 features have zero observed NaNs. The value audit is in `reports/tables/feature_value_counts_top15.csv`; all observed feature values below 50 records, including discrete numeric values, are in `reports/tables/rare_categories.csv`. Counts are unweighted and small groups should be interpreted cautiously.", "", "Education code 1 denotes no formal education; current enrolment code 1 means not enrolled; training code 0 means no training. These are substantive responses, not missing values. No 97, 98 or 99 codes are retained in the observed features.", "", "## Proposed engineering for Gate G3", "", "- Consider treating education codes as ordered only after confirming the degree categories form a meaningful order.", "- Consider log-transforming Census density inside the model pipeline; density differs widely across provinces.", "- Consider children under 15 per household member inside the pipeline, with a safe denominator.", "- Consider an age band inside the pipeline if the team approves losing age detail.", "", "These are proposals, not implemented features; comparisons must respect grouped splits and validation-only model selection."])
+    lines.extend(["## Category and missing-value review", "", "All 19 features have zero observed NaNs. The value audit is in `reports/tables/feature_value_counts_top15.csv`; all observed feature values below 50 records, including discrete numeric values, are in `reports/tables/rare_categories.csv`. Counts are unweighted and small groups should be interpreted cautiously.", "", "Education code 1 denotes no formal education; current enrolment code 1 means not enrolled; training code 0 means no training. These are substantive responses, not missing values. No 97, 98 or 99 codes are retained in the observed features.", "", "## Proposed engineering for pipeline review", "", "- Consider treating education codes as ordered only after confirming the degree categories form a meaningful order.", "- Consider log-transforming Census density inside the model pipeline; density differs widely across provinces.", "- Consider children under 15 per household member inside the pipeline, with a safe denominator.", "- Consider an age band inside the pipeline if the team approves losing age detail.", "", "These are proposals, not implemented features; comparisons must respect grouped splits and validation-only model selection."])
     (root / "docs" / "eda_findings.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return audit

@@ -1,4 +1,4 @@
-# Stage 1 proposal for human review
+# data acquisition proposal for human review
 
 ## 2026-11-15: approved future-starter approximation
 
@@ -6,7 +6,7 @@ The [ILO derivation guide for the 19th ICLS, paragraphs 47–48](https://webapps
 
 The questionnaire and Stata variable labels were inspected for a job-start date or duration; no such field was identified. `S5C6` concerns returning to an existing job and `S9C6` asks availability within two weeks, neither establishes the future job's start date. Thus a three-month limit cannot be applied or compared using an observed start date. The approved `S9C5=1` rule uses “near future” as a proxy, and may include starts outside the ILO's generally three-month reference. Published totals provide corroboration, not proof that every selected individual satisfies it. The earlier active-search-only rule below is superseded.
 
-The team approved Gate G1 on 2026-11-15 subject to the Stage 2 reproduction test. The user subsequently chose questionnaire coding for `S5C5` and the original three-field group key. The latest reproduction failed the revised tolerance; no analysis dataset or grouping rule has been implemented.
+The team approved team approval on 2026-11-15 subject to the dataset construction reproduction test. The user subsequently chose questionnaire coding for `S5C5` and the original three-field group key. The latest reproduction failed the revised tolerance; no analysis dataset or grouping rule has been implemented.
 
 ## Previous reproduction (before future starters were approved)
 
@@ -24,7 +24,7 @@ The revised rule includes `S9C1=2`, `S9C5=1`, `S9C6=1` when not employed. The es
 
 Questionnaire codes `S4C81` and `S4C82` are 1 yes, 2 no; `S4C81` has a malformed Stata value-label entry, so the questionnaire codes are used. Sex permits 1–2, marital status 1–4, relationship 1–9, and education and enrolment 1–16; values outside those ranges become missing. `S4C11` values 1–3 map to yes and 4 to no; other values become missing. Original Stata system missing values are read as missing. The available PBS sampling coding scheme does not document per-feature missing codes, so special missing-code assumptions are not made. Census values and full-roster household counts are derived from source records. Observed feature missing rates are generated in `reports/tables/feature_missingness.csv`.
 
-## Historical: discrepancy discovered during Stage 2
+## Historical: discrepancy discovered during dataset construction
 
 In the [PBS questionnaire](https://www.pbs.gov.pk/wp-content/uploads/2020/07/Questionnaire-of-LFS-2024-25-Final.pdf), question 5.5 code 1 is “Waiting to start new job or business” and code 2 is “Illness or injury”. The downloaded Stata file labels code 1 as illness or injury and code 2 as shift work/flexitime. Its label for code 14 is absent, although 17 records have that numeric code; 50 records have code 1. The dataset alone does not establish whether the numeric values follow the questionnaire or the attached labels. The file also contains 327 zero values in `S5C5` where `S5C4` is missing, so zero must not be assumed to be a valid absence reason without documentation.
 
@@ -42,7 +42,7 @@ Question 4.11 asks whether the person has ever completed or is currently receivi
 
 The Stata labels identify `S5C1` (work for pay), `S5C2` (business or farm), `S5C3` (family farm/business help), `S5C4` (job or business while absent), `S5C5`–`S5C7` (absence details), `S5C8`–`S5C10` (agricultural work and intended use), `S9C1` (job search in the last four weeks), and `S9C6` (availability within two weeks). Stata value labels for `S5C1`–`S5C4`, `S9C1`, and `S9C6` say 1 = yes and 2 = no. Questionnaire skips, missing values, exceptions for future starters, the headline framework, and the full employed classification remain unverified. These fields are forbidden predictors.
 
-The intended population is age 15–24 (`S4C6`), employed or unemployed under the team-approved PBS headline rule. Do not infer the exact rule from field labels alone. Compare resulting weighted estimates with PBS published totals in Stage 2 after approval.
+The intended population is age 15–24 (`S4C6`), employed or unemployed under the team-approved PBS headline rule. Do not infer the exact rule from field labels alone. Compare resulting weighted estimates with PBS published totals in dataset construction after approval.
 
 ## Grouping and geographic join evidence
 
@@ -52,7 +52,7 @@ The intended population is age 15–24 (`S4C6`), employed or unemployed under th
 
 ## Candidate predictor review
 
-The table below records the Stage 1 assessments that preceded the team's conditional Gate G1 approval. The approved list still requires the explicit exclusions and verification recorded above. Census candidates must be constructed from non-outcome aggregate tables only.
+The table below records the data acquisition assessments that preceded the team's conditional team approval approval. The approved list still requires the explicit exclusions and verification recorded above. Census candidates must be constructed from non-outcome aggregate tables only.
 
 | Field | Assessment | Reason |
 |---|---|---|

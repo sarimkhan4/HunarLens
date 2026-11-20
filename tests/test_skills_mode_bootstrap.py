@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_modes_change_and_bootstrap_shares_sum_to_one():
-    spec = spec_from_file_location("skills_modes", ROOT / "scripts/09_analyze_skills.py")
+    spec = spec_from_file_location("skills_modes", ROOT / "scripts/analyze_skills_gap.py")
     module = module_from_spec(spec)
     spec.loader.exec_module(module)
     rows = []

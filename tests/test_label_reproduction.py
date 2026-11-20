@@ -8,7 +8,7 @@ import pandas as pd
 
 
 def test_provisional_routes() -> None:
-    module = runpy.run_path(str(Path(__file__).resolve().parents[1] / "scripts" / "01_build_dataset.py"))
+    module = runpy.run_path(str(Path(__file__).resolve().parents[1] / "scripts" / "build_modeling_dataset.py"))
     empty = {name: float("nan") for name in module["COLS"]}
     rows = [
         {**empty, "S5C1": 1},

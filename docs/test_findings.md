@@ -1,4 +1,4 @@
-# Stage 8: final test findings
+# test evaluation: final test findings
 
 The frozen HGB model was evaluated once on 3,999 labour-force youth, including 508 unemployed people (12.7%). At the frozen F1 threshold, its F1 was 0.360, precision 0.273, recall 0.530, average precision 0.303, and ROC-AUC 0.7520. The stratified Dummy scored 0.123 F1 and 0.127 average precision. HGB's top-10% lift was 2.81, compared with 0.87 for the Dummy. These are unweighted test results.
 

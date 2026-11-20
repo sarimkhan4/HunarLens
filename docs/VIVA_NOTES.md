@@ -1,6 +1,6 @@
 # Viva notes
 
-## Stage 0
+## project setup
 
 **What does the placeholder app do?** It displays the project name and a coming-soon message so the deployment path can be checked early.
 
@@ -10,7 +10,7 @@
 
 **Why pin dependencies and use Python 3.12?** A consistent environment makes local runs and the eventual cloud deployment easier to reproduce.
 
-## Stage 1
+## data acquisition
 
 **Why discover files from PBS landing pages?** Links can change, and discovery ties downloads to the official source.
 
@@ -22,7 +22,7 @@
 
 **Why is the household rule still pending?** The identifier structure and repeats must be checked and approved before grouping.
 
-## Stage 2 reproduction check
+## dataset construction reproduction check
 
 **Why compare the weighted totals with PBS?** It checks whether the proposed classification and survey weights approximately reproduce the published population estimates.
 
@@ -32,7 +32,7 @@
 
 **Why was the youth dataset initially delayed?** The earlier provisional unemployed estimate missed the team's tolerance, so the team reviewed the future-starter rule before continuing.
 
-## Stage 2 completed dataset
+## dataset construction completed dataset
 
 **Why count the full roster before selecting youth?** Otherwise children and older household heads would disappear from household summaries.
 
@@ -42,7 +42,7 @@
 
 **How are identifiers protected?** Raw identifiers are used only to calculate an integer group and household summaries; they are not included in the output table, which is ignored by Git.
 
-## Stage 3 EDA
+## exploratory analysis EDA
 
 **Why use unweighted counts here?** These plots describe the records that later models will see; survey-weighted population estimates answer a different question.
 
@@ -54,7 +54,7 @@
 
 **Why compare models with and without Census fields?** The fields repeat information already determined by province or province and area, so an ablation can show whether they change validation performance.
 
-## Stage 4 pipeline and baseline
+## pipeline and splits pipeline and baseline
 
 **Why group by household?** Similar people in the same household could make validation artificially optimistic if their records appeared on both sides.
 
@@ -66,7 +66,7 @@
 
 **Why compare the dummy models?** They show what a simple non-informative strategy achieves on the same validation data and prevalence.
 
-## Stage 5 model experiments
+## model comparison model experiments
 
 **Why tune with grouped cross-validation on training data?** It keeps households apart in every fold and preserves validation data for a separate comparison.
 
@@ -78,7 +78,7 @@
 
 **Why omit random undersampling?** The team chose class weights and threshold tuning for imbalance experiments without adding another dependency.
 
-## Stage 6: calibration and freeze
+## model freeze: calibration and freeze
 
 **Why choose HGB when Random Forest scored higher?** The team used the approved 0.01 CV tie band and preferred HGB's smaller overfitting gap, file size and prediction time.
 
@@ -90,7 +90,7 @@
 
 **What do the risk bands mean?** They divide validation scores at their 70th and 90th percentiles; they are relative rankings and do not establish individual causation.
 
-## Stage 7: explanations
+## model explanations: explanations
 
 **What does permutation importance measure?** The decrease in validation average precision after values are shuffled; it measures reliance of this fitted model, not causation.
 
@@ -102,7 +102,7 @@
 
 **Why discuss sex and fairness?** Sex is an input to this model, and predictive importance alone cannot establish whether its errors and use are fair across groups.
 
-## Stage 8: final test evaluation
+## test evaluation: final test evaluation
 
 **Why verify the model hash first?** It checks that the model file is the one approved before opening the test split.
 
@@ -114,7 +114,7 @@
 
 **Why inspect subgroups?** Overall performance can hide unequal recall and precision; small positive counts make subgroup estimates less stable.
 
-## Stage 9: Streamlit app
+## application: Streamlit app
 
 **Why does the app pass raw inputs to the saved pipeline?** The same fitted imputation, feature construction and encoding are used in training, testing and the app.
 
@@ -126,7 +126,7 @@
 
 **Why is the app not an individual decision tool?** The survey sample, unweighted model, possible subgroup differences and uncertainty limit what a single estimate can support.
 
-## Stage 9b: live interface
+## interface design: live interface
 
 **What does the risk ruler compare?** It locates a score among aggregate validation predictions for youth in the labour force.
 
@@ -145,7 +145,7 @@
 
 **How does the original prototype show real model results?** A Streamlit component displays the supplied HTML and CSS; Python validates its selections and calls the same frozen pipeline as the original interface.
 
-## Stage 9e: final interface checks
+## interface refinement: final interface checks
 
 **Why compare survey indicators with PBS?** It catches incorrect labels or stale numbers before they appear on the dashboard.
 
@@ -170,7 +170,7 @@
 **Does the phone app use a different prediction function?** No. The same controls, category values, validation functions and frozen pipeline are used; only the visual arrangement changes.
 
 **Why can a table scroll sideways while the page cannot?** Wide result tables need room for their columns. Their own container handles horizontal scrolling so the rest of the page remains fitted to the phone screen.
-# Skills-gap S0 and S1
+# Skills-gap skills setup and variable verification
 
 **Why is this work on a separate branch?** It lets the team review the extension
 before any change reaches the deployed main branch.
@@ -190,7 +190,7 @@ is consistent with the questionnaire.
 
 **Does this audit measure employer demand?** No. Education and training are
 proxies; the survey does not directly count vacancies or employer demand.
-# Skills-gap S1–S3
+# Skills-gap variable verification–skills analysis
 
 **What is the statistical education mismatch?** A worker's education band is
 compared with the most common education band in that occupation's reference group.
@@ -209,7 +209,7 @@ within each resample. These intervals ignore stratification.
 **What does a model-profile shift mean?** It compares frozen-model predictions
 for alternative valid input profiles; it does not establish an effect of
 changing a person's education or training.
-# Pre-S5: mismatch and reproduction
+# Pre-skills dashboard: mismatch and reproduction
 
 **Why report separate mismatch definitions?** Strict above-mode, within-one-band, severe and normative measures answer different questions and cannot form a single range.
 
@@ -219,7 +219,7 @@ changing a person's education or training.
 
 **What does the reproduction check compare?** Weighted unemployment rates among people aged 10 and above in each published education category against PBS Annual Report Table 9.7.
 
-# Stage S5: skills-gap dashboard
+# skills dashboard: skills-gap dashboard
 
 **Why does the dashboard read aggregate tables?** The tables record the approved calculations and disclosure checks; the interface does not need survey person records.
 
@@ -229,7 +229,7 @@ changing a person's education or training.
 
 **Do these patterns measure a person's skills or the number of vacancies?** No. Education and training are proxies, and the survey does not measure employer demand or vacancies.
 
-# Submission preparation: Phase A
+# Submission preparation: submission preparation
 
 **Why is the download manifest useful?** It records the source URL, retrieval date, file size and checksum, making it possible to identify exactly which source was used.
 

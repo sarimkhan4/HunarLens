@@ -445,7 +445,7 @@ def about():
 
 def skills_gap():
     """Show the cached survey aggregates in the accessible classic view."""
-    from prototype_dashboard import static_data
+    from dashboard_component import static_data
     data = static_data()
     st.title("Skills gap")
     st.write("Skills gap, as measurable from the LFS: the difference in education and vocational-training attainment between unemployed and employed youth, the education mismatch of employed youth relative to the occupations they hold, and what happens to youth at each education level in the labour market. Education and training are proxies for skills. Vacancies and employer demand are not measured in the LFS; employer surveys (NAVTTC/NSIS) are cited as context only.")
@@ -531,7 +531,7 @@ def main():
         try:
             if not hasattr(st.components, "v2"):
                 raise RuntimeError("Streamlit custom components are unavailable")
-            from prototype_dashboard import show_dashboard
+            from dashboard_component import show_dashboard
             show_dashboard(metadata, model)
             st.markdown('<style>[data-testid="stMainBlockContainer"] {padding:0!important;max-width:none!important;width:100%!important;} '
                         'header[data-testid="stHeader"] {visibility:hidden;}</style>', unsafe_allow_html=True)

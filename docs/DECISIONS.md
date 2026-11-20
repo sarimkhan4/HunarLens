@@ -1,6 +1,6 @@
 # Decisions
 
-## 2026-11-15 — Stage 0 skeleton
+## 2026-11-15 — project setup skeleton
 
 - Leave the feature lists empty until the team approves them after the data audit. This avoids guessing predictors before inspecting the real data.
 - Keep raw and interim data out of Git because microdata redistribution and privacy must be checked first.
@@ -11,86 +11,86 @@
 - The team chose Python 3.12 instead of 3.11 to match the available project environment. Use Python 3.12 locally and for Streamlit deployment.
 - Pin the six direct runtime libraries and the two development tools to the versions installed in `.venv`. This keeps development tools out of the runtime requirements while recording the tested direct dependencies.
 
-## 2026-11-15 — Stage 1 acquisition and preliminary audit
+## 2026-11-15 — data acquisition acquisition and preliminary audit
 
 - Add `openpyxl` with human approval because pandas needs it to read the official Census Excel files.
 - Keep the feature allowlist, label and household-grouping rule unapproved. Source labels alone do not establish the PBS headline classification or a reliable current-district join.
 - Retain the raw extract under ignored `data/raw/`: its schema includes a name-labelled field and survey identifiers, and file-specific redistribution terms are unresolved.
 
-## 2026-11-15 — Gate G1 approval and Stage 2 pause
+## 2026-11-15 — team approval approval and dataset construction pause
 
 - The team approved the proposed label, features, grouping and geographic approach subject to weighted reproduction. No implementation was authorized to override a contradiction in source documentation.
-- Stage 2 was paused before constructing labels because `S5C5` numeric value labels conflict between the questionnaire and the downloaded Stata file. Resolve the correct coding with the PBS documentation or PBS before implementing the absence rules.
+- dataset construction was paused before constructing labels because `S5C5` numeric value labels conflict between the questionnaire and the downloaded Stata file. Resolve the correct coding with the PBS documentation or PBS before implementing the absence rules.
 - Exclude `S4C11`: its question's response labels explicitly mention training during and before a job. `S4C12` remains unapproved pending verification of its codes and leakage risk.
 
 ## 2026-11-15 — Absence-code fallback and reproduction check
 
 - The team instructed an empirical comparison and a 67-record exclusion if inconclusive. Questionnaire 5.5 has 15 options; Stata labels 1–13 are shifted one option relative to the questionnaire, while Stata code 15 matches option 15 and 14 is unlabelled. The sex check cannot validate either mapping: Stata maternity code 4 has three male and one female, and questionnaire maternity code 5 has no records. Exclude codes 1 and 14 for `S5C4=1`, as instructed, without assuming the remaining mapping is proven.
 - A provisional 10+ weighted calculation failed the pre-agreed 2% unemployed-count tolerance: 5,779,758 versus 5,900,000 (2.038% below). The population estimates and grouped route diagnostics are generated in `reports/tables/`; no youth dataset was created. Inspect PBS's coding and routing and confirm how rounding and future starters affect the published totals before selecting a label.
-- The user superseded the earlier `S4C11` exclusion by authorizing an ever/current versus never collapse if supported by the question. The question supports that wording, but no feature was implemented while the label gate is open. `S4C12` has no attached Stata value labels; inspect Annex C before approving its categories.
+- The user superseded the earlier `S4C11` exclusion by authorizing an ever/current versus never collapse if supported by the question. The question supports that wording, but no feature was implemented while the label team approval is open. `S4C12` has no attached Stata value labels; inspect Annex C before approving its categories.
 - The requested raw grouping diagnostic found 53,974 `PCode` + `EBCode` + `HHNo` groups, mean 6.03 records and maximum 54. Since the maximum exceeds 30, the instructed fallback is `PCode` + `EBCode`; this produces 3,759 groups with mean 86.58 and maximum 189. Neither grouping has been used to build a dataset. The large fallback groups are a limitation to inspect when splitting.
 
-## 2026-11-15 — Revised Stage 2 decisions and gate
+## 2026-11-15 — Revised dataset construction decisions and team approval
 
 - The team chose the questionnaire coding for `S5C5`, treating the Stata labels as misaligned; code 1's median age is 21 and code 2's is 51. This age pattern supports their decision but is not proof of the source coding. Exclude code 14 and missing `S5C5` among `S5C4=1`; the user clarified that `S4C4` was a typo. The prior 67-record exclusion is superseded.
 - The team retained `PCode + EBCode + HHNo` without quarter, replacing the prior fallback decision despite the observed maximum of 54 records. No group ID has been built yet.
 - The report's definition requires active job search, availability and no work; no explicit future-starter exception was found. Do not add people who did not search without PBS support. The team authorized collapsing `S4C11` to ever/current versus never and excluding `S4C12` if its codes cannot be verified; neither has been implemented while reproduction fails.
-- The revised provisional check returned 5,800,161 unemployed and 6.985%, below the required 5.85–5.95 million and 7.05–7.15%. The label gate remains open; do not adjust the label merely to hit the published numbers.
+- The revised provisional check returned 5,800,161 unemployed and 6.985%, below the required 5.85–5.95 million and 7.05–7.15%. The label team approval remains open; do not adjust the label merely to hit the published numbers.
 
-## 2026-11-15 — Future starters and Stage 2 dataset
+## 2026-11-15 — Future starters and dataset construction dataset
 
 - The team approved inclusion of available non-searchers with `S9C5=1`, subject to documentation. The ILO 19th ICLS guide explicitly includes qualifying future starters. PBS records a job starting in the near future but no verified start date, so the ILO's generally three-month limit cannot be checked; this is an approximation. The reproduced PBS totals corroborate the rule but do not prove that all records meet the limit.
 - Use the team-approved `PCode + EBCode + HHNo` as an integer group, calculated on the full roster before youth filtering. No crosswalk is exported. The 54-record maximum and potential reuse of identifiers remain limitations for grouped splits.
 - Use Census province-level density and urban proportion, because those cells are blank in the rural/urban rows; use area-specific average household size. The fixed lookup therefore joins on province and area, with eight matching combinations.
-- Keep Census density in its original unit in the analysis dataset; the requested log transformation belongs in the single fitted scikit-learn pipeline in Stage 4, avoiding feature engineering outside the pipeline. Use only numeric codes for survey categories; invalid codes are mapped to missing and no undocumented value is interpreted as a missing code.
+- Keep Census density in its original unit in the analysis dataset; the requested log transformation belongs in the single fitted scikit-learn pipeline in pipeline and splits, avoiding feature engineering outside the pipeline. Use only numeric codes for survey categories; invalid codes are mapped to missing and no undocumented value is interpreted as a missing code.
 - Exclude `S4C12`: training type lacks Stata value labels and the available PBS sampling coding scheme has no verified training-category annex. Convert `S4C11` categories 1–3 to yes and 4 to no, dropping job timing.
 - Do not remove identical feature rows as duplicates: the verified household-plus-person keys are unique, and two different people can legitimately share all model features. Abort rather than silently dropping a duplicated source person key.
 
-## 2026-11-15 — Gate G2 and Stage 3 audit
+## 2026-11-15 — team approval and exploratory analysis audit
 
-- The team approved Gate G2. The Stage 2 value audit found no retained 97, 98 or 99 codes, and no documented missing code requiring conversion; existing valid-code checks convert unexpected categorical codes to missing. Education code 1 means no formal education and enrolment code 1 means currently not enrolled; both are meaningful responses, not missing. `has_training=0` means not received or receiving training, not a missing category. Training type is excluded.
-- `census_density` and `census_urban_proportion` are constant within province and add no information beyond province. `census_household_size` varies by area within every province, so it is constant within province × area, not province alone; it adds no information beyond that joint key. Stage 5 must include a comparison with and without all Census features. Stage 7 must permute province, area and all Census features together, preserving valid province × area combinations; interpret this as joint importance for the entire geographic group.
+- The team approved team approval. The dataset construction value audit found no retained 97, 98 or 99 codes, and no documented missing code requiring conversion; existing valid-code checks convert unexpected categorical codes to missing. Education code 1 means no formal education and enrolment code 1 means currently not enrolled; both are meaningful responses, not missing. `has_training=0` means not received or receiving training, not a missing category. Training type is excluded.
+- `census_density` and `census_urban_proportion` are constant within province and add no information beyond province. `census_household_size` varies by area within every province, so it is constant within province × area, not province alone; it adds no information beyond that joint key. model comparison must include a comparison with and without all Census features. model explanations must permute province, area and all Census features together, preserving valid province × area combinations; interpret this as joint importance for the entire geographic group.
 - Treat `can_read`, `can_write`, and `education_level` as a correlated group when interpreting later importance results. Their relationship can dilute the apparent contribution of any one variable.
 
-## 2026-11-15 — Gate G3 and Stage 4 preprocessing
+## 2026-11-15 — team approval and pipeline and splits preprocessing
 
 - The team approved five engineered outputs: the numeric education code alongside categorical education, age bands 15–17/18–20/21–24, children under 15 divided by household size, household size clipped at the training-fold 99th percentile, and a categorical sex × area interaction. No Census density log or other engineered output is added. The clipped size replaces the original size in the numeric branch.
 - The EDA shows a substantial area difference for females (24.5% urban versus 11.1% rural), compared with 14.1% versus 11.8% for males, so the interaction was selected. These descriptive rates are not causal evidence.
 - The education codes include distinct degree subjects and do not form an unquestionable progression; using the raw code as ordinal is an approved modelling assumption, and the categorical representation is retained. No code or category is learned from validation or test rows.
 - Use the approved 20-fold household-grouped split, persist a dataset hash with row assignments, and derive the five-fold scan on training rows only. Thresholds, calibration, model selection and test metrics are deferred.
 
-## 2026-11-15 — Stage 5 experiment protocol
+## 2026-11-15 — model comparison experiment protocol
 
 - The team approved dropping E5 undersampling; class weighting and validation threshold tuning are tested instead, avoiding a new dependency.
 - Reduce the Random Forest randomized search from 25 to 15 iterations. The default 100-tree forest required approximately 15 seconds for grouped CV and refit on this machine, so the original 25 iterations at 200–400 trees were projected to take many minutes; the user authorized a reduction to 15 when runtime is too long.
 - Reduce the HistGradientBoosting search from 30 to 15 iterations as well. Its default 100-iteration grouped CV and refit took approximately 11 seconds, and each planned candidate uses 200 or 400 iterations; the full search would substantially extend runtime.
-- The Stage 5 CV rule nominates Random Forest: mean grouped CV average precision is 0.3076, versus 0.2977 for HistGradientBoosting and 0.2811 for Logistic Regression. The forest is also the simpler of the two models within 0.01 of the best score. This is a candidate for Gate G5, not a final model choice or freeze.
+- The model comparison CV rule nominates Random Forest: mean grouped CV average precision is 0.3076, versus 0.2977 for HistGradientBoosting and 0.2811 for Logistic Regression. The forest is also the simpler of the two models within 0.01 of the best score. This is a candidate for team approval, not a final model choice or freeze.
 - Tuned forest train/CV/validation average precision is 0.4732/0.3076/0.3277, indicating a substantial training-to-held-out gap. Threshold-optimized validation F1 is optimistic because the same validation labels select and assess the threshold; final evaluation remains untouched.
 - Grouped CV forest ablation scores are 0.3009 for individual features, 0.3061 with household features, and 0.3076 with all features. The requested full-without-Census and individual-plus-household comparisons are identical feature sets and both score 0.3061; the small difference is not evidence of a causal Census effect.
 
-## 2026-11-15 — Gate G5 and Stage 6
+## 2026-11-15 — team approval and model freeze
 
 - The team approved HistGradientBoosting with the E3 parameters and no class weight as the final model. Random Forest scored highest on every held-out metric but its 0.0099 CV average-precision advantage was inside the 0.01 tie band. The team selected HGB for its smaller train-to-CV gap (0.1037 versus 0.1655), much smaller file and faster predictions.
-- Gate G6 approved the raw-probability HGB freeze under the pre-agreed tie-break: RF was marginally ahead on every held-out metric, but RF minus HGB CV average precision was 0.0099, below 0.01. HGB was selected for its smaller train–CV gap, file size and prediction time. The approved F1 and screening thresholds are 0.182931 and 0.154107; high and elevated band cut-offs are 0.268655 and 0.158568 (displayed rounded values; metadata retains the full calculated precision).
+- team approval approved the raw-probability HGB freeze under the pre-agreed tie-break: RF was marginally ahead on every held-out metric, but RF minus HGB CV average precision was 0.0099, below 0.01. HGB was selected for its smaller train–CV gap, file size and prediction time. The approved F1 and screening thresholds are 0.182931 and 0.154107; high and elevated band cut-offs are 0.268655 and 0.158568 (displayed rounded values; metadata retains the full calculated precision).
 - Paired CV differences use identical grouped folds; their population standard deviations describe fold variation, not independent uncertainty estimates. The HGB individual/household/Census ablation uses the same folds and tuned parameters. Force dense preprocessing for HGB ablation because dropping columns can otherwise produce a sparse matrix unsupported by HGB.
 - Compare sigmoid and raw scores on validation; retain sigmoid only if its validation Brier score improves by at least 2% relative and its fixed-bin calibration error decreases. Raw Brier is 0.100341 versus sigmoid 0.100335, so retain raw. Sigmoid was fitted and evaluated on the same validation labels, so this comparison is optimistic and does not establish external calibration.
 - Choose the F1 threshold as the midpoint of all thresholds within 0.005 of maximum validation F1. The qualifying endpoints are 0.175638 and 0.190225; their midpoint is 0.182931. Because F1 is discontinuous and the qualifying set need not be contiguous, the midpoint's F1 (0.353569) is slightly more than 0.005 below the maximum (0.358974). The screening threshold is the highest validation threshold reaching recall 0.60. Both validation results are optimistic because the same labels select and assess them.
 - Risk bands use the validation 90th and 70th probability percentiles; ties at cutoffs may change exact band proportions. The chosen pipeline remains trained on train only. Test observations remain sealed. Do not create the frozen-v1 tag until the team's approval.
 
-## 2026-11-15 — Gate G6 and Stage 7
+## 2026-11-15 — team approval and model explanations
 
-- Gate G6 approved the freeze. The `frozen-v1` tag points to the approved HGB model commit; Stage 7 adds training-derived reference values to metadata without refitting or changing the frozen model.
-- The team accepted Stage 7. The SHA-256 of `models/final_pipeline.joblib` is `6778affc93d96a6d38044c406e7829f2827addbc0b75bdcafcd4106ff4cf35f3`; the working file matches the binary retrieved directly from `frozen-v1` byte for byte. The tag remains unchanged.
+- team approval approved the freeze. The `frozen-v1` tag points to the approved HGB model commit; model explanations adds training-derived reference values to metadata without refitting or changing the frozen model.
+- The team accepted model explanations. The SHA-256 of `models/final_pipeline.joblib` is `6778affc93d96a6d38044c406e7829f2827addbc0b75bdcafcd4106ff4cf35f3`; the working file matches the binary retrieved directly from `frozen-v1` byte for byte. The tag remains unchanged.
 - On the same five grouped training folds and HGB hyperparameters, removing `currently_enrolled` lowers mean CV average precision from 0.297705 to 0.250015 (difference -0.047690). The frozen estimator and feature list are unchanged.
 - Add Geography (province, area, and all three Census features) and Sex as separate joint-permutation groups. Keep the earlier Region and Sex and area rows for reference; display the geographically consistent grouping in the chart.
 - Use 20 validation permutations through the complete pipeline, individually and in the requested groups. Education and enrolment lead. Their source fields S4C9 and S4C10 are approved roster inputs and are not used in the Section 5/9 label; no direct label input was found in this review.
 - The requested Region group excludes area because area is grouped with sex. As Census household size varies by province × area, these separate permutations can create inconsistent geographic combinations. Interpret the resulting sensitivities cautiously; the prior province + area + Census grouped-importance recommendation remains relevant for a future supplementary analysis.
 
-## Stage 8 — first test opening
+## test evaluation — first test opening
 
 - Test split first opened at 2026-11-15T17:52:25+05:00; frozen model SHA-256 `6778affc93d96a6d38044c406e7829f2827addbc0b75bdcafcd4106ff4cf35f3`. The opening is recorded before parsing test rows; the saved predictions are the sole source for later test analyses.
 
-## 2026-11-15 — Stage 9 app
+## 2026-11-15 — application app
 
 - The app passes validated raw inputs to the frozen pipeline and looks up Census indicators by province and area; it does not fit, alter or replace the model. All UI category choices and ranges come from training metadata, with questionnaire labels for display.
 - The roster defines other youth as household members aged 15–24 excluding the subject. Household size must include the subject, children under 15 and other youth. A subject who is the household head supplies the head's sex and education directly; reading and writing answers must be consistent.
@@ -107,7 +107,7 @@
 - Describe enrolment results as associations in the labour-force sample; selection and the availability/search rules are hypotheses, not established explanations. The enrolment tooltip, the unweighted test summary and the privacy and non-affiliation statements provide context without changing prediction behavior.
 - Report validation calibration for enrolment × sex × area only when a cell has at least 30 records. Flag an absolute mean-prediction versus observed-rate gap over 0.05. These descriptive cells do not establish individual calibration and do not replace the frozen test evaluation.
 
-## 2026-11-15 — Stage 9b interface
+## 2026-11-15 — interface design interface
 
 - Replace the submit form with live widget updates and a named Streamlit result fragment. Widget state is session-scoped; application code does not persist or log user-entered values. Validation and prediction continue through the existing functions and unchanged frozen pipeline.
 - Generate the risk ruler from 101 aggregate validation-score quantiles; the saved metadata continues to define the bands and thresholds. The ruler is a relative position among validation youth in the labour force, not a population percentile or an individual diagnosis.
@@ -146,7 +146,7 @@ Following further desktop feedback, replace the result card's sticky position an
 
 For the next layout correction, place the existing exploration cards directly below the estimate in the right column, with the one-input exploration expanded initially. This uses the space beside the lower form fields; both columns still use normal page scrolling. Preserve the user's expanded/collapsed state during updates.
 
-The original 6:5 PR image cannot fill a wide card and remain short without distortion. Generate a separate landscape display figure (`test_pr_curve_wide.png`) using `scripts/11_prepare_display_curve.py` from the existing sealed prediction cache, as allowed for later presentation of Stage 8 results. This script does not load a model or the test split and does not rescore or retune anything. It retains all original precision/recall coordinates and reads the AP and prevalence labels from the saved metric table. The original test figures, metric tables, prediction cache, model, metadata and thresholds remain unchanged.
+The original 6:5 PR image cannot fill a wide card and remain short without distortion. Generate a separate landscape display figure (`test_pr_curve_wide.png`) using `scripts/prepare_display_curve.py` from the existing sealed prediction cache, as allowed for later presentation of test evaluation results. This script does not load a model or the test split and does not rescore or retune anything. It retains all original precision/recall coordinates and reads the AP and prevalence labels from the saved metric table. The original test figures, metric tables, prediction cache, model, metadata and thresholds remain unchanged.
 
 Remove the profile's save/clear comparison controls and their browser score-retention code at the team's request. Keep Copy summary with a dedicated status message; no other layout or prediction behavior changes.
 
@@ -157,10 +157,10 @@ Make Explore one input a permanently visible card below the estimate. Move How t
 Extend the approved visual styling using only media queries at widths of 760px and below. Restore the four input-group headings, use one column of form controls on phones (two within groups at 540–760px), provide 44px minimum input/button touch targets, and increase mobile label readability. Keep profile output and exploration on normal page scrolling, keep tables scrollable within their cards, and reserve space for the mobile navigation and safe area. The native fallback receives mobile typography adjustments under the same breakpoint.
 
 Do not modify the desktop selectors or the HTML, JavaScript, prediction/validation functions, model, metadata, feature code, dependencies or saved evaluation results. Compare the rendered desktop styles before and after at 761px, 1280px and 1440px; verify all four pages at 360px, 390px, 430px and 760px and check the approved fixture probabilities and invalid-input behavior on the mobile layout.
-# 2026-11-19 — skills-gap S0 and S1 audit
+# 2026-11-19 — skills-gap skills setup and variable verification audit
 
 - Begin the skills extension on the separate `skills-gap` branch; R15 keeps
-  labour-market fields out of the frozen model. S1 is an inventory and
+  labour-market fields out of the frozen model. variable verification is an inventory and
   disclosure-safe aggregate audit, not approval to build the extension.
 - Treat `S9C10` as an unresolved questionnaire/Stata label mismatch: its
   prior-occupation routing supports the questionnaire's previous-work meaning.
@@ -168,7 +168,7 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
   pending the team's decision. The PBS occupation version discrepancy and
   unlabelled `Fstatus` need review.
 - The proposed education and occupation groupings, normative mapping,
-  optional analyses and five-variable check remain at Gate S1. In particular,
+  optional analyses and five-variable check remain at team approval variable verification. In particular,
   codes 2–3 are below primary and cannot accurately be labelled primary/middle.
   The team has not approved these proposals.
 # 2026-11-19 — skills-gap autopilot verification and stop
@@ -182,15 +182,15 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
   lenses for this run: the industry code document was not verified; the study
   fields are not comprehensive; and reasons for not searching are not general
   reasons for failing to find work. `Fstatus` is not used.
-- The S2 comparison uses PBS table 17 for occupation and table 7 for literacy
+- The skills dataset construction comparison uses PBS table 17 for occupation and table 7 for literacy
   and education. The denominators differ: table 17 is a distribution among
   employed people, whereas table 7 cells are shares of the whole age-10-plus
   population. The generated reproduction table records each comparison.
-- S3 is stopped at the user-specified uncovered-definition condition. A move
+- skills analysis is stopped at the user-specified uncovered-definition condition. A move
   to the next education band does not specify which actual model input code
   to use when that band contains several distinct categories. Different choices
   may change the estimated model shift; no representative code was selected.
-# 2026-11-19 — skills-gap S1 verification and S3
+# 2026-11-19 — skills-gap variable verification verification and skills analysis
 
 - The team specified the education-profile scenario: average predictions for
   all valid non-rare codes in the next band using their training-split code
@@ -211,7 +211,7 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
   predefined normative mapping remains fixed. Point estimates are unchanged.
 - Use a git-ignored repository-local pytest temporary directory to avoid
   Windows sandbox access errors; record the completed test result from pytest's
-  JUnit output before regenerating the sign-off.
+  JUnit output before regenerating the summary.
 # 2026-11-19 — skills-gap interpretation refinements
 
 - Report a one-band tolerance and a two-or-more-band over-education variant
@@ -222,7 +222,7 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
 - Label the survey's not-employed-and-not-enrolled measure approximate NEET
   and distinguish it from the PBS reference indicator, which considers training.
 - Preserve the frozen model, its metadata, and the sealed model test results.
-# 2026-11-19 — skills-gap sign-off suppression and diagnostics
+# 2026-11-19 — skills-gap summary suppression and diagnostics
 
 - The team authorized treating impossible-by-construction outcomes as
   structural zeros, displaying a dash and zero cases. Suppress only nonzero
@@ -232,15 +232,15 @@ Do not modify the desktop selectors or the HTML, JavaScript, prediction/validati
   model and sealed model evaluation unchanged.
 - The existing privacy-test assertions were updated only to distinguish
   structural or observed zeros from nonzero small cells, as the team authorized.
-# 2026-11-19: Pre-S5 mismatch and reproduction checks
+# 2026-11-19: Pre-skills dashboard mismatch and reproduction checks
 
 Report each mismatch definition separately, flag occupation estimates when the mode changes in more than 10% of bootstrap samples or the interval exceeds 30 percentage points, and show their bootstrap ranges. The 25–44 and all-employed reference modes coincide in these data, so their point estimates are not independent sensitivity evidence. The separate all-age education unemployment reproduction uses PBS Annual Report Table 9.7 and the approved label; no label was tuned.
 
 # 2026-11-19: Skills-gap dashboard
 
-Stage S5 reads cached, generated aggregate skills tables. Occupation-level tolerance and severe comparisons use the approved all-employed reference and the same re-estimated PSU-cluster bootstrap, saved separately from earlier analysis results. Subgroup filters offer only combinations present in the tables. The classic view presents the same estimates in tables.
+skills dashboard reads cached, generated aggregate skills tables. Occupation-level tolerance and severe comparisons use the approved all-employed reference and the same re-estimated PSU-cluster bootstrap, saved separately from earlier analysis results. Subgroup filters offer only combinations present in the tables. The classic view presents the same estimates in tables.
 
-# 2026-11-19: Submission preparation, Phase A
+# 2026-11-19: Submission preparation, submission preparation
 
 Prepare a source catalogue from the download manifest and separately record automated link checks. PBS's older and newer policy descriptions require file-specific clarification, so raw files are excluded pending confirmation. A dry-run manifest applies explicit privacy and size checks; cleanup entries are recommendations for review, not authorization to delete workspace files. Model artefacts and existing evaluation results remain frozen.
 

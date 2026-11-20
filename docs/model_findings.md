@@ -1,4 +1,4 @@
-# Stage 7 validation explanations
+# model explanations validation explanations
 
 These results describe associations represented by the frozen HGB model on 3,997 validation rows. Average precision is 0.3123 and unemployment prevalence is 0.1268. Permutation importance is the decrease in average precision after inputs are shuffled 20 times; error bars are one permutation standard deviation, not confidence intervals. Differences smaller than the error bars are not meaningful. Correlated features can share or mask importance.
 

@@ -1,7 +1,7 @@
 # AGENTS.md — HunarLens (CT-378 Machine Learning semester project)
 
 > Place this file in the repository root. Codex reads it before every task.
-> The step-by-step build plan lives in `docs/IMPLEMENTATION_PLAN.md`. Follow it stage by stage.
+> The step-by-step build plan lives in `docs/process/project_plan.md`. Follow it stage by stage.
 
 ---
 
@@ -30,7 +30,7 @@ Imputation, encoding, scaling and feature engineering live inside a single `Pipe
 **R3 — Household-aware splits.**
 `group_id` (household) must never appear in more than one of train / val / test, and never in more than one CV fold. Split is **70/15/15**, stratified on the target, `random_state=42`, saved to `data/processed/split_assignments.csv`. Every experiment reads that file. Never use a plain random `train_test_split`.
 
-**R4 — The test set is opened exactly once, in Stage 8.**
+**R4 — The test set is opened exactly once, in test evaluation.**
 Model, hyperparameters, calibration and threshold must be frozen before that. Never compute test metrics, plots or importances earlier. If it happens by accident, tell the human and log it in `docs/DECISIONS.md`.
 
 **R5 — Tuning protocol.**
@@ -52,19 +52,19 @@ If any metric is far above the earlier ~0.3 F1 range, or any single feature alon
 Python **3.12**. `requirements.txt` has exact `==` pins (runtime only, so the Streamlit build stays small); `requirements-dev.txt` holds pytest/jupyter. Core libraries: pandas, numpy, scikit-learn, matplotlib, joblib, streamlit. Ask before adding any library. No deep learning. No SHAP (decided: permutation importance instead).
 
 **R11 — Stay in scope.**
-Do not edit `AGENTS.md` or `docs/IMPLEMENTATION_PLAN.md` without human approval. Record every non-trivial decision in `docs/DECISIONS.md` (date, decision, reason).
+Do not edit `AGENTS.md` or `docs/process/project_plan.md` without human approval. Record every non-trivial decision in `docs/DECISIONS.md` (date, decision, reason).
 
 **R12 — Stop at the gates.**
-Finish one stage, print the STAGE REPORT (section 5), and **stop**. Do not begin the next stage.
+Finish one stage, print the WORK REPORT (section 5), and **stop**. Do not begin the next stage.
 
 **R13 — Data acquisition.**
-Raw data comes only from the official PBS pages (LFS "Labour Force Statistics" page and the Census 2023 detailed-results page), downloaded by `scripts/00_download_data.py`. Discover links from the landing pages; never guess or reuse remembered URLs, and never use third-party copies of the data. Write `data/raw/MANIFEST.json` (URL, access date, size, SHA-256). If the network is blocked or an archive cannot be extracted, **stop and ask the humans** to place the files in `data/raw/`.
+Raw data comes only from the official PBS pages (LFS "Labour Force Statistics" page and the Census 2023 detailed-results page), downloaded by `scripts/download_data.py`. Discover links from the landing pages; never guess or reuse remembered URLs, and never use third-party copies of the data. Write `data/raw/MANIFEST.json` (URL, access date, size, SHA-256). If the network is blocked or an archive cannot be extracted, **stop and ask the humans** to place the files in `data/raw/`.
 
 **R14 — Weights and design variables are not features.**
-Survey weights, PSU/household identifiers, record IDs and other sampling-design variables are never predictors. The weight is used only for the label reproduction test in Stage 2 (and for an optional sensitivity check if the team approves).
+Survey weights, PSU/household identifiers, record IDs and other sampling-design variables are never predictors. The weight is used only for the label reproduction test in dataset construction (and for an optional sensitivity check if the team approves).
 
 **R15 — Skills-gap work.**
-Skills-gap work follows docs/SKILLS_GAP_PLAN.md; labour-market variables are used only in scripts/09_* and src/hunarlens/skills.py, never in model inputs.
+Skills-gap work follows docs/process/skills_gap_plan.md; labour-market variables are used only in scripts/09_* and src/hunarlens/skills.py, never in model inputs.
 
 ---
 
@@ -85,19 +85,19 @@ hunarlens/
 │       ├── census_lookup.csv    # small regional table used by the app (committed)
 │       └── split_assignments.csv
 ├── docs/
-│   ├── IMPLEMENTATION_PLAN.md
+│   ├── project_plan.md
 │   ├── data_dictionary.md
 │   ├── label_definition.md
 │   ├── eda_findings.md
 │   ├── DECISIONS.md
 │   └── VIVA_NOTES.md
 ├── notebooks/                   # narrative of the ML lifecycle (thin; logic is in src/)
-│   ├── 01_data_audit.ipynb
-│   ├── 02_eda.ipynb
-│   ├── 03_baseline_pipeline.ipynb
-│   ├── 04_model_experiments.ipynb
+│   ├── data_audit.ipynb
+│   ├── exploratory_analysis.ipynb
+│   ├── baseline_and_pipeline.ipynb
+│   ├── model_comparison.ipynb
 │   ├── 05_final_model_and_explainability.ipynb
-│   └── 06_test_evaluation.ipynb
+│   └── test_set_evaluation.ipynb
 ├── src/hunarlens/
 │   ├── __init__.py
 │   ├── config.py                # constants, feature lists, paths
@@ -108,13 +108,13 @@ hunarlens/
 │   ├── evaluate.py              # metrics, curves, lift, bootstrap CIs
 │   └── explain.py               # permutation importance, local what-if
 ├── scripts/
-│   ├── 00_download_data.py      # official PBS files -> data/raw + MANIFEST.json
-│   ├── 01_build_dataset.py
-│   ├── 02_make_splits.py
-│   ├── 03_run_experiments.py
-│   ├── 04_freeze_model.py
-│   ├── 05_explain.py
-│   └── 06_final_test_eval.py
+│   ├── download_data.py      # official PBS files -> data/raw + MANIFEST.json
+│   ├── build_modeling_dataset.py
+│   ├── make_splits.py
+│   ├── compare_models.py
+│   ├── save_final_model.py
+│   ├── explain_model.py
+│   └── evaluate_on_test_set.py
 ├── models/
 │   ├── final_pipeline.joblib
 │   └── metadata.json
@@ -141,11 +141,11 @@ hunarlens/
 
 ---
 
-## 5. Stage workflow
+## 5. Project workflow
 
-Work follows `docs/IMPLEMENTATION_PLAN.md`:
+Work follows `docs/process/project_plan.md`:
 
-| Stage | Name |
+| Topic | Name |
 |---|---|
 | 0 | Setup and hello-world deployment |
 | 1 | Data download (scripted) and audit |
@@ -163,7 +163,7 @@ For each stage:
 1. Restate the goal and acceptance criteria in three lines.
 2. **Inspect the real files first.** Quote real column names. Never invent variable names, file names or codes.
 3. Implement, then run `pytest -q`.
-4. Print a **STAGE REPORT**: what was built, files touched, key numbers (rows, prevalence per split, metrics), anything surprising, open questions for the humans.
+4. Print a **WORK REPORT**: what was built, files touched, key numbers (rows, prevalence per split, metrics), anything surprising, open questions for the humans.
 5. **Stop** and wait for approval.
 
 **Human-only decisions (ask, never guess):** the label rule, the household-ID rule, the final feature allowlist, the final model choice, the threshold policy, anything touching the test set, and Streamlit deployment settings.
@@ -177,13 +177,13 @@ python -m venv .venv
 source .venv/bin/activate            # Windows: .venv\Scripts\activate
 pip install -r requirements.txt -r requirements-dev.txt
 pytest -q
-python scripts/00_download_data.py
-python scripts/01_build_dataset.py
-python scripts/02_make_splits.py
-python scripts/03_run_experiments.py
-python scripts/04_freeze_model.py
-python scripts/05_explain.py
-python scripts/06_final_test_eval.py   # Stage 8 only, once
+python scripts/download_data.py
+python scripts/build_modeling_dataset.py
+python scripts/make_splits.py
+python scripts/compare_models.py
+python scripts/save_final_model.py
+python scripts/explain_model.py
+python scripts/evaluate_on_test_set.py   # test evaluation only, once
 streamlit run app/streamlit_app.py
 ```
 

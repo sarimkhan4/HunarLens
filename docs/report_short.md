@@ -34,7 +34,7 @@ Primary F1 has a household-bootstrap interval of 0.328–0.393. The weighted you
 | Intermediate | 3849 | 664 | 17.5% | 16.1% | 19.1% |
 | Degree or above | 1507 | 343 | 22.6% | 20.3% | 25.0% |
 
-Patterns vary across subgroups and can reflect labour-force selection; some subgroup results are unreliable. Occupation modes can change across bootstrap samples. The approximate NEET calculation omits recent-training information. Full findings, intervals, comparison tables and definitions are in [test_findings.md](test_findings.md) and [skills_gap_signoff.md](skills_gap_signoff.md).
+Patterns vary across subgroups and can reflect labour-force selection; some subgroup results are unreliable. Occupation modes can change across bootstrap samples. The approximate NEET calculation omits recent-training information. Full findings, intervals, comparison tables and definitions are in [test_findings.md](test_findings.md) and [skills_gap_summary.md](skills_gap_summary.md).
 
 ## Deployment, limitations and future work
 
@@ -56,8 +56,8 @@ PBS, ILO, ILOSTAT, ETF and NAVTTC/NSIS sources and access flags are listed in [D
 | Imbalance | Compare class weights; choose threshold on validation | Undersampling dependency | Avoid added dependency and report operating trade-offs | ../reports/tables/experiments.csv |
 | Selection | HistGradientBoosting within the pre-agreed CV tie band | Highest-scoring random forest | Smaller train–CV gap, model size and prediction time; forest led held-out metrics | ../reports/tables/generalization_gap.csv |
 | Calibration | Use raw probabilities | Sigmoid calibration | Validation calibration did not clearly improve | ../reports/tables/calibration_validation.csv |
-| Threshold | Validation F1 plateau midpoint and separate screening threshold | A single noisy F1 peak | Improve stability and show recall trade-off | ../reports/tables/stage6_thresholds.csv |
+| Threshold | Validation F1 plateau midpoint and separate screening threshold | A single noisy F1 peak | Improve stability and show recall trade-off | ../reports/tables/validation_thresholds.csv |
 | Test policy | Freeze before one test scoring | Repeated test-driven selection | Protect held-out evaluation | test_findings.md |
 | Explanation | Grouped and individual permutation importance | Unapproved explanatory dependencies | Model-agnostic association and correlated-group interpretation | model_findings.md |
-| Interface | Population context, uncertainty and non-decision wording | Individual verdict | Clarify sample and avoid prescriptive use | ../app/prototype.html |
+| Interface | Population context, uncertainty and non-decision wording | Individual verdict | Clarify sample and avoid prescriptive use | ../app/dashboard.html |
 | Skills gap | Weighted education/training proxies, mode norms and PSU intervals | Claiming direct skill demand | Survey records occupations, not vacancies or individual skills | skills_gap_methods.md |

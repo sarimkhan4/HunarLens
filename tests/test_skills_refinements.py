@@ -24,13 +24,13 @@ def test_findings_avoid_causal_phrases():
 
 
 def test_docs_match_regeneration_from_tables(tmp_path):
-    report = load("skills_report_refinements", "09_skills_report.py")
+    report = load("skills_report_refinements", "write_skills_report.py")
     report.ROOT = tmp_path
     report.DOCS = tmp_path / "docs"
     report.DOCS.mkdir()
     (tmp_path / "notebooks").mkdir()
     report.write()
-    for name in ["skills_gap_findings.md", "skills_gap_signoff.md"]:
+    for name in ["skills_gap_findings.md", "skills_gap_summary.md"]:
         actual = (ROOT / "docs" / name).read_text(encoding="utf-8")
         expected = (report.DOCS / name).read_text(encoding="utf-8")
         assert actual == expected
@@ -38,7 +38,7 @@ def test_docs_match_regeneration_from_tables(tmp_path):
 
 
 def test_outcome_shares_partition_each_education_band():
-    analysis = load("skills_outcomes_refinements", "09_analyze_skills.py")
+    analysis = load("skills_outcomes_refinements", "analyze_skills_gap.py")
     _, _, youth = analysis.prepare()
     labour = youth.loc[(youth.employed | youth.unemployed) & youth.band.gt(0)]
     table = pd.read_csv(ROOT / "reports/tables/skills_outcomes_by_education.csv", keep_default_na=False)

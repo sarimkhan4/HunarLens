@@ -1,6 +1,6 @@
-# Stage 3 EDA findings
+# exploratory analysis EDA findings
 
-All results below use unweighted analysis records. The Stage 2 weighted youth unemployment rate was about 12.8% after the approved future-starter rule (the earlier active-search-only estimate was about 12.6%).
+All results below use unweighted analysis records. The dataset construction weighted youth unemployment rate was about 12.8% after the approved future-starter rule (the earlier active-search-only estimate was about 12.6%).
 
 ## Class Balance
 
@@ -88,7 +88,7 @@ All 19 features have zero observed NaNs. The value audit is in `reports/tables/f
 
 Education code 1 denotes no formal education; current enrolment code 1 means not enrolled; training code 0 means no training. These are substantive responses, not missing values. No 97, 98 or 99 codes are retained in the observed features.
 
-## Proposed engineering for Gate G3
+## Proposed engineering for team approval
 
 - Consider treating education codes as ordered only after confirming the degree categories form a meaningful order.
 - Consider log-transforming Census density inside the model pipeline; density differs widely across provinces.
