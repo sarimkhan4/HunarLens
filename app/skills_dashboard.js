@@ -1,4 +1,26 @@
 export const skillsPercent = value => typeof value === 'number' ? (value * 100).toFixed(1) + '%' : String(value);
+const occupationLabels = {
+  1: 'Managers', 2: 'Professionals', 3: 'Technicians and associate professionals',
+  4: 'Clerical support workers', 5: 'Service and sales workers',
+  6: 'Skilled agricultural, forestry and fishery workers', 7: 'Craft and related trades workers',
+  8: 'Plant and machine operators and assemblers', 9: 'Elementary occupations'
+};
+const surveyLabels = {
+  sex: {1: 'Male', 2: 'Female'}, area: {1: 'Rural', 2: 'Urban'},
+  province: {1: 'Khyber Pakhtunkhwa', 2: 'Punjab', 3: 'Sindh', 4: 'Balochistan'}
+};
+export function occupationLabel(value) {
+  const match = /^occupation (\d+)$/.exec(value);
+  return match ? (occupationLabels[Number(match[1])] || value) : value;
+}
+export function surveyGroupLabel(group) {
+  if (group === 'overall') return 'All youth';
+  if (group.startsWith('age_band=')) return 'Age ' + group.slice('age_band='.length);
+  return group.split(', ').map(part => {
+    const match = /^(sex|area|province)=(\d+(?:\.0)?)$/.exec(part);
+    return match ? (surveyLabels[match[1]][Number(match[2])] || part) : part;
+  }).join(' · ');
+}
 export function formatSkillsEstimate(row) {
   if (typeof row.estimate !== 'number') return String(row.estimate);
   const range = row.reliability === 'mode unstable' ? 'mode unstable; bootstrap range ' : 'interval ';
@@ -71,7 +93,7 @@ export function renderSkills(root, skills) {
   function selector(id, options, render) {const select=$(id), old=select.value;select.replaceChildren();options.forEach(([value,label])=>{const option=document.createElement('option');option.value=value;option.textContent=label;select.appendChild(option);});if(options.some(([v])=>v===old))select.value=old;select.onchange=()=>render(select.value);render(select.value);}
   selector('skills-unemployment-group',groups,group=>table('skills-unemployment',['Education','Unemployed n','Labour-force n','Rate and interval'],unemployment.filter(r=>r.group===group).map(r=>[r.category,r.positive_n,r.n,show(r)])));
   selector('skills-graduate-group',groups,group=>table('skills-graduates',['Outcome','Outcome n','Labour-force n','Share and interval'],skills.graduate_absorption.filter(r=>r.group===group).map(r=>[r.category,r.positive_n,r.n,show(r)])));
-  const attainmentGroups=[...new Set(skills.attainment_difference.map(row=>row.group))].map(group=>[group,(groups.find(([key])=>key===group)||[])[1]||group.replace('province=','Province ').replace('age_band=','Age ').replaceAll(', area=',', area ')]);
+  const attainmentGroups=[...new Set(skills.attainment_difference.map(row=>row.group))].map(group=>[group,surveyGroupLabel(group)]);
   selector('skills-attainment-group',attainmentGroups,group=>{
     const rows=skills.attainment_difference.filter(row=>row.group===group);
     const text=row=>typeof row.difference==='number'?(row.difference*100).toFixed(1)+' pp ('+(row.ci_low*100).toFixed(1)+' to '+(row.ci_high*100).toFixed(1)+' pp)':String(row.difference);
@@ -86,10 +108,10 @@ export function renderSkills(root, skills) {
     const overall=choice==='within'||choice==='severe'?one(skills.mismatch_variants,config[0],config[1]):one([...skills.mismatch,...skills.mismatch_sensitivity],config[0],config[1]);
     $('skills-mismatch-overall').textContent='Overall: '+show(overall)+' · denominator n='+overall.n+' · cell n='+overall.positive_n;
     const rows=(choice==='within'||choice==='severe'?skills.mismatch_occupation_variants:skills.mismatch_by_occupation).filter(r=>r.group===config[2]);
-    table('skills-mismatch',['Occupation group','Cell n','Denominator n','Share and uncertainty'],rows.map(r=>[r.category,r.positive_n,r.n,show(r)]));
+    table('skills-mismatch',['Occupation group','Cell n','Denominator n','Share and uncertainty'],rows.map(r=>[occupationLabel(r.category),r.positive_n,r.n,show(r)]));
   });
   const occupations=[...new Set(skills.education_occupation_matrix.map(row=>row.category).filter(category=>/^occupation \d+$/.test(category)))];
-  table('skills-matrix',['Education',...occupations],bands.map(band=>[band,...occupations.map(occupation=>{const row=one(skills.education_occupation_matrix,band,occupation);return pct(row.estimate)+' (n='+row.positive_n+')';})]));
+  table('skills-matrix',['Education',...occupations.map(occupationLabel)],bands.map(band=>[band,...occupations.map(occupation=>{const row=one(skills.education_occupation_matrix,band,occupation);return pct(row.estimate)+' (n='+row.positive_n+')';})]));
   $('skills-matrix').querySelectorAll('tbody tr').forEach((tr,index)=>{tr.querySelectorAll('td').forEach((td,column)=>{const row=one(skills.education_occupation_matrix,bands[index],occupations[column]);if(typeof row.estimate==='number')td.style.backgroundColor='rgba(29, 112, 131, '+Math.min(.24,row.estimate*.35)+')';});});
   table('skills-neet',['Survey group','Total n','Share and interval'],groups.map(([group,label])=>{const row=one(skills.neet,group,'not employed and not enrolled');return [label,row.n,show(row)];}));
 }

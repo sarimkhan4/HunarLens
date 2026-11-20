@@ -443,6 +443,41 @@ def about():
         st.write(f"Recall for people with no formal education was **{no_formal.iloc[0].recall:.1%}**.")
 
 
+OCCUPATION_LABELS = {
+    1: "Managers", 2: "Professionals", 3: "Technicians and associate professionals",
+    4: "Clerical support workers", 5: "Service and sales workers",
+    6: "Skilled agricultural, forestry and fishery workers", 7: "Craft and related trades workers",
+    8: "Plant and machine operators and assemblers", 9: "Elementary occupations",
+}
+
+
+def skills_occupation_label(value):
+    """Translate a survey occupation code for display without changing its meaning."""
+    text = str(value)
+    prefix = "occupation "
+    if text.startswith(prefix) and text[len(prefix):].isdigit():
+        return OCCUPATION_LABELS.get(int(text[len(prefix):]), text)
+    return text
+
+
+def skills_group_label(value):
+    """Display the survey subgroup names while preserving the original filter keys."""
+    if value == "overall":
+        return "All youth"
+    if value.startswith("age_band="):
+        return "Age " + value.removeprefix("age_band=")
+    parts = []
+    for part in value.split(", "):
+        field, sep, code = part.partition("=")
+        if sep and field in ("sex", "area", "province"):
+            try:
+                part = LABELS[field].get(float(code), part)
+            except ValueError:
+                pass
+        parts.append(part)
+    return " · ".join(parts)
+
+
 def skills_gap():
     """Show the cached survey aggregates in the accessible classic view."""
     from dashboard_component import static_data
@@ -471,14 +506,20 @@ def skills_gap():
     groups = {"All youth": "overall", "Male": "sex=1.0", "Female": "sex=2.0", "Rural": "area=1.0", "Urban": "area=2.0"}
     group = groups[st.selectbox("Survey subgroup", list(groups), key="skills_classic_group")]
     st.subheader("Unemployment by education")
-    st.dataframe(unemployment.loc[unemployment.group.eq(group)], hide_index=True)
+    unemployment_view = unemployment.loc[unemployment.group.eq(group)].copy()
+    unemployment_view["group"] = unemployment_view["group"].map(skills_group_label)
+    st.dataframe(unemployment_view, hide_index=True)
     st.subheader("Where do graduates work?")
     graduates = data["skills_graduate_absorption"]
-    st.dataframe(graduates.loc[graduates.group.eq(group)], hide_index=True)
+    graduates_view = graduates.loc[graduates.group.eq(group)].copy()
+    graduates_view["group"] = graduates_view["group"].map(skills_group_label)
+    st.dataframe(graduates_view, hide_index=True)
     st.subheader("Education and training attainment gap")
     gaps = data["skills_attainment_difference"]
-    gap_group = st.selectbox("Attainment subgroup", list(gaps.group.unique()), key="skills_classic_attainment")
-    st.dataframe(gaps.loc[gaps.group.eq(gap_group)], hide_index=True)
+    gap_group = st.selectbox("Attainment subgroup", list(gaps.group.unique()), format_func=skills_group_label, key="skills_classic_attainment")
+    displayed_gaps = gaps.loc[gaps.group.eq(gap_group)].copy()
+    displayed_gaps["group"] = displayed_gaps["group"].map(skills_group_label)
+    st.dataframe(displayed_gaps, hide_index=True)
     st.subheader("Education mismatch depends on the definition")
     definitions = {"Strict: all employed": ("all_15_plus", "over"), "Strict: youth only": ("youth", "over"),
                    "Within one band: all employed": ("all_15_plus", "within one band"),
@@ -494,12 +535,18 @@ def skills_gap():
         occupation = data["skills_mismatch_occupation_variants"].query("group == @category")
     st.dataframe(selected, hide_index=True)
     st.caption("Mode unstable rows show their full bootstrap range in the lower and upper columns.")
+    occupation = occupation.copy()
+    occupation["category"] = occupation["category"].map(skills_occupation_label)
     st.dataframe(occupation, hide_index=True)
     st.write("Above the typical level compares education bands with an occupation's mode; it does not assess the usefulness of a degree.")
     st.subheader("Education to occupation")
-    st.dataframe(data["skills_education_occupation_matrix"], hide_index=True)
+    matrix = data["skills_education_occupation_matrix"].copy()
+    matrix["category"] = matrix["category"].map(skills_occupation_label)
+    st.dataframe(matrix, hide_index=True)
     st.subheader("Not employed and not enrolled")
-    st.dataframe(data["skills_neet"].loc[lambda x: x.group.isin(groups.values())], hide_index=True)
+    neet_view = data["skills_neet"].loc[lambda x: x.group.isin(groups.values())].copy()
+    neet_view["group"] = neet_view["group"].map(skills_group_label)
+    st.dataframe(neet_view, hide_index=True)
     st.dataframe(data["skills_neet_external"], hide_index=True)
     st.write("Approximate NEET differs from the PBS measure: recent training cannot be identified.")
     st.subheader("How to read this page")
