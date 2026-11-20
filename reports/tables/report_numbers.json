@@ -1,0 +1,2449 @@
+{
+  "test_n": {
+    "value": 3999,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "test_positives": {
+    "value": 508,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "positives"
+    },
+    "format": "i"
+  },
+  "test_tn": {
+    "value": 2775,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "tn"
+    },
+    "format": "i"
+  },
+  "test_fp": {
+    "value": 716,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "fp"
+    },
+    "format": "i"
+  },
+  "test_fn": {
+    "value": 239,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "fn"
+    },
+    "format": "i"
+  },
+  "test_tp": {
+    "value": 269,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "tp"
+    },
+    "format": "i"
+  },
+  "test_f1": {
+    "value": 0.3603482920294709,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "f1"
+    },
+    "format": "d"
+  },
+  "test_precision": {
+    "value": 0.2730964467005076,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "precision"
+    },
+    "format": "d"
+  },
+  "test_recall": {
+    "value": 0.5295275590551181,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "recall"
+    },
+    "format": "d"
+  },
+  "test_pr_auc": {
+    "value": 0.303125996937078,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "pr_auc"
+    },
+    "format": "d"
+  },
+  "test_roc_auc": {
+    "value": 0.7520268654831207,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "roc_auc"
+    },
+    "format": "d"
+  },
+  "test_accuracy": {
+    "value": 0.7611902975743936,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "accuracy"
+    },
+    "format": "d"
+  },
+  "test_prevalence": {
+    "value": 0.12703175793948487,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "prevalence"
+    },
+    "format": "d"
+  },
+  "test_lift_10": {
+    "value": 2.8142568897637794,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "lift_10"
+    },
+    "format": "d"
+  },
+  "test_lift_20": {
+    "value": 2.2730536417322833,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "lift_20"
+    },
+    "format": "d"
+  },
+  "test_threshold": {
+    "value": 0.1829313608888501,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "threshold"
+    },
+    "format": "d"
+  },
+  "test_precision_pct": {
+    "value": 0.2730964467005076,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "precision"
+    },
+    "format": "p"
+  },
+  "test_recall_pct": {
+    "value": 0.5295275590551181,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "recall"
+    },
+    "format": "p"
+  },
+  "test_prevalence_pct": {
+    "value": 0.12703175793948487,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB F1\"",
+      "column": "prevalence"
+    },
+    "format": "p"
+  },
+  "screen_n": {
+    "value": 3999,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "screen_positives": {
+    "value": 508,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "positives"
+    },
+    "format": "i"
+  },
+  "screen_tn": {
+    "value": 2516,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "tn"
+    },
+    "format": "i"
+  },
+  "screen_fp": {
+    "value": 975,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "fp"
+    },
+    "format": "i"
+  },
+  "screen_fn": {
+    "value": 189,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "fn"
+    },
+    "format": "i"
+  },
+  "screen_tp": {
+    "value": 319,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "tp"
+    },
+    "format": "i"
+  },
+  "screen_f1": {
+    "value": 0.35405105438401774,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "f1"
+    },
+    "format": "d"
+  },
+  "screen_precision": {
+    "value": 0.24652241112828438,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "precision"
+    },
+    "format": "d"
+  },
+  "screen_recall": {
+    "value": 0.6279527559055118,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "recall"
+    },
+    "format": "d"
+  },
+  "screen_pr_auc": {
+    "value": 0.303125996937078,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "pr_auc"
+    },
+    "format": "d"
+  },
+  "screen_roc_auc": {
+    "value": 0.7520268654831207,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "roc_auc"
+    },
+    "format": "d"
+  },
+  "screen_accuracy": {
+    "value": 0.708927231807952,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "accuracy"
+    },
+    "format": "d"
+  },
+  "screen_prevalence": {
+    "value": 0.12703175793948487,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "prevalence"
+    },
+    "format": "d"
+  },
+  "screen_lift_10": {
+    "value": 2.8142568897637794,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "lift_10"
+    },
+    "format": "d"
+  },
+  "screen_lift_20": {
+    "value": 2.2730536417322833,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "lift_20"
+    },
+    "format": "d"
+  },
+  "screen_threshold": {
+    "value": 0.154107368289897,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "threshold"
+    },
+    "format": "d"
+  },
+  "screen_precision_pct": {
+    "value": 0.24652241112828438,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "precision"
+    },
+    "format": "p"
+  },
+  "screen_recall_pct": {
+    "value": 0.6279527559055118,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "recall"
+    },
+    "format": "p"
+  },
+  "screen_prevalence_pct": {
+    "value": 0.12703175793948487,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"HGB screening\"",
+      "column": "prevalence"
+    },
+    "format": "p"
+  },
+  "dummy_n": {
+    "value": 3999,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "dummy_positives": {
+    "value": 508,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "positives"
+    },
+    "format": "i"
+  },
+  "dummy_tn": {
+    "value": 3056,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "tn"
+    },
+    "format": "i"
+  },
+  "dummy_fp": {
+    "value": 435,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "fp"
+    },
+    "format": "i"
+  },
+  "dummy_fn": {
+    "value": 446,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "fn"
+    },
+    "format": "i"
+  },
+  "dummy_tp": {
+    "value": 62,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "tp"
+    },
+    "format": "i"
+  },
+  "dummy_f1": {
+    "value": 0.12338308457711443,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "f1"
+    },
+    "format": "d"
+  },
+  "dummy_precision": {
+    "value": 0.12474849094567404,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "precision"
+    },
+    "format": "d"
+  },
+  "dummy_recall": {
+    "value": 0.1220472440944882,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "recall"
+    },
+    "format": "d"
+  },
+  "dummy_pr_auc": {
+    "value": 0.12675309149535835,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "pr_auc"
+    },
+    "format": "d"
+  },
+  "dummy_roc_auc": {
+    "value": 0.49872055702289575,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "roc_auc"
+    },
+    "format": "d"
+  },
+  "dummy_accuracy": {
+    "value": 0.7796949237309327,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "accuracy"
+    },
+    "format": "d"
+  },
+  "dummy_prevalence": {
+    "value": 0.12703175793948487,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "prevalence"
+    },
+    "format": "d"
+  },
+  "dummy_lift_10": {
+    "value": 0.8659251968503937,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "lift_10"
+    },
+    "format": "d"
+  },
+  "dummy_lift_20": {
+    "value": 1.0233661417322835,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "lift_20"
+    },
+    "format": "d"
+  },
+  "dummy_threshold": {
+    "value": 0.5,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "threshold"
+    },
+    "format": "d"
+  },
+  "dummy_precision_pct": {
+    "value": 0.12474849094567404,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "precision"
+    },
+    "format": "p"
+  },
+  "dummy_recall_pct": {
+    "value": 0.1220472440944882,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "recall"
+    },
+    "format": "p"
+  },
+  "dummy_prevalence_pct": {
+    "value": 0.12703175793948487,
+    "source": {
+      "table": "test_metrics",
+      "query": "model_threshold == \"Stratified Dummy\"",
+      "column": "prevalence"
+    },
+    "format": "p"
+  },
+  "f1_lower_95": {
+    "value": 0.3280080420661924,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"f1\"",
+      "column": "lower_95"
+    },
+    "format": "d"
+  },
+  "f1_upper_95": {
+    "value": 0.3926530615630868,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"f1\"",
+      "column": "upper_95"
+    },
+    "format": "d"
+  },
+  "pr_auc_lower_95": {
+    "value": 0.2671734724143119,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"pr_auc\"",
+      "column": "lower_95"
+    },
+    "format": "d"
+  },
+  "pr_auc_upper_95": {
+    "value": 0.34279607438524456,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"pr_auc\"",
+      "column": "upper_95"
+    },
+    "format": "d"
+  },
+  "precision_lower_95": {
+    "value": 0.24545698503809496,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"precision\"",
+      "column": "lower_95"
+    },
+    "format": "d"
+  },
+  "precision_upper_95": {
+    "value": 0.30268623422032515,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"precision\"",
+      "column": "upper_95"
+    },
+    "format": "d"
+  },
+  "recall_lower_95": {
+    "value": 0.48495491028183957,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"recall\"",
+      "column": "lower_95"
+    },
+    "format": "d"
+  },
+  "recall_upper_95": {
+    "value": 0.5764741461100569,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"recall\"",
+      "column": "upper_95"
+    },
+    "format": "d"
+  },
+  "roc_auc_lower_95": {
+    "value": 0.73118405401401,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"roc_auc\"",
+      "column": "lower_95"
+    },
+    "format": "d"
+  },
+  "roc_auc_upper_95": {
+    "value": 0.774032595568331,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"roc_auc\"",
+      "column": "upper_95"
+    },
+    "format": "d"
+  },
+  "lift_10_lower_95": {
+    "value": 2.450289088495824,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"lift_10\"",
+      "column": "lower_95"
+    },
+    "format": "d"
+  },
+  "lift_10_upper_95": {
+    "value": 3.1285837859545707,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"lift_10\"",
+      "column": "upper_95"
+    },
+    "format": "d"
+  },
+  "bootstrap_repeats": {
+    "value": 1000,
+    "source": {
+      "table": "test_bootstrap_ci",
+      "query": "model_threshold == \"HGB F1\" and metric == \"f1\"",
+      "column": "repeats"
+    },
+    "format": "i"
+  },
+  "waterfall_0": {
+    "value": 325445,
+    "source": {
+      "table": "row_waterfall",
+      "row": 0,
+      "column": "rows"
+    },
+    "format": "i"
+  },
+  "waterfall_1": {
+    "value": 325428,
+    "source": {
+      "table": "row_waterfall",
+      "row": 1,
+      "column": "rows"
+    },
+    "format": "i"
+  },
+  "waterfall_2": {
+    "value": 325420,
+    "source": {
+      "table": "row_waterfall",
+      "row": 2,
+      "column": "rows"
+    },
+    "format": "i"
+  },
+  "waterfall_3": {
+    "value": 230760,
+    "source": {
+      "table": "row_waterfall",
+      "row": 3,
+      "column": "rows"
+    },
+    "format": "i"
+  },
+  "waterfall_4": {
+    "value": 59486,
+    "source": {
+      "table": "row_waterfall",
+      "row": 4,
+      "column": "rows"
+    },
+    "format": "i"
+  },
+  "waterfall_5": {
+    "value": 26653,
+    "source": {
+      "table": "row_waterfall",
+      "row": 5,
+      "column": "rows"
+    },
+    "format": "i"
+  },
+  "sample_n": {
+    "value": 26653,
+    "source": {
+      "table": "split_summary",
+      "operation": "sum(rows)"
+    },
+    "format": "i"
+  },
+  "sample_positive": {
+    "value": 3383,
+    "source": {
+      "table": "split_summary",
+      "operation": "sum(positives)"
+    },
+    "format": "i"
+  },
+  "sample_prevalence": {
+    "value": 0.1269275503695644,
+    "source": {
+      "table": "split_summary",
+      "operation": "sum(positives)/sum(rows)"
+    },
+    "format": "p"
+  },
+  "all_ages_unemployment_rate": {
+    "value": 0.07093657757945489,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"all_ages\"",
+      "column": "unemployment_rate"
+    },
+    "format": "p"
+  },
+  "all_ages_pbs_unemployment_rate": {
+    "value": 0.071,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"all_ages\"",
+      "column": "pbs_unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_all_unemployment_rate": {
+    "value": 0.1283756973059536,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_all\"",
+      "column": "unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_all_pbs_unemployment_rate": {
+    "value": 0.128,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_all\"",
+      "column": "pbs_unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_male_unemployment_rate": {
+    "value": 0.12474159254681777,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_male\"",
+      "column": "unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_male_pbs_unemployment_rate": {
+    "value": 0.125,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_male\"",
+      "column": "pbs_unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_female_unemployment_rate": {
+    "value": 0.14006158350420284,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_female\"",
+      "column": "unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_female_pbs_unemployment_rate": {
+    "value": 0.14,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_female\"",
+      "column": "pbs_unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_rural_unemployment_rate": {
+    "value": 0.11469384569667344,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_rural\"",
+      "column": "unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_rural_pbs_unemployment_rate": {
+    "value": 0.115,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_rural\"",
+      "column": "pbs_unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_urban_unemployment_rate": {
+    "value": 0.15776756028405453,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_urban\"",
+      "column": "unemployment_rate"
+    },
+    "format": "p"
+  },
+  "youth_urban_pbs_unemployment_rate": {
+    "value": 0.158,
+    "source": {
+      "table": "label_reproduction",
+      "query": "group == \"youth_urban\"",
+      "column": "pbs_unemployment_rate"
+    },
+    "format": "p"
+  },
+  "national_employed": {
+    "value": 77.23316077983473,
+    "source": {
+      "table": "label_reproduction",
+      "column": "employed",
+      "query": "group == \"all_ages\"",
+      "divide": 1000000.0
+    },
+    "format": "d"
+  },
+  "national_unemployed": {
+    "value": 5.89696674000079,
+    "source": {
+      "table": "label_reproduction",
+      "column": "unemployed",
+      "query": "group == \"all_ages\"",
+      "divide": 1000000.0
+    },
+    "format": "d"
+  },
+  "national_labour_force": {
+    "value": 83.13012751983551,
+    "source": {
+      "table": "label_reproduction",
+      "column": "labour_force",
+      "query": "group == \"all_ages\"",
+      "divide": 1000000.0
+    },
+    "format": "d"
+  },
+  "future_records": {
+    "value": 131,
+    "source": {
+      "table": "future_starters_diagnostic",
+      "query": "group == \"all_ages\"",
+      "column": "records"
+    },
+    "format": "i"
+  },
+  "future_weighted_count": {
+    "value": 96805.97004960172,
+    "source": {
+      "table": "future_starters_diagnostic",
+      "query": "group == \"all_ages\"",
+      "column": "weighted_count"
+    },
+    "format": "i"
+  },
+  "waiting_records": {
+    "value": 50,
+    "source": {
+      "table": "future_starters_diagnostic",
+      "query": "group == \"S5C5_1_all\"",
+      "column": "records"
+    },
+    "format": "i"
+  },
+  "waiting_weighted_count": {
+    "value": 41976.86542183826,
+    "source": {
+      "table": "future_starters_diagnostic",
+      "query": "group == \"S5C5_1_all\"",
+      "column": "weighted_count"
+    },
+    "format": "i"
+  },
+  "waiting_unemployed_records": {
+    "value": 27,
+    "source": {
+      "table": "future_starters_diagnostic",
+      "query": "group == \"S5C5_1_unemployed\"",
+      "column": "records"
+    },
+    "format": "i"
+  },
+  "waiting_unemployed_weighted_count": {
+    "value": 21808.88575085188,
+    "source": {
+      "table": "future_starters_diagnostic",
+      "query": "group == \"S5C5_1_unemployed\"",
+      "column": "weighted_count"
+    },
+    "format": "i"
+  },
+  "lr_E1_cv_ap_mean": {
+    "value": 0.28106337590702485,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E1\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "lr_E1_cv_ap_std": {
+    "value": 0.012014430214727064,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E1\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "lr_E1_val_ap": {
+    "value": 0.2811658875057954,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E1\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "lr_E1_val_f1": {
+    "value": 0.0419047619047619,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E1\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "lr_E2_cv_ap_mean": {
+    "value": 0.2781680517468484,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E2\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "lr_E2_cv_ap_std": {
+    "value": 0.012744740174487438,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E2\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "lr_E2_val_ap": {
+    "value": 0.2788044866409712,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E2\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "lr_E2_val_f1": {
+    "value": 0.3159922928709056,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E2\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "lr_E3_cv_ap_mean": {
+    "value": 0.28106337590702485,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E3\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "lr_E3_cv_ap_std": {
+    "value": 0.012014430214727064,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E3\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "lr_E3_val_ap": {
+    "value": 0.2811658875057954,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E3\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "lr_E3_val_f1": {
+    "value": 0.0419047619047619,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E3\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "lr_E4_cv_ap_mean": {
+    "value": 0.28106337590702485,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E4\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "lr_E4_cv_ap_std": {
+    "value": 0.012014430214727064,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E4\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "lr_E4_val_ap": {
+    "value": 0.2811658875057954,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E4\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "lr_E4_val_f1": {
+    "value": 0.3274478330658106,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"logistic_regression\" and exp_id == \"E4\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "lr_gap": {
+    "value": 0.008161655029652493,
+    "source": {
+      "table": "generalization_gap",
+      "model": "logistic_regression",
+      "operation": "train_ap-cv_ap"
+    },
+    "format": "d"
+  },
+  "rf_E1_cv_ap_mean": {
+    "value": 0.23730568793082446,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E1\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "rf_E1_cv_ap_std": {
+    "value": 0.009207710862586212,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E1\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "rf_E1_val_ap": {
+    "value": 0.2590176377483764,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E1\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "rf_E1_val_f1": {
+    "value": 0.16816816816816818,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E1\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "rf_E2_cv_ap_mean": {
+    "value": 0.23081740168453643,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E2\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "rf_E2_cv_ap_std": {
+    "value": 0.006151358992028304,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E2\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "rf_E2_val_ap": {
+    "value": 0.24398948629402317,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E2\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "rf_E2_val_f1": {
+    "value": 0.16161616161616163,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E2\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "rf_E3_cv_ap_mean": {
+    "value": 0.30760883990012833,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E3\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "rf_E3_cv_ap_std": {
+    "value": 0.016206121706179154,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E3\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "rf_E3_val_ap": {
+    "value": 0.32773439776363034,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E3\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "rf_E3_val_f1": {
+    "value": 0.05736137667304015,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E3\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "rf_E4_cv_ap_mean": {
+    "value": 0.30760883990012833,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E4\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "rf_E4_cv_ap_std": {
+    "value": 0.016206121706179154,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E4\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "rf_E4_val_ap": {
+    "value": 0.32773439776363034,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E4\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "rf_E4_val_f1": {
+    "value": 0.37329504666188085,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"random_forest\" and exp_id == \"E4\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "rf_gap": {
+    "value": 0.16554256902730596,
+    "source": {
+      "table": "generalization_gap",
+      "model": "random_forest",
+      "operation": "train_ap-cv_ap"
+    },
+    "format": "d"
+  },
+  "hgb_E1_cv_ap_mean": {
+    "value": 0.2968301027804257,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E1\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "hgb_E1_cv_ap_std": {
+    "value": 0.015446182652714177,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E1\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "hgb_E1_val_ap": {
+    "value": 0.30266367058599647,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E1\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "hgb_E1_val_f1": {
+    "value": 0.09420289855072464,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E1\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "hgb_E2_cv_ap_mean": {
+    "value": 0.28308678641351703,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E2\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "hgb_E2_cv_ap_std": {
+    "value": 0.015360755239917338,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E2\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "hgb_E2_val_ap": {
+    "value": 0.3062134595932908,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E2\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "hgb_E2_val_f1": {
+    "value": 0.3384146341463415,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E2\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "hgb_E3_cv_ap_mean": {
+    "value": 0.29770504942258913,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E3\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "hgb_E3_cv_ap_std": {
+    "value": 0.01437895260567387,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E3\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "hgb_E3_val_ap": {
+    "value": 0.3123126689769751,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E3\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "hgb_E3_val_f1": {
+    "value": 0.05343511450381679,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E3\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "hgb_E4_cv_ap_mean": {
+    "value": 0.29770504942258913,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E4\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "hgb_E4_cv_ap_std": {
+    "value": 0.01437895260567387,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E4\"",
+      "column": "cv_ap_std"
+    },
+    "format": "d"
+  },
+  "hgb_E4_val_ap": {
+    "value": 0.3123126689769751,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E4\"",
+      "column": "val_ap"
+    },
+    "format": "d"
+  },
+  "hgb_E4_val_f1": {
+    "value": 0.358974358974359,
+    "source": {
+      "table": "experiments",
+      "query": "model == \"hist_gradient_boosting\" and exp_id == \"E4\"",
+      "column": "val_f1"
+    },
+    "format": "d"
+  },
+  "hgb_gap": {
+    "value": 0.10365084197565755,
+    "source": {
+      "table": "generalization_gap",
+      "model": "hist_gradient_boosting",
+      "operation": "train_ap-cv_ap"
+    },
+    "format": "d"
+  },
+  "cv_difference": {
+    "value": 0.009903790477539198,
+    "source": {
+      "operation": "rf_E3_cv_ap_mean-hgb_E3_cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "raw_brier": {
+    "value": 0.10034070119654234,
+    "source": {
+      "table": "calibration_validation",
+      "query": "method == \"raw\"",
+      "column": "brier"
+    },
+    "format": "d"
+  },
+  "raw_ece_10_fixed_bins": {
+    "value": 0.011769618863563815,
+    "source": {
+      "table": "calibration_validation",
+      "query": "method == \"raw\"",
+      "column": "ece_10_fixed_bins"
+    },
+    "format": "d"
+  },
+  "sigmoid_brier": {
+    "value": 0.1003351730829388,
+    "source": {
+      "table": "calibration_validation",
+      "query": "method == \"sigmoid\"",
+      "column": "brier"
+    },
+    "format": "d"
+  },
+  "sigmoid_ece_10_fixed_bins": {
+    "value": 0.009251846358386415,
+    "source": {
+      "table": "calibration_validation",
+      "query": "method == \"sigmoid\"",
+      "column": "ece_10_fixed_bins"
+    },
+    "format": "d"
+  },
+  "val_f1": {
+    "value": 0.3535690460306871,
+    "source": {
+      "table": "validation_thresholds",
+      "query": "threshold_type == \"f1\"",
+      "column": "f1"
+    },
+    "format": "d"
+  },
+  "lowedu_n": {
+    "value": 7094,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"No formal\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "lowedu_positive_n": {
+    "value": 617,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"No formal\"",
+      "column": "positive_n"
+    },
+    "format": "i"
+  },
+  "lowedu_estimate": {
+    "value": 0.08151698209834193,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"No formal\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "lowedu_ci_low": {
+    "value": 0.07266397225375698,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"No formal\"",
+      "column": "ci_low"
+    },
+    "format": "p"
+  },
+  "lowedu_ci_high": {
+    "value": 0.09036668542640944,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"No formal\"",
+      "column": "ci_high"
+    },
+    "format": "p"
+  },
+  "degree_n": {
+    "value": 1507,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"Degree or above\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "degree_positive_n": {
+    "value": 343,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"Degree or above\"",
+      "column": "positive_n"
+    },
+    "format": "i"
+  },
+  "degree_estimate": {
+    "value": 0.2264292254412478,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"Degree or above\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "degree_ci_low": {
+    "value": 0.20264977152158695,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"Degree or above\"",
+      "column": "ci_low"
+    },
+    "format": "p"
+  },
+  "degree_ci_high": {
+    "value": 0.25045985436910856,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"overall\" and category == \"Degree or above\"",
+      "column": "ci_high"
+    },
+    "format": "p"
+  },
+  "degree_female": {
+    "value": 0.2843083984477464,
+    "source": {
+      "table": "skills_unemployment_by_education",
+      "query": "group == \"sex=2.0\" and category == \"Degree or above\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "graduate_upper": {
+    "value": 0.41985752673876653,
+    "source": {
+      "table": "skills_graduate_absorption",
+      "query": "group == \"overall\" and category == \"Employed: groups 1–4\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "graduate_other": {
+    "value": 0.3537132478199857,
+    "source": {
+      "table": "skills_graduate_absorption",
+      "query": "group == \"overall\" and category == \"Employed: groups 5–9\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "graduate_unemployed": {
+    "value": 0.2264292254412478,
+    "source": {
+      "table": "skills_graduate_absorption",
+      "query": "group == \"overall\" and category == \"Unemployed\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "strict_adult_n": {
+    "value": 23270,
+    "source": {
+      "table": "skills_mismatch",
+      "query": "group == \"overall; norm=all_15_plus\" and category == \"over\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "strict_adult_positive_n": {
+    "value": 10516,
+    "source": {
+      "table": "skills_mismatch",
+      "query": "group == \"overall; norm=all_15_plus\" and category == \"over\"",
+      "column": "positive_n"
+    },
+    "format": "i"
+  },
+  "strict_adult_estimate": {
+    "value": 0.45964895486773316,
+    "source": {
+      "table": "skills_mismatch",
+      "query": "group == \"overall; norm=all_15_plus\" and category == \"over\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "strict_adult_ci_low": {
+    "value": 0.44977349596219846,
+    "source": {
+      "table": "skills_mismatch",
+      "query": "group == \"overall; norm=all_15_plus\" and category == \"over\"",
+      "column": "ci_low"
+    },
+    "format": "p"
+  },
+  "strict_adult_ci_high": {
+    "value": 0.4722710368648317,
+    "source": {
+      "table": "skills_mismatch",
+      "query": "group == \"overall; norm=all_15_plus\" and category == \"over\"",
+      "column": "ci_high"
+    },
+    "format": "p"
+  },
+  "strict_youth_n": {
+    "value": 23270,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=youth\" and category == \"over\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "strict_youth_positive_n": {
+    "value": 9364,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=youth\" and category == \"over\"",
+      "column": "positive_n"
+    },
+    "format": "i"
+  },
+  "strict_youth_estimate": {
+    "value": 0.4104623596935751,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=youth\" and category == \"over\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "strict_youth_ci_low": {
+    "value": 0.3114768843191268,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=youth\" and category == \"over\"",
+      "column": "ci_low"
+    },
+    "format": "p"
+  },
+  "strict_youth_ci_high": {
+    "value": 0.4164365224913014,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=youth\" and category == \"over\"",
+      "column": "ci_high"
+    },
+    "format": "p"
+  },
+  "normative_n": {
+    "value": 23270,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=ISCO\" and category == \"over\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "normative_positive_n": {
+    "value": 2378,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=ISCO\" and category == \"over\"",
+      "column": "positive_n"
+    },
+    "format": "i"
+  },
+  "normative_estimate": {
+    "value": 0.10599071077749496,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=ISCO\" and category == \"over\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "normative_ci_low": {
+    "value": 0.10111938498281775,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=ISCO\" and category == \"over\"",
+      "column": "ci_low"
+    },
+    "format": "p"
+  },
+  "normative_ci_high": {
+    "value": 0.1110157577083931,
+    "source": {
+      "table": "skills_mismatch_sensitivity",
+      "query": "group == \"overall; norm=ISCO\" and category == \"over\"",
+      "column": "ci_high"
+    },
+    "format": "p"
+  },
+  "tolerance_n": {
+    "value": 23270,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"within one band\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "tolerance_positive_n": {
+    "value": 17696,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"within one band\"",
+      "column": "positive_n"
+    },
+    "format": "i"
+  },
+  "tolerance_estimate": {
+    "value": 0.7567689795726827,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"within one band\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "tolerance_ci_low": {
+    "value": 0.7483462916466681,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"within one band\"",
+      "column": "ci_low"
+    },
+    "format": "p"
+  },
+  "tolerance_ci_high": {
+    "value": 0.7648338735652408,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"within one band\"",
+      "column": "ci_high"
+    },
+    "format": "p"
+  },
+  "severe_n": {
+    "value": 23270,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"two or more bands above\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "severe_positive_n": {
+    "value": 4545,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"two or more bands above\"",
+      "column": "positive_n"
+    },
+    "format": "i"
+  },
+  "severe_estimate": {
+    "value": 0.19799345887595254,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"two or more bands above\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "severe_ci_low": {
+    "value": 0.19096647851568976,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"two or more bands above\"",
+      "column": "ci_low"
+    },
+    "format": "p"
+  },
+  "severe_ci_high": {
+    "value": 0.20776293249314404,
+    "source": {
+      "table": "skills_mismatch_variants",
+      "query": "group == \"all_15_plus\" and category == \"two or more bands above\"",
+      "column": "ci_high"
+    },
+    "format": "p"
+  },
+  "neet_n": {
+    "value": 59486,
+    "source": {
+      "table": "skills_neet",
+      "query": "group == \"overall\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "neet_positive_n": {
+    "value": 18007,
+    "source": {
+      "table": "skills_neet",
+      "query": "group == \"overall\"",
+      "column": "positive_n"
+    },
+    "format": "i"
+  },
+  "neet_estimate": {
+    "value": 0.2929983417484323,
+    "source": {
+      "table": "skills_neet",
+      "query": "group == \"overall\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "neet_ci_low": {
+    "value": 0.28721919340816227,
+    "source": {
+      "table": "skills_neet",
+      "query": "group == \"overall\"",
+      "column": "ci_low"
+    },
+    "format": "p"
+  },
+  "neet_ci_high": {
+    "value": 0.29847226605521504,
+    "source": {
+      "table": "skills_neet",
+      "query": "group == \"overall\"",
+      "column": "ci_high"
+    },
+    "format": "p"
+  },
+  "neet_pbs": {
+    "value": 0.284,
+    "source": {
+      "table": "skills_neet_external",
+      "query": "",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "training_difference": {
+    "value": 0.08875280174069138,
+    "source": {
+      "table": "skills_attainment_difference",
+      "query": "group == \"overall\" and category == \"Training ever/current\"",
+      "column": "difference",
+      "operation": "absolute"
+    },
+    "format": "pp"
+  },
+  "training_ci_low": {
+    "value": 0.10289317768427475,
+    "source": {
+      "table": "skills_attainment_difference",
+      "query": "group == \"overall\" and category == \"Training ever/current\"",
+      "column": "ci_low",
+      "operation": "absolute"
+    },
+    "format": "pp"
+  },
+  "training_ci_high": {
+    "value": 0.07484139879307698,
+    "source": {
+      "table": "skills_attainment_difference",
+      "query": "group == \"overall\" and category == \"Training ever/current\"",
+      "column": "ci_high",
+      "operation": "absolute"
+    },
+    "format": "pp"
+  },
+  "training_employed": {
+    "value": "0.19497918285456387",
+    "source": {
+      "table": "skills_attainment_gap",
+      "query": "group == \"overall; employed\" and category == \"Training ever/current\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "training_unemployed": {
+    "value": "0.10622638111387249",
+    "source": {
+      "table": "skills_attainment_gap",
+      "query": "group == \"overall; unemployed\" and category == \"Training ever/current\"",
+      "column": "estimate"
+    },
+    "format": "p"
+  },
+  "importance_Education": {
+    "value": 0.110589216505009,
+    "source": {
+      "table": "grouped_permutation_importance",
+      "query": "group == \"Education\"",
+      "column": "importance_mean"
+    },
+    "format": "d"
+  },
+  "importance_Enrolment": {
+    "value": 0.08196182457534197,
+    "source": {
+      "table": "grouped_permutation_importance",
+      "query": "group == \"Enrolment\"",
+      "column": "importance_mean"
+    },
+    "format": "d"
+  },
+  "importance_Geography": {
+    "value": 0.06178416512382947,
+    "source": {
+      "table": "grouped_permutation_importance",
+      "query": "group == \"Geography\"",
+      "column": "importance_mean"
+    },
+    "format": "d"
+  },
+  "importance_Sex": {
+    "value": 0.046867953469440615,
+    "source": {
+      "table": "grouped_permutation_importance",
+      "query": "group == \"Sex\"",
+      "column": "importance_mean"
+    },
+    "format": "d"
+  },
+  "without_enrolment": {
+    "value": 0.2500148231976268,
+    "source": {
+      "table": "feature_group_ablation",
+      "query": "model == \"hist_gradient_boosting\" and ablation == \"full_without_currently_enrolled\"",
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "enrolled_n": {
+    "value": 2172,
+    "source": {
+      "table": "enrolment_train_summary",
+      "query": "enrolment == \"Enrolled\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "enrolled_unemployed": {
+    "value": 73,
+    "source": {
+      "table": "enrolment_train_summary",
+      "query": "enrolment == \"Enrolled\"",
+      "column": "unemployed"
+    },
+    "format": "i"
+  },
+  "enrolled_unemployment_rate": {
+    "value": 0.03360957642725598,
+    "source": {
+      "table": "enrolment_train_summary",
+      "query": "enrolment == \"Enrolled\"",
+      "column": "unemployment_rate"
+    },
+    "format": "p"
+  },
+  "not_enrolled_n": {
+    "value": 16485,
+    "source": {
+      "table": "enrolment_train_summary",
+      "query": "enrolment == \"Not enrolled\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "not_enrolled_unemployed": {
+    "value": 2295,
+    "source": {
+      "table": "enrolment_train_summary",
+      "query": "enrolment == \"Not enrolled\"",
+      "column": "unemployed"
+    },
+    "format": "i"
+  },
+  "not_enrolled_unemployment_rate": {
+    "value": 0.1392174704276615,
+    "source": {
+      "table": "enrolment_train_summary",
+      "query": "enrolment == \"Not enrolled\"",
+      "column": "unemployment_rate"
+    },
+    "format": "p"
+  },
+  "noformal_test_n": {
+    "value": 1038,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"No formal education\" and threshold == \"f1\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "noformal_test_positives": {
+    "value": 95,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"No formal education\" and threshold == \"f1\"",
+      "column": "positives"
+    },
+    "format": "i"
+  },
+  "noformal_test_recall": {
+    "value": 0.17894736842105263,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"No formal education\" and threshold == \"f1\"",
+      "column": "recall"
+    },
+    "format": "p"
+  },
+  "noformal_test_flag_rate": {
+    "value": 0.07610789980732177,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"No formal education\" and threshold == \"f1\"",
+      "column": "flag_rate"
+    },
+    "format": "p"
+  },
+  "intermediate_test_n": {
+    "value": 617,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Intermediate\" and threshold == \"f1\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "intermediate_test_positives": {
+    "value": 101,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Intermediate\" and threshold == \"f1\"",
+      "column": "positives"
+    },
+    "format": "i"
+  },
+  "intermediate_test_recall": {
+    "value": 0.9405940594059405,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Intermediate\" and threshold == \"f1\"",
+      "column": "recall"
+    },
+    "format": "p"
+  },
+  "intermediate_test_flag_rate": {
+    "value": 0.49432739059967584,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Intermediate\" and threshold == \"f1\"",
+      "column": "flag_rate"
+    },
+    "format": "p"
+  },
+  "degree_test_n": {
+    "value": 208,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Degree or higher\" and threshold == \"f1\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "degree_test_positives": {
+    "value": 46,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Degree or higher\" and threshold == \"f1\"",
+      "column": "positives"
+    },
+    "format": "i"
+  },
+  "degree_test_recall": {
+    "value": 0.8913043478260869,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Degree or higher\" and threshold == \"f1\"",
+      "column": "recall"
+    },
+    "format": "p"
+  },
+  "degree_test_flag_rate": {
+    "value": 0.6442307692307693,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Degree or higher\" and threshold == \"f1\"",
+      "column": "flag_rate"
+    },
+    "format": "p"
+  },
+  "female_test_n": {
+    "value": 909,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Female\" and threshold == \"f1\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "female_test_positives": {
+    "value": 125,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Female\" and threshold == \"f1\"",
+      "column": "positives"
+    },
+    "format": "i"
+  },
+  "female_test_recall": {
+    "value": 0.68,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Female\" and threshold == \"f1\"",
+      "column": "recall"
+    },
+    "format": "p"
+  },
+  "female_test_flag_rate": {
+    "value": 0.2684268426842684,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Female\" and threshold == \"f1\"",
+      "column": "flag_rate"
+    },
+    "format": "p"
+  },
+  "male_test_n": {
+    "value": 3090,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Male\" and threshold == \"f1\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "male_test_positives": {
+    "value": 383,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Male\" and threshold == \"f1\"",
+      "column": "positives"
+    },
+    "format": "i"
+  },
+  "male_test_recall": {
+    "value": 0.4804177545691906,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Male\" and threshold == \"f1\"",
+      "column": "recall"
+    },
+    "format": "p"
+  },
+  "male_test_flag_rate": {
+    "value": 0.23980582524271846,
+    "source": {
+      "table": "test_subgroups",
+      "query": "value == \"Male\" and threshold == \"f1\"",
+      "column": "flag_rate"
+    },
+    "format": "p"
+  },
+  "max_missing": {
+    "value": 0.0,
+    "source": {
+      "table": "feature_missingness",
+      "operation": "max(missing_rate)"
+    },
+    "format": "p"
+  },
+  "max_scan": {
+    "value": 0.1676501599207443,
+    "source": {
+      "table": "single_feature_scan",
+      "operation": "max(mean_pr_auc)"
+    },
+    "format": "d"
+  },
+  "reproduction_max": {
+    "value": 0.0547205530546897,
+    "source": {
+      "table": "skills_reproduction",
+      "operation": "max(difference_pp)"
+    },
+    "format": "d"
+  },
+  "learning_0": {
+    "value": 0.26871172417697076,
+    "source": {
+      "table": "grouped_learning_curve",
+      "row": 0,
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "learning_2": {
+    "value": 0.30760883990012833,
+    "source": {
+      "table": "grouped_learning_curve",
+      "row": 2,
+      "column": "cv_ap_mean"
+    },
+    "format": "d"
+  },
+  "shift_n": {
+    "value": 3268,
+    "source": {
+      "table": "skills_model_shift",
+      "query": "scenario == \"education\" and grouping == \"overall\"",
+      "column": "n"
+    },
+    "format": "i"
+  },
+  "shift_coverage": {
+    "value": 0.8214342886088741,
+    "source": {
+      "table": "skills_model_shift",
+      "query": "scenario == \"education\" and grouping == \"overall\"",
+      "column": "coverage"
+    },
+    "format": "p"
+  },
+  "shift_mean": {
+    "value": "0.035684661958331164",
+    "source": {
+      "table": "skills_model_shift",
+      "query": "scenario == \"education\" and grouping == \"overall\"",
+      "column": "mean"
+    },
+    "format": "pp"
+  },
+  "shift_minimum": {
+    "value": "0.03173465689691178",
+    "source": {
+      "table": "skills_model_shift",
+      "query": "scenario == \"education\" and grouping == \"overall\"",
+      "column": "minimum"
+    },
+    "format": "pp"
+  },
+  "shift_maximum": {
+    "value": "0.0381567393722315",
+    "source": {
+      "table": "skills_model_shift",
+      "query": "scenario == \"education\" and grouping == \"overall\"",
+      "column": "maximum"
+    },
+    "format": "pp"
+  },
+  "high_min": {
+    "value": 0.26865534523755125,
+    "source": {
+      "file": "models/metadata.json",
+      "key": "risk_bands.high_min"
+    },
+    "format": "d"
+  },
+  "elevated_min": {
+    "value": 0.15856835925784454,
+    "source": {
+      "file": "models/metadata.json",
+      "key": "risk_bands.elevated_min"
+    },
+    "format": "d"
+  },
+  "model_kib": {
+    "value": 130.3291015625,
+    "source": {
+      "file": "models/final_pipeline.joblib",
+      "operation": "bytes/1024"
+    },
+    "format": "d"
+  },
+  "feature_count": {
+    "value": 19,
+    "source": {
+      "file": "models/metadata.json",
+      "operation": "len(feature_names)"
+    },
+    "format": "i"
+  },
+  "households": {
+    "value": 53974,
+    "source": {
+      "url": "https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf",
+      "location": "Annual Report, introductory survey coverage description",
+      "retrieved": "2026-11-20",
+      "text": "The current Labour Force Survey covered 53,974 households.",
+      "verification": "Official PBS PDF indexed text retrieved through web search; direct PDF fetch timed out. Local audit agrees."
+    },
+    "format": "i"
+  },
+  "waiting_young": {
+    "value": 32.0,
+    "source": {
+      "table": "absence_code_by_age",
+      "code": "1.0",
+      "column": "15-24"
+    },
+    "format": "i"
+  },
+  "illness_young": {
+    "value": 3.0,
+    "source": {
+      "table": "absence_code_by_age",
+      "code": "2.0",
+      "column": "15-24"
+    },
+    "format": "i"
+  },
+  "n_iter_rf": {
+    "value": 15,
+    "source": {
+      "file": "scripts/compare_models.py",
+      "constant": "N_ITER_RF"
+    },
+    "format": "i"
+  },
+  "n_iter_hgb": {
+    "value": 15,
+    "source": {
+      "file": "scripts/compare_models.py",
+      "constant": "N_ITER_HGB"
+    },
+    "format": "i"
+  },
+  "search_Logistic regression_model__C": {
+    "value": "[0.01, 0.1, 1, 10]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "Logistic regression",
+      "parameter": "model__C"
+    },
+    "format": "s"
+  },
+  "search_Logistic regression_model__class_weight": {
+    "value": "[null, \"balanced\"]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "Logistic regression",
+      "parameter": "model__class_weight"
+    },
+    "format": "s"
+  },
+  "search_Random Forest_model__n_estimators": {
+    "value": "[200, 400]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "Random Forest",
+      "parameter": "model__n_estimators"
+    },
+    "format": "s"
+  },
+  "search_Random Forest_model__max_depth": {
+    "value": "[6, 10, 16, null]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "Random Forest",
+      "parameter": "model__max_depth"
+    },
+    "format": "s"
+  },
+  "search_Random Forest_model__min_samples_leaf": {
+    "value": "[5, 20, 50]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "Random Forest",
+      "parameter": "model__min_samples_leaf"
+    },
+    "format": "s"
+  },
+  "search_Random Forest_model__max_features": {
+    "value": "[\"sqrt\", 0.3]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "Random Forest",
+      "parameter": "model__max_features"
+    },
+    "format": "s"
+  },
+  "search_Random Forest_model__class_weight": {
+    "value": "[null, \"balanced_subsample\"]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "Random Forest",
+      "parameter": "model__class_weight"
+    },
+    "format": "s"
+  },
+  "search_HGB_model__learning_rate": {
+    "value": "[0.03, 0.06, 0.1]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "HGB",
+      "parameter": "model__learning_rate"
+    },
+    "format": "s"
+  },
+  "search_HGB_model__max_depth": {
+    "value": "[3, 5, null]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "HGB",
+      "parameter": "model__max_depth"
+    },
+    "format": "s"
+  },
+  "search_HGB_model__max_leaf_nodes": {
+    "value": "[15, 31]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "HGB",
+      "parameter": "model__max_leaf_nodes"
+    },
+    "format": "s"
+  },
+  "search_HGB_model__min_samples_leaf": {
+    "value": "[20, 50, 100]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "HGB",
+      "parameter": "model__min_samples_leaf"
+    },
+    "format": "s"
+  },
+  "search_HGB_model__l2_regularization": {
+    "value": "[0, 1, 10]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "HGB",
+      "parameter": "model__l2_regularization"
+    },
+    "format": "s"
+  },
+  "search_HGB_model__max_iter": {
+    "value": "[200, 400]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "HGB",
+      "parameter": "model__max_iter"
+    },
+    "format": "s"
+  },
+  "search_HGB_model__class_weight": {
+    "value": "[null, \"balanced\"]",
+    "source": {
+      "file": "scripts/compare_models.py",
+      "function": "search_space",
+      "model": "HGB",
+      "parameter": "model__class_weight"
+    },
+    "format": "s"
+  }
+}

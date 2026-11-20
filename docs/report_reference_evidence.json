@@ -1,0 +1,9 @@
+{
+  "pbs_households": {
+    "url": "https://www.pbs.gov.pk/wp-content/uploads/2020/07/LFS-2024-25-Annual-Report.pdf",
+    "location": "Annual Report, introductory survey coverage description",
+    "retrieved": "2026-11-20",
+    "text": "The current Labour Force Survey covered 53,974 households.",
+    "verification": "Official PBS PDF indexed text retrieved through web search; direct PDF fetch timed out. Local audit agrees."
+  }
+}
