@@ -8,4 +8,7 @@ hunarlens_submission.zip
 *.ipynb_checkpoints/
 data/raw/
 data/interim/
+data/processed/hunarlens_youth.csv
+data/processed/split_assignments.csv
+data/processed/test_predictions.csv
 
