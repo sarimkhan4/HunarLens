@@ -2,6 +2,8 @@
 
 HunarLens is a CT-378 machine-learning project exploring youth unemployment in Pakistan. It combines an explainable classification model with a separate weighted skills-gap analysis, presented in a Streamlit dashboard.
 
+The intended users are students, researchers and workforce-policy analysts exploring aggregate survey patterns, rather than making individual hiring or eligibility decisions.
+
 The model describes associations among people aged **15–24 who are in the labour force**. The skills-gap analysis uses education and training as proxies; it does not directly measure individual skills or employer demand. **HunarLens is a research and education tool, not a decision tool for individuals.**
 
 **Live app:** [hunar-lens.streamlit.app](https://hunar-lens.streamlit.app/)
