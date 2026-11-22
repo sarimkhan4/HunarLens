@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.pytest_tmp/
+.pytest-results.xml
 hunarlens_submission.zip
 *.ipynb_checkpoints/
 data/raw/
