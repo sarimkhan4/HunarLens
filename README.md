@@ -39,7 +39,7 @@ The dashboard reads the saved model and metadata, the Census and rare-combinatio
 
 ## Data and model
 
-The project uses the Pakistan Bureau of Statistics Labour Force Survey 2024–25 and regional information from the 2023 Population and Housing Census. [DATA_SOURCES.md](DATA_SOURCES.md) and [data/README.md](data/README.md) describe the sources and access information. The downloader discovers official PBS files and writes a local manifest:
+The project uses the Pakistan Bureau of Statistics Labour Force Survey 2024–25 and regional information from the 2023 Population and Housing Census. [DATA_SOURCES.md](DATA_SOURCES.md) lists source links, accessibility and terms of use; [data/README.md](data/README.md) describes the data. The downloader discovers official PBS files and writes a local manifest:
 
 ```bash
 python scripts/download_data.py
